@@ -2,104 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sun City Sprinters | El Paso, Texas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sun City Sprinters | El Paso, TX</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#ec4899',
+            lightpink: '#fbcfe8'
+          }
+        }
+      }
+    }
+  </script>
 </head>
 
 <body class="bg-white text-gray-800">
 
-<!-- HEADER -->
-<header class="bg-pink-600 text-white p-6 text-center">
-  <h1 class="text-4xl font-bold">Sun City Sprinters</h1>
-  <p class="mt-2">Non-Profit Track & Field Club • El Paso, Texas</p>
+<!-- NAV -->
+<header class="bg-primary text-white sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+    <h1 class="text-2xl font-bold">Sun City Sprinters</h1>
+    <nav class="space-x-4 text-sm font-semibold">
+      <a href="#mission">Mission</a>
+      <a href="#team">Team</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#register">Register</a>
+      <a href="#donate">Donate</a>
+    </nav>
+  </div>
 </header>
 
 <!-- HERO -->
-<section class="bg-pink-100 py-20 text-center">
-  <h2 class="text-5xl font-extrabold mb-4">Speed With Purpose</h2>
-  <p class="max-w-3xl mx-auto text-lg">
-    Building confident, disciplined athletes through competitive track & field.
+<section class="bg-gradient-to-r from-primary to-pink-600 text-white py-28 text-center">
+  <h2 class="text-5xl md:text-6xl font-extrabold mb-6">Built for Speed. Powered by Purpose.</h2>
+  <p class="max-w-3xl mx-auto text-xl mb-8">
+    A non-profit track & field club in El Paso, Texas developing confident, disciplined, and driven athletes.
   </p>
+  <a href="#register" class="bg-white text-primary px-8 py-4 rounded-xl font-bold shadow hover:scale-105 transition">
+    Join the Sprinters
+  </a>
 </section>
 
 <!-- MISSION -->
-<section class="py-16 max-w-5xl mx-auto px-6 text-center">
-  <h3 class="text-3xl font-bold text-pink-600 mb-6">Our Mission</h3>
-  <p class="text-lg leading-relaxed">
-    To empower athletes of all ages and abilities in the El Paso area through
-    comprehensive track and field programs, fostering a culture of excellence,
-    sportsmanship, and community engagement while promoting physical fitness and
-    personal development.
-  </p>
-</section>
-
-<!-- VISION -->
-<section class="bg-gray-50 py-16 text-center">
-  <h3 class="text-3xl font-bold text-pink-600 mb-6">Our Vision</h3>
-  <p class="max-w-4xl mx-auto">
-    To be a leading youth track and field organization in our region, known for
-    developing strong competitors, responsible leaders, and lifelong lovers of sport.
-  </p>
-</section>
-
-<!-- CORE VALUES -->
-<section class="py-16 max-w-6xl mx-auto px-6">
-  <h3 class="text-3xl font-bold text-center mb-10">Core Values</h3>
-  <div class="grid md:grid-cols-4 gap-6 text-center">
-    <div class="border rounded-xl p-6 shadow">Discipline</div>
-    <div class="border rounded-xl p-6 shadow">Sportsmanship</div>
-    <div class="border rounded-xl p-6 shadow">Community</div>
-    <div class="border rounded-xl p-6 shadow">Growth</div>
+<section id="mission" class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto text-center px-6">
+    <h3 class="text-3xl font-bold text-primary mb-6">Our Mission</h3>
+    <p class="text-xl leading-relaxed">
+      To empower athletes of all ages and abilities in the El Paso area through comprehensive track and field
+      programs, fostering a culture of excellence, sportsmanship, and community engagement while promoting
+      physical fitness and personal development.
+    </p>
   </div>
 </section>
 
-<!-- ATHLETE ROSTER -->
-<section class="bg-gray-50 py-16 px-6">
-  <h3 class="text-3xl font-bold text-center mb-10">Meet the Sprinters</h3>
-  <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    <div class="border rounded-xl p-4 text-center shadow">
-      <p class="font-bold">Athlete Name</p>
-      <p>Events: 100m, 200m</p>
-      <p>Age Group: 14–15</p>
+<!-- VISION + VALUES -->
+<section class="bg-gray-50 py-20">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 px-6">
+    <div>
+      <h3 class="text-3xl font-bold text-primary mb-4">Our Vision</h3>
+      <p class="text-lg">
+        To be a leading youth track and field organization in our region, known for integrity, athlete growth,
+        and creating positive lifelong impact through sport.
+      </p>
     </div>
-    <div class="border rounded-xl p-4 text-center shadow">
-      <p class="font-bold">Coming Soon</p>
-      <p>Roster updates ongoing</p>
+    <div>
+      <h3 class="text-3xl font-bold text-primary mb-4">Core Values</h3>
+      <ul class="space-y-3 text-lg">
+        <li>• Discipline & Commitment</li>
+        <li>• Sportsmanship & Respect</li>
+        <li>• Confidence & Accountability</li>
+        <li>• Community & Teamwork</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MEET THE SPRINTERS -->
+<section id="team" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-center mb-12">Meet the Sprinters</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="border rounded-2xl p-6 shadow text-center">
+        <h4 class="font-bold text-lg">Athlete Name</h4>
+        <p class="text-sm text-gray-500">Age Group: 13–14</p>
+        <p class="mt-2">Events: 100m, 200m</p>
+        <p class="text-sm mt-1">PR: 12.1s</p>
+      </div>
+      <div class="border rounded-2xl p-6 shadow text-center">
+        <h4 class="font-bold text-lg">Athlete Name</h4>
+        <p class="text-sm text-gray-500">Age Group: 15–16</p>
+        <p class="mt-2">Events: 400m</p>
+        <p class="text-sm mt-1">PR: 56.4s</p>
+      </div>
+      <div class="border rounded-2xl p-6 shadow text-center">
+        <h4 class="font-bold text-lg">Athlete Name</h4>
+        <p class="text-sm text-gray-500">Age Group: 17–18</p>
+        <p class="mt-2">Events: 100m Hurdles</p>
+        <p class="text-sm mt-1">PR: 15.2s</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="bg-lightpink py-20">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h3 class="text-3xl font-bold mb-10">On the Track</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white h-48 rounded-xl shadow flex items-center justify-center">Photo</div>
+      <div class="bg-white h-48 rounded-xl shadow flex items-center justify-center">Photo</div>
+      <div class="bg-white h-48 rounded-xl shadow flex items-center justify-center">Photo</div>
     </div>
   </div>
 </section>
 
 <!-- SPONSORS -->
-<section class="py-16 max-w-6xl mx-auto px-6">
-  <h3 class="text-3xl font-bold text-center mb-10">Sponsors</h3>
-  <div class="grid md:grid-cols-3 gap-6 text-center">
-    <div class="border-2 border-yellow-400 p-6 rounded-xl">
-      <h4 class="font-bold text-xl">Gold Sponsor</h4>
-      <p class="mt-2">Logo on team t-shirts, website recognition, event banners</p>
-    </div>
-    <div class="border-2 border-gray-400 p-6 rounded-xl">
-      <h4 class="font-bold text-xl">Silver Sponsor</h4>
-      <p class="mt-2">Website & social media recognition</p>
-    </div>
-    <div class="border-2 border-orange-400 p-6 rounded-xl">
-      <h4 class="font-bold text-xl">Bronze Sponsor</h4>
-      <p class="mt-2">Website listing & thank-you posts</p>
+<section id="sponsors" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-center mb-12">Sponsorship Opportunities</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="border-2 border-yellow-400 p-6 rounded-xl">
+        <h4 class="text-xl font-bold text-yellow-500 mb-4">Gold Sponsor</h4>
+        <ul class="list-disc list-inside">
+          <li>Logo on team t-shirts</li>
+          <li>Website & social media recognition</li>
+          <li>Event banners</li>
+        </ul>
+      </div>
+      <div class="border-2 border-gray-400 p-6 rounded-xl">
+        <h4 class="text-xl font-bold mb-4">Silver Sponsor</h4>
+        <ul class="list-disc list-inside">
+          <li>Website recognition</li>
+          <li>Social media shoutouts</li>
+        </ul>
+      </div>
+      <div class="border-2 border-orange-400 p-6 rounded-xl">
+        <h4 class="text-xl font-bold mb-4">Bronze Sponsor</h4>
+        <ul class="list-disc list-inside">
+          <li>Name listed on website</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="bg-pink-600 text-white py-16 text-center">
-  <h3 class="text-3xl font-bold mb-4">Contact Us</h3>
-  <p>Head Coach: Marrissa  Cammisa</p>
-  <p>📞 915-831-0221</p>
-  <p>📧 myssymiss@yahoo.com</p>
+<!-- REGISTER -->
+<section id="register" class="bg-primary text-white py-20">
+  <div class="max-w-5xl mx-auto text-center px-6">
+    <h3 class="text-3xl font-bold mb-6">Athlete Registration</h3>
+    <p class="mb-6">
+      All athletes must register with Sun City Sprinters and obtain a valid
+      <strong>USATF Youth Membership</strong> through usatf.org.
+    </p>
+    <p class="font-semibold">Questions? Call (915) 831-0221</p>
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-gray-900 text-gray-300 text-center py-6">
-  <p>© 2025 Sun City Sprinters • El Paso, Texas</p>
+<!-- DONATE -->
+<section id="donate" class="py-20 bg-gray-900 text-white text-center">
+  <h3 class="text-4xl font-extrabold mb-6">Your Support Makes an Impact</h3>
+  <p class="max-w-3xl mx-auto mb-6">
+    Donations help cover meet fees, travel, equipment, and training resources
+    for our athletes.
+  </p>
+  <p class="font-semibold">Cash App & Apple Pay accepted</p>
+</section>
+
+<!-- CONTACT -->
+<footer class="bg-black text-gray-300 py-10 text-center">
+  <p class="font-bold text-lg">Sun City Sprinters</p>
+  <p>El Paso, Texas</p>
+  <p>Email: <a href="mailto:myssymiss@yahoo.com" class="text-primary">myssymiss@yahoo.com</a></p>
+  <p>Phone: (915) 831-0221</p>
+  <p class="text-sm mt-4">&copy; 2025 Sun City Sprinters</p>
 </footer>
 
 </body>
