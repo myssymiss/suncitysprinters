@@ -23,16 +23,28 @@
 
 <!-- NAV -->
 <header class="bg-primary text-white sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
-    <div class="flex items-center gap-3">
-      <img src="./IMG_6204.jpeg" alt="Sun City Sprinters Logo" class="h-12 w-auto">
-      <h1 class="text-2xl font-bold">Sun City Sprinters</h1>
+    <!-- Left: Logo + Name -->
+    <div class="flex items-center gap-4">
+      <img
+        src="./IMG_6204.jpeg"
+        alt="Sun City Sprinters Logo"
+        class="h-20 w-20 md:h-24 md:w-24 rounded-full object-cover bg-white border-4 border-yellow-400 shadow"
+      />
+      <div>
+        <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">Sun City Sprinters</h1>
+        <p class="text-sm md:text-base text-white/90 font-semibold">
+          Non-profit Track & Field • El Paso, Texas • Founded 2023
+        </p>
+      </div>
     </div>
 
-    <nav class="space-x-4 text-sm font-semibold">
+    <!-- Right: Links -->
+    <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
       <a href="#mission" class="hover:underline">Mission</a>
       <a href="#team" class="hover:underline">Team</a>
+      <a href="#gallery" class="hover:underline">Gallery</a>
       <a href="#sponsors" class="hover:underline">Sponsors</a>
       <a href="#register" class="hover:underline">Register</a>
       <a href="#donate" class="hover:underline">Donate</a>
@@ -40,6 +52,7 @@
 
   </div>
 </header>
+
 
 <!-- HERO -->
 <section class="bg-gradient-to-r from-primary to-pink-600 text-white py-28 text-center">
