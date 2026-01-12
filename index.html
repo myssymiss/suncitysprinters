@@ -54,16 +54,37 @@
 </header>
 
 
-<!-- HERO -->
-<section class="bg-gradient-to-r from-primary to-pink-600 text-white py-28 text-center">
-  <h2 class="text-5xl md:text-6xl font-extrabold mb-6">Built for Speed. Powered by Purpose.</h2>
-  <p class="max-w-3xl mx-auto text-xl mb-8">
-    A non-profit track & field club in El Paso, Texas developing confident, disciplined, and driven athletes.
-  </p>
-  <a href="#register" class="bg-white text-primary px-8 py-4 rounded-xl font-bold shadow hover:scale-105 transition">
-    Join the Sprinters
-  </a>
+<!-- HERO WITH PHOTO BACKGROUND -->
+<section class="relative h-[85vh] flex items-center justify-center text-center text-white">
+  
+  <!-- Background Image -->
+  <img 
+    src="IMG_2212.jpeg" 
+    alt="Sun City Sprinters on the track"
+    class="absolute inset-0 w-full h-full object-cover"
+  >
+
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-black/55"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 px-6 max-w-4xl">
+    <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+      Built for Speed.<br class="hidden md:block"> Powered by Purpose.
+    </h2>
+    <p class="text-xl md:text-2xl mb-8">
+      Developing confident, disciplined, and driven track & field athletes in El Paso, Texas.
+    </p>
+    <a 
+      href="#register" 
+      class="inline-block bg-yellow-400 text-black px-10 py-4 rounded-xl font-extrabold shadow-lg hover:scale-105 transition"
+    >
+      Join the Sprinters
+    </a>
+  </div>
+
 </section>
+
 
 <!-- MISSION -->
 <section id="mission" class="py-20 bg-white">
