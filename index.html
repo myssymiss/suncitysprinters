@@ -88,7 +88,7 @@
     }
     @keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
 
-    /* DETAILS dropdown polish (for your mission pills) */
+    /* DETAILS dropdown polish */
     summary::-webkit-details-marker { display: none; }
   </style>
 </head>
@@ -142,7 +142,6 @@
     />
     <div class="absolute inset-0 bg-black/60"></div>
 
-    <!-- subtle moving lane overlay -->
     <div class="absolute inset-0 lane-lines opacity-40 mix-blend-overlay"></div>
 
     <div class="relative z-10 px-6 max-w-5xl reveal">
@@ -162,7 +161,7 @@
     </div>
   </section>
 
-  <!-- MISSION (WITH CLICK DROPDOWNS UNDER EACH PILL) -->
+  <!-- MISSION -->
   <section class="bg-white py-16 md:py-20" id="mission">
     <div class="max-w-6xl mx-auto px-6">
 
@@ -181,7 +180,6 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 items-stretch">
-        <!-- Main mission card -->
         <div class="reveal md:col-span-2 rounded-3xl border border-gray-200 shadow-sm p-7 md:p-9 relative overflow-hidden bg-white">
           <div class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-gold to-primary"></div>
 
@@ -191,10 +189,8 @@
             force in the El Paso community through outreach and mentorship.
           </p>
 
-          <!-- Pills that reveal more text under each pill (click to open) -->
           <div class="mt-7 pl-4 flex flex-wrap gap-3">
 
-            <!-- Discipline -->
             <details class="group">
               <summary class="cursor-pointer select-none">
                 <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black text-white font-extrabold text-sm border border-white/10 hover:opacity-95 transition">
@@ -204,11 +200,10 @@
                 </span>
               </summary>
               <div class="mt-2 max-w-xs rounded-xl border border-gold/30 bg-gold/10 px-4 py-3 text-sm text-gray-800">
-                Consistency matters showing up, finishing reps, and doing the small things right every day.
+                Consistency matters—showing up, finishing reps, and doing the small things right every day.
               </div>
             </details>
 
-            <!-- Confidence -->
             <details class="group">
               <summary class="cursor-pointer select-none">
                 <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white font-extrabold text-sm border border-white/10 hover:opacity-95 transition">
@@ -218,11 +213,10 @@
                 </span>
               </summary>
               <div class="mt-2 max-w-xs rounded-xl border border-gold/30 bg-gold/10 px-4 py-3 text-sm text-gray-800">
-                Trusting your work learning to compete with courage, composure, and belief in your training.
+                Trusting your work—learning to compete with courage, composure, and belief in your training.
               </div>
             </details>
 
-            <!-- Teamwork -->
             <details class="group">
               <summary class="cursor-pointer select-none">
                 <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold text-black font-extrabold text-sm border border-black/10 hover:opacity-95 transition">
@@ -232,11 +226,10 @@
                 </span>
               </summary>
               <div class="mt-2 max-w-xs rounded-xl border border-gold/30 bg-gold/10 px-4 py-3 text-sm text-gray-800">
-                Pushing together supporting teammates, owning your role, and building relay level trust.
+                Pushing together—supporting teammates, owning your role, and building relay-level trust.
               </div>
             </details>
 
-            <!-- Community -->
             <details class="group">
               <summary class="cursor-pointer select-none">
                 <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900 text-white font-extrabold text-sm border border-white/10 hover:opacity-95 transition">
@@ -246,34 +239,21 @@
                 </span>
               </summary>
               <div class="mt-2 max-w-xs rounded-xl border border-gold/30 bg-gold/10 px-4 py-3 text-sm text-gray-800">
-                Uplifting El Paso welcoming families, removing barriers, and giving back through mentorship.
+                Uplifting El Paso—welcoming families, removing barriers, and giving back through mentorship.
               </div>
             </details>
 
           </div>
         </div>
 
-        <!-- Side highlight card -->
         <div class="reveal rounded-3xl bg-lightpink p-7 md:p-8 border border-pink-200 shadow-sm">
           <h4 class="font-heading text-3xl tracking-wide text-gray-900">What we focus on</h4>
 
           <ul class="mt-4 space-y-3 text-gray-800 font-semibold">
-            <li class="flex gap-3">
-              <span class="mt-2 h-2.5 w-2.5 rounded-full bg-gold"></span>
-              Skill development for every level
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-2 h-2.5 w-2.5 rounded-full bg-gold"></span>
-              Positive coaching &amp; mentorship
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-2 h-2.5 w-2.5 rounded-full bg-gold"></span>
-              Strong character on and off track
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-2 h-2.5 w-2.5 rounded-full bg-gold"></span>
-              Removing barriers for families
-            </li>
+            <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-gold"></span>Skill development for every level</li>
+            <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-gold"></span>Positive coaching &amp; mentorship</li>
+            <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-gold"></span>Strong character on and off track</li>
+            <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-gold"></span>Removing barriers for families</li>
           </ul>
 
           <a href="#donate"
@@ -290,7 +270,6 @@
   <section class="bg-gray-50 py-24">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
 
-      <!-- TEXT SIDE -->
       <div class="reveal">
         <h3 class="font-heading text-6xl tracking-wide text-primary mb-4">Our Vision</h3>
 
@@ -311,7 +290,6 @@
         </p>
       </div>
 
-      <!-- IMAGE SIDE -->
       <div class="reveal relative rounded-2xl overflow-hidden shadow-2xl">
         <img
           src="IMG_3912.JPG"
@@ -391,7 +369,6 @@
           <p class="text-sm font-semibold">PR: </p>
         </div>
 
-
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
           <img src="IMG_4084.jpeg" alt="Sun City Sprinter"
             class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
@@ -432,7 +409,7 @@
     </div>
   </section>
 
-  <!-- GALLERY (PHOTOS ONLY) -->
+  <!-- GALLERY (BIGGER BOXES + MORE SPACE) -->
   <section id="gallery" class="bg-black py-20">
     <div class="max-w-7xl mx-auto px-6">
 
@@ -444,13 +421,15 @@
         <div class="text-white/60 text-sm">Tap any tile to view full screen</div>
       </div>
 
-      <div class="grid grid-cols-12 gap-4">
-        <!-- BIG FEATURE -->
+      <!-- Bigger gap + bigger heights + a little more breathing room -->
+      <div class="grid grid-cols-12 gap-6">
+        <!-- BIG FEATURE (taller) -->
         <button type="button"
           class="media-item col-span-12 lg:col-span-7 relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-2xl group"
           data-src="IMG_1735.jpeg" data-caption="Season Highlights">
           <img src="IMG_1735.jpeg" alt="Season highlight"
-            class="w-full h-[380px] md:h-[520px] object-cover object-center group-hover:scale-105 transition duration-500" loading="lazy" />
+            class="w-full h-[460px] md:h-[640px] object-cover object-center group-hover:scale-105 transition duration-500"
+            loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
           <div class="absolute bottom-5 left-5 right-5">
             <p class="text-white text-lg md:text-xl font-extrabold">Season Highlights</p>
@@ -458,13 +437,14 @@
           </div>
         </button>
 
-        <!-- RIGHT COLLAGE -->
-        <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4">
+        <!-- RIGHT COLLAGE (bigger tiles) -->
+        <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-6">
           <button type="button"
             class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
             data-src="IMG_2249.jpeg" data-caption="Meet day energy">
             <img src="IMG_2249.jpeg" alt="Meet day"
-              class="w-full h-[250px] object-cover object-center group-hover:scale-105 transition duration-500" loading="lazy" />
+              class="w-full h-[320px] object-cover object-center group-hover:scale-105 transition duration-500"
+              loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent"></div>
           </button>
 
@@ -472,7 +452,8 @@
             class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
             data-src="IMG_2188.jpeg" data-caption="Work together. Win together.">
             <img src="IMG_2188.jpeg" alt="Gallery photo"
-              class="w-full h-[250px] object-cover object-center group-hover:scale-105 transition duration-500" loading="lazy" />
+              class="w-full h-[320px] object-cover object-center group-hover:scale-105 transition duration-500"
+              loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent"></div>
           </button>
 
@@ -480,61 +461,68 @@
             class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group col-span-2"
             data-src="IMG_9172.jpeg" data-caption="Every rep counts.">
             <img src="IMG_9172.jpeg" alt="Wide collage photo"
-              class="w-full h-[220px] md:h-[240px] object-cover object-center group-hover:scale-105 transition duration-500" loading="lazy" />
+              class="w-full h-[280px] md:h-[320px] object-cover object-center group-hover:scale-105 transition duration-500"
+              loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent"></div>
           </button>
         </div>
       </div>
 
-      <!-- Filmstrip -->
-      <div class="mt-6 overflow-x-auto">
-        <div class="flex gap-4 min-w-max pb-2">
+      <!-- Filmstrip (bigger thumbnails + more height) -->
+      <div class="mt-8 overflow-x-auto">
+        <div class="flex gap-6 min-w-max pb-2">
 
           <button type="button"
-            class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+            class="media-item relative shrink-0 w-72 h-44 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
             data-src="IMG_2291.jpeg" data-caption="Warmups & focus">
             <img src="IMG_2291.jpeg" alt="Warmups & focus"
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" loading="lazy" />
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
+              loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
           </button>
 
           <button type="button"
-            class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+            class="media-item relative shrink-0 w-72 h-44 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
             data-src="IMG_9199.jpeg" data-caption="Sprint squad">
             <img src="IMG_9199.jpeg" alt="Sprint squad"
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" loading="lazy" />
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
+              loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
           </button>
 
           <button type="button"
-            class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+            class="media-item relative shrink-0 w-72 h-44 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
             data-src="IMG_2204.jpeg" data-caption="Relay exchange moment">
             <img src="IMG_2204.jpeg" alt="Relay exchange moment"
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" loading="lazy" />
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
+              loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
           </button>
 
           <button type="button"
-            class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+            class="media-item relative shrink-0 w-72 h-44 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
             data-src="IMG_2247.jpeg" data-caption="Finish strong">
             <img src="IMG_2247.jpeg" alt="Finish strong"
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" loading="lazy" />
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
+              loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
           </button>
 
           <button type="button"
-            class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+            class="media-item relative shrink-0 w-72 h-44 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
             data-src="IMG_2266.jpeg" data-caption="Finish strong">
             <img src="IMG_2266.jpeg" alt="Finish strong"
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" loading="lazy" />
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
+              loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
           </button>
 
           <button type="button"
-            class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+            class="media-item relative shrink-0 w-72 h-44 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
             data-src="IMG_2289.jpeg" data-caption="Finish strong">
             <img src="IMG_2289.jpeg" alt="Finish strong"
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" loading="lazy" />
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
+              loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
           </button>
 
@@ -611,16 +599,32 @@
         </p>
         <span class="block w-24 h-1 bg-primary mx-auto mt-5 rounded-full"></span>
       </div>
-
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT / FOOTER (logo + instagram link added) -->
   <footer class="bg-black text-gray-300 py-10 text-center border-t border-white/10">
     <p class="font-heading text-3xl tracking-wide text-white">Sun City Sprinters</p>
     <p>El Paso, Texas</p>
     <p>Email: <a href="mailto:myssymiss@yahoo.com" class="text-primary">myssymiss@yahoo.com</a></p>
     <p>Phone: (915) 831-0221</p>
+
+    <!-- Clickable logo to Instagram -->
+    <a
+      href="https://www.instagram.com/suncity_sprinters/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center justify-center mt-6"
+      aria-label="Visit our Instagram @suncity_sprinters"
+      title="Follow us on Instagram @suncity_sprinters"
+    >
+      <img
+        src="./IMG_6204.jpeg"
+        alt="Sun City Sprinters Instagram"
+        class="h-16 w-16 rounded-full object-cover border-4 border-gold shadow hover:scale-105 transition"
+      />
+    </a>
+
     <p class="text-sm mt-4">&copy; 2025 Sun City Sprinters</p>
   </footer>
 
@@ -721,7 +725,3 @@
 
 </body>
 </html>
-
-            
-
-  
