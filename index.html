@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sun City Sprinters | El Paso, TX</title>
-  <script src="https://cdn.tailwindcss.com"></script>
 
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -39,23 +39,31 @@
     }
     .reveal.show .underline-anim::after{ transform: scaleX(1); }
 
-    /* subtle marquee track lines */
+    /* subtle moving "track lanes" background */
     @keyframes laneMove {
       0% { transform: translateX(-10%); }
       100% { transform: translateX(10%); }
     }
     .lane-lines {
       background-image:
-        linear-gradient(to right, rgba(255,255,255,.08) 0, rgba(255,255,255,.08) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.08) 50%, rgba(255,255,255,.08) 75%, transparent 75%, transparent 100%);
-      background-size: 120px 100%;
-      animation: laneMove 6s ease-in-out infinite alternate;
+        linear-gradient(to right,
+          rgba(255,255,255,.10) 0,
+          rgba(255,255,255,.10) 18%,
+          transparent 18%,
+          transparent 50%,
+          rgba(255,255,255,.10) 50%,
+          rgba(255,255,255,.10) 68%,
+          transparent 68%,
+          transparent 100%);
+      background-size: 140px 100%;
+      animation: laneMove 7s ease-in-out infinite alternate;
     }
   </style>
 </head>
 
 <body class="bg-white text-gray-800">
 
-  <!-- NAV (no Mission button) -->
+  <!-- NAV / HEADER -->
   <header class="bg-primary text-white sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
@@ -69,13 +77,14 @@
         <div>
           <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">Sun City Sprinters</h1>
           <p class="text-sm md:text-base text-white/90 font-semibold">
-            USATF Youth Track &amp; Field • El Paso, Texas •
+            USATF Youth Track &amp; Field • El Paso, Texas
           </p>
         </div>
       </div>
 
-      <!-- Right: Links + CTA Button -->
+      <!-- Right: Links + CTA -->
       <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold">
+        <!-- NOTE: Mission link removed per your request -->
         <a href="#team" class="hover:underline">Team</a>
         <a href="#gallery" class="hover:underline">Gallery</a>
         <a href="#sponsors" class="hover:underline">Sponsors</a>
@@ -89,90 +98,86 @@
           Join the Sprinters
         </a>
       </nav>
+
     </div>
   </header>
 
-  <!-- MISSION (fixed: under header, above hero image) -->
-  <section id="mission" class="bg-white">
-    <div class="max-w-7xl mx-auto px-6 py-10 md:py-12">
+  <!-- HERO (IMAGE + TRACK QUOTE, no "Built for Speed") -->
+  <section class="relative h-[78vh] md:h-[86vh] flex items-center justify-center text-center text-white overflow-hidden">
+    <img
+      src="IMG_2212.jpeg"
+      alt="Sun City Sprinters on the track"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/60"></div>
 
-      <div class="reveal text-center mb-8">
+    <!-- subtle moving lane overlay -->
+    <div class="absolute inset-0 lane-lines opacity-40 mix-blend-overlay"></div>
+
+    <div class="relative z-10 px-6 max-w-5xl">
+      <p class="uppercase tracking-[0.25em] text-xs md:text-sm font-extrabold text-white/75">
+        Track • Community • Nonprofit
+      </p>
+
+      <h2 class="text-4xl md:text-6xl font-extrabold mt-4 leading-tight">
+        “Small steps every day become big wins.”
+      </h2>
+
+      <p class="text-base md:text-2xl mt-6 text-white/95 max-w-3xl mx-auto">
+        Developing confident, disciplined, and driven track &amp; field athletes in El Paso, TX.
+      </p>
+    </div>
+  </section>
+
+  <!-- MISSION (UNDER THE IMAGE) -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="reveal text-center mb-10">
         <p class="uppercase tracking-[0.25em] text-xs font-extrabold text-gray-400">
           Purpose • Community • Growth
         </p>
 
-        <h2 class="underline-anim text-4xl md:text-5xl font-extrabold text-primary mt-3">
+        <h3 class="underline-anim text-4xl md:text-5xl font-extrabold text-primary mt-3">
           Our Mission
-        </h2>
+        </h3>
 
         <p class="text-gray-600 mt-4 max-w-3xl mx-auto">
           Why we do what we do—on the track and in our city.
         </p>
       </div>
 
-      <div class="grid lg:grid-cols-3 gap-6 items-stretch">
-        <!-- Mission card -->
-        <div class="reveal lg:col-span-2 relative overflow-hidden rounded-3xl border border-gray-200 shadow-sm p-7 md:p-9">
-          <div class="absolute inset-0 pointer-events-none opacity-70">
-            <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-yellow-400/25 to-transparent"></div>
-            <div class="absolute inset-0 lane-lines"></div>
-          </div>
+      <div class="grid md:grid-cols-3 gap-6 items-stretch">
+        <!-- Main mission card -->
+        <div class="reveal md:col-span-2 rounded-3xl border border-gray-200 shadow-sm p-7 md:p-9 relative overflow-hidden">
+          <div class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-yellow-400 to-primary"></div>
 
-          <div class="relative">
-            <p class="text-lg md:text-xl leading-relaxed text-gray-800">
-              To provide comprehensive track and field programs that develop athletes of all skill levels,
-              promoting excellence, character, and a lifelong love for the sport—while serving as a positive
-              force in the El Paso community through outreach and mentorship.
-            </p>
+          <p class="text-lg md:text-xl leading-relaxed text-gray-700 pl-4">
+            To provide comprehensive track and field programs that develop athletes of all skill levels,
+            promoting excellence, character, and a lifelong love for the sport—while serving as a positive
+            force in the El Paso community through outreach and mentorship.
+          </p>
 
-            <!-- Cooler “values” row (not floating chips) -->
-            <div class="mt-7 grid sm:grid-cols-2 gap-4">
-              <div class="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-4">
-                <div class="h-10 w-10 rounded-xl bg-yellow-400/25 border border-yellow-400/40 flex items-center justify-center font-extrabold text-yellow-700">
-                  D
-                </div>
-                <div>
-                  <p class="font-extrabold text-gray-900 leading-tight">Discipline</p>
-                  <p class="text-sm text-gray-600">Show up. Lock in. Improve.</p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-4">
-                <div class="h-10 w-10 rounded-xl bg-pink-500/15 border border-pink-500/30 flex items-center justify-center font-extrabold text-primary">
-                  C
-                </div>
-                <div>
-                  <p class="font-extrabold text-gray-900 leading-tight">Confidence</p>
-                  <p class="text-sm text-gray-600">Believe, compete, grow.</p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-4">
-                <div class="h-10 w-10 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center font-extrabold text-gray-800">
-                  T
-                </div>
-                <div>
-                  <p class="font-extrabold text-gray-900 leading-tight">Teamwork</p>
-                  <p class="text-sm text-gray-600">Together we run faster.</p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-4">
-                <div class="h-10 w-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center font-extrabold text-green-700">
-                  ✦
-                </div>
-                <div>
-                  <p class="font-extrabold text-gray-900 leading-tight">Community</p>
-                  <p class="text-sm text-gray-600">Give back. Lift up.</p>
-                </div>
-              </div>
-            </div>
+          <!-- “cooler” value pills (not floating — styled like badges) -->
+          <div class="mt-7 pl-4 flex flex-wrap gap-3">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-gray-50 font-extrabold text-sm">
+              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span> Discipline
+            </span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-gray-50 font-extrabold text-sm">
+              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span> Confidence
+            </span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-gray-50 font-extrabold text-sm">
+              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span> Teamwork
+            </span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-gray-50 font-extrabold text-sm">
+              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span> Community
+            </span>
           </div>
         </div>
 
         <!-- Side highlight card -->
         <div class="reveal rounded-3xl bg-lightpink p-7 md:p-8 border border-pink-200 shadow-sm">
-          <h3 class="text-xl font-extrabold text-gray-900">What we focus on</h3>
+          <h4 class="text-xl font-extrabold text-gray-900">What we focus on</h4>
 
           <ul class="mt-4 space-y-3 text-gray-700">
             <li class="flex gap-3">
@@ -199,39 +204,16 @@
           </a>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- HERO IMAGE (remove extra wording; replace with quote) -->
-  <section class="relative h-[78vh] md:h-[82vh] flex items-center justify-center text-center text-white">
-    <img
-      src="IMG_2212.jpeg"
-      alt="Sun City Sprinters on the track"
-      class="absolute inset-0 w-full h-full object-cover"
-    >
-    <div class="absolute inset-0 bg-black/60"></div>
-
-    <div class="relative z-10 px-6 max-w-4xl">
-      <p class="uppercase tracking-[0.25em] text-xs md:text-sm font-extrabold text-white/75">
-        Sun City Sprinters • El Paso, TX
-      </p>
-
-      <h2 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
-        “Run your race—then raise the standard.”
-      </h2>
-
-      <p class="mt-5 text-lg md:text-2xl text-white/90">
-        Every stride builds confidence, character, and community.
-      </p>
-    </div>
-  </section>
-
-  <!-- VISION SECTION WITH FEATURE PHOTO (image quote changed) -->
+  <!-- VISION -->
   <section class="bg-gray-50 py-24">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
 
       <!-- TEXT SIDE -->
-      <div class="reveal">
+      <div>
         <h3 class="text-4xl font-extrabold text-primary mb-4">Our Vision</h3>
 
         <p class="text-yellow-500 font-bold uppercase tracking-wide mb-4">
@@ -239,38 +221,35 @@
         </p>
 
         <p class="text-lg leading-relaxed mb-6">
-          We envision a future where young athletes in El Paso have access to structured, supportive, and inspiring
-          track and field opportunities that promote physical fitness, confidence, discipline, and teamwork.
+          We envision a future where young athletes in El Paso have access to structured, supportive,
+          and inspiring track and field opportunities that promote physical fitness, confidence,
+          discipline, and teamwork.
         </p>
 
         <p class="text-lg leading-relaxed">
-          Through community support, mentorship, and intentional development, Sun City Sprinters exists to remove barriers,
-          uplift potential, and help athletes grow into strong competitors and responsible leaders on and off the track.
+          Through community support, mentorship, and intentional development, Sun City Sprinters exists
+          to remove barriers, uplift potential, and help athletes grow into strong competitors and responsible
+          leaders on and off the track.
         </p>
       </div>
 
       <!-- IMAGE SIDE -->
-      <div class="reveal relative rounded-2xl overflow-hidden shadow-2xl">
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl">
         <img
           src="IMG_3912.JPG"
           alt="Sun City Sprinters team unity"
           class="w-full h-[420px] object-cover"
-        >
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-
-        <!-- Track quote instead of old wording -->
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div class="absolute bottom-6 left-6 right-6 text-white">
-          <p class="text-sm uppercase tracking-[0.25em] text-white/75">Team Quote</p>
-          <h4 class="text-2xl md:text-3xl font-extrabold leading-tight">
-            “Small steps every day become big results.”
-          </h4>
+          <h4 class="text-2xl font-extrabold">Building Confidence. Creating Opportunity.</h4>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- MEET THE SPRINTERS -->
+  <!-- TEAM -->
   <section id="team" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
       <h3 class="text-3xl font-bold text-center mb-12">
@@ -282,7 +261,7 @@
 
         <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
           <img src="IMG_2177.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
           <h4 class="font-bold text-lg">Isabella Campuzano</h4>
           <p class="text-sm text-gray-500">Age Group: 15-16</p>
           <p class="mt-2 text-sm">Events: 4x100 100m, 200m 4x400</p>
@@ -291,7 +270,7 @@
 
         <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
           <img src="IMG_2175.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
           <h4 class="font-bold text-lg">Isabella Vega</h4>
           <p class="text-sm text-gray-500">Age Group: 15–16</p>
           <p class="mt-2 text-sm">Events: 100mh 300mh 4x400</p>
@@ -300,7 +279,7 @@
 
         <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
           <img src="IMG_2213.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
           <h4 class="font-bold text-lg">Juliette Valenzuela</h4>
           <p class="text-sm text-gray-500">Age Group: 17-18</p>
           <p class="mt-2 text-sm">Events: 100mh 300mh 4x400</p>
@@ -309,7 +288,7 @@
 
         <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
           <img src="IMG_2179.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
           <h4 class="font-bold text-lg">Melanie Gaytan</h4>
           <p class="text-sm text-gray-500">Age Group: 15–16</p>
           <p class="mt-2 text-sm">Events: TJ 4x400</p>
@@ -318,7 +297,7 @@
 
         <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
           <img src="IMG_4084.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
           <h4 class="font-bold text-lg">Ximena Garcia</h4>
           <p class="text-sm text-gray-500">Age Group: 15-16</p>
           <p class="mt-2 text-sm">Events: 4x100 4x400</p>
@@ -327,7 +306,7 @@
 
         <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
           <img src="IMG_1706.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
           <h4 class="font-bold text-lg">Alora Jaroszewski</h4>
           <p class="text-sm text-gray-500">Age Group: 15-16</p>
           <p class="mt-2 text-sm">Events: 100m 200m</p>
@@ -336,7 +315,7 @@
 
         <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
           <img src="IMG_1737.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
           <h4 class="font-bold text-lg">Elizabeth Hita</h4>
           <p class="text-sm text-gray-500">Age Group: 15-16</p>
           <p class="mt-2 text-sm">Events: 100m 300mh</p>
@@ -345,7 +324,7 @@
 
         <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
           <img src="IMG_2187.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
           <h4 class="font-bold text-lg">David Ballentine II</h4>
           <p class="text-sm text-gray-500">Age Group: 17-18</p>
           <p class="mt-2 text-sm">Events:</p>
@@ -356,7 +335,7 @@
     </div>
   </section>
 
-  <!-- GALLERY: CINEMATIC MEDIA WALL (PHOTOS + VIDEO) -->
+  <!-- GALLERY -->
   <section id="gallery" class="bg-black py-20">
     <div class="max-w-7xl mx-auto px-6">
 
@@ -406,7 +385,7 @@
           <button type="button"
             class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group col-span-2"
             data-type="image" data-src="IMG_2204.jpeg" data-caption="Every rep counts.">
-            <img src="IMG_2204.jpeg" alt="Wide collage photo"
+            <img src="IMG_9172.jpeg" alt="Wide collage photo"
               class="w-full h-[220px] md:h-[240px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent"></div>
           </button>
@@ -519,7 +498,7 @@
     <p class="text-sm mt-4">&copy; 2025 Sun City Sprinters</p>
   </footer>
 
-  <!-- LIGHTBOX (STEP B) -->
+  <!-- LIGHTBOX -->
   <div id="lightbox" class="fixed inset-0 z-[999] hidden">
     <div id="lightboxBackdrop" class="absolute inset-0 bg-black/85"></div>
 
@@ -550,7 +529,7 @@
   </div>
 
   <script>
-    // reveal on scroll
+    // reveal on scroll (must run after HTML exists)
     (function () {
       const els = document.querySelectorAll(".reveal");
       const io = new IntersectionObserver((entries) => {
@@ -577,11 +556,11 @@
       const img = document.getElementById("lightboxImg");
       const video = document.getElementById("lightboxVideo");
 
-      if (!items.length) return;
-
       let currentIndex = 0;
 
       function showMedia(index) {
+        if (!items.length) return;
+
         currentIndex = index;
         const el = items[currentIndex];
 
@@ -626,11 +605,11 @@
 
       items.forEach((el, i) => el.addEventListener("click", () => showMedia(i)));
 
-      closeBtn?.addEventListener("click", closeLightbox);
-      backdrop?.addEventListener("click", closeLightbox);
+      closeBtn.addEventListener("click", closeLightbox);
+      backdrop.addEventListener("click", closeLightbox);
 
-      nextBtn?.addEventListener("click", (e) => { e.stopPropagation(); next(); });
-      prevBtn?.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
+      nextBtn.addEventListener("click", (e) => { e.stopPropagation(); next(); });
+      prevBtn.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
 
       document.addEventListener("keydown", (e) => {
         if (lightbox.classList.contains("hidden")) return;
