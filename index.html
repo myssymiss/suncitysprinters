@@ -17,28 +17,28 @@
       }
     }
   </script>
-<style>
-  /* simple reveal animation */
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
-  .reveal.show { opacity: 1; transform: translateY(0); }
 
-  /* animated underline */
-  .underline-anim::after{
-    content:"";
-    display:block;
-    height:6px;
-    width:84px;
-    margin:14px auto 0;
-    border-radius:999px;
-    background: linear-gradient(90deg, #fbbf24, #ec4899);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .8s ease;
-  }
-  .reveal.show .underline-anim::after{ transform: scaleX(1); }
-</style>
+  <style>
+    /* simple reveal animation */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    /* animated underline */
+    .underline-anim::after{
+      content:"";
+      display:block;
+      height:6px;
+      width:84px;
+      margin:14px auto 0;
+      border-radius:999px;
+      background: linear-gradient(90deg, #fbbf24, #ec4899);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .8s ease;
+    }
+    .reveal.show .underline-anim::after{ transform: scaleX(1); }
+  </style>
 </head>
-
 
 <body class="bg-white text-gray-800">
 
@@ -61,111 +61,56 @@
       </div>
     </div>
 
-    <!-- Right: Links -->
-    <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
+    <!-- Right: Links + CTA Button -->
+    <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold">
       <a href="#mission" class="hover:underline">Mission</a>
       <a href="#team" class="hover:underline">Team</a>
       <a href="#gallery" class="hover:underline">Gallery</a>
       <a href="#sponsors" class="hover:underline">Sponsors</a>
       <a href="#register" class="hover:underline">Register</a>
       <a href="#donate" class="hover:underline">Donate</a>
+
+      <!-- Join button in header -->
+      <a
+        href="#register"
+        class="ml-0 md:ml-2 inline-flex items-center justify-center bg-yellow-400 text-black px-5 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition"
+      >
+        Join the Sprinters
+      </a>
     </nav>
 
   </div>
 </header>
 
-<!-- HERO WITH PHOTO BACKGROUND (NO MISSION INSIDE) -->
+
+<!-- HERO WITH PHOTO BACKGROUND + MISSION OVERLAY -->
 <section class="relative h-[92vh] flex items-center justify-center text-center text-white">
-  <img 
-    src="IMG_2212.jpeg" 
+  <img
+    src="IMG_2212.jpeg"
     alt="Sun City Sprinters on the track"
     class="absolute inset-0 w-full h-full object-cover"
   >
-
   <div class="absolute inset-0 bg-black/60"></div>
 
   <div class="relative z-10 px-6 max-w-5xl">
-    
-    <a 
-      href="#register" 
-      class="inline-block bg-yellow-400 text-black px-10 py-4 rounded-xl font-extrabold shadow-lg hover:scale-105 transition"
-    >
-      Join the Sprinters
-    </a>
-  </div>
-</section>
-
-<!-- MISSION STATEMENT (UPGRADED) -->
-<section id="mission" class="bg-white py-20">
-  <div class="max-w-6xl mx-auto px-6">
-
-    <div class="reveal text-center mb-10">
-      <p class="uppercase tracking-[0.25em] text-xs font-extrabold text-gray-400">
+    <!-- Mission overlay where the slogan used to be -->
+    <div id="mission" class="reveal mx-auto max-w-3xl bg-black/40 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/20">
+      <p class="uppercase tracking-[0.25em] text-xs font-extrabold text-white/70">
         Purpose • Community • Growth
       </p>
 
-      <h3 class="underline-anim text-4xl md:text-5xl font-extrabold text-primary mt-3">
+      <h2 class="underline-anim text-3xl md:text-4xl font-extrabold text-white mt-3">
         Our Mission
-      </h3>
+      </h2>
 
-      <p class="text-gray-600 mt-4 max-w-3xl mx-auto">
-        Why we do what we do on the track and in our city.
+      <p class="text-white/95 text-base md:text-lg leading-relaxed mt-4">
+        To provide comprehensive track and field programs that develop athletes of all skill levels,
+        promoting excellence, character, and a lifelong love for the sport—while serving as a positive
+        force in the El Paso community through outreach and mentorship.
       </p>
     </div>
-
-    <div class="grid md:grid-cols-3 gap-6 items-stretch">
-      <!-- Main mission card -->
-      <div class="reveal md:col-span-2 rounded-3xl border border-gray-200 shadow-sm p-7 md:p-9 relative overflow-hidden">
-        <div class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-yellow-400 to-primary"></div>
-
-        <p class="text-lg md:text-xl leading-relaxed text-gray-700 pl-4">
-          To provide comprehensive track and field programs that develop athletes of all skill levels,
-          promoting excellence, character, and a lifelong love for the sport while serving as a positive
-          force in the El Paso community through outreach and mentorship.
-        </p>
-
-        <div class="mt-6 flex flex-wrap gap-3 pl-4">
-          <span class="px-4 py-2 rounded-full bg-gray-50 border text-sm font-semibold">Discipline</span>
-          <span class="px-4 py-2 rounded-full bg-gray-50 border text-sm font-semibold">Confidence</span>
-          <span class="px-4 py-2 rounded-full bg-gray-50 border text-sm font-semibold">Teamwork</span>
-          <span class="px-4 py-2 rounded-full bg-gray-50 border text-sm font-semibold">Community</span>
-        </div>
-      </div>
-
-      <!-- Side highlight card -->
-      <div class="reveal rounded-3xl bg-lightpink p-7 md:p-8 border border-pink-200 shadow-sm">
-        <h4 class="text-xl font-extrabold text-gray-900">What we focus on</h4>
-
-        <ul class="mt-4 space-y-3 text-gray-700">
-          <li class="flex gap-3">
-            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
-            Skill development for every level
-          </li>
-          <li class="flex gap-3">
-            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
-            Positive coaching & mentorship
-          </li>
-          <li class="flex gap-3">
-            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
-            Strong character on and off track
-          </li>
-          <li class="flex gap-3">
-            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
-            Removing barriers for families
-          </li>
-        </ul>
-
-        <a href="#donate"
-           class="inline-block mt-6 w-full text-center bg-black text-white font-extrabold py-3 rounded-2xl hover:opacity-90 transition">
-          Support the Mission
-        </a>
-      </div>
-    </div>
-
   </div>
 </section>
-
-
 
 
 <!-- VISION SECTION WITH FEATURE PHOTO -->
@@ -209,6 +154,7 @@
   </div>
 </section>
 
+
 <!-- MEET THE SPRINTERS -->
 <section id="team" class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-6">
@@ -219,119 +165,81 @@
 
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
 
-      <!-- Athlete Card -->
       <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-        <img 
-          src="IMG_2177.jpeg"
-          alt="Sun City Sprinter"
-          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400"
-        >
+        <img src="IMG_2177.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
         <h4 class="font-bold text-lg">Isabella Campuzano</h4>
         <p class="text-sm text-gray-500">Age Group: 15-16</p>
         <p class="mt-2 text-sm">Events: 4x100 100m, 200m 4x400</p>
         <p class="text-sm">PR: 12.78</p>
       </div>
 
-      <!-- Athlete Card -->
       <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-        <img 
-          src="IMG_2175.jpeg"
-          alt="Sun City Sprinter"
-          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400"
-        >
+        <img src="IMG_2175.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
         <h4 class="font-bold text-lg">Isabella Vega</h4>
         <p class="text-sm text-gray-500">Age Group: 15–16</p>
-        <p class="mt-2 text-sm">Events: 100mh 300mh 4x400 </p>
+        <p class="mt-2 text-sm">Events: 100mh 300mh 4x400</p>
         <p class="text-sm">PR: 18.36</p>
       </div>
 
-      <!-- Athlete Card -->
       <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-        <img 
-          src="IMG_2213.jpeg"
-          alt="Sun City Sprinter"
-          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400"
-        >
+        <img src="IMG_2213.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
         <h4 class="font-bold text-lg">Juliette Valenzuela</h4>
         <p class="text-sm text-gray-500">Age Group: 17-18</p>
-        <p class="mt-2 text-sm">Events: 100mh 300mh 4x400 </p>
+        <p class="mt-2 text-sm">Events: 100mh 300mh 4x400</p>
         <p class="text-sm">PR: 18.77</p>
       </div>
 
-    <!-- Athlete Card -->
       <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-        <img 
-          src="IMG_2179.jpeg"
-          alt="Sun City Sprinter"
-          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400"
-        >
-        <h4 class="font-bold text-lg">Melanie Gaytan </h4>
+        <img src="IMG_2179.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+        <h4 class="font-bold text-lg">Melanie Gaytan</h4>
         <p class="text-sm text-gray-500">Age Group: 15–16</p>
-        <p class="mt-2 text-sm">Events: TJ 4x400 </p>
+        <p class="mt-2 text-sm">Events: TJ 4x400</p>
         <p class="text-sm">PR: 33'7</p>
       </div>
 
-      <!-- Athlete Card -->
       <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-        <img 
-          src="IMG_4084.jpeg"
-          alt="Sun City Sprinter"
-          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400"
-        >
+        <img src="IMG_4084.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
         <h4 class="font-bold text-lg">Ximena Garcia</h4>
-        <p class="text-sm text-gray-500">Age Group:15-16</p>
-        <p class="mt-2 text-sm">Events:4x100 4x400  </p>
-        <p class="text-sm">PR: </p>
+        <p class="text-sm text-gray-500">Age Group: 15-16</p>
+        <p class="mt-2 text-sm">Events: 4x100 4x400</p>
+        <p class="text-sm">PR:</p>
       </div>
 
-
-      <!-- Athlete Card -->
       <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-        <img 
-          src="IMG_1706.jpeg"
-          alt="Sun City Sprinter"
-          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400"
-        >
+        <img src="IMG_1706.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
         <h4 class="font-bold text-lg">Alora Jaroszewski</h4>
-        <p class="text-sm text-gray-500">Age Group:15-16</p>
-        <p class="mt-2 text-sm">Events:100m 200m </p>
-        <p class="text-sm">PR:13.80</p>
+        <p class="text-sm text-gray-500">Age Group: 15-16</p>
+        <p class="mt-2 text-sm">Events: 100m 200m</p>
+        <p class="text-sm">PR: 13.80</p>
       </div>
 
-      <!-- Athlete Card -->
       <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-        <img 
-          src="IMG_1737.jpeg"
-          alt="Sun City Sprinter"
-          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400"
-        >
+        <img src="IMG_1737.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
         <h4 class="font-bold text-lg">Elizabeth Hita</h4>
         <p class="text-sm text-gray-500">Age Group: 15-16</p>
         <p class="mt-2 text-sm">Events: 100m 300mh</p>
         <p class="text-sm">PR: 18.21</p>
       </div>
 
-      <!-- Athlete Card -->
       <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-        <img 
-          src="IMG_2187.jpeg"
-          alt="Sun City Sprinter"
-          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400"
-        >
-        <h4 class="font-bold text-lg">David Ballentine II </h4>
+        <img src="IMG_2187.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+        <h4 class="font-bold text-lg">David Ballentine II</h4>
         <p class="text-sm text-gray-500">Age Group: 17-18</p>
-        <p class="mt-2 text-sm">Events:  </p>
-        <p class="text-sm">PR: </p>
+        <p class="mt-2 text-sm">Events:</p>
+        <p class="text-sm">PR:</p>
       </div>
 
     </div>
   </div>
 </section>
-
-
-        
-            
-
 
 
 <!-- GALLERY: CINEMATIC MEDIA WALL (PHOTOS + VIDEO) -->
@@ -343,28 +251,15 @@
         <h3 class="text-3xl md:text-4xl font-extrabold text-white">On the Track</h3>
         <p class="text-white/70 mt-2">Highlights, hustle, and the moments that built our season.</p>
       </div>
-
-      <div class="text-white/60 text-sm">
-        Tap any tile to view full screen
-      </div>
+      <div class="text-white/60 text-sm">Tap any tile to view full screen</div>
     </div>
 
-    <!-- Cinematic collage layout -->
     <div class="grid grid-cols-12 gap-4">
-      <!-- BIG FEATURE TILE -->
-      <button
-        type="button"
+      <button type="button"
         class="media-item col-span-12 lg:col-span-7 relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-2xl group"
-        data-type="image"
-        data-src="IMG_1735.jpeg"
-        data-caption="Big moments. Bigger goals."
-      >
-        <img
-          src="IMG_1735.jpeg"
-          alt="Season highlight"
-          class="w-full h-[380px] md:h-[520px] object-cover group-hover:scale-105 transition duration-500"
-          loading="lazy"
-        />
+        data-type="image" data-src="IMG_1735.jpeg" data-caption="Big moments. Bigger goals.">
+        <img src="IMG_1735.jpeg" alt="Season highlight"
+          class="w-full h-[380px] md:h-[520px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
         <div class="absolute bottom-5 left-5 right-5">
           <p class="text-white text-lg md:text-xl font-extrabold">Season Highlights</p>
@@ -372,77 +267,45 @@
         </div>
       </button>
 
-      <!-- RIGHT COLLAGE -->
       <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4">
-        <!-- VIDEO TILE (replace filenames) -->
-        <button
-          type="button"
+        <button type="button"
           class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
-          data-type="video"
-          data-src="VIDEO_0001.mp4"
-          data-caption="Meet day energy 🔥"
-        >
-          <!-- thumbnail image for the video -->
-          <img
-            src="IMG_2249.jpeg"
-            alt="Video highlight"
-            class="w-full h-[250px] object-cover group-hover:scale-105 transition duration-500"
-            loading="lazy"
-          />
+          data-type="video" data-src="VIDEO_0001.mp4" data-caption="Meet day energy 🔥">
+          <img src="IMG_2249.jpeg" alt="Video highlight"
+            class="w-full h-[250px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
           <div class="absolute inset-0 bg-black/25"></div>
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="h-14 w-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
               <span class="text-black text-2xl leading-none">▶</span>
             </div>
           </div>
-          <div class="absolute bottom-4 left-4 right-4">
-            <p class="text-white font-bold">Watch</p>
-            <p class="text-white/80 text-sm">Tap to play</p>
-          </div>
         </button>
 
-        <button
-          type="button"
+        <button type="button"
           class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
-          data-type="image"
-          data-src="IMG_2249.jpeg"
-          data-caption="Work together. Win together."
-        >
-          <img
-            src="IMG_2188.jpeg"
-            alt="Gallery photo"
-            class="w-full h-[250px] object-cover group-hover:scale-105 transition duration-500"
-            loading="lazy"
-          />
+          data-type="image" data-src="IMG_2188.jpeg" data-caption="Work together. Win together.">
+          <img src="IMG_2188.jpeg" alt="Gallery photo"
+            class="w-full h-[250px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent"></div>
         </button>
 
-        <button
-          type="button"
+        <button type="button"
           class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group col-span-2"
-          data-type="image"
-          data-src="IMG_2204.jpeg"
-          data-caption="Every rep counts."
-        >
-          <img
-            src="IMG_9172.jpeg"
-            alt="Wide collage photo"
-            class="w-full h-[220px] md:h-[240px] object-cover group-hover:scale-105 transition duration-500"
-            loading="lazy"
-          />
+          data-type="image" data-src="IMG_2204.jpeg" data-caption="Every rep counts.">
+          <img src="IMG_2204.jpeg" alt="Wide collage photo"
+            class="w-full h-[220px] md:h-[240px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent"></div>
         </button>
       </div>
     </div>
 
-    <!-- Bottom filmstrip (mix photos + video) -->
     <div class="mt-6 overflow-x-auto">
       <div class="flex gap-4 min-w-max pb-2">
 
         <button type="button"
           class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
-          data-type="image" data-src="IMG_2199.jpeg" data-caption="Warmups & focus">
-          <img src="IMG_2199.jpeg" alt="Warmups & focus"
+          data-type="image" data-src="IMG_0005.jpeg" data-caption="Warmups & focus">
+          <img src="IMG_0005.jpeg" alt="Warmups & focus"
             class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
         </button>
@@ -482,9 +345,6 @@
   </div>
 </section>
 
-      
-      
-        
 
 <!-- SPONSORS -->
 <section id="sponsors" class="py-20 bg-white">
@@ -516,6 +376,7 @@
   </div>
 </section>
 
+
 <!-- REGISTER -->
 <section id="register" class="bg-primary text-white py-20">
   <div class="max-w-5xl mx-auto text-center px-6">
@@ -528,6 +389,7 @@
   </div>
 </section>
 
+
 <!-- DONATE -->
 <section id="donate" class="py-20 bg-gray-900 text-white text-center">
   <h3 class="text-4xl font-extrabold mb-6">Your Support Makes an Impact</h3>
@@ -538,6 +400,7 @@
   <p class="font-semibold">Cash App & Apple Pay accepted</p>
 </section>
 
+
 <!-- CONTACT -->
 <footer class="bg-black text-gray-300 py-10 text-center">
   <p class="font-bold text-lg">Sun City Sprinters</p>
@@ -546,6 +409,7 @@
   <p>Phone: (915) 831-0221</p>
   <p class="text-sm mt-4">&copy; 2025 Sun City Sprinters</p>
 </footer>
+
 
 <!-- LIGHTBOX (STEP B) -->
 <div id="lightbox" class="fixed inset-0 z-[999] hidden">
@@ -578,6 +442,21 @@
 </div>
 
 <script>
+  // reveal on scroll (MUST be after HTML exists)
+  (function () {
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add("show");
+      });
+    }, { threshold: 0.15 });
+
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
+<script>
+  // lightbox
   (function () {
     const items = Array.from(document.querySelectorAll(".media-item"));
     const lightbox = document.getElementById("lightbox");
@@ -651,21 +530,7 @@
     });
   })();
 </script>
-<script>
-  // reveal on scroll (runs after page loads)
-  window.addEventListener("DOMContentLoaded", () => {
-    const els = document.querySelectorAll(".reveal");
-    if (!els.length) return;
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add("show");
-      });
-    }, { threshold: 0.15 });
-
-    els.forEach(el => io.observe(el));
-  });
-</script>
 
 </body>
 </html>
+
