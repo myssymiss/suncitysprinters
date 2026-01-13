@@ -262,80 +262,157 @@
 
 
 
-<!-- PHOTO GALLERY -->
-<section id="gallery" class="bg-lightpink py-20">
+<!-- GALLERY: CINEMATIC MEDIA WALL (PHOTOS + VIDEO) -->
+<section id="gallery" class="bg-black py-20">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-10">
-      <h3 class="text-3xl font-bold">On the Track</h3>
-      <p class="text-gray-700 mt-2">Team moments from practice and meets.</p>
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+      <div>
+        <h3 class="text-3xl md:text-4xl font-extrabold text-white">On the Track</h3>
+        <p class="text-white/70 mt-2">Highlights, hustle, and the moments that built our season.</p>
+      </div>
+
+      <div class="text-white/60 text-sm">
+        Tap any tile to view full screen
+      </div>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-      
-      <!-- Photo 1 -->
-      <a href="IMG_1735.jpeg" class="group block overflow-hidden rounded-xl shadow bg-white">
+    <!-- Cinematic collage layout -->
+    <div class="grid grid-cols-12 gap-4">
+      <!-- BIG FEATURE TILE -->
+      <button
+        type="button"
+        class="media-item col-span-12 lg:col-span-7 relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-2xl group"
+        data-type="image"
+        data-src="IMG_1735.jpeg"
+        data-caption="Big moments. Bigger goals."
+      >
         <img
           src="IMG_1735.jpeg"
-          alt="Sun City Sprinters photo 1"
+          alt="Season highlight"
+          class="w-full h-[380px] md:h-[520px] object-cover group-hover:scale-105 transition duration-500"
           loading="lazy"
-          class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition"
         />
-      </a>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-5 left-5 right-5">
+          <p class="text-white text-lg md:text-xl font-extrabold">Season Highlights</p>
+          <p class="text-white/80 text-sm md:text-base">Click to view full screen</p>
+        </div>
+      </button>
 
-      <!-- Photo 2 -->
-      <a href="IMG_2249.jpeg" class="group block overflow-hidden rounded-xl shadow bg-white">
-        <img
-          src="IMG_2249.jpeg"
-          alt="Sun City Sprinters photo 2"
-          loading="lazy"
-          class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition"
-        />
-      </a>
+      <!-- RIGHT COLLAGE -->
+      <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4">
+        <!-- VIDEO TILE (replace filenames) -->
+        <button
+          type="button"
+          class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
+          data-type="video"
+          data-src="VIDEO_0001.mp4"
+          data-caption="Meet day energy 🔥"
+        >
+          <!-- thumbnail image for the video -->
+          <img
+            src="IMG_2249.jpeg"
+            alt="Video highlight"
+            class="w-full h-[250px] object-cover group-hover:scale-105 transition duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-black/25"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="h-14 w-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+              <span class="text-black text-2xl leading-none">▶</span>
+            </div>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <p class="text-white font-bold">Watch</p>
+            <p class="text-white/80 text-sm">Tap to play</p>
+          </div>
+        </button>
 
-      <!-- Photo 3 -->
-      <a href="IMG_2188.jpeg" class="group block overflow-hidden rounded-xl shadow bg-white">
-        <img
-          src="IMG_2188.jpeg"
-          alt="Sun City Sprinters photo 3"
-          loading="lazy"
-          class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition"
-        />
-      </a>
+        <button
+          type="button"
+          class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
+          data-type="image"
+          data-src="IMG_2188.jpeg"
+          data-caption="Work together. Win together."
+        >
+          <img
+            src="IMG_2188.jpeg"
+            alt="Gallery photo"
+            class="w-full h-[250px] object-cover group-hover:scale-105 transition duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent"></div>
+        </button>
 
-      <!-- Photo 4 -->
-      <a href="IMG_2204.jpeg" class="group block overflow-hidden rounded-xl shadow bg-white">
-        <img
-          src="IMG_2204.jpeg"
-          alt="Sun City Sprinters photo 4"
-          loading="lazy"
-          class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition"
-        />
-      </a>
-
-      <!-- Photo 5 -->
-      <a href="IMG_0005.jpeg" class="group block overflow-hidden rounded-xl shadow bg-white">
-        <img
-          src="IMG_0005.jpeg"
-          alt="Sun City Sprinters photo 5"
-          loading="lazy"
-          class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition"
-        />
-      </a>
-
-      <!-- Photo 6 -->
-      <a href="IMG_0006.jpeg" class="group block overflow-hidden rounded-xl shadow bg-white">
-        <img
-          src="IMG_0006.jpeg"
-          alt="Sun City Sprinters photo 6"
-          loading="lazy"
-          class="w-full h-48 md:h-56 object-cover group-hover:scale-105 transition"
-        />
-      </a>
-
+        <button
+          type="button"
+          class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group col-span-2"
+          data-type="image"
+          data-src="IMG_2204.jpeg"
+          data-caption="Every rep counts."
+        >
+          <img
+            src="IMG_2204.jpeg"
+            alt="Wide collage photo"
+            class="w-full h-[220px] md:h-[240px] object-cover group-hover:scale-105 transition duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent"></div>
+        </button>
+      </div>
     </div>
+
+    <!-- Bottom filmstrip (mix photos + video) -->
+    <div class="mt-6 overflow-x-auto">
+      <div class="flex gap-4 min-w-max pb-2">
+
+        <button type="button"
+          class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+          data-type="image" data-src="IMG_0005.jpeg" data-caption="Warmups & focus">
+          <img src="IMG_0005.jpeg" alt="Warmups & focus"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
+        </button>
+
+        <button type="button"
+          class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+          data-type="image" data-src="IMG_0006.jpeg" data-caption="Sprint squad">
+          <img src="IMG_0006.jpeg" alt="Sprint squad"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
+        </button>
+
+        <button type="button"
+          class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+          data-type="video" data-src="VIDEO_0002.mp4" data-caption="Relay exchange clip">
+          <img src="IMG_2188.jpeg" alt="Relay exchange clip"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-black/25"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+              <span class="text-black text-xl leading-none">▶</span>
+            </div>
+          </div>
+        </button>
+
+        <button type="button"
+          class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+          data-type="image" data-src="IMG_1735.jpeg" data-caption="Finish strong">
+          <img src="IMG_1735.jpeg" alt="Finish strong"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
+        </button>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
+      
+      
+        
 
 <!-- SPONSORS -->
 <section id="sponsors" class="py-20 bg-white">
@@ -397,6 +474,111 @@
   <p>Phone: (915) 831-0221</p>
   <p class="text-sm mt-4">&copy; 2025 Sun City Sprinters</p>
 </footer>
+
+<!-- LIGHTBOX (STEP B) -->
+<div id="lightbox" class="fixed inset-0 z-[999] hidden">
+  <div id="lightboxBackdrop" class="absolute inset-0 bg-black/85"></div>
+
+  <div class="relative h-full w-full flex items-center justify-center p-4">
+    <div class="relative max-w-6xl w-full">
+      <button id="lightboxClose"
+        class="absolute -top-12 right-0 md:-top-14 text-white/90 hover:text-white text-3xl font-bold">
+        ✕
+      </button>
+
+      <div class="rounded-3xl overflow-hidden bg-black shadow-2xl border border-white/10">
+        <img id="lightboxImg" class="hidden w-full max-h-[80vh] object-contain" alt="" />
+        <video id="lightboxVideo" class="hidden w-full max-h-[80vh]" controls playsinline></video>
+      </div>
+
+      <p id="lightboxCaption" class="text-white/80 text-sm mt-3 text-center"></p>
+
+      <button id="lightboxPrev"
+        class="absolute left-0 top-1/2 -translate-y-1/2 px-3 py-2 rounded-xl bg-black/40 text-white hover:bg-black/60">
+        ‹
+      </button>
+      <button id="lightboxNext"
+        class="absolute right-0 top-1/2 -translate-y-1/2 px-3 py-2 rounded-xl bg-black/40 text-white hover:bg-black/60">
+        ›
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const items = Array.from(document.querySelectorAll(".media-item"));
+    const lightbox = document.getElementById("lightbox");
+    const backdrop = document.getElementById("lightboxBackdrop");
+    const closeBtn = document.getElementById("lightboxClose");
+    const prevBtn = document.getElementById("lightboxPrev");
+    const nextBtn = document.getElementById("lightboxNext");
+    const caption = document.getElementById("lightboxCaption");
+
+    const img = document.getElementById("lightboxImg");
+    const video = document.getElementById("lightboxVideo");
+
+    let currentIndex = 0;
+
+    function showMedia(index) {
+      currentIndex = index;
+      const el = items[currentIndex];
+
+      const type = el.getAttribute("data-type") || "image";
+      const src = el.getAttribute("data-src") || "";
+      const cap = el.getAttribute("data-caption") || el.querySelector("img")?.alt || "";
+
+      caption.textContent = cap;
+
+      img.classList.add("hidden");
+      video.classList.add("hidden");
+      img.src = "";
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+
+      if (type === "video") {
+        video.classList.remove("hidden");
+        video.src = src;
+        video.load();
+      } else {
+        img.classList.remove("hidden");
+        img.src = src;
+        img.alt = cap;
+      }
+
+      lightbox.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add("hidden");
+      img.src = "";
+      video.pause();
+      video.removeAttribute("src");
+      video.load();
+      document.body.style.overflow = "";
+    }
+
+    function next() { showMedia((currentIndex + 1) % items.length); }
+    function prev() { showMedia((currentIndex - 1 + items.length) % items.length); }
+
+    items.forEach((el, i) => el.addEventListener("click", () => showMedia(i)));
+
+    closeBtn.addEventListener("click", closeLightbox);
+    backdrop.addEventListener("click", closeLightbox);
+
+    nextBtn.addEventListener("click", (e) => { e.stopPropagation(); next(); });
+    prevBtn.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
+
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.classList.contains("hidden")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    });
+  })();
+</script>
 
 </body>
 </html>
