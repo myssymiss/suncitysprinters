@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sun City Sprinters | El Paso, TX</title>
-
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -20,7 +19,7 @@
   </script>
 
   <style>
-    /* reveal animation */
+    /* simple reveal animation */
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.show { opacity: 1; transform: translateY(0); }
 
@@ -38,588 +37,551 @@
       transition: transform .8s ease;
     }
     .reveal.show .underline-anim::after{ transform: scaleX(1); }
-
-    /* subtle moving "track lanes" background */
-    @keyframes laneMove {
-      0% { transform: translateX(-10%); }
-      100% { transform: translateX(10%); }
-    }
-    .lane-lines {
-      background-image:
-        linear-gradient(to right,
-          rgba(255,255,255,.10) 0,
-          rgba(255,255,255,.10) 18%,
-          transparent 18%,
-          transparent 50%,
-          rgba(255,255,255,.10) 50%,
-          rgba(255,255,255,.10) 68%,
-          transparent 68%,
-          transparent 100%);
-      background-size: 140px 100%;
-      animation: laneMove 7s ease-in-out infinite alternate;
-    }
   </style>
 </head>
 
 <body class="bg-white text-gray-800">
 
-  <!-- NAV / HEADER -->
-  <header class="bg-primary text-white sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<!-- NAV -->
+<header class="bg-primary text-white sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
-      <!-- Left: Logo + Name -->
-      <div class="flex items-center gap-4">
-        <img
-          src="./IMG_6204.jpeg"
-          alt="Sun City Sprinters Logo"
-          class="h-20 w-20 md:h-24 md:w-24 rounded-full object-cover bg-white border-4 border-yellow-400 shadow"
-        />
-        <div>
-          <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">Sun City Sprinters</h1>
-          <p class="text-sm md:text-base text-white/90 font-semibold">
-            USATF Youth Track &amp; Field • El Paso, Texas
-          </p>
-        </div>
-      </div>
-
-      <!-- Right: Links + CTA -->
-      <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold">
-        <!-- NOTE: Mission link removed per your request -->
-        <a href="#team" class="hover:underline">Team</a>
-        <a href="#gallery" class="hover:underline">Gallery</a>
-        <a href="#sponsors" class="hover:underline">Sponsors</a>
-        <a href="#register" class="hover:underline">Register</a>
-        <a href="#donate" class="hover:underline">Donate</a>
-
-        <a
-          href="#register"
-          class="ml-0 md:ml-2 inline-flex items-center justify-center bg-yellow-400 text-black px-5 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition"
-        >
-          Join the Sprinters
-        </a>
-      </nav>
-
-    </div>
-  </header>
-
-  <!-- HERO (IMAGE + TRACK QUOTE, no "Built for Speed") -->
-  <section class="relative h-[78vh] md:h-[86vh] flex items-center justify-center text-center text-white overflow-hidden">
-    <img
-      src="IMG_2212.jpeg"
-      alt="Sun City Sprinters on the track"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-black/60"></div>
-
-    <!-- subtle moving lane overlay -->
-    <div class="absolute inset-0 lane-lines opacity-40 mix-blend-overlay"></div>
-
-    <div class="relative z-10 px-6 max-w-5xl">
-  <p class="uppercase tracking-[0.22em] text-xs md:text-sm font-extrabold text-white/85">
-    SUN CITY SPRINTERS • EL PASO, TX
-  </p>
-
-  <h2 class="text-4xl md:text-6xl font-extrabold mt-4 leading-tight">
-    “Run your race then raise the standard.”
-  </h2>
-
-  <p class="text-base md:text-2xl mt-6 text-white/95 max-w-3xl mx-auto">
-    Every stride builds confidence, character, and community.
-  </p>
-</div>
-
-  </section>
-
-  <!-- MISSION (UNDER THE IMAGE) -->
-  <section class="bg-white py-16 md:py-20">
-    <div class="max-w-6xl mx-auto px-6">
-
-      <div class="reveal text-center mb-10">
-        <p class="uppercase tracking-[0.25em] text-xs font-extrabold text-gray-400">
-          Purpose • Community • Growth
-        </p>
-
-        
-        
-        <h3 class="underline-anim text-4xl md:text-5xl font-extrabold text-primary mt-3">
-          Our Mission
-        </h3>
-
-        
-
-     
-         <div class="grid md:grid-cols-3 gap-6 items-stretch">
-        <!-- Main mission card -->
-        <div class="reveal md:col-span-2 rounded-3xl border border-gray-200 shadow-sm p-7 md:p-9 relative overflow-hidden">
-          <div class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-yellow-400 to-primary"></div>
-
-          <p class="text-lg md:text-xl leading-relaxed text-gray-700 pl-4">
-            We provide comprehensive track and field programs that develop athletes of all skill levels,
-            promoting excellence, character, and a lifelong love for the sport while serving as a positive
-            force in the El Paso community through outreach and mentorship.
-          </p>
-
-          <!-- “cooler” value pills (not floating — styled like badges) -->
-          <div class="mt-7 pl-4 flex flex-wrap gap-3">
-            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-gray-50 font-extrabold text-sm">
-              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span> Discipline
-            </span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-gray-50 font-extrabold text-sm">
-              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span> Confidence
-            </span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-gray-50 font-extrabold text-sm">
-              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span> Teamwork
-            </span>
-            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full border bg-gray-50 font-extrabold text-sm">
-              <span class="h-2.5 w-2.5 rounded-full bg-yellow-400"></span> Community
-            </span>
-          </div>
-        </div>
-
-        <!-- Side highlight card -->
-        <div class="reveal rounded-3xl bg-lightpink p-7 md:p-8 border border-pink-200 shadow-sm">
-          <h4 class="text-xl font-extrabold text-gray-900">What we focus on</h4>
-
-          <ul class="mt-4 space-y-3 text-gray-700">
-            <li class="flex gap-3">
-              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
-              Skill development for every level
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
-              Positive coaching &amp; mentorship
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
-              Strong character on and off track
-            </li>
-            <li class="flex gap-3">
-              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
-              Removing barriers for families
-            </li>
-          </ul>
-
-          <a href="#donate"
-             class="inline-block mt-6 w-full text-center bg-black text-white font-extrabold py-3 rounded-2xl hover:opacity-90 transition">
-            Support the Mission
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- VISION -->
-  <section class="bg-gray-50 py-24">
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
-
-      <!-- TEXT SIDE -->
+    <!-- Left: Logo + Name -->
+    <div class="flex items-center gap-4">
+      <img
+        src="./IMG_6204.jpeg"
+        alt="Sun City Sprinters Logo"
+        class="h-20 w-20 md:h-24 md:w-24 rounded-full object-cover bg-white border-4 border-yellow-400 shadow"
+      />
       <div>
-        <h3 class="text-4xl font-extrabold text-primary mb-4">Our Vision</h3>
-
-        <p class="text-yellow-500 font-bold uppercase tracking-wide mb-4">
-          Fueling dreams, one stride at a time
-        </p>
-
-        <p class="text-lg leading-relaxed mb-6">
-          We envision a future where young athletes in El Paso have access to structured, supportive,
-          and inspiring track and field opportunities that promote physical fitness, confidence,
-          discipline, and teamwork.
-        </p>
-
-        <p class="text-lg leading-relaxed">
-          Through community support, mentorship, and intentional development, Sun City Sprinters exists
-          to remove barriers, uplift potential, and help athletes grow into strong competitors and responsible
-          leaders on and off the track.
+        <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">Sun City Sprinters</h1>
+        <p class="text-sm md:text-base text-white/90 font-semibold">
+          USATF Youth Track & Field • El Paso, Texas •
         </p>
       </div>
-
-      <!-- IMAGE SIDE -->
-      <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-        <img
-          src="IMG_3912.JPG"
-          alt="Sun City Sprinters team unity"
-          class="w-full h-[420px] object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-6 left-6 right-6 text-white">
-          <h4 class="text-2xl font-extrabold">Building Confidence. Creating Opportunity.</h4>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <!-- TEAM -->
-  <section id="team" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-3xl font-bold text-center mb-12">
-        Meet the Sprinters
-        <span class="block w-20 h-1 bg-yellow-400 mx-auto mt-3 rounded-full"></span>
+    <!-- Right: Links + CTA Button -->
+    <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold">
+      <a href="#coaches" class="hover:underline">Coaches</a>
+      <a href="#team" class="hover:underline">Team</a>
+      <a href="#gallery" class="hover:underline">Gallery</a>
+      <a href="#sponsors" class="hover:underline">Sponsors</a>
+      <a href="#register" class="hover:underline">Register</a>
+      <a href="#donate" class="hover:underline">Donate</a>
+
+      <!-- Join button in header -->
+      <a
+        href="#register"
+        class="ml-0 md:ml-2 inline-flex items-center justify-center bg-yellow-400 text-black px-5 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition"
+      >
+        Join the Sprinters
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO WITH PHOTO BACKGROUND (UPDATED TEXT YOU LIKE) -->
+<section class="relative h-[82vh] md:h-[92vh] flex items-center justify-center text-center text-white">
+  <img
+    src="IMG_2212.jpeg"
+    alt="Sun City Sprinters on the track"
+    class="absolute inset-0 w-full h-full object-cover"
+  >
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <div class="relative z-10 px-6 max-w-5xl">
+    <p class="uppercase tracking-[0.22em] text-xs md:text-sm font-extrabold text-white/85">
+      SUN CITY SPRINTERS • EL PASO, TX
+    </p>
+
+    <h2 class="text-4xl md:text-6xl font-extrabold mt-4 leading-tight">
+      “Run your race—then raise the standard.”
+    </h2>
+
+    <p class="text-base md:text-2xl mt-6 text-white/95 max-w-3xl mx-auto">
+      Every stride builds confidence, character, and community.
+    </p>
+  </div>
+</section>
+
+<!-- MISSION (FIXED: heading NOT sitting on the box) -->
+<section id="mission" class="bg-white py-20">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="reveal text-center mb-8">
+      <p class="uppercase tracking-[0.25em] text-xs font-extrabold text-gray-400">
+        Purpose • Community • Growth
+      </p>
+
+      <h3 class="underline-anim text-4xl md:text-5xl font-extrabold text-primary mt-3">
+        Our Mission
       </h3>
 
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
-
-        <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-          <img src="IMG_2177.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
-          <h4 class="font-bold text-lg">Isabella Campuzano</h4>
-          <p class="text-sm text-gray-500">Age Group: 15-16</p>
-          <p class="mt-2 text-sm">Events: 4x100 100m, 200m 4x400</p>
-          <p class="text-sm">PR: 12.78</p>
-        </div>
-
-        <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-          <img src="IMG_2175.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
-          <h4 class="font-bold text-lg">Isabella Vega</h4>
-          <p class="text-sm text-gray-500">Age Group: 15–16</p>
-          <p class="mt-2 text-sm">Events: 100mh 300mh 4x400</p>
-          <p class="text-sm">PR: 18.36</p>
-        </div>
-
-        <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-          <img src="IMG_2213.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
-          <h4 class="font-bold text-lg">Juliette Valenzuela</h4>
-          <p class="text-sm text-gray-500">Age Group: 17-18</p>
-          <p class="mt-2 text-sm">Events: 100mh 300mh 4x400</p>
-          <p class="text-sm">PR: 18.77</p>
-        </div>
-
-        <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-          <img src="IMG_2179.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
-          <h4 class="font-bold text-lg">Melanie Gaytan</h4>
-          <p class="text-sm text-gray-500">Age Group: 15–16</p>
-          <p class="mt-2 text-sm">Events: TJ 4x400</p>
-          <p class="text-sm">PR: 33'7</p>
-        </div>
-
-        <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-          <img src="IMG_4084.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
-          <h4 class="font-bold text-lg">Ximena Garcia</h4>
-          <p class="text-sm text-gray-500">Age Group: 15-16</p>
-          <p class="mt-2 text-sm">Events: 4x100 4x400</p>
-          <p class="text-sm">PR:</p>
-        </div>
-
-        <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-          <img src="IMG_1706.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
-          <h4 class="font-bold text-lg">Alora Jaroszewski</h4>
-          <p class="text-sm text-gray-500">Age Group: 15-16</p>
-          <p class="mt-2 text-sm">Events: 100m 200m</p>
-          <p class="text-sm">PR: 13.80</p>
-        </div>
-
-        <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-          <img src="IMG_1737.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
-          <h4 class="font-bold text-lg">Elizabeth Hita</h4>
-          <p class="text-sm text-gray-500">Age Group: 15-16</p>
-          <p class="mt-2 text-sm">Events: 100m 300mh</p>
-          <p class="text-sm">PR: 18.21</p>
-        </div>
-
-        <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
-          <img src="IMG_2187.jpeg" alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400" />
-          <h4 class="font-bold text-lg">David Ballentine II</h4>
-          <p class="text-sm text-gray-500">Age Group: 17-18</p>
-          <p class="mt-2 text-sm">Events:</p>
-          <p class="text-sm">PR:</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery" class="bg-black py-20">
-    <div class="max-w-7xl mx-auto px-6">
-
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
-        <div>
-          <h3 class="text-3xl md:text-4xl font-extrabold text-white">On the Track</h3>
-          <p class="text-white/70 mt-2">Highlights, hustle, and the moments that built our season.</p>
-        </div>
-        <div class="text-white/60 text-sm">Tap any tile to view full screen</div>
-      </div>
-
-      <div class="grid grid-cols-12 gap-4">
-        <button type="button"
-          class="media-item col-span-12 lg:col-span-7 relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-2xl group"
-          data-type="image" data-src="IMG_1735.jpeg" data-caption="Big moments. Bigger goals.">
-          <img src="IMG_1735.jpeg" alt="Season highlight"
-            class="w-full h-[380px] md:h-[520px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
-          <div class="absolute bottom-5 left-5 right-5">
-            <p class="text-white text-lg md:text-xl font-extrabold">Season Highlights</p>
-            <p class="text-white/80 text-sm md:text-base">Click to view full screen</p>
-          </div>
-        </button>
-
-        <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4">
-          <button type="button"
-            class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
-            data-type="video" data-src="VIDEO_0001.mp4" data-caption="Meet day energy 🔥">
-            <img src="IMG_2249.jpeg" alt="Video highlight"
-              class="w-full h-[250px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-black/25"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="h-14 w-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                <span class="text-black text-2xl leading-none">▶</span>
-              </div>
-            </div>
-          </button>
-
-          <button type="button"
-            class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
-            data-type="image" data-src="IMG_2188.jpeg" data-caption="Work together. Win together.">
-            <img src="IMG_2188.jpeg" alt="Gallery photo"
-              class="w-full h-[250px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent"></div>
-          </button>
-
-          <button type="button"
-            class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group col-span-2"
-            data-type="image" data-src="IMG_9172.jpeg" data-caption="Every rep counts.">
-            <img src="IMG_9172.jpeg" alt="Wide collage photo"
-              class="w-full h-[220px] md:h-[240px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent"></div>
-          </button>
-        </div>
-      </div>
-
-      <div class="mt-6 overflow-x-auto">
-        <div class="flex gap-4 min-w-max pb-2">
-
-          <button type="button"
-            class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
-            data-type="image" data-src="IMG_2291.jpeg" data-caption="Warmups & focus">
-            <img src="IMG_2291.jpeg" alt="Warmups & focus"
-              class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
-          </button>
-
-          <button type="button"
-            class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
-            data-type="image" data-src="9199.jpeg" data-caption="Sprint squad">
-            <img src="IMG_9199.jpeg" alt="Sprint squad"
-              class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
-          </button>
-
-          <button type="button"
-            class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
-            data-type="video" data-src="VIDEO_0002.mp4" data-caption="Relay exchange clip">
-            <img src="IMG_2188.jpeg" alt="Relay exchange clip"
-              class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-black/25"></div>
-            <div class="absolute inset-0 flex items-center justify-center">
-              <div class="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                <span class="text-black text-xl leading-none">▶</span>
-              </div>
-            </div>
-          </button>
-
-          <button type="button"
-            class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
-            data-type="image" data-src="IMG_1735.jpeg" data-caption="Finish strong">
-            <img src="IMG_1735.jpeg" alt="Finish strong"
-              class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
-          </button>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SPONSORS -->
-  <section id="sponsors" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-3xl font-bold text-center mb-12">Sponsorship Opportunities</h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="border-2 border-yellow-400 p-6 rounded-xl">
-          <h4 class="text-xl font-bold text-yellow-500 mb-4">Gold Sponsor</h4>
-          <ul class="list-disc list-inside">
-            <li>Logo on team t-shirts</li>
-            <li>Website &amp; social media recognition</li>
-            <li>Event banners</li>
-          </ul>
-        </div>
-        <div class="border-2 border-gray-400 p-6 rounded-xl">
-          <h4 class="text-xl font-bold mb-4">Silver Sponsor</h4>
-          <ul class="list-disc list-inside">
-            <li>Website recognition</li>
-            <li>Social media shoutouts</li>
-          </ul>
-        </div>
-        <div class="border-2 border-orange-400 p-6 rounded-xl">
-          <h4 class="text-xl font-bold mb-4">Bronze Sponsor</h4>
-          <ul class="list-disc list-inside">
-            <li>Name listed on website</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REGISTER -->
-  <section id="register" class="bg-primary text-white py-20">
-    <div class="max-w-5xl mx-auto text-center px-6">
-      <h3 class="text-3xl font-bold mb-6">Athlete Registration</h3>
-      <p class="mb-6">
-        All athletes must register with Sun City Sprinters and obtain a valid
-        <strong>USATF Youth Membership</strong> through usatf.org.
+      <p class="text-gray-600 mt-4 max-w-3xl mx-auto">
+        Why we do what we do—on the track and in our city.
       </p>
-      <p class="font-semibold">Questions? Call (915) 831-0221</p>
     </div>
-  </section>
 
-  <!-- DONATE -->
-  <section id="donate" class="py-20 bg-gray-900 text-white text-center">
-    <h3 class="text-4xl font-extrabold mb-6">Your Support Makes an Impact</h3>
-    <p class="max-w-3xl mx-auto mb-6">
-      Donations help cover meet fees, travel, equipment, and training resources for our athletes.
+    <!-- Box is separate + spaced so nothing overlaps -->
+    <div class="reveal rounded-3xl border border-gray-200 shadow-sm p-7 md:p-9 relative overflow-hidden">
+      <div class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-yellow-400 to-primary"></div>
+
+      <p class="text-lg md:text-xl leading-relaxed text-gray-700 pl-4">
+        To provide comprehensive track and field programs that develop athletes of all skill levels,
+        promoting excellence, character, and a lifelong love for the sport—while serving as a positive
+        force in the El Paso community through outreach and mentorship.
+      </p>
+
+      <!-- “cooler” value chips (not floating) -->
+      <div class="mt-6 pl-4 flex flex-wrap gap-3">
+        <span class="px-4 py-2 rounded-full bg-gradient-to-r from-yellow-100 to-pink-100 border border-yellow-200 text-sm font-extrabold text-gray-800">
+          Discipline
+        </span>
+        <span class="px-4 py-2 rounded-full bg-gradient-to-r from-pink-100 to-yellow-100 border border-pink-200 text-sm font-extrabold text-gray-800">
+          Teamwork
+        </span>
+        <span class="px-4 py-2 rounded-full bg-gradient-to-r from-yellow-100 to-pink-100 border border-yellow-200 text-sm font-extrabold text-gray-800">
+          Confidence
+        </span>
+        <span class="px-4 py-2 rounded-full bg-gradient-to-r from-pink-100 to-yellow-100 border border-pink-200 text-sm font-extrabold text-gray-800">
+          Community
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MEET THE COACHES CORNER -->
+<section id="coaches" class="bg-gray-50 py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="reveal text-center mb-12">
+      <h3 class="text-3xl md:text-4xl font-extrabold text-primary">Meet the Coaches Corner</h3>
+      <p class="text-gray-600 mt-3 max-w-2xl mx-auto">
+        Positive coaching, mentorship, and high standards—on and off the track.
+      </p>
+      <span class="block w-20 h-1 bg-yellow-400 mx-auto mt-5 rounded-full"></span>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Coach Card 1 -->
+      <div class="reveal bg-white rounded-3xl border border-gray-200 shadow-sm p-6 text-center">
+        <img
+          src="COACH_1.jpeg"
+          alt="Coach Marrissa"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-yellow-400"
+        />
+        <h4 class="text-xl font-extrabold">Coach Marrissa</h4>
+        <p class="text-sm text-gray-500 font-semibold mt-1">Head Coach • Sprints / Relays</p>
+        <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+          Builds confident athletes through discipline, encouragement, and consistent development.
+        </p>
+      </div>
+
+      <!-- Coach Card 2 -->
+      <div class="reveal bg-white rounded-3xl border border-gray-200 shadow-sm p-6 text-center">
+        <img
+          src="COACH_2.jpeg"
+          alt="Assistant Coach"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-yellow-400"
+        />
+        <h4 class="text-xl font-extrabold">Coach Name</h4>
+        <p class="text-sm text-gray-500 font-semibold mt-1">Assistant Coach • Jumps / Speed</p>
+        <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+          Focuses on technique, form, and helping athletes raise their standard every week.
+        </p>
+      </div>
+
+      <!-- Coach Card 3 -->
+      <div class="reveal bg-white rounded-3xl border border-gray-200 shadow-sm p-6 text-center">
+        <img
+          src="COACH_3.jpeg"
+          alt="Coach"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-yellow-400"
+        />
+        <h4 class="text-xl font-extrabold">Coach Name</h4>
+        <p class="text-sm text-gray-500 font-semibold mt-1">Coach • Hurdles / Conditioning</p>
+        <p class="text-gray-700 mt-3 text-sm leading-relaxed">
+          Teaches strong fundamentals, mindset, and race-day preparation.
+        </p>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-gray-500 mt-6">
+      (Replace COACH_1.jpeg / COACH_2.jpeg / COACH_3.jpeg with your real coach photos.)
     </p>
-    <p class="font-semibold">Cash App &amp; Apple Pay accepted</p>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <footer class="bg-black text-gray-300 py-10 text-center">
-    <p class="font-bold text-lg">Sun City Sprinters</p>
-    <p>El Paso, Texas</p>
-    <p>Email: <a href="mailto:myssymiss@yahoo.com" class="text-primary">myssymiss@yahoo.com</a></p>
-    <p>Phone: (915) 831-0221</p>
-    <p class="text-sm mt-4">&copy; 2025 Sun City Sprinters</p>
-  </footer>
+<!-- VISION SECTION WITH FEATURE PHOTO -->
+<section class="bg-white py-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
 
-  <!-- LIGHTBOX -->
-  <div id="lightbox" class="fixed inset-0 z-[999] hidden">
-    <div id="lightboxBackdrop" class="absolute inset-0 bg-black/85"></div>
+    <div>
+      <h3 class="text-4xl font-extrabold text-primary mb-4">Our Vision</h3>
+      <p class="text-yellow-500 font-bold uppercase tracking-wide mb-4">
+        Fueling dreams, one stride at a time
+      </p>
+      <p class="text-lg leading-relaxed mb-6">
+        We envision a future where young athletes in El Paso have access to structured, supportive, and inspiring track and field opportunities that promote physical fitness, confidence, discipline, and teamwork.
+      </p>
+      <p class="text-lg leading-relaxed">
+        Through community support, mentorship, and intentional development, Sun City Sprinters exists to remove barriers, uplift potential, and help athletes grow into strong competitors and responsible leaders on and off the track.
+      </p>
+    </div>
 
-    <div class="relative h-full w-full flex items-center justify-center p-4">
-      <div class="relative max-w-6xl w-full">
-        <button id="lightboxClose"
-          class="absolute -top-12 right-0 md:-top-14 text-white/90 hover:text-white text-3xl font-bold">
-          ✕
+    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+      <img
+        src="IMG_3912.JPG"
+        alt="Sun City Sprinters team unity"
+        class="w-full h-[420px] object-cover"
+      >
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+      <div class="absolute bottom-6 left-6 right-6 text-white">
+        <h4 class="text-2xl font-extrabold">Building Confidence. Creating Opportunity.</h4>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MEET THE SPRINTERS -->
+<section id="team" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-center mb-12">
+      Meet the Sprinters
+      <span class="block w-20 h-1 bg-yellow-400 mx-auto mt-3 rounded-full"></span>
+    </h3>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+      <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
+        <img src="IMG_2177.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+        <h4 class="font-bold text-lg">Isabella Campuzano</h4>
+        <p class="text-sm text-gray-500">Age Group: 15-16</p>
+        <p class="mt-2 text-sm">Events: 4x100 100m, 200m 4x400</p>
+        <p class="text-sm">PR: 12.78</p>
+      </div>
+
+      <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
+        <img src="IMG_2175.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+        <h4 class="font-bold text-lg">Isabella Vega</h4>
+        <p class="text-sm text-gray-500">Age Group: 15–16</p>
+        <p class="mt-2 text-sm">Events: 100mh 300mh 4x400</p>
+        <p class="text-sm">PR: 18.36</p>
+      </div>
+
+      <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
+        <img src="IMG_2213.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+        <h4 class="font-bold text-lg">Juliette Valenzuela</h4>
+        <p class="text-sm text-gray-500">Age Group: 17-18</p>
+        <p class="mt-2 text-sm">Events: 100mh 300mh 4x400</p>
+        <p class="text-sm">PR: 18.77</p>
+      </div>
+
+      <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
+        <img src="IMG_2179.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+        <h4 class="font-bold text-lg">Melanie Gaytan</h4>
+        <p class="text-sm text-gray-500">Age Group: 15–16</p>
+        <p class="mt-2 text-sm">Events: TJ 4x400</p>
+        <p class="text-sm">PR: 33'7</p>
+      </div>
+
+      <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
+        <img src="IMG_4084.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+        <h4 class="font-bold text-lg">Ximena Garcia</h4>
+        <p class="text-sm text-gray-500">Age Group: 15-16</p>
+        <p class="mt-2 text-sm">Events: 4x100 4x400</p>
+        <p class="text-sm">PR:</p>
+      </div>
+
+      <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
+        <img src="IMG_1706.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+        <h4 class="font-bold text-lg">Alora Jaroszewski</h4>
+        <p class="text-sm text-gray-500">Age Group: 15-16</p>
+        <p class="mt-2 text-sm">Events: 100m 200m</p>
+        <p class="text-sm">PR: 13.80</p>
+      </div>
+
+      <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
+        <img src="IMG_1737.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+        <h4 class="font-bold text-lg">Elizabeth Hita</h4>
+        <p class="text-sm text-gray-500">Age Group: 15-16</p>
+        <p class="mt-2 text-sm">Events: 100m 300mh</p>
+        <p class="text-sm">PR: 18.21</p>
+      </div>
+
+      <div class="border rounded-2xl p-6 shadow text-center hover:shadow-lg transition">
+        <img src="IMG_2187.jpeg" alt="Sun City Sprinter"
+          class="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-2 border-yellow-400">
+        <h4 class="font-bold text-lg">David Ballentine II</h4>
+        <p class="text-sm text-gray-500">Age Group: 17-18</p>
+        <p class="mt-2 text-sm">Events:</p>
+        <p class="text-sm">PR:</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY (ALL REGULAR PHOTOS - NO VIDEOS) -->
+<section id="gallery" class="bg-black py-20">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+      <div>
+        <h3 class="text-3xl md:text-4xl font-extrabold text-white">On the Track</h3>
+        <p class="text-white/70 mt-2">Highlights, hustle, and the moments that built our season.</p>
+      </div>
+      <div class="text-white/60 text-sm">Tap any tile to view full screen</div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-4">
+      <!-- BIG -->
+      <button type="button"
+        class="media-item col-span-12 lg:col-span-7 relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-2xl group"
+        data-src="IMG_1735.jpeg" data-caption="Big moments. Bigger goals.">
+        <img src="IMG_1735.jpeg" alt="Season highlight"
+          class="w-full h-[380px] md:h-[520px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent"></div>
+      </button>
+
+      <!-- RIGHT -->
+      <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4">
+        <button type="button"
+          class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
+          data-src="IMG_2249.jpeg" data-caption="Meet day energy">
+          <img src="IMG_2249.jpeg" alt="Meet day"
+            class="w-full h-[250px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent"></div>
         </button>
 
-        <div class="rounded-3xl overflow-hidden bg-black shadow-2xl border border-white/10">
-          <img id="lightboxImg" class="hidden w-full max-h-[80vh] object-contain" alt="" />
-          <video id="lightboxVideo" class="hidden w-full max-h-[80vh]" controls playsinline></video>
-        </div>
-
-        <p id="lightboxCaption" class="text-white/80 text-sm mt-3 text-center"></p>
-
-        <button id="lightboxPrev"
-          class="absolute left-0 top-1/2 -translate-y-1/2 px-3 py-2 rounded-xl bg-black/40 text-white hover:bg-black/60">
-          ‹
+        <button type="button"
+          class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
+          data-src="IMG_2188.jpeg" data-caption="Work together. Win together.">
+          <img src="IMG_2188.jpeg" alt="Gallery photo"
+            class="w-full h-[250px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent"></div>
         </button>
-        <button id="lightboxNext"
-          class="absolute right-0 top-1/2 -translate-y-1/2 px-3 py-2 rounded-xl bg-black/40 text-white hover:bg-black/60">
-          ›
+
+        <button type="button"
+          class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group col-span-2"
+          data-src="IMG_2204.jpeg" data-caption="Every rep counts.">
+          <img src="IMG_2204.jpeg" alt="Wide collage photo"
+            class="w-full h-[220px] md:h-[240px] object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent"></div>
         </button>
+      </div>
+    </div>
+
+    <!-- Filmstrip -->
+    <div class="mt-6 overflow-x-auto">
+      <div class="flex gap-4 min-w-max pb-2">
+
+        <button type="button"
+          class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+          data-src="IMG_0005.jpeg" data-caption="Warmups & focus">
+          <img src="IMG_0005.jpeg" alt="Warmups & focus"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
+        </button>
+
+        <button type="button"
+          class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+          data-src="IMG_0006.jpeg" data-caption="Sprint squad">
+          <img src="IMG_0006.jpeg" alt="Sprint squad"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
+        </button>
+
+        <button type="button"
+          class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+          data-src="IMG_2188.jpeg" data-caption="Relay exchange moment">
+          <img src="IMG_2188.jpeg" alt="Relay exchange"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
+        </button>
+
+        <button type="button"
+          class="media-item relative shrink-0 w-56 h-36 overflow-hidden rounded-2xl bg-white/5 border border-white/10 group"
+          data-src="IMG_1735.jpeg" data-caption="Finish strong">
+          <img src="IMG_1735.jpeg" alt="Finish strong"
+            class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent"></div>
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section id="sponsors" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-3xl font-bold text-center mb-12">Sponsorship Opportunities</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="border-2 border-yellow-400 p-6 rounded-xl">
+        <h4 class="text-xl font-bold text-yellow-500 mb-4">Gold Sponsor</h4>
+        <ul class="list-disc list-inside">
+          <li>Logo on team t-shirts</li>
+          <li>Website & social media recognition</li>
+          <li>Event banners</li>
+        </ul>
+      </div>
+      <div class="border-2 border-gray-400 p-6 rounded-xl">
+        <h4 class="text-xl font-bold mb-4">Silver Sponsor</h4>
+        <ul class="list-disc list-inside">
+          <li>Website recognition</li>
+          <li>Social media shoutouts</li>
+        </ul>
+      </div>
+      <div class="border-2 border-orange-400 p-6 rounded-xl">
+        <h4 class="text-xl font-bold mb-4">Bronze Sponsor</h4>
+        <ul class="list-disc list-inside">
+          <li>Name listed on website</li>
+        </ul>
       </div>
     </div>
   </div>
+</section>
 
-  <script>
-    // reveal on scroll (must run after HTML exists)
-    (function () {
-      const els = document.querySelectorAll(".reveal");
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) e.target.classList.add("show");
-        });
-      }, { threshold: 0.15 });
+<!-- REGISTER -->
+<section id="register" class="bg-primary text-white py-20">
+  <div class="max-w-5xl mx-auto text-center px-6">
+    <h3 class="text-3xl font-bold mb-6">Athlete Registration</h3>
+    <p class="mb-6">
+      All athletes must register with Sun City Sprinters and obtain a valid
+      <strong>USATF Youth Membership</strong> through usatf.org.
+    </p>
+    <p class="font-semibold">Questions? Call (915) 831-0221</p>
+  </div>
+</section>
 
-      els.forEach(el => io.observe(el));
-    })();
-  </script>
+<!-- DONATE -->
+<section id="donate" class="py-20 bg-gray-900 text-white text-center">
+  <h3 class="text-4xl font-extrabold mb-6">Your Support Makes an Impact</h3>
+  <p class="max-w-3xl mx-auto mb-6">
+    Donations help cover meet fees, travel, equipment, and training resources for our athletes.
+  </p>
+  <p class="font-semibold">Cash App & Apple Pay accepted</p>
+</section>
 
-  <script>
-    // lightbox
-    (function () {
-      const items = Array.from(document.querySelectorAll(".media-item"));
-      const lightbox = document.getElementById("lightbox");
-      const backdrop = document.getElementById("lightboxBackdrop");
-      const closeBtn = document.getElementById("lightboxClose");
-      const prevBtn = document.getElementById("lightboxPrev");
-      const nextBtn = document.getElementById("lightboxNext");
-      const caption = document.getElementById("lightboxCaption");
+<!-- CONTACT -->
+<footer class="bg-black text-gray-300 py-10 text-center">
+  <p class="font-bold text-lg">Sun City Sprinters</p>
+  <p>El Paso, Texas</p>
+  <p>Email: <a href="mailto:myssymiss@yahoo.com" class="text-primary">myssymiss@yahoo.com</a></p>
+  <p>Phone: (915) 831-0221</p>
+  <p class="text-sm mt-4">&copy; 2025 Sun City Sprinters</p>
+</footer>
 
-      const img = document.getElementById("lightboxImg");
-      const video = document.getElementById("lightboxVideo");
+<!-- LIGHTBOX (IMAGES ONLY) -->
+<div id="lightbox" class="fixed inset-0 z-[999] hidden">
+  <div id="lightboxBackdrop" class="absolute inset-0 bg-black/85"></div>
 
-      let currentIndex = 0;
+  <div class="relative h-full w-full flex items-center justify-center p-4">
+    <div class="relative max-w-6xl w-full">
+      <button id="lightboxClose"
+        class="absolute -top-12 right-0 md:-top-14 text-white/90 hover:text-white text-3xl font-bold">
+        ✕
+      </button>
 
-      function showMedia(index) {
-        if (!items.length) return;
+      <div class="rounded-3xl overflow-hidden bg-black shadow-2xl border border-white/10">
+        <img id="lightboxImg" class="w-full max-h-[80vh] object-contain" alt="" />
+      </div>
 
-        currentIndex = index;
-        const el = items[currentIndex];
+      <p id="lightboxCaption" class="text-white/80 text-sm mt-3 text-center"></p>
 
-        const type = el.getAttribute("data-type") || "image";
-        const src = el.getAttribute("data-src") || "";
-        const cap = el.getAttribute("data-caption") || el.querySelector("img")?.alt || "";
+      <button id="lightboxPrev"
+        class="absolute left-0 top-1/2 -translate-y-1/2 px-3 py-2 rounded-xl bg-black/40 text-white hover:bg-black/60">
+        ‹
+      </button>
+      <button id="lightboxNext"
+        class="absolute right-0 top-1/2 -translate-y-1/2 px-3 py-2 rounded-xl bg-black/40 text-white hover:bg-black/60">
+        ›
+      </button>
+    </div>
+  </div>
+</div>
 
-        caption.textContent = cap;
-
-        img.classList.add("hidden");
-        video.classList.add("hidden");
-        img.src = "";
-        video.pause();
-        video.removeAttribute("src");
-        video.load();
-
-        if (type === "video") {
-          video.classList.remove("hidden");
-          video.src = src;
-          video.load();
-        } else {
-          img.classList.remove("hidden");
-          img.src = src;
-          img.alt = cap;
-        }
-
-        lightbox.classList.remove("hidden");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeLightbox() {
-        lightbox.classList.add("hidden");
-        img.src = "";
-        video.pause();
-        video.removeAttribute("src");
-        video.load();
-        document.body.style.overflow = "";
-      }
-
-      function next() { showMedia((currentIndex + 1) % items.length); }
-      function prev() { showMedia((currentIndex - 1 + items.length) % items.length); }
-
-      items.forEach((el, i) => el.addEventListener("click", () => showMedia(i)));
-
-      closeBtn.addEventListener("click", closeLightbox);
-      backdrop.addEventListener("click", closeLightbox);
-
-      nextBtn.addEventListener("click", (e) => { e.stopPropagation(); next(); });
-      prevBtn.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
-
-      document.addEventListener("keydown", (e) => {
-        if (lightbox.classList.contains("hidden")) return;
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowRight") next();
-        if (e.key === "ArrowLeft") prev();
+<script>
+  // reveal on scroll (after HTML exists)
+  (function () {
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add("show");
       });
-    })();
-  </script>
+    }, { threshold: 0.15 });
+
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
+<script>
+  // lightbox (images only)
+  (function () {
+    const items = Array.from(document.querySelectorAll(".media-item"));
+    const lightbox = document.getElementById("lightbox");
+    const backdrop = document.getElementById("lightboxBackdrop");
+    const closeBtn = document.getElementById("lightboxClose");
+    const prevBtn = document.getElementById("lightboxPrev");
+    const nextBtn = document.getElementById("lightboxNext");
+    const caption = document.getElementById("lightboxCaption");
+    const img = document.getElementById("lightboxImg");
+
+    let currentIndex = 0;
+
+    function showMedia(index) {
+      currentIndex = index;
+      const el = items[currentIndex];
+
+      const src = el.getAttribute("data-src") || "";
+      const cap = el.getAttribute("data-caption") || el.querySelector("img")?.alt || "";
+
+      caption.textContent = cap;
+      img.src = src;
+      img.alt = cap;
+
+      lightbox.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add("hidden");
+      img.src = "";
+      document.body.style.overflow = "";
+    }
+
+    function next() { showMedia((currentIndex + 1) % items.length); }
+    function prev() { showMedia((currentIndex - 1 + items.length) % items.length); }
+
+    items.forEach((el, i) => el.addEventListener("click", () => showMedia(i)));
+
+    closeBtn.addEventListener("click", closeLightbox);
+    backdrop.addEventListener("click", closeLightbox);
+
+    nextBtn.addEventListener("click", (e) => { e.stopPropagation(); next(); });
+    prevBtn.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
+
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.classList.contains("hidden")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    });
+  })();
+</script>
 
 </body>
 </html>
