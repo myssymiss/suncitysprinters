@@ -20,7 +20,7 @@
   </script>
 
   <style>
-    /* simple reveal animation */
+    /* reveal animation */
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.show { opacity: 1; transform: translateY(0); }
 
@@ -39,21 +39,23 @@
     }
     .reveal.show .underline-anim::after{ transform: scaleX(1); }
 
-    /* header mission panel slide */
-    .mission-panel {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .35s ease;
+    /* subtle marquee track lines */
+    @keyframes laneMove {
+      0% { transform: translateX(-10%); }
+      100% { transform: translateX(10%); }
     }
-    .mission-panel.open {
-      max-height: 420px; /* enough for content */
+    .lane-lines {
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.08) 0, rgba(255,255,255,.08) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.08) 50%, rgba(255,255,255,.08) 75%, transparent 75%, transparent 100%);
+      background-size: 120px 100%;
+      animation: laneMove 6s ease-in-out infinite alternate;
     }
   </style>
 </head>
 
 <body class="bg-white text-gray-800">
 
-  <!-- NAV + HEADER MISSION PANEL -->
+  <!-- NAV (no Mission button) -->
   <header class="bg-primary text-white sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
@@ -74,24 +76,12 @@
 
       <!-- Right: Links + CTA Button -->
       <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold">
-        <!-- Mission toggle (button, not anchor) -->
-        <button
-          type="button"
-          id="missionToggle"
-          class="hover:underline"
-          aria-expanded="false"
-          aria-controls="missionPanel"
-        >
-          Mission
-        </button>
-
         <a href="#team" class="hover:underline">Team</a>
         <a href="#gallery" class="hover:underline">Gallery</a>
         <a href="#sponsors" class="hover:underline">Sponsors</a>
         <a href="#register" class="hover:underline">Register</a>
         <a href="#donate" class="hover:underline">Donate</a>
 
-        <!-- Join button in header -->
         <a
           href="#register"
           class="ml-0 md:ml-2 inline-flex items-center justify-center bg-yellow-400 text-black px-5 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition"
@@ -100,38 +90,120 @@
         </a>
       </nav>
     </div>
+  </header>
 
-    <!-- Mission Panel (slides open) -->
-    <div id="missionPanel" class="mission-panel border-t border-white/15 bg-primary/95 backdrop-blur">
-      <div class="max-w-7xl mx-auto px-6 py-6">
-        <div class="reveal rounded-2xl bg-black/25 border border-white/15 p-5 md:p-6">
-          <p class="uppercase tracking-[0.25em] text-xs font-extrabold text-white/70">
-            Purpose • Community • Growth
-          </p>
+  <!-- MISSION (fixed: under header, above hero image) -->
+  <section id="mission" class="bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-10 md:py-12">
 
-          <h2 class="underline-anim text-2xl md:text-3xl font-extrabold text-white mt-2">
-            Our Mission
-          </h2>
+      <div class="reveal text-center mb-8">
+        <p class="uppercase tracking-[0.25em] text-xs font-extrabold text-gray-400">
+          Purpose • Community • Growth
+        </p>
 
-          <p class="text-white/95 text-base md:text-lg leading-relaxed mt-3">
-            To provide comprehensive track and field programs that develop athletes of all skill levels,
-            promoting excellence, character, and a lifelong love for the sport while serving as a positive
-            force in the El Paso community through outreach and mentorship.
-          </p>
+        <h2 class="underline-anim text-4xl md:text-5xl font-extrabold text-primary mt-3">
+          Our Mission
+        </h2>
 
-          <div class="mt-5 flex flex-wrap gap-2">
-            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold">Discipline</span>
-            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold">Confidence</span>
-            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold">Teamwork</span>
-            <span class="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold">Community</span>
+        <p class="text-gray-600 mt-4 max-w-3xl mx-auto">
+          Why we do what we do—on the track and in our city.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-6 items-stretch">
+        <!-- Mission card -->
+        <div class="reveal lg:col-span-2 relative overflow-hidden rounded-3xl border border-gray-200 shadow-sm p-7 md:p-9">
+          <div class="absolute inset-0 pointer-events-none opacity-70">
+            <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-yellow-400/25 to-transparent"></div>
+            <div class="absolute inset-0 lane-lines"></div>
           </div>
+
+          <div class="relative">
+            <p class="text-lg md:text-xl leading-relaxed text-gray-800">
+              To provide comprehensive track and field programs that develop athletes of all skill levels,
+              promoting excellence, character, and a lifelong love for the sport—while serving as a positive
+              force in the El Paso community through outreach and mentorship.
+            </p>
+
+            <!-- Cooler “values” row (not floating chips) -->
+            <div class="mt-7 grid sm:grid-cols-2 gap-4">
+              <div class="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-4">
+                <div class="h-10 w-10 rounded-xl bg-yellow-400/25 border border-yellow-400/40 flex items-center justify-center font-extrabold text-yellow-700">
+                  D
+                </div>
+                <div>
+                  <p class="font-extrabold text-gray-900 leading-tight">Discipline</p>
+                  <p class="text-sm text-gray-600">Show up. Lock in. Improve.</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-4">
+                <div class="h-10 w-10 rounded-xl bg-pink-500/15 border border-pink-500/30 flex items-center justify-center font-extrabold text-primary">
+                  C
+                </div>
+                <div>
+                  <p class="font-extrabold text-gray-900 leading-tight">Confidence</p>
+                  <p class="text-sm text-gray-600">Believe, compete, grow.</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-4">
+                <div class="h-10 w-10 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center font-extrabold text-gray-800">
+                  T
+                </div>
+                <div>
+                  <p class="font-extrabold text-gray-900 leading-tight">Teamwork</p>
+                  <p class="text-sm text-gray-600">Together we run faster.</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white/70 backdrop-blur p-4">
+                <div class="h-10 w-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center font-extrabold text-green-700">
+                  ✦
+                </div>
+                <div>
+                  <p class="font-extrabold text-gray-900 leading-tight">Community</p>
+                  <p class="text-sm text-gray-600">Give back. Lift up.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side highlight card -->
+        <div class="reveal rounded-3xl bg-lightpink p-7 md:p-8 border border-pink-200 shadow-sm">
+          <h3 class="text-xl font-extrabold text-gray-900">What we focus on</h3>
+
+          <ul class="mt-4 space-y-3 text-gray-700">
+            <li class="flex gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+              Skill development for every level
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+              Positive coaching &amp; mentorship
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+              Strong character on and off track
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+              Removing barriers for families
+            </li>
+          </ul>
+
+          <a href="#donate"
+             class="inline-block mt-6 w-full text-center bg-black text-white font-extrabold py-3 rounded-2xl hover:opacity-90 transition">
+            Support the Mission
+          </a>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- HERO WITH PHOTO BACKGROUND (clean) -->
-  <section class="relative h-[92vh] flex items-center justify-center text-center text-white">
+  <!-- HERO IMAGE (remove extra wording; replace with quote) -->
+  <section class="relative h-[78vh] md:h-[82vh] flex items-center justify-center text-center text-white">
     <img
       src="IMG_2212.jpeg"
       alt="Sun City Sprinters on the track"
@@ -139,28 +211,38 @@
     >
     <div class="absolute inset-0 bg-black/60"></div>
 
-    <!-- (No headline — clean hero) -->
-    <div class="relative z-10 px-6 max-w-5xl">
-      <p class="text-lg md:text-2xl text-white/95">
-        Developing confident, disciplined, and driven track &amp; field athletes in El Paso, TX.
+    <div class="relative z-10 px-6 max-w-4xl">
+      <p class="uppercase tracking-[0.25em] text-xs md:text-sm font-extrabold text-white/75">
+        Sun City Sprinters • El Paso, TX
+      </p>
+
+      <h2 class="mt-4 text-4xl md:text-6xl font-extrabold leading-tight">
+        “Run your race—then raise the standard.”
+      </h2>
+
+      <p class="mt-5 text-lg md:text-2xl text-white/90">
+        Every stride builds confidence, character, and community.
       </p>
     </div>
   </section>
 
-  <!-- VISION SECTION WITH FEATURE PHOTO -->
+  <!-- VISION SECTION WITH FEATURE PHOTO (image quote changed) -->
   <section class="bg-gray-50 py-24">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
 
       <!-- TEXT SIDE -->
       <div class="reveal">
         <h3 class="text-4xl font-extrabold text-primary mb-4">Our Vision</h3>
+
         <p class="text-yellow-500 font-bold uppercase tracking-wide mb-4">
           Fueling dreams, one stride at a time
         </p>
+
         <p class="text-lg leading-relaxed mb-6">
           We envision a future where young athletes in El Paso have access to structured, supportive, and inspiring
           track and field opportunities that promote physical fitness, confidence, discipline, and teamwork.
         </p>
+
         <p class="text-lg leading-relaxed">
           Through community support, mentorship, and intentional development, Sun City Sprinters exists to remove barriers,
           uplift potential, and help athletes grow into strong competitors and responsible leaders on and off the track.
@@ -174,9 +256,14 @@
           alt="Sun City Sprinters team unity"
           class="w-full h-[420px] object-cover"
         >
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+        <!-- Track quote instead of old wording -->
         <div class="absolute bottom-6 left-6 right-6 text-white">
-          <h4 class="text-2xl font-extrabold">Building Confidence. Creating Opportunity.</h4>
+          <p class="text-sm uppercase tracking-[0.25em] text-white/75">Team Quote</p>
+          <h4 class="text-2xl md:text-3xl font-extrabold leading-tight">
+            “Small steps every day become big results.”
+          </h4>
         </div>
       </div>
 
@@ -477,49 +564,6 @@
   </script>
 
   <script>
-    // header mission toggle
-    (function () {
-      const toggle = document.getElementById("missionToggle");
-      const panel = document.getElementById("missionPanel");
-      const missionCard = panel?.querySelector(".reveal");
-
-      if (!toggle || !panel) return;
-
-      function openPanel() {
-        panel.classList.add("open");
-        toggle.setAttribute("aria-expanded", "true");
-        if (missionCard) missionCard.classList.add("show");
-      }
-
-      function closePanel() {
-        panel.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
-
-      function isOpen() {
-        return panel.classList.contains("open");
-      }
-
-      toggle.addEventListener("click", () => {
-        if (isOpen()) closePanel();
-        else openPanel();
-      });
-
-      // close when clicking outside header
-      document.addEventListener("click", (e) => {
-        const header = toggle.closest("header");
-        if (!header) return;
-        if (!header.contains(e.target)) closePanel();
-      });
-
-      // close on Escape
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closePanel();
-      });
-    })();
-  </script>
-
-  <script>
     // lightbox
     (function () {
       const items = Array.from(document.querySelectorAll(".media-item"));
@@ -599,8 +643,3 @@
 
 </body>
 </html>
-
-
-
-      
-        
