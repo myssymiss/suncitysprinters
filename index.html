@@ -39,19 +39,7 @@
 </style>
 </head>
 
-<script>
-  // reveal on scroll
-  (function () {
-    const els = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add("show");
-      });
-    }, { threshold: 0.15 });
 
-    els.forEach(el => io.observe(el));
-  })();
-</script>
 <body class="bg-white text-gray-800">
 
 <!-- NAV -->
@@ -669,6 +657,21 @@
       if (e.key === "ArrowLeft") prev();
     });
   })();
+</script>
+<script>
+  // reveal on scroll (runs after page loads)
+  window.addEventListener("DOMContentLoaded", () => {
+    const els = document.querySelectorAll(".reveal");
+    if (!els.length) return;
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add("show");
+      });
+    }, { threshold: 0.15 });
+
+    els.forEach(el => io.observe(el));
+  });
 </script>
 
 </body>
