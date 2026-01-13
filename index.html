@@ -17,8 +17,41 @@
       }
     }
   </script>
+<style>
+  /* simple reveal animation */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.show { opacity: 1; transform: translateY(0); }
+
+  /* animated underline */
+  .underline-anim::after{
+    content:"";
+    display:block;
+    height:6px;
+    width:84px;
+    margin:14px auto 0;
+    border-radius:999px;
+    background: linear-gradient(90deg, #fbbf24, #ec4899);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .8s ease;
+  }
+  .reveal.show .underline-anim::after{ transform: scaleX(1); }
+</style>
 </head>
 
+<script>
+  // reveal on scroll
+  (function () {
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add("show");
+      });
+    }, { threshold: 0.15 });
+
+    els.forEach(el => io.observe(el));
+  })();
+</script>
 <body class="bg-white text-gray-800">
 
 <!-- NAV -->
@@ -81,18 +114,73 @@
   </div>
 </section>
 
-<!-- MISSION STATEMENT (MOVED OUTSIDE HERO) -->
+<!-- MISSION STATEMENT (UPGRADED) -->
 <section id="mission" class="bg-white py-20">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <h3 class="text-3xl md:text-4xl font-extrabold text-primary mb-6">
-      Our Mission
-    </h3>
+  <div class="max-w-6xl mx-auto px-6">
 
-    <p class="text-lg md:text-xl leading-relaxed text-gray-700">
-      To provide comprehensive track and field programs that develop athletes of all skill levels,
-      promoting excellence, character, and a lifelong love for the sport—while serving as a positive
-      force in the El Paso community through outreach and mentorship.
-    </p>
+    <div class="reveal text-center mb-10">
+      <p class="uppercase tracking-[0.25em] text-xs font-extrabold text-gray-400">
+        Purpose • Community • Growth
+      </p>
+
+      <h3 class="underline-anim text-4xl md:text-5xl font-extrabold text-primary mt-3">
+        Our Mission
+      </h3>
+
+      <p class="text-gray-600 mt-4 max-w-3xl mx-auto">
+        Why we do what we do—on the track and in our city.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 items-stretch">
+      <!-- Main mission card -->
+      <div class="reveal md:col-span-2 rounded-3xl border border-gray-200 shadow-sm p-7 md:p-9 relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-yellow-400 to-primary"></div>
+
+        <p class="text-lg md:text-xl leading-relaxed text-gray-700 pl-4">
+          To provide comprehensive track and field programs that develop athletes of all skill levels,
+          promoting excellence, character, and a lifelong love for the sport—while serving as a positive
+          force in the El Paso community through outreach and mentorship.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3 pl-4">
+          <span class="px-4 py-2 rounded-full bg-gray-50 border text-sm font-semibold">Discipline</span>
+          <span class="px-4 py-2 rounded-full bg-gray-50 border text-sm font-semibold">Confidence</span>
+          <span class="px-4 py-2 rounded-full bg-gray-50 border text-sm font-semibold">Teamwork</span>
+          <span class="px-4 py-2 rounded-full bg-gray-50 border text-sm font-semibold">Community</span>
+        </div>
+      </div>
+
+      <!-- Side highlight card -->
+      <div class="reveal rounded-3xl bg-lightpink p-7 md:p-8 border border-pink-200 shadow-sm">
+        <h4 class="text-xl font-extrabold text-gray-900">What we focus on</h4>
+
+        <ul class="mt-4 space-y-3 text-gray-700">
+          <li class="flex gap-3">
+            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+            Skill development for every level
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+            Positive coaching & mentorship
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+            Strong character on and off track
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-400"></span>
+            Removing barriers for families
+          </li>
+        </ul>
+
+        <a href="#donate"
+           class="inline-block mt-6 w-full text-center bg-black text-white font-extrabold py-3 rounded-2xl hover:opacity-90 transition">
+          Support the Mission
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
