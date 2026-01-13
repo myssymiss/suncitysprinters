@@ -42,7 +42,7 @@
 
     <!-- Right: Links -->
     <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
-      <a href="#mission" class="hover:underline">Mission</a>
+      <a href="#top" class="hover:underline">Mission</a>
       <a href="#team" class="hover:underline">Team</a>
       <a href="#gallery" class="hover:underline">Gallery</a>
       <a href="#sponsors" class="hover:underline">Sponsors</a>
@@ -54,8 +54,8 @@
 </header>
 
 
-<!-- HERO WITH PHOTO BACKGROUND -->
-<section class="relative h-[85vh] flex items-center justify-center text-center text-white">
+<!-- HERO WITH PHOTO BACKGROUND + MISSION (MERGED) -->
+<section class="relative h-[92vh] flex items-center justify-center text-center text-white">
   
   <!-- Background Image -->
   <img 
@@ -65,36 +65,42 @@
   >
 
   <!-- Dark overlay -->
-  <div class="absolute inset-0 bg-black/55"></div>
+  <div class="absolute inset-0 bg-black/60"></div>
 
   <!-- Content -->
-  <div class="relative z-10 px-6 max-w-4xl">
+  <div class="relative z-10 px-6 max-w-5xl">
     <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
       Built for Speed.<br class="hidden md:block"> Powered by Purpose.
     </h2>
-    <p class="text-xl md:text-2xl mb-8">
-      Developing confident, disciplined, and driven track & field athletes in El Paso, TX.
+
+    <p class="text-lg md:text-2xl mb-6 text-white/95">
+      Developing confident, disciplined, and driven track &amp; field athletes in El Paso, TX.
     </p>
-    <a 
-      href="#register" 
-      class="inline-block bg-yellow-400 text-black px-10 py-4 rounded-xl font-extrabold shadow-lg hover:scale-105 transition"
-    >
-      Join the Sprinters
-    </a>
+
+    <!-- Mission merged into hero -->
+    <div class="mx-auto max-w-4xl bg-black/25 backdrop-blur-sm rounded-2xl p-5 md:p-6 border border-white/15">
+      <p class="text-base md:text-lg leading-relaxed text-white/95">
+        <span class="font-extrabold text-yellow-300">Our Mission:</span>
+        To provide comprehensive track and field programs that develop athletes of all skill levels,
+        promoting excellence, character, and lifelong love for the sport—while serving as a positive force
+        in the El Paso community through outreach and mentorship.
+      </p>
+    </div>
+
+    <div class="mt-8">
+      <a 
+        href="#register" 
+        class="inline-block bg-yellow-400 text-black px-10 py-4 rounded-xl font-extrabold shadow-lg hover:scale-105 transition"
+      >
+        Join the Sprinters
+      </a>
+    </div>
   </div>
 
 </section>
 
 
-<!-- MISSION -->
-<section id="mission" class="py-20 bg-white">
-  <div class="max-w-5xl mx-auto text-center px-6">
-    <h3 class="text-3xl font-bold text-primary mb-6">Our Mission</h3>
-    <p class="text-xl leading-relaxed">
-      To provide comprehensive track and field programs that develop athletes of all skill levels, promoting excellence, character, and lifelong love for the sport, while serving as a positive force in the El paso community through outreach and mentorship.
-    </p>
-  </div>
-</section>
+
 
 <!-- VISION SECTION WITH FEATURE PHOTO -->
 <section class="bg-gray-50 py-24">
