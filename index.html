@@ -35,14 +35,14 @@
       <div>
         <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">Sun City Sprinters</h1>
         <p class="text-sm md:text-base text-white/90 font-semibold">
-         USATF Youth Track & Field • El Paso, Texas • 
+          USATF Youth Track & Field • El Paso, Texas •
         </p>
       </div>
     </div>
 
     <!-- Right: Links -->
     <nav class="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
-      <a href="#top" class="hover:underline">Mission</a>
+      <a href="#mission" class="hover:underline">Mission</a>
       <a href="#team" class="hover:underline">Team</a>
       <a href="#gallery" class="hover:underline">Gallery</a>
       <a href="#sponsors" class="hover:underline">Sponsors</a>
@@ -53,50 +53,47 @@
   </div>
 </header>
 
-
-<!-- HERO WITH PHOTO BACKGROUND + MISSION (MERGED) -->
+<!-- HERO WITH PHOTO BACKGROUND (NO MISSION INSIDE) -->
 <section class="relative h-[92vh] flex items-center justify-center text-center text-white">
-  
-  <!-- Background Image -->
   <img 
     src="IMG_2212.jpeg" 
     alt="Sun City Sprinters on the track"
     class="absolute inset-0 w-full h-full object-cover"
   >
 
-  <!-- Dark overlay -->
   <div class="absolute inset-0 bg-black/60"></div>
 
-  <!-- Content -->
   <div class="relative z-10 px-6 max-w-5xl">
     <h2 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
       Built for Speed.<br class="hidden md:block"> Powered by Purpose.
     </h2>
 
-    <p class="text-lg md:text-2xl mb-6 text-white/95">
+    <p class="text-lg md:text-2xl mb-8 text-white/95">
       Developing confident, disciplined, and driven track &amp; field athletes in El Paso, TX.
     </p>
 
-    <!-- Mission merged into hero -->
-    <div class="mx-auto max-w-4xl bg-black/25 backdrop-blur-sm rounded-2xl p-5 md:p-6 border border-white/15">
-      <p class="text-base md:text-lg leading-relaxed text-white/95">
-        <span class="font-extrabold text-yellow-300">Our Mission:</span>
-        To provide comprehensive track and field programs that develop athletes of all skill levels,
-        promoting excellence, character, and lifelong love for the sport—while serving as a positive force
-        in the El Paso community through outreach and mentorship.
-      </p>
-    </div>
-
-    <div class="mt-8">
-      <a 
-        href="#register" 
-        class="inline-block bg-yellow-400 text-black px-10 py-4 rounded-xl font-extrabold shadow-lg hover:scale-105 transition"
-      >
-        Join the Sprinters
-      </a>
-    </div>
+    <a 
+      href="#register" 
+      class="inline-block bg-yellow-400 text-black px-10 py-4 rounded-xl font-extrabold shadow-lg hover:scale-105 transition"
+    >
+      Join the Sprinters
+    </a>
   </div>
+</section>
 
+<!-- MISSION STATEMENT (MOVED OUTSIDE HERO) -->
+<section id="mission" class="bg-white py-20">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h3 class="text-3xl md:text-4xl font-extrabold text-primary mb-6">
+      Our Mission
+    </h3>
+
+    <p class="text-lg md:text-xl leading-relaxed text-gray-700">
+      To provide comprehensive track and field programs that develop athletes of all skill levels,
+      promoting excellence, character, and a lifelong love for the sport—while serving as a positive
+      force in the El Paso community through outreach and mentorship.
+    </p>
+  </div>
 </section>
 
 
