@@ -90,6 +90,41 @@
 
     /* DETAILS dropdown polish */
     summary::-webkit-details-marker { display: none; }
+
+    /* GLITTER (subtle) */
+    .glitter {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .glitter::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(255,255,255,.55) 0 2px, transparent 3px),
+        radial-gradient(circle at 70% 40%, rgba(255,255,255,.35) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 40% 70%, rgba(255,255,255,.45) 0 2px, transparent 3px),
+        radial-gradient(circle at 85% 80%, rgba(255,255,255,.25) 0 1.5px, transparent 3px);
+      opacity:.35;
+      filter: blur(.2px);
+      animation: glitterMove 7s linear infinite;
+      mix-blend-mode: screen;
+      z-index:0;
+    }
+    @keyframes glitterMove {
+      0% { transform: translate3d(-2%, -2%, 0) rotate(0deg); }
+      100% { transform: translate3d(2%, 2%, 0) rotate(12deg); }
+    }
+
+    /* Countdown “track” border */
+    .track-border{
+      border: 2px solid rgba(251,191,36,.8);
+      box-shadow: 0 12px 40px rgba(236,72,153,.22);
+      background:
+        linear-gradient(135deg, rgba(236,72,153,.20), rgba(251,191,36,.12)),
+        rgba(255,255,255,.08);
+    }
   </style>
 </head>
 
@@ -117,6 +152,8 @@
       <!-- Right: Links + CTA -->
       <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold">
         <a href="#team" class="hover:underline">Team</a>
+        <a href="#countdown" class="hover:underline">Countdown</a>
+        <a href="#calendar" class="hover:underline">Calendar</a>
         <a href="#gallery" class="hover:underline">Gallery</a>
         <a href="#sponsors" class="hover:underline">Sponsors</a>
         <a href="#register" class="hover:underline">Register</a>
@@ -141,7 +178,6 @@
       class="absolute inset-0 w-full h-full object-cover"
     />
     <div class="absolute inset-0 bg-black/60"></div>
-
     <div class="absolute inset-0 lane-lines opacity-40 mix-blend-overlay"></div>
 
     <div class="relative z-10 px-6 max-w-5xl reveal">
@@ -158,6 +194,175 @@
       </p>
 
       <div class="mt-8 max-w-sm mx-auto shimmer-line"></div>
+    </div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section id="countdown" class="bg-black py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="reveal text-center mb-10">
+        <p class="uppercase tracking-[0.25em] text-xs font-extrabold text-white/60">
+          Season Kickoff
+        </p>
+        <h3 class="font-heading text-6xl md:text-7xl tracking-wide text-gold">
+          Countdown to First Practice
+        </h3>
+        <p class="text-white/75 mt-3">
+          First practice of the season: <span class="text-white font-extrabold">April 13, 2026</span>
+        </p>
+      </div>
+
+      <div class="reveal glitter track-border rounded-3xl p-6 md:p-10">
+        <div class="relative z-10 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <p class="text-white/80 font-semibold">
+              Get ready to sprint into the season 🏃‍♀️💖
+            </p>
+
+            <div class="mt-5 grid grid-cols-4 gap-3 text-center">
+              <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+                <div id="cdDays" class="text-4xl md:text-5xl font-extrabold text-white">--</div>
+                <div class="text-xs uppercase tracking-widest text-white/70 mt-1">Days</div>
+              </div>
+              <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+                <div id="cdHours" class="text-4xl md:text-5xl font-extrabold text-white">--</div>
+                <div class="text-xs uppercase tracking-widest text-white/70 mt-1">Hours</div>
+              </div>
+              <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+                <div id="cdMins" class="text-4xl md:text-5xl font-extrabold text-white">--</div>
+                <div class="text-xs uppercase tracking-widest text-white/70 mt-1">Mins</div>
+              </div>
+              <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+                <div id="cdSecs" class="text-4xl md:text-5xl font-extrabold text-white">--</div>
+                <div class="text-xs uppercase tracking-widest text-white/70 mt-1">Secs</div>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-white font-extrabold text-sm border border-white/10">
+                🥇 goals
+              </span>
+              <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white font-extrabold text-sm border border-white/10">
+                👟 speed
+              </span>
+              <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold text-black font-extrabold text-sm border border-black/10">
+                🏁 discipline
+              </span>
+              <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white font-extrabold text-sm border border-white/10">
+                ✨ confidence
+              </span>
+            </div>
+          </div>
+
+          <div class="rounded-3xl bg-gradient-to-br from-primary/35 to-gold/20 border border-white/10 p-6 md:p-8">
+            <p class="text-white font-extrabold text-xl md:text-2xl">
+              Track vibes only
+            </p>
+            <p class="text-white/80 mt-3 leading-relaxed">
+              Bring your water, spikes (if you have them), and a great attitude. We build speed,
+              technique, and confidence the right way — one rep at a time.
+            </p>
+
+            <!-- Add to Google Calendar (pre-filled) -->
+            <a
+              id="addToGoogleCal"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center mt-6 w-full bg-gold text-black font-extrabold py-3 rounded-2xl hover:opacity-95 transition"
+              href="#"
+            >
+              Add First Practice to Google Calendar
+            </a>
+
+            <p class="text-xs text-white/60 mt-3 text-center">
+              (Opens in a new tab)
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section id="calendar" class="bg-white py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="reveal text-center mb-10">
+        <p class="uppercase tracking-[0.25em] text-xs font-extrabold text-gray-400">
+          Dates • Meets • Practice
+        </p>
+        <h3 class="underline-anim font-heading text-5xl md:text-6xl text-primary mt-3 tracking-wide">
+          Team Calendar
+        </h3>
+        <p class="text-gray-600 mt-4 max-w-3xl mx-auto">
+          A simple month view for planning. First practice is highlighted.
+        </p>
+      </div>
+
+      <div class="reveal grid lg:grid-cols-3 gap-8 items-start">
+        <!-- Calendar Box -->
+        <div class="lg:col-span-2 rounded-3xl border border-gray-200 shadow-sm p-6 md:p-8">
+          <div class="flex items-center justify-between gap-4">
+            <button id="calPrev"
+              class="px-4 py-2 rounded-xl border border-gray-200 font-extrabold hover:bg-gray-50 transition"
+              type="button"
+              aria-label="Previous month">
+              ‹
+            </button>
+
+            <div class="text-center">
+              <p id="calMonthTitle" class="font-heading text-4xl text-gray-900 tracking-wide"></p>
+              <p class="text-sm text-gray-500 font-semibold">Tap months to browse</p>
+            </div>
+
+            <button id="calNext"
+              class="px-4 py-2 rounded-xl border border-gray-200 font-extrabold hover:bg-gray-50 transition"
+              type="button"
+              aria-label="Next month">
+              ›
+            </button>
+          </div>
+
+          <div class="mt-6 grid grid-cols-7 text-xs font-extrabold text-gray-500 uppercase tracking-widest">
+            <div class="py-2 text-center">Sun</div>
+            <div class="py-2 text-center">Mon</div>
+            <div class="py-2 text-center">Tue</div>
+            <div class="py-2 text-center">Wed</div>
+            <div class="py-2 text-center">Thu</div>
+            <div class="py-2 text-center">Fri</div>
+            <div class="py-2 text-center">Sat</div>
+          </div>
+
+          <div id="calGrid" class="mt-2 grid grid-cols-7 gap-2"></div>
+        </div>
+
+        <!-- Legend / Notes -->
+        <div class="rounded-3xl bg-lightpink p-6 md:p-8 border border-pink-200 shadow-sm">
+          <h4 class="font-heading text-3xl tracking-wide text-gray-900">Legend</h4>
+
+          <div class="mt-5 space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="h-4 w-4 rounded-full bg-primary"></span>
+              <p class="font-semibold text-gray-800">First Practice (Apr 13, 2026)</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="h-4 w-4 rounded-full bg-gold"></span>
+              <p class="font-semibold text-gray-800">Upcoming events (you can add more later)</p>
+            </div>
+          </div>
+
+          <p class="text-gray-700 mt-6 leading-relaxed">
+            Want me to add meet dates + practice schedule once you have them? I can make them show
+            directly on this calendar with labels.
+          </p>
+
+          <a href="#register"
+            class="inline-block mt-6 w-full text-center bg-black text-white font-extrabold py-3 rounded-2xl hover:opacity-90 transition">
+            Register Now
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -200,7 +405,7 @@
                 </span>
               </summary>
               <div class="mt-2 max-w-xs rounded-xl border border-gold/30 bg-gold/10 px-4 py-3 text-sm text-gray-800">
-                Consistency matters showing up, finishing reps, and doing the small things right every day.
+                Consistency matters — showing up, finishing reps, and doing the small things right every day.
               </div>
             </details>
 
@@ -213,7 +418,7 @@
                 </span>
               </summary>
               <div class="mt-2 max-w-xs rounded-xl border border-gold/30 bg-gold/10 px-4 py-3 text-sm text-gray-800">
-                Trusting your work learning to compete with courage, composure, and belief in your training.
+                Trusting your work — learning to compete with courage, composure, and belief in your training.
               </div>
             </details>
 
@@ -226,7 +431,7 @@
                 </span>
               </summary>
               <div class="mt-2 max-w-xs rounded-xl border border-gold/30 bg-gold/10 px-4 py-3 text-sm text-gray-800">
-                Pushing together—supporting teammates, owning your role, and building relay level trust.
+                Pushing together — supporting teammates, owning your role, and building relay-level trust.
               </div>
             </details>
 
@@ -239,7 +444,7 @@
                 </span>
               </summary>
               <div class="mt-2 max-w-xs rounded-xl border border-gold/30 bg-gold/10 px-4 py-3 text-sm text-gray-800">
-                Uplifting El Paso welcoming families, removing barriers, and giving back through mentorship.
+                Uplifting El Paso — welcoming families, removing barriers, and giving back through mentorship.
               </div>
             </details>
 
@@ -315,392 +520,218 @@
 
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
 
-        <!-- FIXED: Isabella Campuzano card now matches the other "linked" cards -->
+        <!-- Reusable style: all linked cards match -->
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-          <img
-            src="IMG_2177.jpeg"
-            alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-          />
-
-          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-            Isabella Campuzano
-          </h4>
+          <img src="IMG_2177.jpeg" alt="Sun City Sprinter"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Isabella Campuzano</h4>
           <p class="text-sm text-gray-500">Age Group: 15-16</p>
           <p class="mt-2 text-sm">Events: 4x100 100m, 200m 4x400</p>
           <p class="text-sm font-semibold">PR: </p>
-
-          <a
-            href="https://www.athletic.net/athlete/25499702/track-and-field/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-          >
+          <a href="https://www.athletic.net/athlete/25499702/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
             View Athletic.net
           </a>
         </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-          <img
-            src="IMG_2175.jpeg"
-            alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-          />
-
-          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-            Isabella Vega
-          </h4>
+          <img src="IMG_2175.jpeg" alt="Sun City Sprinter"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Isabella Vega</h4>
           <p class="text-sm text-gray-500">Age Group: 15–16</p>
           <p class="mt-2 text-sm">Events: 100mh 300mh 4x400</p>
           <p class="text-sm font-semibold">PR: 18.36</p>
-
-          <a
-            href="https://www.athletic.net/athlete/25924948/track-and-field/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-          >
+          <a href="https://www.athletic.net/athlete/25924948/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
             View Athletic.net
           </a>
         </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-          <img
-            src="IMG_2213.jpeg"
-            alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-          />
-
-          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-            Juliette Valenzuela
-          </h4>
+          <img src="IMG_2213.jpeg" alt="Sun City Sprinter"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Juliette Valenzuela</h4>
           <p class="text-sm text-gray-500">Age Group: 17–18</p>
           <p class="mt-2 text-sm">Events: 100mh 300mh 4x400</p>
           <p class="text-sm font-semibold">PR: 18.77</p>
-
-          <a
-            href="https://www.athletic.net/athlete/22921608/track-and-field/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-          >
+          <a href="https://www.athletic.net/athlete/22921608/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
             View Athletic.net
           </a>
         </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-          <img
-            src="IMG_1737.jpeg"
-            alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-          />
-
-          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-            Elizabeth Hita
-          </h4>
+          <img src="IMG_1737.jpeg" alt="Sun City Sprinter"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Elizabeth Hita</h4>
           <p class="text-sm text-gray-500">Age Group: 15–16</p>
           <p class="mt-2 text-sm">Events: 100m 300mh</p>
           <p class="text-sm font-semibold">PR: 18.21</p>
-
-          <a
-            href="https://www.athletic.net/athlete/28287151/track-and-field/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-          >
+          <a href="https://www.athletic.net/athlete/28287151/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
             View Athletic.net
           </a>
         </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-          <img
-            src="IMG_2179.jpeg"
-            alt="Sun City Sprinter"
-            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-          />
-
-          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-            Melanie Gaytan
-          </h4>
+          <img src="IMG_2179.jpeg" alt="Sun City Sprinter"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Melanie Gaytan</h4>
           <p class="text-sm text-gray-500">Age Group: 15–16</p>
           <p class="mt-2 text-sm">Events: TJ 4x400</p>
           <p class="text-sm font-semibold">PR: 33'7</p>
-
-          <a
-            href="https://www.athletic.net/athlete/27518973/track-and-field/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-          >
+          <a href="https://www.athletic.net/athlete/27518973/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
             View Athletic.net
           </a>
         </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="isabella-avina.jpg"
-    alt="Isabella Avina"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
-
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    Isabella Avina
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 13–14</p>
-  <p class="mt-2 text-sm">Events: 100m 200m</p>
-  <p class="text-sm font-semibold">PR: </p>
-
-  <a
-    href="https://www.athletic.net/athlete/28826388/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
-
+          <img src="IMG_9594.jpeg" alt="Isabella Avina"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Isabella Avina</h4>
+          <p class="text-sm text-gray-500">Age Group: 13–14</p>
+          <p class="mt-2 text-sm">Events: 100m 200m</p>
+          <p class="text-sm font-semibold">PR: </p>
+          <a href="https://www.athletic.net/athlete/28826388/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="IMG_4188.jpeg"
-    alt="Sun City Sprinter"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
-
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    Douglas S Asbury III
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 9-10</p>
-  <p class="mt-2 text-sm">Events: LJ</p>
-  <p class="text-sm font-semibold">PR: </p>
-
-  <a
-    href="https://www.athletic.net/athlete/23264244/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
+          <img src="IMG_4188.jpeg" alt="Douglas S Asbury III"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Douglas S Asbury III</h4>
+          <p class="text-sm text-gray-500">Age Group: 9–10</p>
+          <p class="mt-2 text-sm">Events: LJ</p>
+          <p class="text-sm font-semibold">PR: </p>
+          <a href="https://www.athletic.net/athlete/23264244/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="IMG_4084.jpeg"
-    alt="Sun City Sprinter"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
-
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    Ximena Garcia
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 15-16</p>
-  <p class="mt-2 text-sm">Events: 4x100 4x400</p>
-  <p class="text-sm font-semibold">PR: </p>
-
-  <a
-    href="https://www.athletic.net/athlete/13804794/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
+          <img src="IMG_4084.jpeg" alt="Ximena Garcia"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Ximena Garcia</h4>
+          <p class="text-sm text-gray-500">Age Group: 15–16</p>
+          <p class="mt-2 text-sm">Events: 4x100 4x400</p>
+          <p class="text-sm font-semibold">PR: </p>
+          <a href="https://www.athletic.net/athlete/13804794/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="IMG_1706.jpeg"
-    alt="Sun City Sprinter"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
-
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    Alora Jaroszewski
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 15-16</p>
-  <p class="mt-2 text-sm">Events: 100m 200m</p>
-  <p class="text-sm font-semibold">PR: 13.80</p>
-
-  <a
-    href="https://www.athletic.net/athlete/23770481/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
+          <img src="IMG_1706.jpeg" alt="Alora Jaroszewski"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Alora Jaroszewski</h4>
+          <p class="text-sm text-gray-500">Age Group: 15–16</p>
+          <p class="mt-2 text-sm">Events: 100m 200m</p>
+          <p class="text-sm font-semibold">PR: 13.80</p>
+          <a href="https://www.athletic.net/athlete/23770481/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="jose-luis-avina.jpg"
-    alt="Jose Luis Avina"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
-
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    Jose Luis Avina
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 9–10</p>
-  <p class="mt-2 text-sm">Events: 400m</p>
-  <p class="text-sm font-semibold">PR: </p>
-
-  <a
-    href="https://www.athletic.net/athlete/28826387/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
-
+          <img src="IMG_9627.jpeg" alt="Jose Luis Avina"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Jose Luis Avina</h4>
+          <p class="text-sm text-gray-500">Age Group: 9–10</p>
+          <p class="mt-2 text-sm">Events: 400m</p>
+          <p class="text-sm font-semibold">PR: </p>
+          <a href="https://www.athletic.net/athlete/28826387/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="IMG_1193.jpeg"
-    alt="Sun City Sprinter"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
-
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    Lovely Garica
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 13-14</p>
-  <p class="mt-2 text-sm">Events: 800m 1600m</p>
-  <p class="text-sm font-semibold">PR: </p>
-
-  <a
-    href="https://www.athletic.net/athlete/28287166/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
+          <img src="IMG_1193.jpeg" alt="Lovely Garcia"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Lovely Garcia</h4>
+          <p class="text-sm text-gray-500">Age Group: 13–14</p>
+          <p class="mt-2 text-sm">Events: 800m 1600m</p>
+          <p class="text-sm font-semibold">PR: </p>
+          <a href="https://www.athletic.net/athlete/28287166/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="IMG_6204.jpeg"
-    alt="Sun City Sprinter"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
-
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    Natalie Pester
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 15-16</p>
-  <p class="mt-2 text-sm">Events: 800m 2300m 1600m</p>
-  <p class="text-sm font-semibold">PR: </p>
-
-  <a
-    href="https://www.athletic.net/athlete/28242378/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
+          <img src="IMG_6204.jpeg" alt="Natalie Pester"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Natalie Pester</h4>
+          <p class="text-sm text-gray-500">Age Group: 15–16</p>
+          <p class="mt-2 text-sm">Events: 800m 2300m 1600m</p>
+          <p class="text-sm font-semibold">PR: </p>
+          <a href="https://www.athletic.net/athlete/28242378/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="madilyn-vasquez.jpg"
-    alt="Madilyn Vasquez"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
-
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    Madilyn Vasquez
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 13–14</p>
-  <p class="mt-2 text-sm">Events: 1600m</p>
-  <p class="text-sm font-semibold">PR: </p>
-
-  <a
-    href="https://www.athletic.net/athlete/30137552/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
-
+          <img src="IMG_1264.jpeg" alt="Madilyn Vasquez"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Madilyn Vasquez</h4>
+          <p class="text-sm text-gray-500">Age Group: 13–14</p>
+          <p class="mt-2 text-sm">Events: 1600m</p>
+          <p class="text-sm font-semibold">PR: </p>
+          <a href="https://www.athletic.net/athlete/30137552/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="IMG_2187.jpeg"
-    alt="Sun City Sprinter"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
+          <img src="IMG_2187.jpeg" alt="David Ballentine II"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">David Ballentine II</h4>
+          <p class="text-sm text-gray-500">Age Group: 17–18</p>
+          <p class="mt-2 text-sm">Events: </p>
+          <p class="text-sm font-semibold">PR: </p>
+          <a href="https://www.athletic.net/athlete/23764440/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    David Ballentine II
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 17-18</p>
-  <p class="mt-2 text-sm">Events:</p>
-  <p class="text-sm font-semibold">PR: </p>
-
-  <a
-    href="https://www.athletic.net/athlete/23764440/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
         <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="IMG_6204.jpeg"
-    alt="Dean Pester"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
+          <img src="IMG_6204.jpeg" alt="Dean Pester"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Dean Pester</h4>
+          <p class="text-sm text-gray-500">Age Group: 11–12</p>
+          <p class="mt-2 text-sm">Events: 800m</p>
+          <p class="text-sm font-semibold">PR: </p>
+          <a href="https://www.athletic.net/athlete/28510155/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    Dean Pester
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 11–12</p>
-  <p class="mt-2 text-sm">Events: 800m</p>
-  <p class="text-sm font-semibold">PR: </p>
+        <div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
+          <img src="IMG_0115.jpeg" alt="Ayden Marrufo"
+            class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold" />
+          <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">Ayden Marrufo</h4>
+          <p class="text-sm text-gray-500">Age Group: 15–16</p>
+          <p class="mt-2 text-sm">Events: </p>
+          <p class="text-sm font-semibold">PR: </p>
+          <a href="https://www.athletic.net/athlete/29464093/track-and-field/" target="_blank" rel="noopener noreferrer"
+            class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition">
+            View Athletic.net
+          </a>
+        </div>
 
-  <a
-    href="https://www.athletic.net/athlete/28510155/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
-
-<div class="reveal border rounded-2xl p-6 shadow text-center hover:shadow-lg transition hover:-translate-y-0.5">
-  <img
-    src="IMG_0115.jpeg"
-    alt="Ayden Marrufo"
-    class="w-28 h-28 rounded-full object-cover object-center mx-auto mb-4 border-2 border-gold"
-  />
-
-  <h4 class="font-extrabold text-lg underline decoration-gold/60 underline-offset-4">
-    Ayden Marrufo
-  </h4>
-  <p class="text-sm text-gray-500">Age Group: 15–16</p>
-  <p class="mt-2 text-sm">Events:</p>
-  <p class="text-sm font-semibold">PR:</p>
-
-  <a
-    href="https://www.athletic.net/athlete/29464093/track-and-field/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="inline-block mt-4 px-4 py-2 rounded-full border-2 border-gold text-gold font-semibold text-sm hover:bg-gold hover:text-black transition"
-  >
-    View Athletic.net
-  </a>
-</div>
+      </div>
+    </div>
+  </section>
 
   <!-- GALLERY (BIGGER BOXES + MORE SPACE) -->
   <section id="gallery" class="bg-black py-20">
@@ -878,13 +909,13 @@
     </div>
   </section>
 
-  <!-- COACHES CORNER (UPDATED: COLLAPSIBLE + PHOTO SPOT) -->
+  <!-- COACHES CORNER -->
   <section id="coaches" class="bg-black text-white py-20">
     <div class="max-w-7xl mx-auto px-6">
       <div class="reveal text-center mb-12">
         <h3 class="font-heading text-7xl tracking-wide text-gold">Coaches Corner</h3>
         <p class="text-white/70 mt-3 max-w-2xl mx-auto">
-          The coaches behind the culture building confidence, character, and speed.
+          The coaches behind the culture — building confidence, character, and speed.
         </p>
         <span class="block w-24 h-1 bg-primary mx-auto mt-5 rounded-full"></span>
       </div>
@@ -903,8 +934,7 @@
             </div>
 
             <div class="w-full">
-              <p class="font-extrabold text-lg text-white">:Lead with vision, inspire with passion</p>
-              <p class="text-white/75 text-sm mt-1"></p>
+              <p class="font-extrabold text-lg text-white">Lead with vision, inspire with passion</p>
 
               <details class="group mt-5 rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
                 <summary class="cursor-pointer select-none flex items-center justify-between gap-4">
@@ -913,110 +943,133 @@
                 </summary>
 
                 <div class="mt-4 text-white/85 leading-relaxed space-y-4">
-  <p>
-    At Sun City Sprinters, I coach because I truly love track and field and believe in doing things the right way.
-    I started this program to give athletes a safe and positive place to learn, build confidence, and grow strong habits.
-  </p>
+                  <p>
+                    At Sun City Sprinters, I coach because I truly love track and field and believe in doing things the right way.
+                    I started this program to give athletes a safe and positive place to learn, build confidence, and grow strong habits.
+                  </p>
 
-  <p>
-    I focus on teaching strong basics, setting clear expectations, and training in ways that fit each athlete’s age and ability.
-    I also ran track myself, so I understand what it feels like to train, compete, and work toward goals, and I bring that experience into every practice.
-  </p>
+                  <p>
+                    I focus on teaching strong basics, setting clear expectations, and training in ways that fit each athlete’s age and ability.
+                    I also ran track myself, so I understand what it feels like to train, compete, and work toward goals — and I bring that experience into every practice.
+                  </p>
 
-  <p>
-    Sun City Sprinters is a nonprofit team that serves our community and helps give kids access to quality coaching in a positive environment.
-    Our goal is to help athletes grow, build character, and love the sport not just win races.
-  </p>
+                  <p>
+                    Sun City Sprinters is a nonprofit team that serves our community and helps give kids access to quality coaching in a positive environment.
+                    Our goal is to help athletes grow, build character, and love the sport — not just win races.
+                  </p>
 
-  <p>
-    I am a USATF Level 1 and NFHS Certified Track and Field Coach. These certifications help guide how I keep athletes safe,
-    teach proper technique, and plan smart training.
-  </p>
+                  <p>
+                    I am a USATF Level 1 and NFHS Certified Track and Field Coach. These certifications help guide how I keep athletes safe,
+                    teach proper technique, and plan smart training.
+                  </p>
 
-  <p>
-    Most importantly, I care deeply about every athlete on this team. I take coaching seriously and want every athlete to leave practice feeling
-    proud, confident, and supported, both on the track and in life.
-  </p>
-</div>
+                  <p>
+                    Most importantly, I care deeply about every athlete on this team. I take coaching seriously and want every athlete to leave practice feeling
+                    proud, confident, and supported — both on the track and in life.
+                  </p>
+                </div>
+              </details>
+
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </section>
 
-      <!-- CONTACT / FOOTER -->
-<footer class="bg-black text-gray-300 py-12 text-center border-t border-white/10">
-  <div class="max-w-3xl mx-auto px-6">
-    <p class="font-heading text-4xl tracking-wide text-white drop-shadow-sm">
-      Sun City Sprinters
-    </p>
-    <p class="mt-1 text-white/70">El Paso, Texas</p>
-
-    <div class="mt-6 space-y-2 text-sm">
-      <p>
-        Email:
-        <a
-          href="mailto:myssymiss@yahoo.com"
-          class="text-primary font-semibold hover:underline"
-        >
-          myssymiss@yahoo.com
-        </a>
+  <!-- FOOTER -->
+  <footer class="bg-black text-gray-300 py-12 text-center border-t border-white/10">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="font-heading text-4xl tracking-wide text-white drop-shadow-sm">
+        Sun City Sprinters
       </p>
-      <p class="text-white/80">
-        Phone: <span class="font-semibold text-white">(915) 831-0221</span>
-      </p>
-    </div>
+      <p class="mt-1 text-white/70">El Paso, Texas</p>
 
-    <!-- IG: whole section clickable -->
-    <a
-      href="https://www.instagram.com/suncity_sprinters/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Follow Sun City Sprinters on Instagram @suncity_sprinters"
-      title="Follow us on Instagram @suncity_sprinters"
-      class="group inline-block mt-8"
-    >
-      <div
-        class="rounded-3xl px-6 py-5 border border-white/10 bg-white/5 shadow-lg
-               hover:bg-white/10 hover:border-white/20 transition
-               focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-      >
-        <p class="text-white font-extrabold tracking-wide text-lg">
-          Follow us on Instagram
-          <span class="text-primary">💖</span>
+      <div class="mt-6 space-y-2 text-sm">
+        <p>
+          Email:
+          <a href="mailto:myssymiss@yahoo.com" class="text-primary font-semibold hover:underline">
+            myssymiss@yahoo.com
+          </a>
         </p>
-
-        <p class="text-sm text-white/70 mt-1 group-hover:text-white/90 transition">
-          @suncity_sprinters
-        </p>
-
-        <div class="flex items-center justify-center gap-4 mt-4">
-          <img
-            src="./IMG_6204.jpeg"
-            alt="Sun City Sprinters Instagram"
-            class="h-16 w-16 rounded-full object-cover border-4 border-gold shadow
-                   transition group-hover:scale-105"
-          />
-
-          <!-- subtle “tap” hint, but still aesthetic -->
-          <span class="text-xs uppercase tracking-widest text-white/60 group-hover:text-white/80 transition">
-            tap anywhere
-          </span>
-        </div>
-
-        <!-- Barbie glow accent line -->
-        <div class="mt-5 h-[2px] w-full rounded-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-80"></div>
-
-        <p class="mt-3 text-xs text-white/60">
-          Sun City pride ✨
+        <p class="text-white/80">
+          Phone: <span class="font-semibold text-white">(915) 831-0221</span>
         </p>
       </div>
-    </a>
 
-    <p class="text-xs text-white/50 mt-8">
-      &copy; 2025 Sun City Sprinters
-    </p>
+      <a
+        href="https://www.instagram.com/suncity_sprinters/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Follow Sun City Sprinters on Instagram @suncity_sprinters"
+        title="Follow us on Instagram @suncity_sprinters"
+        class="group inline-block mt-8"
+      >
+        <div class="rounded-3xl px-6 py-5 border border-white/10 bg-white/5 shadow-lg
+                    hover:bg-white/10 hover:border-white/20 transition
+                    focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black">
+          <p class="text-white font-extrabold tracking-wide text-lg">
+            Follow us on Instagram <span class="text-primary">💖</span>
+          </p>
+
+          <p class="text-sm text-white/70 mt-1 group-hover:text-white/90 transition">
+            @suncity_sprinters
+          </p>
+
+          <div class="flex items-center justify-center gap-4 mt-4">
+            <img
+              src="./IMG_6204.jpeg"
+              alt="Sun City Sprinters Instagram"
+              class="h-16 w-16 rounded-full object-cover border-4 border-gold shadow transition group-hover:scale-105"
+            />
+            <span class="text-xs uppercase tracking-widest text-white/60 group-hover:text-white/80 transition">
+              tap anywhere
+            </span>
+          </div>
+
+          <div class="mt-5 h-[2px] w-full rounded-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-80"></div>
+          <p class="mt-3 text-xs text-white/60">Sun City pride ✨</p>
+        </div>
+      </a>
+
+      <p class="text-xs text-white/50 mt-8">
+        &copy; 2025 Sun City Sprinters
+      </p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX (IMAGES ONLY) -->
+  <div id="lightbox" class="fixed inset-0 z-[999] hidden">
+    <div id="lightboxBackdrop" class="absolute inset-0 bg-black/85"></div>
+
+    <div class="relative h-full w-full flex items-center justify-center p-4">
+      <div class="relative max-w-6xl w-full">
+        <button id="lightboxClose"
+          class="absolute -top-12 right-0 md:-top-14 text-white/90 hover:text-white text-3xl font-bold"
+          aria-label="Close lightbox">
+          ✕
+        </button>
+
+        <div class="rounded-3xl overflow-hidden bg-black shadow-2xl border border-white/10">
+          <img id="lightboxImg" class="w-full max-h-[80vh] object-contain" alt="" />
+        </div>
+
+        <p id="lightboxCaption" class="text-white/80 text-sm mt-3 text-center"></p>
+
+        <button id="lightboxPrev"
+          class="absolute left-0 top-1/2 -translate-y-1/2 px-3 py-2 rounded-xl bg-black/40 text-white hover:bg-black/60"
+          aria-label="Previous image">
+          ‹
+        </button>
+        <button id="lightboxNext"
+          class="absolute right-0 top-1/2 -translate-y-1/2 px-3 py-2 rounded-xl bg-black/40 text-white hover:bg-black/60"
+          aria-label="Next image">
+          ›
+        </button>
+      </div>
+    </div>
   </div>
-</footer>
-
 
   <script>
     // reveal on scroll
@@ -1084,5 +1137,154 @@
     })();
   </script>
 
+  <script>
+    // Countdown to April 13, 2026 (El Paso time)
+    (function () {
+      const elDays = document.getElementById("cdDays");
+      const elHours = document.getElementById("cdHours");
+      const elMins = document.getElementById("cdMins");
+      const elSecs = document.getElementById("cdSecs");
+
+      // April 13, 2026 at 5:00 PM local time (you can change hour if you want)
+      const target = new Date(2026, 3, 13, 17, 0, 0); // months are 0-based: 3 = April
+
+      function pad(n){ return String(n).padStart(2, "0"); }
+
+      function tick() {
+        const now = new Date();
+        let diff = target.getTime() - now.getTime();
+
+        if (diff <= 0) {
+          elDays.textContent = "0";
+          elHours.textContent = "00";
+          elMins.textContent = "00";
+          elSecs.textContent = "00";
+          return;
+        }
+
+        const sec = Math.floor(diff / 1000);
+        const days = Math.floor(sec / 86400);
+        const hours = Math.floor((sec % 86400) / 3600);
+        const mins = Math.floor((sec % 3600) / 60);
+        const secs = Math.floor(sec % 60);
+
+        elDays.textContent = String(days);
+        elHours.textContent = pad(hours);
+        elMins.textContent = pad(mins);
+        elSecs.textContent = pad(secs);
+      }
+
+      tick();
+      setInterval(tick, 1000);
+
+      // Google Calendar prefill link
+      const addBtn = document.getElementById("addToGoogleCal");
+      const start = "20260413T230000Z"; // 5pm MT ≈ 23:00Z (safe approximation)
+      const end   = "20260414T000000Z"; // +1 hour
+      const title = encodeURIComponent("Sun City Sprinters - First Practice");
+      const details = encodeURIComponent("First practice of the season for Sun City Sprinters.");
+      const location = encodeURIComponent("El Paso, Texas");
+      addBtn.href =
+        "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+        "&text=" + title +
+        "&dates=" + start + "/" + end +
+        "&details=" + details +
+        "&location=" + location;
+    })();
+  </script>
+
+  <script>
+    // Simple Calendar (month view) + highlight Apr 13, 2026
+    (function () {
+      const titleEl = document.getElementById("calMonthTitle");
+      const gridEl = document.getElementById("calGrid");
+      const prevBtn = document.getElementById("calPrev");
+      const nextBtn = document.getElementById("calNext");
+
+      const highlight = { y: 2026, m: 3, d: 13 }; // Apr 13, 2026 (m is 0-based)
+      let view = new Date(2026, 3, 1); // start on April 2026 (nice default)
+
+      const monthNames = [
+        "January","February","March","April","May","June",
+        "July","August","September","October","November","December"
+      ];
+
+      function sameDate(y,m,d, date){
+        return date.getFullYear() === y && date.getMonth() === m && date.getDate() === d;
+      }
+
+      function render() {
+        const y = view.getFullYear();
+        const m = view.getMonth();
+
+        titleEl.textContent = `${monthNames[m]} ${y}`;
+        gridEl.innerHTML = "";
+
+        const first = new Date(y, m, 1);
+        const startDay = first.getDay(); // 0=Sun
+        const daysInMonth = new Date(y, m + 1, 0).getDate();
+
+        // previous month padding
+        const prevDays = new Date(y, m, 0).getDate();
+
+        // Fill 42 cells (6 weeks)
+        for (let i = 0; i < 42; i++) {
+          const cell = document.createElement("button");
+          cell.type = "button";
+          cell.className = "h-12 md:h-14 rounded-xl border border-gray-200 text-sm font-semibold hover:bg-gray-50 transition text-gray-800";
+
+          let dayNum, isOtherMonth = false;
+          let cellDate;
+
+          if (i < startDay) {
+            dayNum = prevDays - (startDay - 1 - i);
+            isOtherMonth = true;
+            cell.className += " opacity-40";
+            cellDate = new Date(y, m - 1, dayNum);
+          } else if (i >= startDay + daysInMonth) {
+            dayNum = i - (startDay + daysInMonth) + 1;
+            isOtherMonth = true;
+            cell.className += " opacity-40";
+            cellDate = new Date(y, m + 1, dayNum);
+          } else {
+            dayNum = i - startDay + 1;
+            cellDate = new Date(y, m, dayNum);
+          }
+
+          cell.textContent = dayNum;
+
+          // highlight April 13, 2026
+          if (sameDate(highlight.y, highlight.m, highlight.d, cellDate)) {
+            cell.className =
+              "h-12 md:h-14 rounded-xl border border-pink-200 bg-primary text-white text-sm font-extrabold shadow hover:opacity-95 transition";
+            cell.innerHTML = `<div class="leading-none">${dayNum}</div><div class="text-[10px] mt-1 font-extrabold">PRACTICE</div>`;
+          }
+
+          // on click show tiny alert (easy)
+          cell.addEventListener("click", () => {
+            if (sameDate(highlight.y, highlight.m, highlight.d, cellDate)) {
+              alert("First Practice: April 13, 2026 💖🏃‍♀️");
+            }
+          });
+
+          gridEl.appendChild(cell);
+        }
+      }
+
+      prevBtn.addEventListener("click", () => {
+        view = new Date(view.getFullYear(), view.getMonth() - 1, 1);
+        render();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        view = new Date(view.getFullYear(), view.getMonth() + 1, 1);
+        render();
+      });
+
+      render();
+    })();
+  </script>
+
 </body>
 </html>
+
