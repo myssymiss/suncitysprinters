@@ -100,9 +100,9 @@
     .sunset-card{
       background:
         radial-gradient(circle at 20% 10%, rgba(251,191,36,.55), transparent 40%),
-        radial-gradient(circle at 80% 20%, rgba(236,72,153,.50), transparent 45%),
-        radial-gradient(circle at 40% 85%, rgba(251,191,36,.35), transparent 55%),
-        linear-gradient(135deg, rgba(236,72,153,.30), rgba(251,191,36,.18));
+        radial-gradient(circle at 80% 20%, rgba(236,72,153,.55), transparent 45%),
+        radial-gradient(circle at 40% 85%, rgba(251,191,36,.40), transparent 55%),
+        linear-gradient(135deg, rgba(236,72,153,.34), rgba(251,191,36,.22));
       border: 1px solid rgba(236,72,153,.25);
       box-shadow: 0 18px 60px rgba(236,72,153,.18);
     }
@@ -131,29 +131,33 @@
     .cal-day{
       height: 3rem;
       border-radius: 0.9rem;
-      border: 1px solid rgba(0,0,0,.08);
-      background: linear-gradient(135deg, rgba(236,72,153,.10), rgba(251,191,36,.08));
-      color: rgba(17,24,39,1);
-      font-weight: 800;
+      border: 1px solid rgba(255,255,255,.16);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(251,191,36,.22), transparent 55%),
+        linear-gradient(135deg, rgba(236,72,153,.16), rgba(251,191,36,.12));
+      color: rgba(255,255,255,.92);
+      font-weight: 900;
       transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
     }
     .cal-day:hover{
       transform: translateY(-1px);
-      box-shadow: 0 10px 24px rgba(236,72,153,.14);
-      background: linear-gradient(135deg, rgba(236,72,153,.18), rgba(251,191,36,.12));
+      box-shadow: 0 14px 28px rgba(236,72,153,.22);
+      background:
+        radial-gradient(circle at 35% 20%, rgba(251,191,36,.30), transparent 60%),
+        linear-gradient(135deg, rgba(236,72,153,.24), rgba(251,191,36,.18));
     }
     .cal-day.other{ opacity: .35; }
 
     .cal-day.selected{
-      outline: 3px solid rgba(236,72,153,.28);
-      border-color: rgba(236,72,153,.35);
+      outline: 3px solid rgba(236,72,153,.35);
+      border-color: rgba(236,72,153,.45);
     }
 
     .cal-day.practice{
-      background: linear-gradient(135deg, rgba(236,72,153,.92), rgba(251,191,36,.70));
-      border-color: rgba(255,255,255,.35);
+      background: linear-gradient(135deg, rgba(236,72,153,.95), rgba(251,191,36,.78));
+      border-color: rgba(255,255,255,.45);
       color: white;
-      box-shadow: 0 18px 40px rgba(236,72,153,.25);
+      box-shadow: 0 20px 44px rgba(236,72,153,.28);
     }
 
     .pop { animation: pop .28s ease-out; }
@@ -161,6 +165,33 @@
       0% { transform: scale(.96); opacity: .2; }
       100% { transform: scale(1); opacity: 1; }
     }
+
+    /* Countdown team photo overlay (translucent) */
+    .countdown-photo{
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.5rem;
+    }
+    .countdown-photo::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: url("IMG_0035.jpeg");
+      background-size: cover;
+      background-position: center;
+      opacity: .22; /* translucent */
+      filter: saturate(1.1) contrast(1.05);
+      transform: scale(1.03);
+      pointer-events:none;
+    }
+    .countdown-photo::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.65));
+      pointer-events:none;
+    }
+    .countdown-content{ position: relative; z-index: 1; }
   </style>
 </head>
 
@@ -381,65 +412,58 @@
       <div class="reveal text-center mb-12">
         <h3 class="font-heading text-7xl tracking-wide text-gold">Season Countdown</h3>
         <p class="text-white/70 mt-3 max-w-2xl mx-auto">
-          First practice is coming — show up ready and raise the standard.
+          First practice is coming — <span class="font-extrabold text-white">lace up, lock in, and get ready to fly.</span> 🏃‍♀️🏃‍♂️
         </p>
         <span class="block w-24 h-1 bg-primary mx-auto mt-5 rounded-full"></span>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-10 items-stretch">
 
-        <!-- Left: Countdown -->
-        <div class="reveal rounded-3xl border border-white/10 bg-white/5 shadow-xl p-7 md:p-9">
-          <div class="flex items-center justify-between gap-4">
-            <div>
-              <p class="text-white/70 text-xs uppercase tracking-[0.22em] font-extrabold">🏃‍♀️🏃‍♂️ Countdown to First Practice</p>
-              <h4 class="font-extrabold text-2xl md:text-3xl mt-2">April 13</h4>
-              <p class="text-white/70 text-sm mt-1">Sun City Sprinters • El Paso, TX</p>
+        <!-- Left: Countdown (with translucent team photo background) -->
+        <div class="reveal rounded-3xl border border-white/10 bg-white/5 shadow-xl p-7 md:p-9 countdown-photo">
+          <div class="countdown-content">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-white/80 text-xs uppercase tracking-[0.22em] font-extrabold">🏃‍♀️🏃‍♂️ Countdown to First Practice</p>
+                <h4 class="font-extrabold text-2xl md:text-3xl mt-2">April 13</h4>
+                <p class="text-white/70 text-sm mt-1">Sun City Sprinters • El Paso, TX</p>
+              </div>
+
+              <!-- preparedness quote (replaces "Pink + Gold Energy") -->
+              <div class="hidden md:block text-right">
+                <p class="text-white/85 text-sm font-extrabold leading-snug">
+                  “Champions are built in the details—<span class="text-gold">be ready before the whistle.</span>”
+                </p>
+              </div>
             </div>
-            <div class="hidden md:block">
-              <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/25 border border-white/10 font-extrabold">
-                ✨ Pink + Gold Energy
-              </span>
+
+            <div class="mt-7 grid grid-cols-4 gap-3 text-center">
+              <div class="rounded-2xl bg-black/45 border border-white/10 p-4">
+                <p id="cdDays" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
+                <p class="text-xs text-white/75 font-bold mt-1 tracking-widest uppercase">Days</p>
+              </div>
+              <div class="rounded-2xl bg-black/45 border border-white/10 p-4">
+                <p id="cdHours" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
+                <p class="text-xs text-white/75 font-bold mt-1 tracking-widest uppercase">Hours</p>
+              </div>
+              <div class="rounded-2xl bg-black/45 border border-white/10 p-4">
+                <p id="cdMins" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
+                <p class="text-xs text-white/75 font-bold mt-1 tracking-widest uppercase">Mins</p>
+              </div>
+              <div class="rounded-2xl bg-black/45 border border-white/10 p-4">
+                <p id="cdSecs" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
+                <p class="text-xs text-white/75 font-bold mt-1 tracking-widest uppercase">Secs</p>
+              </div>
             </div>
+
+            <div class="mt-7 shimmer-line"></div>
+
+            <!-- Removed: Add to Google Calendar button -->
+            <!-- Removed: be early / bring water / be coachable text -->
           </div>
-
-          <div class="mt-7 grid grid-cols-4 gap-3 text-center">
-            <div class="rounded-2xl bg-black/40 border border-white/10 p-4">
-              <p id="cdDays" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
-              <p class="text-xs text-white/70 font-bold mt-1 tracking-widest uppercase">Days</p>
-            </div>
-            <div class="rounded-2xl bg-black/40 border border-white/10 p-4">
-              <p id="cdHours" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
-              <p class="text-xs text-white/70 font-bold mt-1 tracking-widest uppercase">Hours</p>
-            </div>
-            <div class="rounded-2xl bg-black/40 border border-white/10 p-4">
-              <p id="cdMins" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
-              <p class="text-xs text-white/70 font-bold mt-1 tracking-widest uppercase">Mins</p>
-            </div>
-            <div class="rounded-2xl bg-black/40 border border-white/10 p-4">
-              <p id="cdSecs" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
-              <p class="text-xs text-white/70 font-bold mt-1 tracking-widest uppercase">Secs</p>
-            </div>
-          </div>
-
-          <div class="mt-7 shimmer-line"></div>
-
-          <a
-            id="addToGoogleCal"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center mt-7 w-full bg-gold text-black font-extrabold py-3 rounded-2xl hover:opacity-95 transition"
-            href="#"
-          >
-            Add First Practice to Google Calendar
-          </a>
-
-          <p class="text-xs text-white/60 mt-4 text-center">
-            Be early • Bring water • Be coachable 💖
-          </p>
         </div>
 
-        <!-- Right: Team Photo (replaces “Track vibes”) -->
+        <!-- Right: Team Photo (stays, separate) -->
         <div class="reveal rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
           <img
             src="IMG_0035.jpeg"
@@ -488,9 +512,7 @@
 
             <div id="calGrid" class="grid grid-cols-7 gap-2"></div>
 
-            <p class="text-white/60 text-xs mt-5">
-              Tip: click any day to see details in the legend ✨
-            </p>
+            <!-- Removed: extra helper “Tip” line the user didn’t ask for -->
           </div>
         </div>
 
@@ -500,8 +522,9 @@
             ✨ Sun City Standard ✨
           </p>
 
+          <!-- Track quote about being prepared -->
           <p class="mt-3 text-white text-xl md:text-2xl font-extrabold leading-snug drop-shadow">
-            “Small steps every day become big wins on meet day.”
+            “Don’t show up to race day hoping—show up <span class="text-gold">prepared.</span>”
           </p>
 
           <div class="mt-6 space-y-4">
@@ -515,7 +538,7 @@
             <div class="flex items-start justify-between gap-4">
               <div>
                 <p class="text-white/80 text-xs uppercase tracking-widest font-extrabold">Selected Day</p>
-                <p id="legendDate" class="text-white text-lg font-extrabold mt-1">Click a day on the calendar</p>
+                <p id="legendDate" class="text-white text-lg font-extrabold mt-1">Tap a day on the calendar</p>
               </div>
 
               <button
@@ -912,7 +935,7 @@
 
       <div class="grid md:grid-cols-3 gap-8">
         <div class="reveal border-2 border-gold p-6 rounded-xl shadow-sm hover:shadow-md transition">
-          <h4 class="text-xl font-extrabold text-gold mb-4">Gold Sponsor</h4>
+          <h4 class="text-xl font-extrabold text-gold mb-2">Gold Sponsor <span class="text-gray-900">— $200</span></h4>
           <ul class="list-disc list-inside">
             <li>Logo on team t-shirts</li>
             <li>Website &amp; social media recognition</li>
@@ -920,14 +943,14 @@
           </ul>
         </div>
         <div class="reveal border-2 border-gray-400 p-6 rounded-xl shadow-sm hover:shadow-md transition">
-          <h4 class="text-xl font-extrabold mb-4">Silver Sponsor</h4>
+          <h4 class="text-xl font-extrabold mb-2">Silver Sponsor <span class="text-gray-900">— $100</span></h4>
           <ul class="list-disc list-inside">
             <li>Website recognition</li>
             <li>Social media shoutouts</li>
           </ul>
         </div>
         <div class="reveal border-2 border-orange-400 p-6 rounded-xl shadow-sm hover:shadow-md transition">
-          <h4 class="text-xl font-extrabold mb-4">Bronze Sponsor</h4>
+          <h4 class="text-xl font-extrabold mb-2">Bronze Sponsor <span class="text-gray-900">— $50</span></h4>
           <ul class="list-disc list-inside">
             <li>Name listed on website</li>
           </ul>
@@ -1137,7 +1160,6 @@
       const hEl = document.getElementById("cdHours");
       const mEl = document.getElementById("cdMins");
       const sEl = document.getElementById("cdSecs");
-      const addCal = document.getElementById("addToGoogleCal");
 
       function nextApril13() {
         const now = new Date();
@@ -1151,23 +1173,6 @@
       }
 
       const target = nextApril13();
-
-      // Google Calendar link (simple)
-      function pad(n){ return String(n).padStart(2,"0"); }
-      function toGCalDate(dt){
-        // YYYYMMDDTHHMMSS (local-ish) - works fine for simple add
-        const y = dt.getFullYear();
-        const mo = pad(dt.getMonth()+1);
-        const da = pad(dt.getDate());
-        const hh = pad(dt.getHours());
-        const mm = pad(dt.getMinutes());
-        return `${y}${mo}${da}T${hh}${mm}00`;
-      }
-
-      const start = toGCalDate(target);
-      const end = toGCalDate(new Date(target.getFullYear(), target.getMonth(), target.getDate(), target.getHours()+2, target.getMinutes(), 0));
-      addCal.href =
-        `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sun%20City%20Sprinters%20-%20First%20Practice&dates=${start}/${end}&details=Bring%20running%20shoes%2C%20water%2C%20and%20be%20ready%20to%20work!&location=El%20Paso%2C%20TX`;
 
       function tick() {
         const now = new Date().getTime();
@@ -1241,7 +1246,6 @@
 
       function closeDrop(){
         legendDrop.classList.add("hidden");
-        legendAction.classList.add("hidden");
       }
 
       function openDrop(){
@@ -1256,24 +1260,24 @@
 
         const isPractice = sameDate(highlight.y, highlight.m, highlight.d, date);
 
+        legendAction.classList.remove("hidden");
+
         if (isPractice) {
           legendTitle.textContent = "🏃‍♀️🏃‍♂️ First Practice Essentials";
           legendBody.innerHTML = `
             <ul class="list-disc list-inside space-y-1">
-              <li><span class="font-extrabold">Running shoes</span> (spikes optional)</li>
+              <li><span class="font-extrabold">Running shoes</span> (spikes if you have them)</li>
               <li><span class="font-extrabold">Big refillable water bottle</span></li>
-              <li><span class="font-extrabold">Registration complete</span></li>
-              <li><span class="font-extrabold">USATF Youth membership</span> done</li>
+              <li><span class="font-extrabold">Registration completed</span></li>
+              <li><span class="font-extrabold">USATF Youth membership</span> active</li>
             </ul>
           `;
-          legendAction.textContent = "View Essentials";
-          legendAction.classList.remove("hidden");
+          legendAction.textContent = "Open Checklist";
           openDrop();
         } else {
-          legendTitle.textContent = "✨ Nothing scheduled yet";
-          legendBody.innerHTML = `<p class="text-white/90">More dates coming soon. 💖</p>`;
+          legendTitle.textContent = "✨ No posted event yet";
+          legendBody.innerHTML = `<p class="text-white/90">Check back soon—meet dates will be added here.</p>`;
           legendAction.textContent = "View";
-          legendAction.classList.remove("hidden");
           closeDrop();
         }
       }
@@ -1415,5 +1419,3 @@
 
 </body>
 </html>
-
-
