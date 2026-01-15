@@ -1213,13 +1213,12 @@
   </div>
 </section>
 
-
-<!-- COACHES CORNER (CORNER CARD — NO FLOATING WIDGET) -->
-<section id="coaches" class="bg-black text-white py-16 md:py-20">
+<!-- COACHES CORNER (BOTTOM-RIGHT CORNER CARD — CLEAN + PRO) -->
+<section id="coaches" class="bg-black text-white py-14 md:py-16">
   <div class="max-w-7xl mx-auto px-6 relative">
 
-    <!-- Small header (keeps your color scheme, less huge) -->
-    <div class="reveal mb-10">
+    <!-- Smaller header (same scheme, less huge) -->
+    <div class="reveal mb-8 md:mb-10">
       <h3 class="font-heading text-5xl md:text-6xl tracking-wide text-gold">Coaches Corner</h3>
       <p class="text-white/70 mt-2 max-w-2xl">
         The coach behind the culture — confidence, character, and speed.
@@ -1227,62 +1226,75 @@
       <span class="block w-20 h-1 bg-primary mt-4 rounded-full"></span>
     </div>
 
-    <!-- Corner card -->
-    <div class="reveal md:absolute md:top-6 md:right-6 md:w-[380px]">
-      <div class="rounded-3xl border border-white/10 bg-white/5 shadow-xl overflow-hidden">
-        <!-- top strip -->
-        <div class="px-6 pt-6 pb-4">
-          <div class="flex items-center gap-4">
+    <!-- Corner card (bottom-right on desktop, inline on mobile) -->
+    <div class="reveal md:absolute md:bottom-6 md:right-6 md:w-[360px]">
+      <div class="corner-coach relative rounded-3xl border border-white/10 bg-white/5 shadow-xl overflow-hidden">
+        <!-- subtle gold shimmer edge -->
+        <div class="pointer-events-none absolute inset-0 opacity-40"
+          style="background: radial-gradient(circle at 20% 0%, rgba(251,191,36,.25), transparent 45%),
+                         radial-gradient(circle at 100% 40%, rgba(236,72,153,.18), transparent 45%);">
+        </div>
+
+        <!-- top shimmer bar (uses your shimmer keyframes if you already have them) -->
+        <div class="shimmer-top pointer-events-none absolute left-0 top-0 h-[3px] w-full opacity-90"></div>
+
+        <div class="relative p-5">
+          <!-- identity row -->
+          <div class="flex items-center gap-3">
             <img
               src="IMG_1646.jpeg"
               alt="Coach Marrissa Cammisa"
-              class="h-16 w-16 rounded-2xl object-cover border-4 border-gold shadow"
+              class="h-14 w-14 rounded-2xl object-cover border-2 border-gold shadow"
             />
             <div class="leading-tight">
-              <p class="font-extrabold text-white text-lg">Coach Marrissa Cammisa</p>
-              <p class="text-white/70 text-sm font-semibold">Founder • Head Coach</p>
+              <p class="font-extrabold text-white text-base">Coach Marrissa Cammisa</p>
+              <p class="text-white/70 text-xs font-semibold">Founder • Head Coach</p>
             </div>
           </div>
 
-          <!-- Credentials (clean + not “dumb badges”) -->
-          <div class="mt-5 rounded-2xl border border-white/10 bg-black/30 p-4">
-            <p class="text-xs uppercase tracking-widest text-white/60 font-extrabold">Credentials</p>
+          <!-- credentials (clean list, not “badge-y”) -->
+          <div class="mt-4 rounded-2xl border border-white/10 bg-black/35 px-4 py-3">
+            <p class="text-[11px] uppercase tracking-widest text-white/60 font-extrabold">
+              Credentials
+            </p>
 
-            <div class="mt-3 space-y-2 text-sm font-semibold text-white/85">
-              <div class="flex items-center gap-2">
-                <span class="h-6 w-6 rounded-full bg-gold text-black flex items-center justify-center font-extrabold">✓</span>
+            <div class="mt-2 space-y-2 text-sm font-semibold text-white/85">
+              <div class="flex items-start gap-2">
+                <span class="mt-0.5 h-5 w-5 rounded-full border border-gold/60 bg-gold/20"></span>
                 <span>USATF Level 1 Coach</span>
               </div>
-              <div class="flex items-center gap-2">
-                <span class="h-6 w-6 rounded-full bg-primary text-black flex items-center justify-center font-extrabold">✓</span>
+
+              <div class="flex items-start gap-2">
+                <span class="mt-0.5 h-5 w-5 rounded-full border border-primary/60 bg-primary/20"></span>
                 <span>NFHS Certified (Track &amp; Field)</span>
               </div>
-              <div class="flex items-center gap-2">
-                <span class="h-6 w-6 rounded-full bg-white text-black flex items-center justify-center font-extrabold">✓</span>
+
+              <div class="flex items-start gap-2">
+                <span class="mt-0.5 h-5 w-5 rounded-full border border-white/30 bg-white/10"></span>
                 <span>CPR / AED Certified</span>
               </div>
             </div>
 
-            <p class="mt-3 text-xs text-white/60 font-semibold">
+            <p class="mt-2 text-[11px] text-white/55 font-semibold">
               Certificates available upon request.
             </p>
           </div>
 
-          <!-- Philosophy (dropdown, clean) -->
-          <details class="group mt-5 rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
-            <summary class="cursor-pointer select-none flex items-center justify-between gap-4">
-              <span class="font-extrabold text-gold">My Coaching Philosophy</span>
+          <!-- philosophy dropdown -->
+          <details class="group mt-4 rounded-2xl border border-white/10 bg-black/35 px-4 py-3">
+            <summary class="cursor-pointer select-none flex items-center justify-between gap-3">
+              <span class="font-extrabold text-gold">Coaching Philosophy</span>
               <span class="text-white/60 group-open:text-gold transition">▾</span>
             </summary>
 
-            <div class="mt-4 text-white/85 leading-relaxed space-y-3 text-sm">
+            <div class="mt-3 text-white/85 leading-relaxed space-y-3 text-sm">
               <p>
-                I coach because I love track and believe in doing things the right way — building strong fundamentals,
-                confidence, and healthy habits that carry beyond the track.
+                I coach because I love track and believe in doing things the right way — strong fundamentals,
+                confidence, and habits that carry beyond the track.
               </p>
               <p>
                 Training is age-appropriate, safety-first, and technique-driven. We work hard, but we keep it positive,
-                structured, and consistent so athletes can grow the right way.
+                structured, and consistent so athletes grow the right way.
               </p>
               <p>
                 Sun City Sprinters is a nonprofit focused on development, character, and community — not just medals.
@@ -1293,11 +1305,39 @@
       </div>
     </div>
 
-    <!-- Optional: subtle “empty space” on desktop so the corner card doesn’t overlap content -->
-    <div class="hidden md:block h-[420px]"></div>
-
+    <!-- Spacer so the bottom-right card never overlaps content on desktop -->
+    <div class="hidden md:block h-[320px]"></div>
   </div>
 </section>
+
+<!-- Add these tiny styles in your existing <style> block -->
+<style>
+  /* subtle shimmer line for the top of the coach card */
+  @keyframes coachShimmer {
+    0% { transform: translateX(-70%); opacity: .2; }
+    50% { opacity: .85; }
+    100% { transform: translateX(70%); opacity: .2; }
+  }
+  .shimmer-top{
+    background: linear-gradient(90deg, transparent, rgba(251,191,36,.95), rgba(236,72,153,.55), transparent);
+    animation: coachShimmer 2.8s ease-in-out infinite;
+  }
+
+  /* tiny “lift” but professional */
+  .corner-coach{
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .corner-coach:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 22px 50px rgba(236,72,153,.10);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .shimmer-top{ animation: none !important; }
+    .corner-coach{ transition: none !important; }
+  }
+</style>
+
 
 
 
