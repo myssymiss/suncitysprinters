@@ -218,6 +218,37 @@
       transform: translateY(-3px);
       box-shadow: 0 18px 30px rgba(0,0,0,.10);
     }
+    /* ===== PRINT ONLY THE REGISTRATION PACKET ===== */
+@media print {
+  body { background: #fff !important; }
+  header, footer { display: none !important; }
+
+  /* hide everything by default */
+  body * { visibility: hidden !important; }
+
+  /* show the printable area */
+  #printPacket, #printPacket * { visibility: visible !important; }
+
+  /* position printable packet at the top-left */
+  #printPacket {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+  }
+
+  /* remove shadows for clean printing */
+  #printPacket .print-card { box-shadow: none !important; }
+  #printPacket input, #printPacket textarea {
+    border: 1px solid #777 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  /* keep section breaks nice */
+  .page-break { break-before: page; }
+}
+
   </style>
 </head>
 
@@ -958,9 +989,10 @@
     </div>
   </section>
 
-  <!-- REGISTER (kept simple; added USATF button + affiliate instruction; NO registration form/payment link yet) -->
-  <section id="register" class="bg-primary text-white py-16 md:py-20">
-    <div class="max-w-5xl mx-auto text-center px-6 reveal">
+  <!-- REGISTER (upgraded: includes printable registration packet) -->
+<section id="register" class="bg-primary text-white py-16 md:py-20">
+  <div class="max-w-6xl mx-auto px-6 reveal">
+    <div class="text-center">
       <h3 class="font-heading text-6xl tracking-wide mb-5">Athlete Registration</h3>
 
       <p class="mb-4 text-white/95">
@@ -984,11 +1016,430 @@
         >
           Support the Team
         </a>
+
+        <button
+          type="button"
+          onclick="window.print()"
+          class="inline-flex items-center justify-center bg-white text-black px-6 py-3 rounded-2xl font-extrabold shadow hover:scale-105 transition"
+        >
+          Print Registration Packet
+        </button>
       </div>
 
       <p class="font-semibold mt-6">Questions? Call (915) 831-0221</p>
     </div>
-  </section>
+
+    <!-- Printable Packet (ONLY this prints) -->
+    <div id="printPacket" class="mt-10">
+      <div class="print-card bg-white text-gray-900 rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
+        <!-- Header strip -->
+        <div class="px-6 md:px-8 py-6 bg-gradient-to-r from-lightpink to-white border-b border-gray-200">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div class="flex items-center gap-4">
+              <img
+                src="./IMG_6204.jpeg"
+                alt="Sun City Sprinters Logo"
+                class="h-16 w-16 rounded-2xl object-contain bg-white border-4 border-gold shadow"
+              />
+              <div>
+                <p class="uppercase tracking-[0.22em] text-xs font-extrabold text-gray-500">
+                  Sun City Sprinters Track Club • El Paso, Texas
+                </p>
+                <h4 class="font-heading text-4xl md:text-5xl text-primary leading-none">
+                  Athlete Registration &amp; Participation Agreement
+                </h4>
+                <p class="mt-2 text-sm text-gray-600 font-semibold">
+                  501(c)(3) Nonprofit Organization
+                </p>
+              </div>
+            </div>
+
+            <div class="rounded-2xl border border-gray-200 bg-white px-4 py-3 w-full md:w-auto">
+              <p class="text-xs text-gray-500 font-extrabold uppercase tracking-widest">Office Use</p>
+              <div class="mt-2 grid grid-cols-2 gap-2 text-sm">
+                <label class="text-gray-600 font-semibold">Date Received</label>
+                <input class="w-full rounded-xl px-3 py-2 border border-gray-300" />
+                <label class="text-gray-600 font-semibold">Season</label>
+                <input class="w-full rounded-xl px-3 py-2 border border-gray-300" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form body -->
+        <div class="p-6 md:p-8 space-y-10">
+          <!-- Athlete Info -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Athlete Information</h5>
+            <div class="mt-4 grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-extrabold text-gray-700">Athlete Full Name</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+
+              <div class="grid grid-cols-3 gap-3">
+                <div>
+                  <label class="text-sm font-extrabold text-gray-700">Date of Birth</label>
+                  <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" placeholder="MM/DD/YYYY" />
+                </div>
+                <div>
+                  <label class="text-sm font-extrabold text-gray-700">Age</label>
+                  <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+                </div>
+                <div>
+                  <label class="text-sm font-extrabold text-gray-700">Gender</label>
+                  <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+                </div>
+              </div>
+
+              <div class="md:col-span-2">
+                <label class="text-sm font-extrabold text-gray-700">Home Address</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+
+              <div>
+                <label class="text-sm font-extrabold text-gray-700">School</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+              <div>
+                <label class="text-sm font-extrabold text-gray-700">Grade</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+
+              <div class="md:col-span-2">
+                <label class="text-sm font-extrabold text-gray-700">Primary Event(s)</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" placeholder="Ex: 100m, 200m, 100H, 4x100, 1600..." />
+              </div>
+
+              <div class="md:col-span-2">
+                <label class="text-sm font-extrabold text-gray-700">USATF Membership Number (once completed)</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Parent/Guardian -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Parent / Guardian Information</h5>
+            <div class="mt-4 grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm font-extrabold text-gray-700">Parent / Guardian Name</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+              <div>
+                <label class="text-sm font-extrabold text-gray-700">Phone Number</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+              <div class="md:col-span-2">
+                <label class="text-sm font-extrabold text-gray-700">Email Address</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+              <div>
+                <label class="text-sm font-extrabold text-gray-700">Emergency Contact Name</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+              <div>
+                <label class="text-sm font-extrabold text-gray-700">Emergency Phone Number</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Medical -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Medical Information</h5>
+            <div class="mt-4 space-y-4">
+              <div class="rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                <p class="text-sm font-semibold text-gray-700">Does the athlete have any medical conditions we should be aware of?</p>
+                <div class="mt-3 flex gap-6 text-sm font-semibold">
+                  <label class="inline-flex items-center gap-2">
+                    <input type="checkbox" class="accent-pink-500" />
+                    Yes
+                  </label>
+                  <label class="inline-flex items-center gap-2">
+                    <input type="checkbox" class="accent-pink-500" />
+                    No
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label class="text-sm font-extrabold text-gray-700">If yes, please explain</label>
+                <textarea class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300 min-h-[90px]"></textarea>
+              </div>
+
+              <div>
+                <label class="text-sm font-extrabold text-gray-700">Allergies (food, medication, environmental)</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+
+              <div>
+                <label class="text-sm font-extrabold text-gray-700">Medications the athlete may need during practice or meets</label>
+                <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Emergency Medical Authorization -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Emergency Medical Authorization</h5>
+            <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
+              <p class="text-sm text-gray-700 leading-relaxed">
+                I authorize Sun City Sprinters Track Club, its coaches, volunteers, and medical personnel to seek emergency medical
+                treatment for my child if I cannot be reached. I understand every reasonable effort will be made to contact me prior
+                to treatment when possible.
+              </p>
+              <div class="mt-4 flex items-center justify-between gap-4 flex-col sm:flex-row">
+                <span class="text-sm font-extrabold text-gray-700">Parent/Guardian Initials</span>
+                <input class="w-full sm:w-64 rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Liability Waiver -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Assumption of Risk &amp; Liability Waiver</h5>
+            <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
+              <p class="text-sm text-gray-700 leading-relaxed">
+                I understand that participation in track and field involves inherent risks including, but not limited to, physical injury,
+                dehydration, heat exposure, heat illness, falls, collisions, and other unforeseen risks. I voluntarily assume full
+                responsibility for any risks, injuries, or damages that may occur as a result of participation.
+              </p>
+              <p class="mt-3 text-sm text-gray-700 leading-relaxed">
+                I release and hold harmless Sun City Sprinters Track Club, its directors, coaches, volunteers, sponsors, facilities, and
+                affiliates from any and all liability, claims, or causes of action arising from participation, except in cases of gross negligence.
+              </p>
+              <div class="mt-4 flex items-center justify-between gap-4 flex-col sm:flex-row">
+                <span class="text-sm font-extrabold text-gray-700">Parent/Guardian Initials</span>
+                <input class="w-full sm:w-64 rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Safety Policy -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Safety, Hydration &amp; Weather Policy</h5>
+            <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
+              <ul class="text-sm text-gray-700 leading-relaxed space-y-2 list-disc pl-5">
+                <li>Practices include approximately <b>45 minutes</b> of structured warm-up, stretching, mobility, and injury prevention training.</li>
+                <li>Athletes must arrive prepared with <b>large water bottles</b>, proper footwear, and weather-appropriate clothing.</li>
+                <li>Athletes are expected to arrive fueled and hydrated.</li>
+                <li>Shade breaks and hydration breaks are mandatory in hot conditions.</li>
+                <li>Practices will only be canceled for <b>lightning</b> or <b>sustained winds over 30 mph</b>.</li>
+                <li>Parents are responsible for communicating any health concerns to the coaching staff.</li>
+              </ul>
+              <div class="mt-4 flex items-center justify-between gap-4 flex-col sm:flex-row">
+                <span class="text-sm font-extrabold text-gray-700">Parent/Guardian Initials</span>
+                <input class="w-full sm:w-64 rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Code of Conduct -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Code of Conduct</h5>
+            <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
+              <ul class="text-sm text-gray-700 leading-relaxed space-y-2 list-disc pl-5">
+                <li>Show respect toward coaches, teammates, officials, competitors, and facilities.</li>
+                <li>Follow all safety instructions and training guidelines.</li>
+                <li>Maintain positive sportsmanship at practices and competitions.</li>
+                <li>Refrain from bullying, profanity, disrespectful behavior, or unsafe conduct.</li>
+                <li><b>Attend a minimum of at least two (2) practices per week. Athletes selected for relay events are expected to attend at least three (3) practices per week.</b></li>
+                <li>Communicate absences in advance whenever possible.</li>
+                <li>Represent Sun City Sprinters with integrity on and off the track.</li>
+              </ul>
+
+              <div class="mt-4 grid sm:grid-cols-2 gap-4">
+                <div class="flex items-center justify-between gap-4">
+                  <span class="text-sm font-extrabold text-gray-700">Parent/Guardian Initials</span>
+                  <input class="w-full sm:w-64 rounded-2xl px-4 py-3 border border-gray-300" />
+                </div>
+                <div class="flex items-center justify-between gap-4">
+                  <span class="text-sm font-extrabold text-gray-700">Athlete Initials</span>
+                  <input class="w-full sm:w-64 rounded-2xl px-4 py-3 border border-gray-300" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Fundraising -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Fundraising Participation &amp; Nonprofit Support Policy</h5>
+            <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
+              <p class="text-sm text-gray-700 leading-relaxed">
+                Sun City Sprinters is a nonprofit organization that relies on fundraising to support team operations, equipment,
+                travel assistance, and athlete development opportunities.
+              </p>
+              <ul class="mt-3 text-sm text-gray-700 leading-relaxed space-y-2 list-disc pl-5">
+                <li>Athletes and families are expected to actively participate in scheduled team fundraising activities.</li>
+                <li>Fundraising participation supports shared team costs including travel, competition expenses, equipment, uniforms, training resources, and program sustainability.</li>
+                <li>Eligibility for financial assistance or travel support may be prioritized for athletes and families who actively participate in fundraising efforts.</li>
+                <li>Funds raised are used to benefit the team as a whole in alignment with the club’s nonprofit mission and are not guaranteed to offset individual expenses.</li>
+              </ul>
+              <div class="mt-4 flex items-center justify-between gap-4 flex-col sm:flex-row">
+                <span class="text-sm font-extrabold text-gray-700">Parent/Guardian Initials</span>
+                <input class="w-full sm:w-64 rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Relay Policy -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Relay &amp; Travel Commitment Policy</h5>
+            <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
+              <ul class="text-sm text-gray-700 leading-relaxed space-y-2 list-disc pl-5">
+                <li>Relay selection represents a commitment to the team and competition schedule.</li>
+                <li><b>By signing this registration agreement and accepting a relay position, the athlete and family are committing to attend and compete and may not withdraw once committed, except in the case of injury, illness, or family emergency.</b></li>
+                <li>Relay commitments require consistent attendance and full participation in practices and team activities.</li>
+                <li>Travel expenses are the responsibility of the family unless otherwise funded through team fundraising or sponsorship.</li>
+                <li>Withdrawing from a relay after commitment may impact future relay selection and team opportunities.</li>
+              </ul>
+              <div class="mt-4 flex items-center justify-between gap-4 flex-col sm:flex-row">
+                <span class="text-sm font-extrabold text-gray-700">Parent/Guardian Initials</span>
+                <input class="w-full sm:w-64 rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Photo Release -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Photo &amp; Media Release</h5>
+            <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
+              <p class="text-sm text-gray-700 leading-relaxed">
+                I grant permission for Sun City Sprinters Track Club to use photographs and video of my child for promotional purposes
+                including website, social media, marketing materials, and fundraising efforts. I understand no compensation will be provided.
+              </p>
+
+              <div class="mt-4 flex flex-col sm:flex-row gap-6 text-sm font-semibold">
+                <label class="inline-flex items-center gap-2">
+                  <input type="checkbox" class="accent-pink-500" />
+                  Yes, I give permission
+                </label>
+                <label class="inline-flex items-center gap-2">
+                  <input type="checkbox" class="accent-pink-500" />
+                  No, I do not give permission
+                </label>
+              </div>
+
+              <div class="mt-4 flex items-center justify-between gap-4 flex-col sm:flex-row">
+                <span class="text-sm font-extrabold text-gray-700">Parent/Guardian Initials</span>
+                <input class="w-full sm:w-64 rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- USATF Steps -->
+          <section class="page-break">
+            <h5 class="font-heading text-3xl text-primary">Required: USATF Youth Membership Registration</h5>
+            <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
+              <p class="text-sm text-gray-700 leading-relaxed">
+                All athletes must complete their <b>USATF Youth Membership</b> registration before participating in practices or competitions.
+              </p>
+              <ol class="mt-3 text-sm text-gray-700 leading-relaxed space-y-2 list-decimal pl-5">
+                <li>Visit <b>www.usatf.org</b> and create a parent account.</li>
+                <li>Create a youth athlete profile for your child.</li>
+                <li>Purchase the <b>USATF Youth Membership</b>.</li>
+                <li>Add <b>Sun City Sprinters</b> as the athlete’s club affiliation.</li>
+                <li>Upload your child’s <b>birth certificate</b> to the athlete profile for age verification.</li>
+              </ol>
+              <p class="mt-3 text-sm text-gray-700 font-semibold">
+                Participation is not permitted until USATF registration is completed and verified.
+              </p>
+              <div class="mt-4 flex items-center justify-between gap-4 flex-col sm:flex-row">
+                <span class="text-sm font-extrabold text-gray-700">Parent/Guardian Initials</span>
+                <input class="w-full sm:w-64 rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Fees -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Fees &amp; Nonprofit Disclosure</h5>
+            <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
+              <p class="text-sm text-gray-700 leading-relaxed">
+                Sun City Sprinters is a registered 501(c)(3) nonprofit organization. Registration fees support
+                <b>meet fees, event fees, coaching development, program operations, and athlete development opportunities.</b>
+                Fees are non-refundable once the season begins unless otherwise approved by administration.
+              </p>
+
+              <div class="mt-4 grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="text-sm font-extrabold text-gray-700">Season Fee</label>
+                  <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" placeholder="$" />
+                </div>
+                <div>
+                  <label class="text-sm font-extrabold text-gray-700">Uniform Fee (if applicable)</label>
+                  <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" placeholder="$" />
+                </div>
+              </div>
+
+              <div class="mt-4 flex items-center justify-between gap-4 flex-col sm:flex-row">
+                <span class="text-sm font-extrabold text-gray-700">Parent/Guardian Initials</span>
+                <input class="w-full sm:w-64 rounded-2xl px-4 py-3 border border-gray-300" />
+              </div>
+            </div>
+          </section>
+
+          <!-- Signatures -->
+          <section>
+            <h5 class="font-heading text-3xl text-primary">Agreement &amp; Signatures</h5>
+            <div class="mt-4 rounded-2xl border border-gray-200 bg-white p-4">
+              <p class="text-sm text-gray-700 leading-relaxed">
+                By signing below, I acknowledge that I have read, understand, and agree to all policies and conditions outlined in this registration agreement.
+              </p>
+
+              <div class="mt-6 grid md:grid-cols-2 gap-6">
+                <div class="rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                  <label class="text-sm font-extrabold text-gray-700">Athlete Name (Print)</label>
+                  <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+                  <div class="mt-4 grid grid-cols-2 gap-3">
+                    <div>
+                      <label class="text-sm font-extrabold text-gray-700">Athlete Signature</label>
+                      <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+                    </div>
+                    <div>
+                      <label class="text-sm font-extrabold text-gray-700">Date</label>
+                      <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" placeholder="MM/DD/YYYY" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                  <label class="text-sm font-extrabold text-gray-700">Parent/Guardian Name (Print)</label>
+                  <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+                  <div class="mt-4 grid grid-cols-2 gap-3">
+                    <div>
+                      <label class="text-sm font-extrabold text-gray-700">Parent/Guardian Signature</label>
+                      <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" />
+                    </div>
+                    <div>
+                      <label class="text-sm font-extrabold text-gray-700">Date</label>
+                      <input class="mt-2 w-full rounded-2xl px-4 py-3 border border-gray-300" placeholder="MM/DD/YYYY" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="mt-6 text-xs text-gray-500 font-semibold">
+                Printing tip: choose “Save as PDF” to email this registration packet.
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <!-- Packet footer -->
+        <div class="px-6 md:px-8 py-5 border-t border-gray-200 bg-white">
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-sm text-gray-600">
+            <p><span class="font-extrabold text-gray-900">Sun City Sprinters</span> • El Paso, TX</p>
+            <p>Questions: <span class="font-extrabold text-gray-900">(915) 831-0221</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- DONATE -->
   <section id="donate" class="py-16 md:py-20 bg-gray-900 text-white text-center">
