@@ -1176,35 +1176,175 @@
           </p>
         </div>
       </div>
+<!-- COACHES CORNER (FILLED + HAPPY + CLEAN) -->
+<section id="coaches" class="bg-black text-white py-16 md:py-20">
+  <div class="max-w-7xl mx-auto px-6">
 
-      <!-- RIGHT: Team photo + support message -->
-      <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/15">
-        <!-- Change this image if you want -->
-        <img
-          src="IMG_0035.jpeg"
-          alt="Sun City Sprinters team"
-          class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-black/55"></div>
-        <div class="absolute inset-0 lane-lines opacity-35 mix-blend-overlay"></div>
+    <!-- Header -->
+    <div class="reveal mb-10">
+      <h3 class="font-heading text-6xl md:text-7xl tracking-wide text-gold">Coaches Corner</h3>
+      <p class="text-white/70 mt-3 max-w-2xl">
+        The coach behind the culture — confidence, character, and speed.
+      </p>
+      <span class="block w-20 h-1 bg-primary mt-4 rounded-full"></span>
+    </div>
 
-        <div class="relative p-6 md:p-8 h-full flex flex-col justify-end">
-          <div class="rounded-3xl bg-white/10 border border-white/15 p-6 sparkle-border">
-            <p class="uppercase tracking-[0.22em] text-xs font-extrabold text-white/80">
-              Your Support Makes an Impact
+    <div class="grid lg:grid-cols-12 gap-8 items-start">
+
+      <!-- LEFT: happy + filled content -->
+      <div class="reveal lg:col-span-7">
+        <div class="rounded-3xl border border-white/10 bg-white/5 shadow-xl overflow-hidden">
+          <div class="p-6 md:p-8">
+            <p class="uppercase tracking-[0.22em] text-xs font-extrabold text-white/60">
+              What to Expect
             </p>
+            <h4 class="mt-2 font-extrabold text-2xl text-white">
+              Fun, structured coaching — built on fundamentals
+            </h4>
 
-            <p class="mt-3 text-white/95 font-semibold leading-relaxed">
-              Sun City Sprinters is a nonprofit youth program. Community support helps cover
-              <span class="font-extrabold text-gold">meet fees, event fees, travel assistance, and team needs</span>
-              so more athletes can compete with confidence and represent El Paso with pride.
-            </p>
+            <!-- highlight boxes -->
+            <div class="mt-6 grid sm:grid-cols-3 gap-3">
+              <div class="rounded-2xl border border-white/10 bg-black/30 p-4">
+                <p class="text-gold font-extrabold text-sm">Positive culture</p>
+                <p class="text-white/70 text-xs mt-1 font-semibold">
+                  Athletes feel safe, supported, and excited to show up.
+                </p>
+              </div>
 
-            <div class="mt-5 shimmer-line"></div>
+              <div class="rounded-2xl border border-white/10 bg-black/30 p-4">
+                <p class="text-gold font-extrabold text-sm">Smart training</p>
+                <p class="text-white/70 text-xs mt-1 font-semibold">
+                  Age-appropriate progressions + clear expectations.
+                </p>
+              </div>
 
-            <p class="mt-4 text-sm text-white/85 font-semibold">
-              Support the team, fuel their dreams ✨
-            </p>
+              <div class="rounded-2xl border border-white/10 bg-black/30 p-4">
+                <p class="text-gold font-extrabold text-sm">Fundamentals</p>
+                <p class="text-white/70 text-xs mt-1 font-semibold">
+                  Mechanics, rhythm, confidence — done the right way.
+                </p>
+              </div>
+            </div>
+
+            <!-- standards list -->
+            <div class="mt-6 rounded-2xl border border-white/10 bg-black/30 p-5">
+              <p class="text-xs uppercase tracking-widest text-white/60 font-extrabold">
+                Our training standards
+              </p>
+
+              <ul class="mt-4 space-y-3 text-white/85 font-semibold">
+                <li class="flex gap-3">
+                  <span class="mt-1 h-2.5 w-2.5 rounded-full bg-gold"></span>
+                  Warm-up is non-negotiable — we build athleticism and prevent injuries.
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-1 h-2.5 w-2.5 rounded-full bg-primary"></span>
+                  Technique-first coaching — confidence comes from repetition and clarity.
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-1 h-2.5 w-2.5 rounded-full bg-gold"></span>
+                  We work hard, we have fun — yes, sometimes we play Duck Duck Goose.
+                </li>
+                <li class="flex gap-3">
+                  <span class="mt-1 h-2.5 w-2.5 rounded-full bg-primary"></span>
+                  We grow athletes and people — character matters here.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Track legend quotes (rotating) -->
+            <div class="mt-6 rounded-2xl border border-white/10 bg-gradient-to-r from-white/5 to-black/20 p-5 overflow-hidden">
+              <p class="text-xs uppercase tracking-widest text-white/60 font-extrabold">
+                Track legend quote
+              </p>
+
+              <p id="legendQuote" class="mt-3 text-white/90 italic font-semibold">
+                “Don’t dream of winning. Train for it.”
+              </p>
+              <p id="legendAuthor" class="mt-2 text-white/60 text-sm font-semibold">
+                — Mo Farah
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: clean corner card -->
+      <div class="reveal lg:col-span-5 lg:sticky lg:top-24">
+        <div class="corner-coach relative rounded-3xl border border-white/10 bg-white/5 shadow-xl overflow-hidden">
+          <div class="shimmer-top pointer-events-none absolute left-0 top-0 h-[3px] w-full opacity-90"></div>
+
+          <div class="p-6">
+            <div class="flex items-center gap-4">
+              <img
+                src="IMG_1646.jpeg"
+                alt="Coach Marrissa Cammisa"
+                class="h-16 w-16 rounded-2xl object-cover border-4 border-gold shadow"
+              />
+              <div class="leading-tight">
+                <p class="font-extrabold text-white text-lg">Coach Marrissa Cammisa</p>
+                <p class="text-white/70 text-sm font-semibold">Founder • Head Coach</p>
+              </div>
+            </div>
+
+            <!-- Credentials (simple, not “badgey”) -->
+            <div class="mt-5 rounded-2xl border border-white/10 bg-black/30 p-4">
+              <p class="text-xs uppercase tracking-widest text-white/60 font-extrabold">Credentials</p>
+
+              <div class="mt-3 space-y-2 text-sm font-semibold text-white/85">
+                <div class="flex items-center gap-3">
+                  <span class="h-2.5 w-2.5 rounded-full bg-gold"></span>
+                  <span>USATF Level 1 Coach</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="h-2.5 w-2.5 rounded-full bg-primary"></span>
+                  <span>NFHS Certified (Track &amp; Field)</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="h-2.5 w-2.5 rounded-full bg-white/60"></span>
+                  <span>CPR / AED Certified</span>
+                </div>
+              </div>
+
+              <p class="mt-3 text-xs text-white/60 font-semibold">
+                Certificates available upon request.
+              </p>
+            </div>
+
+            <!-- Philosophy (YOUR ORIGINAL TEXT) -->
+            <details class="group mt-5 rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
+              <summary class="cursor-pointer select-none flex items-center justify-between gap-4">
+                <span class="font-extrabold text-gold">My Coaching Philosophy</span>
+                <span class="text-white/60 group-open:text-gold transition">▾</span>
+              </summary>
+
+              <div class="mt-4 text-white/85 leading-relaxed space-y-4 text-sm">
+                <p>
+                  At Sun City Sprinters, I coach because I truly love track and field and believe in doing things the right way.
+                  I started this program to give athletes a safe and positive place to learn, build confidence, and grow strong habits.
+                </p>
+
+                <p>
+                  I focus on teaching strong basics, setting clear expectations, and training in ways that fit each athlete’s age and ability.
+                  I also ran track myself, so I understand what it feels like to train, compete, and work toward goals, and I bring that experience into every practice.
+                </p>
+
+                <p>
+                  Sun City Sprinters is a nonprofit team that serves our community and helps give kids access to quality coaching in a positive environment.
+                  Our goal is to help athletes grow, build character, and love the sport not just win races.
+                </p>
+
+                <p>
+                  I am a USATF Level 1 and NFHS Certified Track and Field Coach. These certifications help guide how I keep athletes safe,
+                  teach proper technique, and plan smart training.
+                </p>
+
+                <p>
+                  Most importantly, I care deeply about every athlete on this team. I take coaching seriously and want every athlete to leave practice feeling
+                  proud, confident, and supported, both on the track and in life.
+                </p>
+              </div>
+            </details>
           </div>
         </div>
       </div>
@@ -1213,60 +1353,6 @@
   </div>
 </section>
 
-<script>
-  // Rotating track legend quotes (happy + motivating)
-  const legendQuotes = [
-    { q: "Don’t dream of winning. Train for it.", a: "Mo Farah" },
-    { q: "It’s not the will to win that matters—everyone has that. It’s the will to prepare to win that matters.", a: "Paul 'Bear' Bryant" },
-    { q: "I’ve failed over and over again in my life. And that is why I succeed.", a: "Michael Jordan" },
-    { q: "The pain you feel today will be the strength you feel tomorrow.", a: "Unknown" },
-    { q: "Champions keep playing until they get it right.", a: "Billie Jean King" }
-  ];
-
-  let legendIndex = 0;
-
-  function setLegendQuote() {
-    const quoteEl = document.getElementById("legendQuote");
-    const authorEl = document.getElementById("legendAuthor");
-    if (!quoteEl || !authorEl) return;
-
-    const item = legendQuotes[legendIndex % legendQuotes.length];
-    quoteEl.textContent = `“${item.q}”`;
-    authorEl.textContent = `— ${item.a}`;
-    legendIndex++;
-  }
-
-  setLegendQuote();
-  setInterval(setLegendQuote, 6500);
-</script>
-
-<!-- Add these tiny styles in your existing <style> block -->
-<style>
-  /* subtle shimmer line for the top of the coach card */
-  @keyframes coachShimmer {
-    0% { transform: translateX(-70%); opacity: .2; }
-    50% { opacity: .85; }
-    100% { transform: translateX(70%); opacity: .2; }
-  }
-  .shimmer-top{
-    background: linear-gradient(90deg, transparent, rgba(251,191,36,.95), rgba(236,72,153,.55), transparent);
-    animation: coachShimmer 2.8s ease-in-out infinite;
-  }
-
-  /* tiny “lift” but professional */
-  .corner-coach{
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .corner-coach:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 22px 50px rgba(236,72,153,.10);
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .shimmer-top{ animation: none !important; }
-    .corner-coach{ transition: none !important; }
-  }
-</style>
 
 
 
