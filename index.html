@@ -1214,7 +1214,7 @@
 </section>
 
 
-<!-- COACHES CORNER (KEEP SAME COLOR SCHEME FOR NOW) -->
+<!-- COACHES CORNER (SECTION ON PAGE — SMALL PREVIEW ONLY) -->
 <section id="coaches" class="bg-black text-white py-16 md:py-20">
   <div class="max-w-7xl mx-auto px-6">
     <div class="reveal text-center mb-10">
@@ -1240,42 +1240,24 @@
 
           <div class="w-full">
             <p class="font-extrabold text-lg text-white">Lead with vision, inspire with passion</p>
+            <p class="mt-2 text-white/80 leading-relaxed">
+              Tap the Coaches Corner button in the bottom-right corner to read my philosophy and view credentials.
+            </p>
 
-            <details class="group mt-5 rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
-              <summary class="cursor-pointer select-none flex items-center justify-between gap-4">
-                <span class="font-extrabold text-gold">My Coaching Philosophy</span>
-                <span class="text-white/60 group-open:text-gold transition">▾</span>
-              </summary>
-
-              <div class="mt-4 text-white/85 leading-relaxed space-y-4">
-                <p>
-                  At Sun City Sprinters, I coach because I truly love track and field and believe in doing things the right way.
-                  I started this program to give athletes a safe and positive place to learn, build confidence, and grow strong habits.
-                </p>
-
-                <p>
-                  I focus on teaching strong basics, setting clear expectations, and training in ways that fit each athlete’s age and ability.
-                  I also ran track myself, so I understand what it feels like to train, compete, and work toward goals, and I bring that experience into every practice.
-                </p>
-
-                <p>
-                  Sun City Sprinters is a nonprofit team that serves our community and helps give kids access to quality coaching in a positive environment.
-                  Our goal is to help athletes grow, build character, and love the sport not just win races.
-                </p>
-
-                <p>
-                  I am a USATF Level 1 and NFHS Certified Track and Field Coach. These certifications help guide how I keep athletes safe,
-                  teach proper technique, and plan smart training.
-                </p>
-
-                <p>
-                  Most importantly, I care deeply about every athlete on this team. I take coaching seriously and want every athlete to leave practice feeling
-                  proud, confident, and supported, both on the track and in life.
-                </p>
-              </div>
-            </details>
-
+            <!-- Badge preview -->
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-black/30 text-white/85 text-xs font-extrabold">
+                <span class="h-2 w-2 rounded-full bg-gold"></span> USATF Level 1
+              </span>
+              <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-black/30 text-white/85 text-xs font-extrabold">
+                <span class="h-2 w-2 rounded-full bg-primary"></span> NFHS Certified
+              </span>
+              <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-black/30 text-white/85 text-xs font-extrabold">
+                <span class="h-2 w-2 rounded-full bg-white"></span> CPR / AED
+              </span>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -1649,6 +1631,92 @@
       });
     })();
   </script>
+    <!-- FLOATING COACHES CORNER WIDGET -->
+<div class="no-print fixed bottom-5 right-5 z-[9999]">
+  <div
+    id="coachWidgetPanel"
+    class="hidden w-[92vw] max-w-sm rounded-3xl border border-white/10 bg-black/90 text-white shadow-2xl overflow-hidden backdrop-blur"
+  >
+    <!-- Header -->
+    <div class="p-4 border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <img
+          src="IMG_1646.jpeg"
+          alt="Coach Marrissa Cammisa"
+          class="h-12 w-12 rounded-2xl object-cover border-2 border-gold shadow"
+        />
+        <div>
+          <p class="font-heading text-3xl leading-none text-gold">Coaches Corner</p>
+          <p class="text-xs text-white/70 font-semibold">Coach Marrissa</p>
+        </div>
+
+        <button
+          onclick="toggleCoachWidget(false)"
+          class="ml-auto h-9 w-9 rounded-xl bg-white/10 border border-white/10 hover:bg-white/20 transition"
+        >✕</button>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <div class="p-4 space-y-3">
+      <p class="text-xs uppercase tracking-widest text-white/60 font-extrabold">Credentials</p>
+
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 rounded-full bg-gold text-black text-xs font-extrabold">USATF Level 1</span>
+        <span class="px-3 py-1 rounded-full bg-primary text-black text-xs font-extrabold">NFHS Certified</span>
+        <span class="px-3 py-1 rounded-full bg-white text-black text-xs font-extrabold">CPR / AED</span>
+        <span class="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-white text-xs font-extrabold">
+          USATF Campus
+        </span>
+      </div>
+
+      <p class="text-xs text-white/70 font-semibold">
+        Credentials available upon request.
+      </p>
+    </div>
+
+    <!-- Philosophy -->
+    <div class="px-4 pb-4">
+      <details class="rounded-xl border border-white/10 bg-white/5 p-3">
+        <summary class="cursor-pointer font-extrabold text-gold">My Coaching Philosophy</summary>
+
+        <div class="mt-3 text-sm text-white/85 space-y-3">
+          <p>
+            I coach because I love track and believe in building strong fundamentals, confidence, and positive habits.
+          </p>
+          <p>
+            I ran track myself and bring that experience into every practice.
+          </p>
+          <p>
+            Sun City Sprinters is a nonprofit team focused on growth, character, and community.
+          </p>
+          <p>
+            Athlete safety, smart training, and positive culture guide everything I do.
+          </p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Floating Button -->
+  <button
+    onclick="toggleCoachWidget(true)"
+    class="flex items-center gap-3 rounded-3xl px-4 py-3 bg-black border border-white/10 shadow-xl hover:-translate-y-0.5 transition"
+  >
+    <img src="IMG_1646.jpeg" class="h-10 w-10 rounded-xl border-2 border-gold" />
+    <div class="text-left">
+      <p class="font-heading text-xl text-gold">Coach</p>
+      <p class="text-xs text-white/70">Tap to open</p>
+    </div>
+    <span class="h-8 w-8 flex items-center justify-center rounded-xl bg-gold text-black font-extrabold">›</span>
+  </button>
+</div>
+
+<script>
+  function toggleCoachWidget(open) {
+    document.getElementById("coachWidgetPanel").classList.toggle("hidden", !open);
+  }
+</script>
 
 </body>
 </html>
