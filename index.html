@@ -297,6 +297,38 @@
   border: 1px solid rgba(236,72,153,.18);
   box-shadow: 0 18px 55px rgba(236,72,153,.12);
 }
+/* ===== REGISTRATION PHOTO BACKDROP ===== */
+.registration-photo-bg{
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+}
+
+.registration-photo-bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: url("./IMG_0949.jpeg");
+  background-size: cover;
+  background-position: center;
+  opacity: .28;
+  filter: saturate(1.1) contrast(1.05);
+  transform: scale(1.04);
+  pointer-events:none;
+}
+
+.registration-photo-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.65));
+  pointer-events:none;
+}
+
+.registration-photo-bg > *{
+  position: relative;
+  z-index: 1;
+}
 
   </style>
 </head>
