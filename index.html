@@ -1217,7 +1217,7 @@
   </p>
 </div>
 
-
+    
   <!-- REGISTER (cleaned + photo + support message combined) -->
 <section id="register" class="bg-primary text-white py-16 md:py-20">
   <div class="max-w-6xl mx-auto px-6 reveal">
@@ -1234,10 +1234,11 @@
       <div class="mt-6 max-w-sm mx-auto shimmer-line"></div>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+    <!-- FIXED: single-column layout so the left card doesn't stretch weird on desktop -->
+    <div class="grid grid-cols-1 gap-8 items-stretch justify-items-center">
 
       <!-- LEFT: Registration Actions -->
-      <div class="registration-photo-bg rounded-3xl border border-white/15 bg-black/50 shadow-xl overflow-hidden sparkle-border">
+      <div class="registration-photo-bg w-full max-w-3xl rounded-3xl border border-white/15 bg-black/50 shadow-xl overflow-hidden sparkle-border">
         <div class="p-5 md:p-6 flex flex-col h-full min-h-[360px] md:min-h-[420px]">
 
           <!-- Click hint -->
@@ -1287,7 +1288,7 @@
 
           </div>
 
-               </div>
+        </div>
       </div>
 
     </div>
@@ -1296,21 +1297,16 @@
 <!-- END Athlete Registration -->
 
 
-<!-- SECTION TRANSITION (breathing room without awkward empty space) -->
-<div class="bg-black py-10 md:py-14">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="h-[2px] w-28 mx-auto rounded-full"
-         style="background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.95)); opacity:.85;">
-    </div>
-  </div>
-</div>
+<!-- CLEAN SPACE (no divider line, no awkward gap) -->
+<section class="bg-black py-10 md:py-14"></section>
+
 
 <!-- COACHES SECTION (separate from Athlete Registration) -->
 <section id="coaches" class="bg-black text-white py-16 md:py-20">
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-6 lg:pr-2">
 
     <!-- RIGHT: clean corner card -->
-    <div class="reveal flex justify-center">
+    <div class="reveal flex justify-center lg:justify-end">
       <div class="corner-coach w-full max-w-xl relative rounded-3xl border border-white/15 bg-lightpink/20 shadow-xl overflow-hidden">
         <div class="shimmer-top pointer-events-none absolute left-0 top-0 h-[3px] w-full opacity-90"></div>
 
@@ -1644,8 +1640,6 @@
     </p>
   </div>
 </footer>
-
-    
 
   <!-- LIGHTBOX -->
   <div id="lightbox" class="fixed inset-0 z-[999] hidden">
