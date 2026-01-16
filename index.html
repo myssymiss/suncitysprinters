@@ -1235,317 +1235,320 @@
 
     <div class="grid lg:grid-cols-2 gap-8 items-stretch">
 
-    <!-- LEFT: Registration Actions -->
-<div class="registration-photo-bg rounded-3xl border border-white/15 bg-black/50 shadow-xl overflow-hidden sparkle-border">
-  <div class="p-6 md:p-8 flex flex-col h-full">
+      <!-- LEFT: Registration Actions (FIXED: no longer huge) -->
+      <div class="registration-photo-bg rounded-3xl border border-white/15 bg-black/50 shadow-xl overflow-hidden sparkle-border">
+        <div class="p-5 md:p-6 flex flex-col justify-center h-full min-h-[360px] md:min-h-[420px]">
 
-    <!-- Click hint -->
-    <p class="text-xs text-white/80 font-medium text-center tracking-wide mb-3">
-      Tap a button below to get started ✨
-    </p>
+          <!-- Click hint -->
+          <p class="text-xs text-white/80 font-medium text-center tracking-wide mb-4">
+            Tap a button below to get started ✨
+          </p>
 
-    <!-- Buttons positioned upper-middle (slightly lower again) -->
-    <div class="flex flex-col items-center gap-5 mt-12">
+          <!-- Buttons (FIXED: removed extra push-down spacing) -->
+          <div class="flex flex-col items-center gap-5">
 
-      <!-- USATF Button -->
-      <a
-        href="https://usatf.sport80.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group inline-flex items-center justify-center
-               px-6 py-2 rounded-full
-               text-sm font-semibold tracking-wide
-               backdrop-blur-md
-               shadow-[0_8px_20px_rgba(236,72,153,.18)]
-               hover:scale-105 transition glow-pulse"
-        style="background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.95)); color:#111;"
-      >
-        USATF Youth Membership
-        <span class="ml-2 opacity-70 group-hover:translate-x-1 transition">→</span>
-      </a>
+            <!-- USATF Button -->
+            <a
+              href="https://usatf.sport80.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group inline-flex items-center justify-center
+                     px-6 py-2 rounded-full
+                     text-sm font-semibold tracking-wide
+                     backdrop-blur-md
+                     shadow-[0_8px_20px_rgba(236,72,153,.18)]
+                     hover:scale-105 transition glow-pulse"
+              style="background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.95)); color:#111;"
+            >
+              USATF Youth Membership
+              <span class="ml-2 opacity-70 group-hover:translate-x-1 transition">→</span>
+            </a>
 
-      <!-- Tip under first button -->
-      <p class="text-[11px] text-white/80 font-medium text-center max-w-[240px] leading-snug">
-        Select <span class="text-gold font-semibold">Youth Membership</span> when creating your account.
-      </p>
+            <!-- Tip under first button -->
+            <p class="text-[11px] text-white/80 font-medium text-center max-w-[240px] leading-snug">
+              Select <span class="text-gold font-semibold">Youth Membership</span> when creating your account.
+            </p>
 
-      <!-- Registration Button -->
-      <a
-        href="registration.html"
-        class="group inline-flex items-center justify-center
-               px-6 py-2 rounded-full
-               text-sm font-semibold tracking-wide
-               bg-white/85 text-black
-               backdrop-blur-md
-               shadow-[0_8px_20px_rgba(0,0,0,.12)]
-               hover:bg-white hover:scale-105 transition"
-      >
-        Open Registration Packet
-        <span class="ml-2 opacity-70 group-hover:translate-x-1 transition">→</span>
-      </a>
+            <!-- Registration Button -->
+            <a
+              href="registration.html"
+              class="group inline-flex items-center justify-center
+                     px-6 py-2 rounded-full
+                     text-sm font-semibold tracking-wide
+                     bg-white/85 text-black
+                     backdrop-blur-md
+                     shadow-[0_8px_20px_rgba(0,0,0,.12)]
+                     hover:bg-white hover:scale-105 transition"
+            >
+              Open Registration Packet
+              <span class="ml-2 opacity-70 group-hover:translate-x-1 transition">→</span>
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: clean corner card -->
+      <div class="reveal flex justify-center">
+        <div class="corner-coach w-full max-w-xl relative rounded-3xl border border-white/15 bg-lightpink/20 shadow-xl overflow-hidden">
+          <div class="shimmer-top pointer-events-none absolute left-0 top-0 h-[3px] w-full opacity-90"></div>
+
+          <div class="p-6">
+            <div class="flex items-center gap-4">
+              <img
+                src="IMG_1646.jpeg"
+                alt="Coach Marrissa Cammisa"
+                class="h-16 w-16 rounded-2xl object-cover border-4 border-gold shadow"
+              />
+              <div class="leading-tight">
+                <p class="font-extrabold text-white text-lg">Coach Marrissa Cammisa</p>
+                <p class="text-white/70 text-sm font-semibold">Founder • Head Coach</p>
+              </div>
+            </div>
+
+            <!-- Philosophy (MOVED: now directly under name/title) -->
+            <details class="group mt-4 rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
+              <summary class="cursor-pointer select-none flex items-center justify-between gap-4">
+                <span class="font-extrabold text-gold">My Coaching Philosophy</span>
+                <span class="text-white/60 group-open:text-gold transition">▾</span>
+              </summary>
+
+              <div class="mt-4 text-white/85 leading-relaxed space-y-4 text-sm">
+                <p>
+                  At Sun City Sprinters, I coach because I truly love track and field and believe in doing things the right way.
+                  I started this program to give athletes a safe and positive place to learn, build confidence, and grow strong habits.
+                </p>
+
+                <p>
+                  I focus on teaching strong basics, setting clear expectations, and training in ways that fit each athlete’s age and ability.
+                  I also ran track myself, so I understand what it feels like to train, compete, and work toward goals, and I bring that experience into every practice.
+                </p>
+
+                <p>
+                  Sun City Sprinters is a nonprofit team that serves our community and helps give kids access to quality coaching in a positive environment.
+                  Our goal is to help athletes grow, build character, and love the sport — not just win races.
+                </p>
+
+                <p>
+                  I am a USATF Level 1 and NFHS Certified Track and Field Coach. These certifications help guide how I keep athletes safe,
+                  teach proper technique, and plan smart training.
+                </p>
+
+                <p>
+                  Most importantly, I care deeply about every athlete on this team. I take coaching seriously and want every athlete to leave practice feeling
+                  proud, confident, and supported, both on the track and in life.
+                </p>
+              </div>
+            </details>
+
+            <!-- Certifications (dropdown bulletins) -->
+            <div class="mt-5 rounded-2xl border border-white/10 bg-black/30 p-4">
+              <p class="text-xs uppercase tracking-widest text-white/60 font-extrabold">Coach Certifications</p>
+              <p class="text-xs text-white/70 font-semibold mt-2">
+                Tap a bulletin to see what it covers + why it matters for your athlete.
+              </p>
+
+              <div class="mt-4 space-y-3">
+
+                <!-- USATF Level 1 -->
+                <details class="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+                  <summary class="cursor-pointer select-none px-4 py-3 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="IMG_67332.jpeg"
+                        alt="USATF Coaching Education badge"
+                        class="h-10 w-10 rounded-xl object-contain bg-white/90 p-1 shadow ring-1 ring-white/20"
+                      />
+                      <div>
+                        <p class="text-white font-extrabold leading-tight">USATF Level 1 Track &amp; Field Coach</p>
+                        <p class="text-[11px] text-white/70 font-semibold">Foundation coaching education</p>
+                      </div>
+                    </div>
+                    <span class="text-white/60 group-open:text-gold transition text-lg">▾</span>
+                  </summary>
+
+                  <div class="px-4 pb-4 text-sm text-white/85 leading-relaxed">
+                    <div class="rounded-xl border border-white/10 bg-black/25 p-4">
+                      <p class="font-extrabold text-gold">What this course covered</p>
+                      <ul class="mt-2 list-disc list-inside space-y-1">
+                        <li>Coaching ethics, athlete well-being, and positive coaching leadership</li>
+                        <li>Athlete safety and risk awareness on the track</li>
+                        <li>Age-appropriate training and long-term athlete development</li>
+                        <li><span class="font-extrabold">Sprints:</span> mechanics, acceleration, max velocity basics, and race execution</li>
+                        <li><span class="font-extrabold">Hurdles:</span> rhythm, lead/trail basics, progressions, and safe technical teaching</li>
+                        <li><span class="font-extrabold">Relays:</span> exchange fundamentals, handoff communication, and team execution</li>
+                        <li>Practice planning and season structure: purposeful sessions that build over time</li>
+                      </ul>
+
+                      <p class="font-extrabold text-gold mt-4">Why it matters for your athlete</p>
+                      <p class="mt-1">
+                        Your athlete is coached with a clear system: safe progressions, strong fundamentals,
+                        and consistent teaching—especially in technical events like hurdles and relays.
+                      </p>
+                    </div>
+                  </div>
+                </details>
+
+                <!-- NFHS (FIXED: correct badge) -->
+                <details class="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+                  <summary class="cursor-pointer select-none px-4 py-3 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="IMG_676003.jpeg"
+                        alt="NFHS badge"
+                        class="h-10 w-10 rounded-xl object-contain bg-white/90 p-1 shadow ring-1 ring-white/20"
+                      />
+                      <div>
+                        <p class="text-white font-extrabold leading-tight">NFHS — Coaching Track &amp; Field</p>
+                        <p class="text-[11px] text-white/70 font-semibold">Fundamentals + teaching progressions</p>
+                      </div>
+                    </div>
+                    <span class="text-white/60 group-open:text-gold transition text-lg">▾</span>
+                  </summary>
+
+                  <div class="px-4 pb-4 text-sm text-white/85 leading-relaxed">
+                    <div class="rounded-xl border border-white/10 bg-black/25 p-4">
+                      <p class="font-extrabold text-gold">What this course covered</p>
+                      <ul class="mt-2 list-disc list-inside space-y-1">
+                        <li>Teaching fundamentals of running, jumping, and event basics</li>
+                        <li>How to break skills into coachable steps (progressions + cues)</li>
+                        <li>Spotting common form mistakes and correcting them safely</li>
+                        <li>Organized practice structure that keeps athletes learning and engaged</li>
+                        <li>Sportsmanship, communication, and athlete expectations</li>
+                      </ul>
+
+                      <p class="font-extrabold text-gold mt-4">Why it matters for your athlete</p>
+                      <p class="mt-1">
+                        Athletes learn clean technique early, so they build confidence and improve faster—without
+                        bad habits that are hard to fix later.
+                      </p>
+                    </div>
+                  </div>
+                </details>
+
+                <!-- CPR / AED / First Aid (FIXED: correct badge) -->
+                <details class="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+                  <summary class="cursor-pointer select-none px-4 py-3 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="IMG_90890.jpeg"
+                        alt="CPR / AED / First Aid badge"
+                        class="h-10 w-10 rounded-xl object-contain bg-white/90 p-1 shadow ring-1 ring-white/20"
+                      />
+                      <div>
+                        <p class="text-white font-extrabold leading-tight">CPR / AED / First Aid</p>
+                        <p class="text-[11px] text-white/70 font-semibold">Emergency readiness</p>
+                      </div>
+                    </div>
+                    <span class="text-white/60 group-open:text-gold transition text-lg">▾</span>
+                  </summary>
+
+                  <div class="px-4 pb-4 text-sm text-white/85 leading-relaxed">
+                    <div class="rounded-xl border border-white/10 bg-black/25 p-4">
+                      <p class="font-extrabold text-gold">What this course covered</p>
+                      <ul class="mt-2 list-disc list-inside space-y-1">
+                        <li>CPR response for adults, children, and infants</li>
+                        <li>AED use and emergency steps</li>
+                        <li>Choking response procedures</li>
+                        <li>Basic first aid for common injuries until EMS arrives</li>
+                        <li>Safety awareness and emergency action mindset</li>
+                      </ul>
+
+                      <p class="font-extrabold text-gold mt-4">Why it matters for your athlete</p>
+                      <p class="mt-1">
+                        Safety is non-negotiable. This training supports quick, calm response if something ever happens at practice or a meet.
+                      </p>
+                    </div>
+                  </div>
+                </details>
+
+                <!-- USATF Endurance -->
+                <details class="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+                  <summary class="cursor-pointer select-none px-4 py-3 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="IMG_67332.jpeg"
+                        alt="USATF Coaching Education badge"
+                        class="h-10 w-10 rounded-xl object-contain bg-white/90 p-1 shadow ring-1 ring-white/20"
+                      />
+                      <div>
+                        <p class="text-white font-extrabold leading-tight">USATF Campus — Endurance Training Principles</p>
+                        <p class="text-[11px] text-white/70 font-semibold">Smart conditioning + pacing</p>
+                      </div>
+                    </div>
+                    <span class="text-white/60 group-open:text-gold transition text-lg">▾</span>
+                  </summary>
+
+                  <div class="px-4 pb-4 text-sm text-white/85 leading-relaxed">
+                    <div class="rounded-xl border border-white/10 bg-black/25 p-4">
+                      <p class="font-extrabold text-gold">What this course covered</p>
+                      <ul class="mt-2 list-disc list-inside space-y-1">
+                        <li>Building endurance safely for youth athletes (no overtraining)</li>
+                        <li>Progression: how to improve gradually over time</li>
+                        <li>Pacing, effort control, and consistency</li>
+                        <li>Recovery habits: rest, hydration, fueling basics</li>
+                        <li>Supporting 800/1600 athletes with development-focused conditioning</li>
+                      </ul>
+
+                      <p class="font-extrabold text-gold mt-4">Why it matters for your athlete</p>
+                      <p class="mt-1">
+                        Endurance work is done the right way—so athletes build strength and confidence without getting run into the ground.
+                      </p>
+                    </div>
+                  </div>
+                </details>
+
+                <!-- USATF Long Jump -->
+                <details class="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+                  <summary class="cursor-pointer select-none px-4 py-3 flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                      <img
+                        src="IMG_67332.jpeg"
+                        alt="USATF Coaching Education badge"
+                        class="h-10 w-10 rounded-xl object-contain bg-white/90 p-1 shadow ring-1 ring-white/20"
+                      />
+                      <div>
+                        <p class="text-white font-extrabold leading-tight">USATF Campus — Long Jump Principles</p>
+                        <p class="text-[11px] text-white/70 font-semibold">Approach + takeoff + landing</p>
+                      </div>
+                    </div>
+                    <span class="text-white/60 group-open:text-gold transition text-lg">▾</span>
+                  </summary>
+
+                  <div class="px-4 pb-4 text-sm text-white/85 leading-relaxed">
+                    <div class="rounded-xl border border-white/10 bg-black/25 p-4">
+                      <p class="font-extrabold text-gold">What this course covered</p>
+                      <ul class="mt-2 list-disc list-inside space-y-1">
+                        <li>Approach consistency and speed control</li>
+                        <li>Safe takeoff mechanics and body position</li>
+                        <li>Board accuracy and reducing fouls</li>
+                        <li>Landing technique and athlete confidence</li>
+                        <li>Simple drills that build repeatable form</li>
+                      </ul>
+
+                      <p class="font-extrabold text-gold mt-4">Why it matters for your athlete</p>
+                      <p class="mt-1">
+                        Jumpers learn safe, consistent technique so they can actually use their speed and power—without guessing or getting hurt.
+                      </p>
+                    </div>
+                  </div>
+                </details>
+
+              </div>
+
+              <p class="mt-4 text-xs text-white/60 font-semibold">
+                Want to see certificates? Just ask — we’re happy to share.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
     </div>
-
   </div>
-</div>
-
-
-<!-- RIGHT: clean corner card -->
-<div class="reveal flex justify-center">
-
-  <div class="corner-coach w-full max-w-xl relative rounded-3xl border border-white/15 bg-lightpink/20 shadow-xl overflow-hidden">
-
-    <div class="shimmer-top pointer-events-none absolute left-0 top-0 h-[3px] w-full opacity-90"></div>
-
-    <div class="p-6">
-  <div class="flex items-center gap-4">
-    <img
-      src="IMG_1646.jpeg"
-      alt="Coach Marrissa Cammisa"
-      class="h-16 w-16 rounded-2xl object-cover border-4 border-gold shadow"
-    />
-    <div class="leading-tight">
-      <p class="font-extrabold text-white text-lg">Coach Marrissa Cammisa</p>
-      <p class="text-white/70 text-sm font-semibold">Founder • Head Coach</p>
-    </div>
-  </div>
-
-  <!-- Philosophy (MOVED: now directly under name/title) -->
-  <details class="group mt-4 rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
-    <summary class="cursor-pointer select-none flex items-center justify-between gap-4">
-      <span class="font-extrabold text-gold">My Coaching Philosophy</span>
-      <span class="text-white/60 group-open:text-gold transition">▾</span>
-    </summary>
-
-    <div class="mt-4 text-white/85 leading-relaxed space-y-4 text-sm">
-      <p>
-        At Sun City Sprinters, I coach because I truly love track and field and believe in doing things the right way.
-        I started this program to give athletes a safe and positive place to learn, build confidence, and grow strong habits.
-      </p>
-
-      <p>
-        I focus on teaching strong basics, setting clear expectations, and training in ways that fit each athlete’s age and ability.
-        I also ran track myself, so I understand what it feels like to train, compete, and work toward goals, and I bring that experience into every practice.
-      </p>
-
-      <p>
-        Sun City Sprinters is a nonprofit team that serves our community and helps give kids access to quality coaching in a positive environment.
-        Our goal is to help athletes grow, build character, and love the sport — not just win races.
-      </p>
-
-      <p>
-        I am a USATF Level 1 and NFHS Certified Track and Field Coach. These certifications help guide how I keep athletes safe,
-        teach proper technique, and plan smart training.
-      </p>
-
-      <p>
-        Most importantly, I care deeply about every athlete on this team. I take coaching seriously and want every athlete to leave practice feeling
-        proud, confident, and supported, both on the track and in life.
-      </p>
-    </div>
-  </details>
-
-  <!-- Certifications (dropdown bulletins) -->
-  <div class="mt-5 rounded-2xl border border-white/10 bg-black/30 p-4">
-    <p class="text-xs uppercase tracking-widest text-white/60 font-extrabold">Coach Certifications</p>
-    <p class="text-xs text-white/70 font-semibold mt-2">
-      Tap a bulletin to see what it covers + why it matters for your athlete.
-    </p>
-
-    <div class="mt-4 space-y-3">
-
-      <!-- USATF Level 1 -->
-      <details class="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
-        <summary class="cursor-pointer select-none px-4 py-3 flex items-center justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <!-- CLEAN BADGE -->
-            <img
-              src="IMG_67332.jpeg"
-              alt="USATF Coaching Education badge"
-              class="h-10 w-10 rounded-xl object-contain bg-white/90 p-1 shadow ring-1 ring-white/20"
-            />
-            <div>
-              <p class="text-white font-extrabold leading-tight">USATF Level 1 Track &amp; Field Coach</p>
-              <p class="text-[11px] text-white/70 font-semibold">Foundation coaching education</p>
-            </div>
-          </div>
-          <span class="text-white/60 group-open:text-gold transition text-lg">▾</span>
-        </summary>
-
-        <div class="px-4 pb-4 text-sm text-white/85 leading-relaxed">
-          <div class="rounded-xl border border-white/10 bg-black/25 p-4">
-            <p class="font-extrabold text-gold">What this course covered</p>
-            <ul class="mt-2 list-disc list-inside space-y-1">
-              <li>Coaching ethics, athlete well-being, and positive coaching leadership</li>
-              <li>Athlete safety and risk awareness on the track</li>
-              <li>Age-appropriate training and long-term athlete development</li>
-              <li><span class="font-extrabold">Sprints:</span> mechanics, acceleration, max velocity basics, and race execution</li>
-              <li><span class="font-extrabold">Hurdles:</span> rhythm, lead/trail basics, progressions, and safe technical teaching</li>
-              <li><span class="font-extrabold">Relays:</span> exchange fundamentals, handoff communication, and team execution</li>
-              <li>Practice planning and season structure: purposeful sessions that build over time</li>
-            </ul>
-
-            <p class="font-extrabold text-gold mt-4">Why it matters for your athlete</p>
-            <p class="mt-1">
-              Your athlete is coached with a clear system: safe progressions, strong fundamentals,
-              and consistent teaching—especially in technical events like hurdles and relays.
-            </p>
-          </div>
-        </div>
-      </details>
-
-      <!-- NFHS -->
-      <details class="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
-        <summary class="cursor-pointer select-none px-4 py-3 flex items-center justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <img
-              src="IMG_676003.jpeg"
-              alt="NFHS badge"
-              class="h-10 w-10 rounded-xl object-contain bg-white/90 p-1 shadow ring-1 ring-white/20"
-            />
-            <div>
-              <p class="text-white font-extrabold leading-tight">NFHS — Coaching Track &amp; Field</p>
-              <p class="text-[11px] text-white/70 font-semibold">Fundamentals + teaching progressions</p>
-            </div>
-          </div>
-          <span class="text-white/60 group-open:text-gold transition text-lg">▾</span>
-        </summary>
-
-        <div class="px-4 pb-4 text-sm text-white/85 leading-relaxed">
-          <div class="rounded-xl border border-white/10 bg-black/25 p-4">
-            <p class="font-extrabold text-gold">What this course covered</p>
-            <ul class="mt-2 list-disc list-inside space-y-1">
-              <li>Teaching fundamentals of running, jumping, and event basics</li>
-              <li>How to break skills into coachable steps (progressions + cues)</li>
-              <li>Spotting common form mistakes and correcting them safely</li>
-              <li>Organized practice structure that keeps athletes learning and engaged</li>
-              <li>Sportsmanship, communication, and athlete expectations</li>
-            </ul>
-
-            <p class="font-extrabold text-gold mt-4">Why it matters for your athlete</p>
-            <p class="mt-1">
-              Athletes learn clean technique early, so they build confidence and improve faster—without
-              bad habits that are hard to fix later.
-            </p>
-          </div>
-        </div>
-      </details>
-
-      <!-- CPR / AED / First Aid -->
-      <details class="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
-        <summary class="cursor-pointer select-none px-4 py-3 flex items-center justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <img
-              src="IMG_90890.jpeg"
-              alt="CPR / AED / First Aid badge"
-              class="h-10 w-10 rounded-xl object-contain bg-white/90 p-1 shadow ring-1 ring-white/20"
-            />
-            <div>
-              <p class="text-white font-extrabold leading-tight">CPR / AED / First Aid</p>
-              <p class="text-[11px] text-white/70 font-semibold">Emergency readiness</p>
-            </div>
-          </div>
-          <span class="text-white/60 group-open:text-gold transition text-lg">▾</span>
-        </summary>
-
-        <div class="px-4 pb-4 text-sm text-white/85 leading-relaxed">
-          <div class="rounded-xl border border-white/10 bg-black/25 p-4">
-            <p class="font-extrabold text-gold">What this course covered</p>
-            <ul class="mt-2 list-disc list-inside space-y-1">
-              <li>CPR response for adults, children, and infants</li>
-              <li>AED use and emergency steps</li>
-              <li>Choking response procedures</li>
-              <li>Basic first aid for common injuries until EMS arrives</li>
-              <li>Safety awareness and emergency action mindset</li>
-            </ul>
-
-            <p class="font-extrabold text-gold mt-4">Why it matters for your athlete</p>
-            <p class="mt-1">
-              Safety is non-negotiable. This training supports quick, calm response if something ever happens at practice or a meet.
-            </p>
-          </div>
-        </div>
-      </details>
-
-      <!-- USATF Endurance -->
-      <details class="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
-        <summary class="cursor-pointer select-none px-4 py-3 flex items-center justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <img
-              src="IMG_67332.jpeg"
-              alt="USATF Coaching Education badge"
-              class="h-10 w-10 rounded-xl object-contain bg-white/90 p-1 shadow ring-1 ring-white/20"
-            />
-            <div>
-              <p class="text-white font-extrabold leading-tight">USATF Campus — Endurance Training Principles</p>
-              <p class="text-[11px] text-white/70 font-semibold">Smart conditioning + pacing</p>
-            </div>
-          </div>
-          <span class="text-white/60 group-open:text-gold transition text-lg">▾</span>
-        </summary>
-
-        <div class="px-4 pb-4 text-sm text-white/85 leading-relaxed">
-          <div class="rounded-xl border border-white/10 bg-black/25 p-4">
-            <p class="font-extrabold text-gold">What this course covered</p>
-            <ul class="mt-2 list-disc list-inside space-y-1">
-              <li>Building endurance safely for youth athletes (no overtraining)</li>
-              <li>Progression: how to improve gradually over time</li>
-              <li>Pacing, effort control, and consistency</li>
-              <li>Recovery habits: rest, hydration, fueling basics</li>
-              <li>Supporting 800/1600 athletes with development-focused conditioning</li>
-            </ul>
-
-            <p class="font-extrabold text-gold mt-4">Why it matters for your athlete</p>
-            <p class="mt-1">
-              Endurance work is done the right way—so athletes build strength and confidence without getting run into the ground.
-            </p>
-          </div>
-        </div>
-      </details>
-
-      <!-- USATF Long Jump -->
-      <details class="group rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
-        <summary class="cursor-pointer select-none px-4 py-3 flex items-center justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <img
-              src="IMG_67332.jpeg"
-              alt="USATF Coaching Education badge"
-              class="h-10 w-10 rounded-xl object-contain bg-white/90 p-1 shadow ring-1 ring-white/20"
-            />
-            <div>
-              <p class="text-white font-extrabold leading-tight">USATF Campus — Long Jump Principles</p>
-              <p class="text-[11px] text-white/70 font-semibold">Approach + takeoff + landing</p>
-            </div>
-          </div>
-          <span class="text-white/60 group-open:text-gold transition text-lg">▾</span>
-        </summary>
-
-        <div class="px-4 pb-4 text-sm text-white/85 leading-relaxed">
-          <div class="rounded-xl border border-white/10 bg-black/25 p-4">
-            <p class="font-extrabold text-gold">What this course covered</p>
-            <ul class="mt-2 list-disc list-inside space-y-1">
-              <li>Approach consistency and speed control</li>
-              <li>Safe takeoff mechanics and body position</li>
-              <li>Board accuracy and reducing fouls</li>
-              <li>Landing technique and athlete confidence</li>
-              <li>Simple drills that build repeatable form</li>
-            </ul>
-
-            <p class="font-extrabold text-gold mt-4">Why it matters for your athlete</p>
-            <p class="mt-1">
-              Jumpers learn safe, consistent technique so they can actually use their speed and power—without guessing or getting hurt.
-            </p>
-          </div>
-        </div>
-      </details>
-
-    </div>
-
-    <p class="mt-4 text-xs text-white/60 font-semibold">
-      Want to see certificates? Just ask — we’re happy to share.
-    </p>
-  </div>
-</div>
+</section>
 
 
 
@@ -1553,83 +1556,82 @@
 
 
   <!-- FOOTER -->
-  <footer class="bg-black text-gray-300 py-12 text-center border-t border-white/10">
-    <div class="max-w-3xl mx-auto px-6">
-      <p class="font-heading text-4xl tracking-wide text-white drop-shadow-sm">
-        Sun City Sprinters
-      </p>
-      <p class="mt-1 text-white/70">El Paso, Texas</p>
-
-      <div class="mt-6 space-y-2 text-sm">
-        <p>
-          Email:
-          <a href="mailto:myssymiss@yahoo.com" class="text-primary font-semibold hover:underline">
-            myssymiss@yahoo.com
-          </a>
-        </p>
-        <p class="text-white/80">
-          Phone: <span class="font-semibold text-white">(915) 831-0221</span>
-        </p>
-      </div>
-
-<!-- INSTAGRAM + DONATE ROW -->
-<div class="mt-10 grid md:grid-cols-2 gap-6 items-center">
-
-  <!-- Instagram -->
-  <a
-    href="https://www.instagram.com/suncity_sprinters/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Follow Sun City Sprinters on Instagram @suncity_sprinters"
-    title="Follow us on Instagram @suncity_sprinters"
-    class="group block"
-  >
-    <div class="rounded-3xl px-6 py-5 border border-white/10 bg-white/5 shadow-lg hover:bg-white/10 hover:border-white/20 transition h-full flex flex-col justify-center">
-      <p class="text-white font-extrabold tracking-wide text-lg">
-        Follow us on Instagram <span class="text-primary">💖</span>
-      </p>
-
-      <p class="text-sm text-white/70 mt-1 group-hover:text-white/90 transition">
-        @suncity_sprinters
-      </p>
-
-      <div class="flex items-center gap-4 mt-4">
-        <img
-          src="./IMG_6204.jpeg"
-          alt="Sun City Sprinters Instagram"
-          class="h-14 w-14 rounded-full object-cover border-4 border-gold shadow transition group-hover:scale-105"
-        />
-        <span class="text-xs uppercase tracking-widest text-white/60 group-hover:text-white/80 transition">
-          tap anywhere
-        </span>
-      </div>
-    </div>
-  </a>
-
-  <!-- Donate -->
-  <div class="text-center md:text-left">
-    <p class="font-heading text-2xl md:text-3xl text-white drop-shadow-sm">
-      ✨ Help Our Athletes Chase Big Dreams ✨
+<footer class="bg-black text-gray-300 py-12 text-center border-t border-white/10">
+  <div class="max-w-5xl mx-auto px-6">
+    <p class="font-heading text-4xl tracking-wide text-white drop-shadow-sm">
+      Sun City Sprinters
     </p>
+    <p class="mt-1 text-white/70">El Paso, Texas</p>
 
-    <a
-      href="donate.html"
-      class="inline-flex items-center justify-center mt-4 px-8 py-3 rounded-2xl font-extrabold shadow-xl hover:scale-105 transition glow-pulse"
-      style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111; box-shadow: 0 0 22px rgba(236,72,153,.45), 0 0 34px rgba(251,191,36,.25);"
-    >
-      ✨ Donate ✨
-    </a>
-  </div>
-
-</div>
-
-
-
-      <p class="text-xs text-white/50 mt-8">
-        &copy; 2025 Sun City Sprinters
+    <div class="mt-6 space-y-2 text-sm">
+      <p>
+        Email:
+        <a href="mailto:myssymiss@yahoo.com" class="text-primary font-semibold hover:underline">
+          myssymiss@yahoo.com
+        </a>
+      </p>
+      <p class="text-white/80">
+        Phone: <span class="font-semibold text-white">(915) 831-0221</span>
       </p>
     </div>
-  </footer>
+
+    <!-- INSTAGRAM + DONATE ROW (NOT STACKED ON DESKTOP) -->
+    <div class="mt-10 flex flex-col md:flex-row md:items-stretch md:justify-between gap-6 text-left">
+
+      <!-- Instagram -->
+      <a
+        href="https://www.instagram.com/suncity_sprinters/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Follow Sun City Sprinters on Instagram @suncity_sprinters"
+        title="Follow us on Instagram @suncity_sprinters"
+        class="group block md:w-1/2"
+      >
+        <div class="rounded-3xl px-6 py-5 border border-white/10 bg-white/5 shadow-lg hover:bg-white/10 hover:border-white/20 transition h-full flex flex-col justify-center">
+          <p class="text-white font-extrabold tracking-wide text-lg">
+            Follow us on Instagram <span class="text-primary">💖</span>
+          </p>
+
+          <p class="text-sm text-white/70 mt-1 group-hover:text-white/90 transition">
+            @suncity_sprinters
+          </p>
+
+          <div class="flex items-center gap-4 mt-4">
+            <img
+              src="./IMG_6204.jpeg"
+              alt="Sun City Sprinters Instagram"
+              class="h-14 w-14 rounded-full object-cover border-4 border-gold shadow transition group-hover:scale-105"
+            />
+            <span class="text-xs uppercase tracking-widest text-white/60 group-hover:text-white/80 transition">
+              tap anywhere
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Donate -->
+      <div class="md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+        <p class="font-heading text-2xl md:text-3xl text-white drop-shadow-sm">
+          ✨ Help Our Athletes Chase Big Dreams ✨
+        </p>
+
+        <a
+          href="donate.html"
+          class="inline-flex items-center justify-center mt-4 px-8 py-3 rounded-2xl font-extrabold shadow-xl hover:scale-105 transition glow-pulse"
+          style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111; box-shadow: 0 0 22px rgba(236,72,153,.45), 0 0 34px rgba(251,191,36,.25);"
+        >
+          ✨ Donate ✨
+        </a>
+      </div>
+
+    </div>
+
+    <p class="text-xs text-white/50 mt-10 text-center">
+      &copy; 2025 Sun City Sprinters
+    </p>
+  </div>
+</footer>
+
 
   <!-- LIGHTBOX -->
   <div id="lightbox" class="fixed inset-0 z-[999] hidden">
