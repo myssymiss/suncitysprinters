@@ -1241,8 +1241,8 @@
         <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-6">
           <button type="button"
             class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
-            data-src="IMG_2188.jpeg" data-caption="Meet day energy">
-            <img src="IMG_2188.jpeg" alt="Meet day"
+            data-src="IMG_2188.jpeg" data-caption="">
+            <img src="IMG_2188.jpeg" alt=""
               class="w-full h-[280px] object-cover object-center group-hover:scale-105 transition duration-500"
               loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent"></div>
@@ -1250,7 +1250,7 @@
 
           <button type="button"
             class="media-item relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 shadow-xl group"
-            data-src="IMG_2249.jpeg" data-caption="Work together. Win together.">
+            data-src="IMG_2249.jpeg" data-caption="">
             <img src="IMG_2249.jpeg" alt="Gallery photo"
               class="w-full h-[280px] object-cover object-center group-hover:scale-105 transition duration-500"
               loading="lazy" />
@@ -2141,218 +2141,192 @@
   </script>
 
   <script>
-    // Calendar + clickable legend + Apr 13 essentials
-    (function () {
-      const titleEl = document.getElementById("calMonthTitle");
-      const gridEl = document.getElementById("calGrid");
-      const prevBtn = document.getElementById("calPrev");
-      const nextBtn = document.getElementById("calNext");
+  // Calendar + clickable legend + Apr 13 essentials + Junior Olympics (tentative)
+  (function () {
+    const titleEl = document.getElementById("calMonthTitle");
+    const gridEl = document.getElementById("calGrid");
+    const prevBtn = document.getElementById("calPrev");
+    const nextBtn = document.getElementById("calNext");
 
-      const legendPanel = document.getElementById("legendPanel");
-      const legendDate = document.getElementById("legendDate");
-      const legendAction = document.getElementById("legendAction");
-      const legendDrop = document.getElementById("legendDrop");
-      const legendTitle = document.getElementById("legendTitle");
-      const legendBody = document.getElementById("legendBody");
+    const legendPanel = document.getElementById("legendPanel");
+    const legendDate = document.getElementById("legendDate");
+    const legendAction = document.getElementById("legendAction");
+    const legendDrop = document.getElementById("legendDrop");
+    const legendTitle = document.getElementById("legendTitle");
+    const legendBody = document.getElementById("legendBody");
 
-      const monthNames = [
-        "January","February","March","April","May","June",
-        "July","August","September","October","November","December"
-      ];
+    const monthNames = [
+      "January","February","March","April","May","June",
+      "July","August","September","October","November","December"
+    ];
 
-      function nextApril13Year(){
-        const now = new Date();
-        const y = now.getFullYear();
-        const apr = new Date(y, 3, 13, 0, 0, 0);
-        return (now.getTime() > apr.getTime()) ? (y + 1) : y;
+    function nextApril13Year(){
+      const now = new Date();
+      const y = now.getFullYear();
+      const apr = new Date(y, 3, 13, 0, 0, 0);
+      return (now.getTime() > apr.getTime()) ? (y + 1) : y;
+    }
+
+    const practiceYear = nextApril13Year();
+
+    // Highlight dates
+    const highlightPractice = { y: practiceYear, m: 3, d: 13 }; // Apr 13
+    const juniorOlympics = { y: 2026, m: 6, d: 20 }; // July 20, 2026
+
+    let view = new Date(practiceYear, 3, 1);
+    let selectedBtn = null;
+
+    function sameDate(y,m,d, date){
+      return date.getFullYear() === y && date.getMonth() === m && date.getDate() === d;
+    }
+
+    function formatLong(date){
+      return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+    }
+
+    function closeDrop(){
+      legendDrop.classList.add("hidden");
+    }
+
+    function openDrop(){
+      legendDrop.classList.remove("hidden");
+      legendDrop.classList.remove("pop");
+      void legendDrop.offsetWidth;
+      legendDrop.classList.add("pop");
+    }
+
+    function setLegendForDate(date){
+      legendDate.textContent = formatLong(date);
+
+      const isPractice = sameDate(highlightPractice.y, highlightPractice.m, highlightPractice.d, date);
+      const isJuniorOlympics = sameDate(juniorOlympics.y, juniorOlympics.m, juniorOlympics.d, date);
+
+      legendAction.classList.remove("hidden");
+
+      if (isPractice) {
+        legendTitle.textContent = "🏃‍♀️🏃‍♂️ First Practice Essentials";
+        legendBody.innerHTML = `
+          <ul class="list-disc list-inside space-y-1">
+            <li><span class="font-extrabold">Running shoes</span> (spikes if you have them)</li>
+            <li><span class="font-extrabold">Big refillable water bottle</span></li>
+            <li><span class="font-extrabold">USATF Youth membership</span> active</li>
+            <li><span class="font-extrabold">Team affiliation</span>: Sun City Sprinters</li>
+          </ul>
+        `;
+        legendAction.textContent = "Open Checklist";
+        openDrop();
+
+      } else if (isJuniorOlympics) {
+        legendTitle.textContent = "🏆 USATF Junior Olympics Championships (Tentative)";
+        legendBody.innerHTML = `
+          <p class="mb-2">
+            The 2026 USATF Junior Olympics Track &amp; Field Championships are tentatively scheduled for
+            <span class="font-extrabold">July 20–26, 2026</span> in the
+            <span class="font-extrabold">Los Angeles area (Cerritos College)</span>.
+          </p>
+
+          <p class="text-sm mt-2">
+            ⚠️ <span class="font-extrabold">Dates and location are tentative and subject to change.</span>
+            This event changed last year, so families should plan with flexibility and continue to check
+            for official updates as the season approaches.
+          </p>
+        `;
+        legendAction.textContent = "View Event Details";
+        openDrop();
+
+      } else {
+        legendTitle.textContent = "✨ No posted event yet";
+        legendBody.innerHTML = `<p class="text-white/90">Check back soon—meet dates will be added here.</p>`;
+        legendAction.textContent = "View";
+        closeDrop();
       }
+    }
 
-      const practiceYear = nextApril13Year();
-      const highlight = { y: practiceYear, m: 3, d: 13 }; // Apr 13
+    legendAction.addEventListener("click", () => {
+      if (legendDrop.classList.contains("hidden")) openDrop();
+      else closeDrop();
+    });
 
-      let view = new Date(practiceYear, 3, 1);
-      let selectedBtn = null;
+    function render() {
+      const y = view.getFullYear();
+      const m = view.getMonth();
 
-      function sameDate(y,m,d, date){
-        return date.getFullYear() === y && date.getMonth() === m && date.getDate() === d;
-      }
+      titleEl.textContent = `${monthNames[m]} ${y}`;
+      gridEl.innerHTML = "";
 
-      function formatLong(date){
-        return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-      }
+      const first = new Date(y, m, 1);
+      const startDay = first.getDay();
+      const daysInMonth = new Date(y, m + 1, 0).getDate();
+      const prevDays = new Date(y, m, 0).getDate();
 
-      function closeDrop(){
-        legendDrop.classList.add("hidden");
-      }
+      selectedBtn = null;
 
-      function openDrop(){
-        legendDrop.classList.remove("hidden");
-        legendDrop.classList.remove("pop");
-        void legendDrop.offsetWidth;
-        legendDrop.classList.add("pop");
-      }
+      for (let i = 0; i < 42; i++) {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "cal-day";
 
-      function setLegendForDate(date){
-        legendDate.textContent = formatLong(date);
+        let dayNum;
+        let cellDate;
+        let isOtherMonth = false;
 
-        const isPractice = sameDate(highlight.y, highlight.m, highlight.d, date);
-
-        legendAction.classList.remove("hidden");
-
-        if (isPractice) {
-          legendTitle.textContent = "🏃‍♀️🏃‍♂️ First Practice Essentials";
-          legendBody.innerHTML = `
-            <ul class="list-disc list-inside space-y-1">
-              <li><span class="font-extrabold">Running shoes</span> (spikes if you have them)</li>
-              <li><span class="font-extrabold">Big refillable water bottle</span></li>
-              <li><span class="font-extrabold">USATF Youth membership</span> active</li>
-              <li><span class="font-extrabold">Team affiliation</span>: Sun City Sprinters</li>
-            </ul>
-          `;
-          legendAction.textContent = "Open Checklist";
-          openDrop();
+        if (i < startDay) {
+          dayNum = prevDays - (startDay - 1 - i);
+          isOtherMonth = true;
+          cellDate = new Date(y, m - 1, dayNum);
+        } else if (i >= startDay + daysInMonth) {
+          dayNum = i - (startDay + daysInMonth) + 1;
+          isOtherMonth = true;
+          cellDate = new Date(y, m + 1, dayNum);
         } else {
-          legendTitle.textContent = "✨ No posted event yet";
-          legendBody.innerHTML = `<p class="text-white/90">Check back soon—meet dates will be added here.</p>`;
-          legendAction.textContent = "View";
-          closeDrop();
+          dayNum = i - startDay + 1;
+          cellDate = new Date(y, m, dayNum);
         }
-      }
 
-      legendAction.addEventListener("click", () => {
-        if (legendDrop.classList.contains("hidden")) openDrop();
-        else closeDrop();
-      });
+        if (isOtherMonth) btn.classList.add("other");
 
-      function render() {
-        const y = view.getFullYear();
-        const m = view.getMonth();
+        if (sameDate(highlightPractice.y, highlightPractice.m, highlightPractice.d, cellDate)) {
+          btn.classList.add("practice");
+          btn.innerHTML = `<div class="leading-none">${dayNum}</div><div class="text-[10px] mt-1 font-extrabold">PRACTICE</div>`;
 
-        titleEl.textContent = `${monthNames[m]} ${y}`;
-        gridEl.innerHTML = "";
+        } else if (sameDate(juniorOlympics.y, juniorOlympics.m, juniorOlympics.d, cellDate)) {
+          btn.classList.add("practice");
+          btn.innerHTML = `<div class="leading-none">${dayNum}</div><div class="text-[10px] mt-1 font-extrabold">JOTF</div>`;
 
-        const first = new Date(y, m, 1);
-        const startDay = first.getDay();
-        const daysInMonth = new Date(y, m + 1, 0).getDate();
-        const prevDays = new Date(y, m, 0).getDate();
-
-        selectedBtn = null;
-
-        for (let i = 0; i < 42; i++) {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "cal-day";
-
-          let dayNum;
-          let cellDate;
-          let isOtherMonth = false;
-
-          if (i < startDay) {
-            dayNum = prevDays - (startDay - 1 - i);
-            isOtherMonth = true;
-            cellDate = new Date(y, m - 1, dayNum);
-          } else if (i >= startDay + daysInMonth) {
-            dayNum = i - (startDay + daysInMonth) + 1;
-            isOtherMonth = true;
-            cellDate = new Date(y, m + 1, dayNum);
-          } else {
-            dayNum = i - startDay + 1;
-            cellDate = new Date(y, m, dayNum);
-          }
-
-          if (isOtherMonth) btn.classList.add("other");
-
-          if (sameDate(highlight.y, highlight.m, highlight.d, cellDate)) {
-            btn.classList.add("practice");
-            btn.innerHTML = `<div class="leading-none">${dayNum}</div><div class="text-[10px] mt-1 font-extrabold">PRACTICE</div>`;
-          } else {
-            btn.textContent = dayNum;
-          }
-
-          btn.addEventListener("click", () => {
-            if (selectedBtn) selectedBtn.classList.remove("selected");
-            btn.classList.add("selected");
-            selectedBtn = btn;
-
-            setLegendForDate(cellDate);
-
-            legendPanel.classList.remove("pop");
-            void legendPanel.offsetWidth;
-            legendPanel.classList.add("pop");
-          });
-
-          gridEl.appendChild(btn);
+        } else {
+          btn.textContent = dayNum;
         }
+
+        btn.addEventListener("click", () => {
+          if (selectedBtn) selectedBtn.classList.remove("selected");
+          btn.classList.add("selected");
+          selectedBtn = btn;
+
+          setLegendForDate(cellDate);
+
+          legendPanel.classList.remove("pop");
+          void legendPanel.offsetWidth;
+          legendPanel.classList.add("pop");
+        });
+
+        gridEl.appendChild(btn);
       }
+    }
 
-      prevBtn.addEventListener("click", () => {
-        view = new Date(view.getFullYear(), view.getMonth() - 1, 1);
-        render();
-      });
-
-      nextBtn.addEventListener("click", () => {
-        view = new Date(view.getFullYear(), view.getMonth() + 1, 1);
-        render();
-      });
-
+    prevBtn.addEventListener("click", () => {
+      view = new Date(view.getFullYear(), view.getMonth() - 1, 1);
       render();
-    })();
-  </script>
+    });
 
-  <script>
-    // lightbox (images only)
-    (function () {
-      const items = Array.from(document.querySelectorAll(".media-item"));
-      const lightbox = document.getElementById("lightbox");
-      const backdrop = document.getElementById("lightboxBackdrop");
-      const closeBtn = document.getElementById("lightboxClose");
-      const prevBtn = document.getElementById("lightboxPrev");
-      const nextBtn = document.getElementById("lightboxNext");
-      const caption = document.getElementById("lightboxCaption");
-      const img = document.getElementById("lightboxImg");
-      let currentIndex = 0;
+    nextBtn.addEventListener("click", () => {
+      view = new Date(view.getFullYear(), view.getMonth() + 1, 1);
+      render();
+    });
 
-      function showMedia(index) {
-        if (!items.length) return;
-        currentIndex = index;
+    render();
+  })();
+</script>
 
-        const el = items[currentIndex];
-        const src = el.getAttribute("data-src") || "";
-        const cap = el.getAttribute("data-caption") || el.querySelector("img")?.alt || "";
-
-        caption.textContent = cap;
-        img.src = src;
-        img.alt = cap;
-
-        lightbox.classList.remove("hidden");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeLightbox() {
-        lightbox.classList.add("hidden");
-        img.src = "";
-        document.body.style.overflow = "";
-      }
-
-      function next() { showMedia((currentIndex + 1) % items.length); }
-      function prev() { showMedia((currentIndex - 1 + items.length) % items.length); }
-
-      items.forEach((el, i) => el.addEventListener("click", () => showMedia(i)));
-
-      closeBtn.addEventListener("click", closeLightbox);
-      backdrop.addEventListener("click", closeLightbox);
-
-      nextBtn.addEventListener("click", (e) => { e.stopPropagation(); next(); });
-      prevBtn.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
-
-      document.addEventListener("keydown", (e) => {
-        if (lightbox.classList.contains("hidden")) return;
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowRight") next();
-        if (e.key === "ArrowLeft") prev();
-      });
-    })();
-  </script>
 
 </body>
 </html>
