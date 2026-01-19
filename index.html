@@ -361,6 +361,39 @@
     border-radius: 1.5rem;
     overflow: hidden;
   }
+    /* ===== FOOTER PHOTO BACKDROP ===== */
+.footer-photo-bg{
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+}
+
+.footer-photo-bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: url("./IMG_7010.jpeg");
+  background-size: cover;
+  background-position: center;
+  opacity: .30;
+  filter: saturate(1.1) contrast(1.05);
+  transform: scale(1.05);
+  pointer-events:none;
+}
+
+.footer-photo-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.70));
+  pointer-events:none;
+}
+
+.footer-photo-bg > *{
+  position: relative;
+  z-index: 1;
+}
+
 </style>
 </head>
 
@@ -1994,7 +2027,7 @@
     </div>
 
     <!-- INSTAGRAM (top) + DONATE (stacked under it) -->
-    <div class="mt-10 max-w-xl mx-auto">
+    <div class="mt-10 max-w-xl mx-auto footer-photo-bg p-6 md:p-8">
       <!-- Instagram -->
       <a
         href="https://www.instagram.com/suncity_sprinters/"
@@ -2048,6 +2081,7 @@
     </p>
   </div>
 </footer>
+
 
 
   <!-- LIGHTBOX -->
