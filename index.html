@@ -2326,6 +2326,61 @@
     render();
   })();
 </script>
+    <script>
+  // lightbox (images only)
+  (function () {
+    const items = Array.from(document.querySelectorAll(".media-item"));
+    const lightbox = document.getElementById("lightbox");
+    const backdrop = document.getElementById("lightboxBackdrop");
+    const closeBtn = document.getElementById("lightboxClose");
+    const prevBtn = document.getElementById("lightboxPrev");
+    const nextBtn = document.getElementById("lightboxNext");
+    const caption = document.getElementById("lightboxCaption");
+    const img = document.getElementById("lightboxImg");
+    let currentIndex = 0;
+
+    function showMedia(index) {
+      if (!items.length) return;
+      currentIndex = index;
+
+      const el = items[currentIndex];
+      const src = el.getAttribute("data-src") || "";
+      const cap = el.getAttribute("data-caption") || el.querySelector("img")?.alt || "";
+
+      caption.textContent = cap;
+      img.src = src;
+      img.alt = cap;
+
+      lightbox.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add("hidden");
+      img.src = "";
+      document.body.style.overflow = "";
+    }
+
+    function next() { showMedia((currentIndex + 1) % items.length); }
+    function prev() { showMedia((currentIndex - 1 + items.length) % items.length); }
+
+    items.forEach((el, i) => el.addEventListener("click", () => showMedia(i)));
+
+    closeBtn.addEventListener("click", closeLightbox);
+    backdrop.addEventListener("click", closeLightbox);
+
+    nextBtn.addEventListener("click", (e) => { e.stopPropagation(); next(); });
+    prevBtn.addEventListener("click", (e) => { e.stopPropagation(); prev(); });
+
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.classList.contains("hidden")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    });
+  })();
+</script>
+
 
 
 </body>
