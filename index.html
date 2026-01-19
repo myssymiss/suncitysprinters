@@ -361,11 +361,10 @@
     border-radius: 1.5rem;
     overflow: hidden;
   }
-    /* ===== FOOTER PHOTO BACKDROP ===== */
+    /* ===== FOOTER PHOTO BACKDROP (FULL SECTION – BRIGHTER) ===== */
 .footer-photo-bg{
   position: relative;
   overflow: hidden;
-  border-radius: 1.75rem;
 }
 
 .footer-photo-bg::before{
@@ -375,9 +374,9 @@
   background-image: url("./IMG_7010.jpeg");
   background-size: cover;
   background-position: center;
-  opacity: .30;
-  filter: saturate(1.1) contrast(1.05);
-  transform: scale(1.05);
+  opacity: .42;                     /* 👈 brighter + more visible */
+  filter: saturate(1.15) contrast(1.08);
+  transform: scale(1.04);
   pointer-events:none;
 }
 
@@ -385,7 +384,11 @@
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.70));
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.60)
+  );                                 /* 👈 lighter overlay */
   pointer-events:none;
 }
 
@@ -393,6 +396,7 @@
   position: relative;
   z-index: 1;
 }
+
 
 </style>
 </head>
