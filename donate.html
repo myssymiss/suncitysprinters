@@ -8,7 +8,7 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fun Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -20,7 +20,8 @@
           colors: {
             primary: '#ec4899',
             lightpink: '#fbcfe8',
-            gold: '#fbbf24'
+            gold: '#fbbf24',
+            ink: '#111827'
           },
           fontFamily: {
             heading: ['"Bebas Neue"', 'system-ui'],
@@ -46,7 +47,7 @@
         radial-gradient(circle at 20% 10%, rgba(251,191,36,.55), transparent 40%),
         radial-gradient(circle at 80% 20%, rgba(236,72,153,.55), transparent 45%),
         radial-gradient(circle at 40% 85%, rgba(251,191,36,.40), transparent 55%),
-        linear-gradient(135deg, rgba(236,72,153,.24), rgba(251,191,36,.16));
+        linear-gradient(135deg, rgba(236,72,153,.22), rgba(251,191,36,.16));
       border: 1px solid rgba(236,72,153,.22);
       box-shadow: 0 18px 60px rgba(236,72,153,.16);
     }
@@ -60,7 +61,7 @@
         radial-gradient(circle at 70% 40%, rgba(255,255,255,.45) 0 1.5px, transparent 3px),
         radial-gradient(circle at 40% 70%, rgba(255,255,255,.55) 0 2px, transparent 3px),
         radial-gradient(circle at 85% 80%, rgba(255,255,255,.35) 0 1.5px, transparent 3px);
-      opacity:.25;
+      opacity:.22;
       animation: glitterMove 8s linear infinite;
       mix-blend-mode: screen;
       pointer-events:none;
@@ -75,7 +76,7 @@
     .btn-sunset:hover{ opacity: .96; transform: translateY(-1px) scale(1.01); }
 
     .btn-soft{
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.85);
       color: #111;
       border: 1px solid rgba(236,72,153,.20);
       transition: transform .15s ease, opacity .15s ease;
@@ -114,10 +115,16 @@
         Sun City Sprinters
       </a>
 
-      <a href="index.html"
-        class="inline-flex items-center justify-center bg-gold text-black px-4 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition">
-        Back Home
-      </a>
+      <div class="flex gap-3">
+        <a href="sponsors.html"
+          class="hidden sm:inline-flex items-center justify-center bg-white/15 border border-white/25 px-4 py-2 rounded-lg font-extrabold hover:bg-white/20 transition">
+          Sponsors
+        </a>
+        <a href="index.html"
+          class="inline-flex items-center justify-center bg-gold text-black px-4 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition">
+          Back Home
+        </a>
+      </div>
     </div>
   </header>
 
@@ -133,30 +140,28 @@
       </h1>
 
       <p class="mt-4 text-gray-700 font-semibold max-w-3xl mx-auto">
-        Your support helps cover meet fees, travel assistance, and team needs for our nonprofit youth track &amp; field program in El Paso.
+        Your donation helps cover meet fees, travel assistance, uniforms, and training needs for our nonprofit youth track &amp; field program in El Paso.
       </p>
 
       <div class="mt-7 max-w-sm mx-auto shimmer-line"></div>
     </div>
   </section>
 
-  <!-- Donation Cards -->
+  <!-- Main -->
   <section class="pb-16 md:pb-20">
-    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-8 items-stretch">
+    <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-8 items-start">
 
-      <!-- Donate -->
+      <!-- Donate Card -->
       <div class="sunset-glam rounded-3xl p-6 md:p-8">
-        <h2 class="font-heading text-5xl tracking-wide text-gray-900">Donate</h2>
+        <h2 class="font-heading text-5xl tracking-wide text-ink">Make a Donation</h2>
 
         <p class="mt-3 text-gray-800 font-semibold">
-          We’re finalizing our nonprofit banking + secure online processing.
-          For now, you can support the team through the options below.
+          Thank you for supporting Sun City Sprinters. Every gift—big or small—helps our athletes stay on the track.
         </p>
 
         <div class="mt-6 grid sm:grid-cols-2 gap-3">
-          <!-- Cash App (replace when ready) -->
           <a
-            href="https://cash.app/$YourCashtag"
+            href="https://cash.app/$suncitysprinters"
             target="_blank"
             rel="noopener noreferrer"
             class="btn-sunset inline-flex items-center justify-center px-6 py-3 rounded-2xl font-extrabold shadow-xl"
@@ -165,50 +170,64 @@
             Donate via Cash App
           </a>
 
-          <!-- Apple Pay (coming soon) -->
-          <button
-            type="button"
-            class="btn-soft inline-flex items-center justify-center px-6 py-3 rounded-2xl font-extrabold shadow opacity-70 cursor-not-allowed"
-            title="Apple Pay coming soon"
-            aria-label="Apple Pay coming soon"
+          <a
+            href="#zelle"
+            class="btn-soft inline-flex items-center justify-center px-6 py-3 rounded-2xl font-extrabold shadow"
+            aria-label="Donate via Zelle"
           >
-            Apple Pay (Coming Soon)
-          </button>
+            Donate via Zelle
+          </a>
         </div>
 
-        <div class="mt-6 rounded-2xl border border-white/40 bg-white/70 p-5">
-          <p class="text-sm font-extrabold text-gray-900">Bank donations (Coming Soon)</p>
+        <div id="zelle" class="mt-6 rounded-2xl border border-white/40 bg-white/75 p-5">
+          <p class="text-sm font-extrabold text-gray-900">Zelle</p>
           <p class="text-sm text-gray-700 font-semibold mt-1">
-            Once our nonprofit bank + secure checkout is live, you’ll be able to donate by card and Apple Pay directly on this page.
+            Send to: <span class="font-extrabold">suncitysprinters</span><br>
+            Recipient: <span class="font-extrabold">Sun City Sprinters Inc</span><br>
+            Memo: <span class="italic">Donation</span>
+          </p>
+
+          <!-- OPTIONAL: Add your QR image file and update the src -->
+          <!-- <img src="zelle-qr.png" alt="Zelle QR Code" class="mt-4 mx-auto w-44 rounded-2xl shadow" /> -->
+
+          <p class="text-xs text-gray-600 font-semibold mt-3">
+            Open your bank app → Zelle → search “suncitysprinters” or scan the QR code.
           </p>
         </div>
 
         <p class="mt-5 text-xs text-gray-700 font-semibold">
-          Thank you for helping El Paso athletes grow through confidence, discipline, and community.
+          Sun City Sprinters is a 501(c)(3) nonprofit. Donation receipts available upon request.
         </p>
       </div>
 
-      <!-- Sponsor Instead -->
+      <!-- Impact + Transparency -->
       <div class="sunset-glam rounded-3xl p-6 md:p-8">
-        <h2 class="font-heading text-5xl tracking-wide text-gray-900">Prefer to Sponsor?</h2>
+        <h2 class="font-heading text-5xl tracking-wide text-ink">Where Your Donation Goes</h2>
 
         <p class="mt-3 text-gray-800 font-semibold">
-          Sponsorships are perfect for local businesses and community partners who want visibility while making a direct impact.
+          Your support removes barriers so kids can participate, improve, and stay in sports.
         </p>
 
-        <ul class="mt-5 space-y-3 text-gray-900 font-extrabold text-sm md:text-base">
-          <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-primary"></span>Support meet + entry fees</li>
-          <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-primary"></span>Help with travel costs</li>
-          <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-primary"></span>Keep the program accessible</li>
+        <ul class="mt-6 space-y-3 text-gray-900 font-extrabold text-sm md:text-base">
+          <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-primary"></span>Meet entry fees + USATF memberships</li>
+          <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-primary"></span>Travel support for qualifying athletes</li>
+          <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-primary"></span>Uniforms, equipment, and training needs</li>
+          <li class="flex gap-3"><span class="mt-2 h-2.5 w-2.5 rounded-full bg-primary"></span>Keeping track accessible for families</li>
         </ul>
 
-        <a href="sponsors.html"
-          class="btn-sunset inline-flex items-center justify-center mt-7 w-full px-6 py-3 rounded-2xl font-extrabold shadow-xl">
-          View Sponsorship Options
-        </a>
+        <div class="mt-7 rounded-2xl border border-white/40 bg-white/75 p-5">
+          <p class="text-sm font-extrabold text-gray-900">Want to Sponsor Instead?</p>
+          <p class="text-sm text-gray-700 font-semibold mt-1">
+            Sponsorships include recognition and are great for businesses.
+          </p>
+          <a href="sponsors.html"
+            class="btn-sunset inline-flex items-center justify-center mt-4 w-full px-6 py-3 rounded-2xl font-extrabold shadow-xl">
+            View Sponsorship Options
+          </a>
+        </div>
 
-        <p class="mt-4 text-xs text-gray-700 font-semibold text-center">
-          Sponsorship tiers + details are available on the next page.
+        <p class="mt-5 text-xs text-gray-700 font-semibold">
+          If you’d like a receipt or to donate another way, contact us through the website.
         </p>
       </div>
 
