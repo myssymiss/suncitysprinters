@@ -22,8 +22,7 @@
             lightpink: '#fbcfe8',
             gold: '#fbbf24',
             silver: '#9ca3af',
-            bronze: '#c08457',
-            ink: '#111827'
+            bronze: '#c08457'
           },
           fontFamily: {
             heading: ['"Bebas Neue"', 'system-ui'],
@@ -314,20 +313,6 @@
             </a>
 
           </div>
-
-          <!-- CTA button -->
-          <div class="no-print text-center mt-10">
-            <a
-              href="#sponsor-now"
-              class="inline-flex items-center justify-center px-10 py-4 rounded-2xl font-extrabold shadow-xl hover:scale-105 transition glow-pulse"
-              style="background: linear-gradient(90deg, #fbbf24, #ec4899); color: #111;"
-            >
-              Become a Sponsor Now →
-            </a>
-            <p class="mt-3 text-sm text-gray-600 font-semibold">
-              Pay in minutes with Cash App or Zelle — then send your business info to activate your benefits.
-            </p>
-          </div>
         </section>
 
         <!-- DETAILS -->
@@ -402,7 +387,7 @@
               Gold Sponsors help us cover meet fees, event fees, and key team needs so our athletes can compete with confidence and represent El Paso proudly.
             </p>
             <ul class="mt-4 space-y-2 text-gray-800 font-semibold">
-              <li>• Logo on team t-shirts</li>
+              <li>• Logo on team t-shirts </li>
               <li>• Website &amp; social media recognition</li>
               <li>• Event banners</li>
             </ul>
@@ -440,133 +425,33 @@
           </div>
         </section>
 
-        <!-- BECOME A SPONSOR (PAYMENT + INFO) -->
-        <section id="sponsor-now" class="no-print scroll-mt-24">
-          <h2 class="font-heading text-3xl text-primary">Become a Sponsor</h2>
-          <p class="mt-2 text-gray-600 font-semibold">
-            Choose a tier, send payment, then email or text your business info to activate sponsor benefits.
-          </p>
+        <!-- How to sponsor -->
+        <section class="no-print">
+          <h2 class="font-heading text-3xl text-primary">How to Sponsor</h2>
 
-          <div class="mt-6 grid lg:grid-cols-2 gap-6 items-start">
+          <div class="mt-4 rounded-3xl border border-gray-200 bg-gray-50 p-6">
+            <ol class="list-decimal pl-5 space-y-2 text-sm md:text-base text-gray-800 font-semibold">
+              <li>Select a sponsorship tier above.</li>
+              <li>Text or email us your business name and logo (if applicable).</li>
+              <li>We’ll confirm your sponsorship and add you to our sponsor list.</li>
+            </ol>
 
-            <!-- Payment Card (distinct from donate page: sponsorship language + memo format) -->
-            <div class="sparkle rounded-3xl border border-gray-200 bg-white p-6 shadow-lg">
-              <p class="uppercase tracking-[0.22em] text-xs font-extrabold text-gray-500">Sponsor Payment</p>
-              <h3 class="font-heading text-4xl tracking-wide text-ink">Complete Your Sponsorship</h3>
-              <div class="mt-4 max-w-sm shimmer-line"></div>
-
-              <p class="mt-4 text-gray-800 font-semibold">
-                Use Cash App or Zelle. In the memo, include your tier and business name so we can match your payment fast.
-              </p>
-
-              <div class="mt-6 grid sm:grid-cols-2 gap-3">
-                <a
-                  href="https://cash.app/$suncitysprinters"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center px-6 py-3 rounded-2xl font-extrabold shadow-xl hover:scale-105 transition glow-pulse"
-                  style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
-                  aria-label="Sponsor via Cash App"
-                >
-                  Sponsor via Cash App
-                </a>
-
-                <a
-                  href="#zelle-sponsor"
-                  class="inline-flex items-center justify-center px-6 py-3 rounded-2xl font-extrabold shadow hover:scale-105 transition"
-                  style="background: rgba(255,255,255,.88); color:#111; border: 1px solid rgba(236,72,153,.20);"
-                  aria-label="Sponsor via Zelle"
-                >
-                  Sponsor via Zelle
-                </a>
+            <div class="mt-5 grid sm:grid-cols-2 gap-4 text-sm">
+              <div class="rounded-2xl bg-white border border-gray-200 p-4">
+                <p class="text-gray-500 font-extrabold uppercase tracking-widest text-xs">Contact</p>
+                <p class="mt-2 font-extrabold text-gray-900">Coach Marrissa Cammisa</p>
+                <p class="text-gray-800">(915) 831-0221</p>
+                <p class="text-gray-800">suncitysprinters@yahoo.com</p>
               </div>
 
-              <!-- Zelle Section (shown LIKE donate page style) -->
-              <div id="zelle-sponsor" class="mt-6 rounded-2xl border border-gray-200 bg-gray-50 p-5">
-                <p class="text-sm font-extrabold text-gray-900">Zelle</p>
-
-                <p class="text-sm text-gray-700 font-semibold mt-1 leading-relaxed">
-                  Send to: <span class="font-extrabold">suncitysprinters</span><br>
-                  Recipient: <span class="font-extrabold">Sun City Sprinters Inc</span><br>
-                  Memo: <span class="italic">Sponsorship – Tier – Business Name</span>
-                  <span class="text-gray-500 font-semibold">(example: Sponsorship – Platinum – ABC Insurance)</span>
-                </p>
-
-                <p class="text-xs text-gray-600 font-semibold mt-3">
-                  <span class="font-extrabold">Scan with your phone:</span> Open your bank app → Zelle → scan the QR code or search “suncitysprinters”.
-                </p>
-
-                <!-- QR (click to enlarge) -->
-                <div class="mt-4">
-                  <img
-                    id="sponsorQrThumb"
-                    src="zelle-qr.jpg"
-                    alt="Zelle QR Code for Sun City Sprinters"
-                    class="mx-auto w-56 sm:w-64 rounded-2xl shadow cursor-pointer hover:scale-105 transition"
-                    loading="lazy"
-                  />
-                  <p class="text-center text-xs text-gray-600 font-semibold mt-2">
-                    Tap or click the QR to enlarge for easy scanning.
-                  </p>
-                </div>
-              </div>
-
-              <div class="mt-6 rounded-2xl border border-gray-200 bg-white p-5">
-                <p class="text-sm font-extrabold text-gray-900">Sponsorship Receipts</p>
-                <p class="text-sm text-gray-700 font-semibold mt-1">
-                  Sun City Sprinters is a 501(c)(3) nonprofit. Sponsorship receipts available upon request.
+              <div class="rounded-2xl bg-white border border-gray-200 p-4">
+                <p class="text-gray-500 font-extrabold uppercase tracking-widest text-xs">Nonprofit Note</p>
+                <p class="mt-2 text-gray-800 leading-relaxed">
+                  Sun City Sprinters is a 501(c)(3) nonprofit. Sponsorships may be tax-deductible to the extent allowed by law.
+                  A donation receipt can be provided upon request.
                 </p>
               </div>
             </div>
-
-            <!-- Info Card -->
-            <div class="sparkle rounded-3xl border border-gray-200 bg-white p-6 shadow-lg">
-              <p class="uppercase tracking-[0.22em] text-xs font-extrabold text-gray-500">Activate Benefits</p>
-              <h3 class="font-heading text-4xl tracking-wide text-ink">Send Sponsor Info</h3>
-              <div class="mt-4 max-w-sm shimmer-line"></div>
-
-              <p class="mt-4 text-gray-800 font-semibold">
-                After payment, email or text the details below so we can publish your recognition.
-              </p>
-
-              <div class="mt-5 rounded-2xl border border-gray-200 bg-gray-50 p-5">
-                <ul class="space-y-2 text-gray-800 font-semibold">
-                  <li class="flex gap-2"><span class="mt-2 h-2 w-2 rounded-full bg-primary"></span><span><span class="font-extrabold">Business Name</span> (as you want it listed)</span></li>
-                  <li class="flex gap-2"><span class="mt-2 h-2 w-2 rounded-full bg-primary"></span><span><span class="font-extrabold">Logo file</span> (PNG preferred; transparent background if possible)</span></li>
-                  <li class="flex gap-2"><span class="mt-2 h-2 w-2 rounded-full bg-primary"></span><span><span class="font-extrabold">Website / Social handle</span> (optional)</span></li>
-                  <li class="flex gap-2"><span class="mt-2 h-2 w-2 rounded-full bg-primary"></span><span><span class="font-extrabold">Tier chosen</span> (Platinum/Gold/Silver/Bronze)</span></li>
-                </ul>
-              </div>
-
-              <div class="mt-5 grid sm:grid-cols-2 gap-4 text-sm">
-                <div class="rounded-2xl bg-white border border-gray-200 p-4">
-                  <p class="text-gray-500 font-extrabold uppercase tracking-widest text-xs">Email</p>
-                  <p class="mt-2 font-extrabold text-gray-900">suncitysprinters@yahoo.com</p>
-                  <p class="text-gray-600 font-semibold mt-1">Subject suggestion:</p>
-                  <p class="text-gray-800 font-extrabold">Sponsorship – [Business Name]</p>
-                </div>
-
-                <div class="rounded-2xl bg-white border border-gray-200 p-4">
-                  <p class="text-gray-500 font-extrabold uppercase tracking-widest text-xs">Text</p>
-                  <p class="mt-2 font-extrabold text-gray-900">(915) 831-0221</p>
-                  <p class="text-gray-600 font-semibold mt-1">Send:</p>
-                  <p class="text-gray-800 font-extrabold">Business name + tier</p>
-                </div>
-              </div>
-
-              <a
-                href="#platinum"
-                class="inline-flex items-center justify-center mt-6 w-full px-6 py-3 rounded-2xl font-extrabold shadow-xl hover:scale-105 transition glow-pulse"
-                style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
-              >
-                Review Tiers Again →
-              </a>
-
-              <p class="mt-4 text-xs text-gray-600 font-semibold">
-                Questions? Email us and we’ll help you choose the best tier for your business.
-              </p>
-            </div>
-
           </div>
         </section>
 
@@ -582,59 +467,6 @@
 
     </div>
   </main>
-
-  <!-- Sponsor QR Modal -->
-  <div id="sponsorQrModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden z-50" aria-hidden="true">
-    <div class="w-full h-full flex items-center justify-center p-4">
-      <div class="text-center" role="dialog" aria-label="Expanded QR Code">
-        <img
-          id="sponsorQrModalImg"
-          src="zelle-qr.jpg"
-          alt="Expanded Zelle QR Code"
-          class="max-w-[92vw] max-h-[85vh] rounded-2xl shadow-2xl mx-auto"
-        />
-        <p class="text-center text-white/80 text-xs font-semibold mt-3">
-          Tap anywhere outside the image (or press ESC) to close
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      const thumb = document.getElementById('sponsorQrThumb');
-      const modal = document.getElementById('sponsorQrModal');
-      const modalImg = document.getElementById('sponsorQrModalImg');
-
-      if (!thumb || !modal || !modalImg) return;
-
-      function openModal() {
-        modal.classList.remove('hidden');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal() {
-        modal.classList.add('hidden');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
-
-      thumb.addEventListener('click', openModal);
-
-      modal.addEventListener('click', function (e) {
-        if (e.target === modal) closeModal();
-      });
-
-      modalImg.addEventListener('click', function (e) {
-        e.stopPropagation();
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeModal();
-      });
-    })();
-  </script>
 
 </body>
 </html>
