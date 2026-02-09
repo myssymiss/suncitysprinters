@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sun City Sprinters | PR Wall</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary:'#ec4899', lightpink:'#fbcfe8', gold:'#fbbf24' },
+          fontFamily: {
+            heading: ['"Bebas Neue"', 'system-ui'],
+            body: ['Poppins', 'system-ui']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+    .shimmer-line{
+      position: relative;
+      height: 6px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(251,191,36,.22);
+    }
+    .shimmer-line::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      transform: translateX(-70%);
+      background: linear-gradient(90deg, transparent, rgba(251,191,36,.9), rgba(236,72,153,.7), transparent);
+      animation: shimmer 2.6s ease-in-out infinite;
+    }
+    @keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 font-body">
+
+  <!-- HEADER -->
+  <header class="bg-primary text-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-6 py-3 md:py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="./IMG_6204.jpeg" class="h-12 w-12 rounded-full object-cover bg-white border-4 border-gold shadow" alt="Logo"/>
+        <div>
+          <p class="font-heading text-2xl tracking-wide leading-none">Sun City Sprinters</p>
+          <p class="text-xs text-white/90 font-semibold">PR Wall</p>
+        </div>
+      </a>
+
+      <nav class="flex items-center gap-4 text-sm font-semibold">
+        <a href="index.html#team" class="hover:underline">Team</a>
+        <a href="index.html#register" class="hover:underline">Register</a>
+        <a href="donate.html" class="hover:underline">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE -->
+  <section class="py-14 md:py-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h1 class="font-heading text-6xl md:text-7xl tracking-wide text-primary">PR Wall</h1>
+      <p class="mt-3 text-gray-600 font-semibold">
+        Click an athlete to view their progress and personal records. 📈
+      </p>
+      <div class="mt-6 max-w-sm mx-auto shimmer-line"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+      <!-- JULIETTE (first one wired) -->
+      <a href="pr/juliette-valenzuela.html"
+         class="rounded-3xl border border-pink-200 bg-lightpink/30 p-6 shadow-lg hover:-translate-y-1 transition">
+        <p class="font-extrabold text-gray-900">Juliette Valenzuela</p>
+        <p class="text-sm text-gray-600 font-semibold mt-1">100mh • 300mh • 4x400</p>
+        <p class="mt-3 inline-flex items-center gap-2 font-extrabold text-sm text-black bg-gold/90 px-4 py-2 rounded-full">
+          View Progress →
+        </p>
+      </a>
+
+      <!-- You’ll add more athletes here later -->
+
+    </div>
+  </section>
+
+</body>
+</html>
