@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juliette Progress | Sun City Sprinters</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary:'#ec4899', lightpink:'#fbcfe8', gold:'#fbbf24' },
+          fontFamily: {
+            heading: ['"Bebas Neue"', 'system-ui'],
+            body: ['Poppins', 'system-ui']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 font-body">
+
+  <header class="bg-primary text-white p-4 text-center">
+    <h1 class="font-heading text-4xl">Sun City Sprinters</h1>
+    <p class="text-sm font-semibold">Juliette's Progress</p>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6">
+    <h2 class="font-heading text-5xl text-primary text-center">Juliette Valenzuela</h2>
+    <p class="text-center font-semibold text-gray-600 mt-2">100mh • 300mh • 4x400</p>
+
+    <div class="mt-8 bg-lightpink/30 border border-pink-200 rounded-2xl p-6 text-center">
+      <p class="text-sm uppercase tracking-widest font-extrabold text-gray-700">Current PR</p>
+      <p class="mt-2 text-3xl font-extrabold">18.77 (100mh)</p>
+    </div>
+
+    <h3 class="mt-10 font-heading text-3xl text-primary">Progress Log</h3>
+
+    <table class="w-full mt-4 border">
+      <thead>
+        <tr class="bg-pink-100">
+          <th class="p-2 text-left">Date</th>
+          <th class="p-2 text-left">Meet</th>
+          <th class="p-2 text-left">Event</th>
+          <th class="p-2 text-left">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="p-2">04/13/2026</td>
+          <td class="p-2">Baseline</td>
+          <td class="p-2">100mh</td>
+          <td class="p-2 font-bold">18.77</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+</body>
+</html>
