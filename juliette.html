@@ -120,29 +120,6 @@
       border-color: rgba(251,191,36,.55);
     }
 
-    /* vision-board “sticker” */
-    .sticker{
-      display:inline-flex; align-items:center; gap:.55rem;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(17,17,17,.10);
-      background: rgba(255,255,255,.72);
-      box-shadow: 0 18px 55px rgba(17,17,17,.10);
-      font-weight: 800;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      font-size: 11px;
-      white-space: nowrap;
-      position: relative;
-    }
-    .sticker::before{
-      content:"";
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
-      box-shadow: 0 10px 30px rgba(236,72,153,.22);
-    }
-
     /* ladder */
     .ladder-col{
       border: 1px solid rgba(236,72,153,.18);
@@ -159,7 +136,7 @@
       border-top: 1px solid rgba(236,72,153,.12);
     }
 
-    /* tiny “tape” corners for vision board vibe */
+    /* vision-board “tape” corners */
     .tape{
       position: absolute;
       width: 86px; height: 26px;
@@ -176,12 +153,96 @@
       transform: rotate(7deg);
       background: rgba(236,72,153,.16);
     }
-    .board-wrap{
+    .board-wrap{ position: relative; }
+
+    /* vision-board sticker cluster */
+    .sticker-cluster{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+      margin-top: 20px;
+    }
+    .sticker-note{
       position: relative;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(17,17,17,.10);
+      box-shadow: 0 20px 55px rgba(17,17,17,.10);
+      overflow:hidden;
+    }
+    .sticker-note::after{
+      content:"";
+      position:absolute; inset:-60%;
+      background:
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,.85) 0 2px, transparent 3px),
+        radial-gradient(circle at 70% 35%, rgba(255,255,255,.55) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 40% 75%, rgba(255,255,255,.70) 0 2px, transparent 3px);
+      opacity:.25;
+      animation: glitterMove 7s linear infinite;
+      mix-blend-mode: screen;
+      pointer-events:none;
+    }
+    .sticker-note.big{
+      padding: 16px 18px;
+      border-radius: 22px;
+      border-color: rgba(251,191,36,.35);
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.70));
+    }
+    .sticker-tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 11px;
+      border: 1px solid rgba(236,72,153,.22);
+      background: rgba(255,255,255,.68);
+      box-shadow: 0 16px 42px rgba(236,72,153,.12);
+      position: relative;
+      white-space: nowrap;
+    }
+    .sticker-tag::before{
+      content:"";
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+    }
+    .tag-glam{
+      border-color: rgba(251,191,36,.35);
+      background: linear-gradient(90deg, rgba(251,191,36,.22), rgba(236,72,153,.16));
+    }
+    .handwritten{
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .vision-caption{
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(236,72,153,.18);
+      box-shadow: 0 18px 55px rgba(236,72,153,.10);
+      position: relative;
+      max-width: 42rem;
+    }
+    .vision-caption::before{
+      content:"";
+      position:absolute;
+      top:-10px; left: 22px;
+      width: 70px; height: 22px;
+      border-radius: 10px;
+      background: rgba(236,72,153,.12);
+      border: 1px solid rgba(17,17,17,.06);
+      transform: rotate(-6deg);
     }
 
     @media (prefers-reduced-motion: reduce){
-      .shimmer-line::after, .sparkle-border::after { animation: none !important; }
+      .shimmer-line::after, .sparkle-border::after, .sticker-note::after { animation: none !important; }
     }
   </style>
 </head>
@@ -235,33 +296,27 @@
 
           <div class="mt-6 max-w-sm shimmer-line"></div>
 
-          <!-- Vision-board style stickers (replaces “SHOWCASE MODE”) -->
-          <div class="mt-6 flex flex-wrap gap-2">
-            <span class="pill pill-pr">✨ PROGRESS IS THE PRETTIEST FLEX ✨</span>
-            <span class="sticker">BIG DREAMS</span>
-            <span class="sticker">FAST + FEARLESS</span>
-            <span class="sticker">CLEAN HURDLES</span>
+          <!-- Vision-board style stickers -->
+          <div class="sticker-cluster">
+            <div class="sticker-note big">
+              <span class="handwritten text-gray-900">✨ PROGRESS IS THE PRETTIEST FLEX ✨</span>
+            </div>
+
+            <span class="sticker-tag tag-glam">BIG DREAMS</span>
+            <span class="sticker-tag">FAST + FEARLESS</span>
+            <span class="sticker-tag tag-glam">CLEAN HURDLES</span>
           </div>
 
-          <p class="mt-6 text-gray-700 font-semibold max-w-xl">
-            A season of glow-ups — confidence, rhythm, and speed. One meet at a time. 💖🏁
-          </p>
-
-          <div class="mt-7 flex flex-wrap gap-3">
-            <a
-              href="https://www.athletic.net/athlete/22921608/track-and-field/"
-              target="_blank" rel="noopener noreferrer"
-              class="inline-flex items-center justify-center px-5 py-3 rounded-2xl font-extrabold shadow hover:scale-105 transition"
-              style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
-            >
-              Athletic.net →
-            </a>
-
-            <!-- Removed duplicate PR Wall button here (you already have it in the header) -->
+          <div class="vision-caption">
+            <p class="text-gray-700 font-semibold">
+              A season of glow-ups — confidence, rhythm, and speed. One meet at a time. 💖🏁
+            </p>
           </div>
+
+          <div class="mt-7"></div>
         </div>
 
-        <!-- Right: Photo card -->
+        <!-- Right: Photo card (Athletic.net button moved here) -->
         <div class="glass-card sparkle-border rounded-[28px] p-6 md:p-7 text-center board-wrap">
           <span class="tape"></span>
           <span class="tape right"></span>
@@ -271,8 +326,19 @@
             alt="Juliette Valenzuela"
             class="w-44 h-44 md:w-52 md:h-52 rounded-full object-cover object-center mx-auto border-4 border-gold shadow"
           />
-          <p class="mt-5 text-sm font-extrabold text-gray-900">Sun City Sprinters • PR Vision Board</p>
-          <p class="text-xs text-gray-600 font-semibold mt-1">Dream it. Train it. Prove it.</p>
+
+          <p class="mt-5 text-sm font-extrabold text-gray-900">Dream it. Train it. Prove it.</p>
+
+          <a
+            href="https://www.athletic.net/athlete/22921608/track-and-field/"
+            target="_blank" rel="noopener noreferrer"
+            class="mt-4 inline-flex items-center justify-center px-5 py-3 rounded-2xl font-extrabold shadow hover:scale-105 transition"
+            style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
+          >
+            Athletic.net →
+          </a>
+
+          <p class="text-xs text-gray-600 font-semibold mt-3">Work shows. Results shine.</p>
         </div>
 
       </div>
@@ -357,7 +423,6 @@
         label: "4x400",
         snapshotLabel: "4x400",
         results: [
-          // If this is a split, just put the split time. If it’s team time, put team time.
           // { time: 70.25, date: "Apr 18, 2025", meet: "Meet Name (split)" },
         ]
       }
@@ -383,12 +448,10 @@
         .map(r => ({...r, _t: parseTime(r.time)}))
         .filter(r => r._t !== null);
       if (!times.length) return null;
-      // Lower = better (track times)
       return times.reduce((best, cur) => cur._t < best._t ? cur : best, times[0]);
     }
 
     function decorateResultsWithPR(results){
-      // Mark each row as PR if it beats the previous best (season progression)
       let currentBest = Infinity;
       return results.map(r => {
         const t = parseTime(r.time);
