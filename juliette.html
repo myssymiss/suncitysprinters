@@ -57,7 +57,7 @@
         radial-gradient(circle at 70% 40%, rgba(255,255,255,.48) 0 1.5px, transparent 3px),
         radial-gradient(circle at 40% 70%, rgba(255,255,255,.60) 0 2px, transparent 3px),
         radial-gradient(circle at 85% 80%, rgba(255,255,255,.40) 0 1.5px, transparent 3px);
-      opacity:.32;
+      opacity:.30;
       animation: glitterMove 7s linear infinite;
       mix-blend-mode: screen;
       pointer-events:none;
@@ -65,77 +65,74 @@
 
     /* glass */
     .glass-card{
-      background: rgba(255,255,255,.72);
+      background: rgba(255,255,255,.74);
       backdrop-filter: blur(14px);
       border: 1px solid rgba(236,72,153,.20);
       box-shadow: 0 18px 60px rgba(236,72,153,.16);
     }
 
-    /* sunset glam */
-    .sunset-card{
-      background:
-        radial-gradient(circle at 18% 12%, rgba(251,191,36,.60), transparent 42%),
-        radial-gradient(circle at 82% 20%, rgba(236,72,153,.58), transparent 45%),
-        radial-gradient(circle at 45% 88%, rgba(251,191,36,.42), transparent 55%),
-        linear-gradient(135deg, rgba(236,72,153,.34), rgba(251,191,36,.22));
-      border: 1px solid rgba(236,72,153,.25);
-      box-shadow: 0 22px 80px rgba(236,72,153,.20);
-    }
-
-    /* hero backdrop */
-    .hero-glam{
+    /* runway hero */
+    .runway-hero{
       position: relative;
       overflow: hidden;
-      border-bottom: 1px solid rgba(236,72,153,.10);
       background:
-        radial-gradient(circle at 15% 20%, rgba(236,72,153,.16), transparent 46%),
-        radial-gradient(circle at 85% 15%, rgba(251,191,36,.18), transparent 52%),
-        linear-gradient(135deg, rgba(251,191,36,.06), rgba(236,72,153,.08));
+        radial-gradient(circle at 18% 18%, rgba(236,72,153,.18), transparent 52%),
+        radial-gradient(circle at 85% 22%, rgba(251,191,36,.18), transparent 55%),
+        linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+      border-bottom: 1px solid rgba(236,72,153,.10);
     }
-    .hero-glam::before{
+    .runway-hero::before{
       content:"";
       position:absolute;
       inset:0;
       background-image: url("./IMG_2213.jpeg");
       background-size: cover;
       background-position: center;
-      opacity: .18;
-      filter: saturate(1.12) contrast(1.06);
+      opacity:.18;
+      filter: saturate(1.12) contrast(1.05);
       transform: scale(1.03);
       pointer-events:none;
     }
-    .hero-glam::after{
+    .runway-hero::after{
       content:"";
       position:absolute;
       inset:0;
-      background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,.85));
+      background: linear-gradient(180deg, rgba(255,255,255,.35), rgba(255,255,255,.90));
       pointer-events:none;
     }
-    .hero-content{ position: relative; z-index: 1; }
+    .runway-content{ position: relative; z-index: 1; }
 
-    /* pill tags */
-    .tag{
+    /* glam pill */
+    .pill{
       display:inline-flex; align-items:center; justify-content:center;
-      padding: 6px 12px; border-radius: 999px;
-      font-weight: 900; font-size: 11px; letter-spacing: .14em;
+      padding: 8px 14px; border-radius: 999px;
+      font-weight: 900; font-size: 12px; letter-spacing: .16em;
       text-transform: uppercase;
-      border: 1px solid rgba(236,72,153,.22);
-      background: rgba(251,191,36,.22);
+      border: 1px solid rgba(236,72,153,.24);
+      background: rgba(255,255,255,.65);
+      box-shadow: 0 16px 42px rgba(236,72,153,.14);
+      color:#111;
+      white-space: nowrap;
+    }
+    .pill-pr{
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      border-color: rgba(251,191,36,.55);
+    }
+
+    /* ladder */
+    .ladder-col{
+      border: 1px solid rgba(236,72,153,.18);
+      background: rgba(255,255,255,.70);
+      box-shadow: 0 18px 55px rgba(236,72,153,.12);
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+    .ladder-head{
+      background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.92));
       color:#111;
     }
-    .tag-pr{
-      border: 1px solid rgba(251,191,36,.55);
-      background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.92));
-      box-shadow: 0 14px 34px rgba(236,72,153,.18);
-    }
-
-    /* timeline rail */
-    .timeline{ position: relative; }
-    .timeline::before{
-      content:""; position:absolute; left: 18px; top: 0; bottom: 0; width: 3px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, rgba(251,191,36,.95), rgba(236,72,153,.95));
-      opacity: .50;
+    .ladder-row{
+      border-top: 1px solid rgba(236,72,153,.12);
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -165,10 +162,9 @@
         <a href="index.html#team" class="hover:underline">Team</a>
         <a href="pr-wall.html" class="hover:underline">PR Wall</a>
         <a href="donate.html" class="hover:underline">Donate</a>
-
         <a
           href="pr-wall.html"
-          class="ml-0 md:ml-2 inline-flex items-center justify-center px-4 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition"
+          class="inline-flex items-center justify-center px-4 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition"
           style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
         >
           Back to PR Wall →
@@ -177,216 +173,190 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero-glam py-12 md:py-16">
-    <div class="hero-content max-w-6xl mx-auto px-6">
-      <div class="text-center">
-        <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-primary/70">Athlete Progress</p>
-        <h2 class="font-heading text-6xl md:text-7xl text-primary tracking-wide mt-2">Juliette Valenzuela</h2>
-        <p class="mt-3 text-gray-700 font-semibold">100mh • 300mh • 4x400</p>
-        <div class="mt-6 max-w-sm mx-auto shimmer-line"></div>
-      </div>
+  <!-- RUNWAY HERO -->
+  <section class="runway-hero">
+    <div class="runway-content max-w-6xl mx-auto px-6 py-12 md:py-16">
+      <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-8 items-center">
 
-      <!-- TOP GRID -->
-      <div class="mt-10 grid lg:grid-cols-3 gap-8 items-stretch">
+        <!-- Left: Name + vibe -->
+        <div>
+          <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-primary/70">Athlete Progress</p>
+          <h2 class="font-heading text-6xl md:text-7xl text-primary tracking-wide mt-2">Juliette Valenzuela</h2>
+          <p class="mt-3 text-gray-700 font-semibold">100mh • 300mh • 4x400</p>
 
-        <!-- ATHLETE GLAM CARD -->
-        <div class="glass-card sparkle-border rounded-[28px] p-7 text-center">
+          <div class="mt-6 max-w-sm shimmer-line"></div>
+
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="pill pill-pr">✨ PR READY ✨</span>
+            <span class="pill">GLOW UP SEASON</span>
+            <span class="pill">RELAYS + HURDLES</span>
+          </div>
+
+          <p class="mt-6 text-gray-700 font-semibold max-w-xl">
+            This page is her glam progress wall — update meet-by-meet and watch the numbers drop. 💖🏁
+          </p>
+
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a
+              href="https://www.athletic.net/athlete/22921608/track-and-field/"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center px-5 py-3 rounded-2xl font-extrabold shadow hover:scale-105 transition"
+              style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
+            >
+              Athletic.net →
+            </a>
+
+            <a
+              href="pr-wall.html"
+              class="inline-flex items-center justify-center px-5 py-3 rounded-2xl font-extrabold border border-pink-200 bg-white/70 shadow hover:scale-105 transition"
+            >
+              PR Wall →
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Photo card -->
+        <div class="glass-card sparkle-border rounded-[28px] p-6 md:p-7 text-center">
           <img
             src="./IMG_2213.jpeg"
             alt="Juliette Valenzuela"
-            class="w-28 h-28 rounded-full object-cover object-center mx-auto border-4 border-gold shadow"
+            class="w-44 h-44 md:w-52 md:h-52 rounded-full object-cover object-center mx-auto border-4 border-gold shadow"
           />
-
-          <div class="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full text-black font-extrabold text-xs shadow"
-               style="background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.95));">
-            ✨ SEASON SPOTLIGHT ✨
-          </div>
-
-          <div class="mt-5 rounded-2xl bg-lightpink/35 border border-pink-200 p-4">
-            <p class="text-xs uppercase tracking-widest font-extrabold text-gray-700">Current PR Snapshot</p>
-            <p class="mt-2 text-sm text-gray-700 font-semibold">Update these numbers anytime.</p>
-          </div>
-
-          <a
-            href="https://www.athletic.net/athlete/22921608/track-and-field/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center mt-6 px-5 py-2 rounded-full border-2 border-gold text-gold font-extrabold text-sm hover:bg-gold hover:text-black transition hover:scale-105"
-          >
-            View Athletic.net
-          </a>
-        </div>
-
-        <!-- PR SPOTLIGHT (ALL EVENTS EQUAL) -->
-        <div class="sunset-card sparkle-border rounded-[28px] p-7 text-white">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-white/90 font-extrabold text-xs uppercase tracking-[0.22em] drop-shadow">
-                ⭐ PR Spotlight ⭐
-              </p>
-              <p class="mt-2 text-2xl md:text-3xl font-extrabold leading-snug drop-shadow">
-                “Progress is the prettiest flex.” 💖
-              </p>
-            </div>
-            <span class="tag tag-pr">PR READY</span>
-          </div>
-
-          <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div class="rounded-2xl bg-black/30 border border-white/15 p-4">
-              <p class="text-[11px] uppercase tracking-widest font-extrabold text-white/80">100mh PR</p>
-              <p class="mt-1 text-3xl font-extrabold text-white">18.77</p>
-            </div>
-            <div class="rounded-2xl bg-black/30 border border-white/15 p-4">
-              <p class="text-[11px] uppercase tracking-widest font-extrabold text-white/80">300mh PR</p>
-              <p class="mt-1 text-3xl font-extrabold text-white">—</p>
-            </div>
-            <div class="rounded-2xl bg-black/30 border border-white/15 p-4">
-              <p class="text-[11px] uppercase tracking-widest font-extrabold text-white/80">4x400</p>
-              <p class="mt-1 text-3xl font-extrabold text-white">—</p>
-              <p class="text-[11px] mt-1 text-white/80 font-semibold">Split or team time</p>
-            </div>
-          </div>
-
-          <div class="mt-6 shimmer-line"></div>
-        </div>
-
-        <!-- BADGES + GOALS (NO COACH NOTES) -->
-        <div class="glass-card sparkle-border rounded-[28px] p-7">
-          <p class="text-xs uppercase tracking-widest text-primary/70 font-extrabold">🥇 Badges & Goals</p>
-          <p class="mt-3 text-gray-900 font-extrabold text-xl">Trophy Energy Only ✨</p>
-
-          <!-- BADGES -->
-          <div class="mt-5 flex flex-wrap gap-2">
-            <span class="tag tag-pr">PR Day</span>
-            <span class="tag">Season Opener</span>
-            <span class="tag">Relay Queen</span>
-            <span class="tag">Consistency</span>
-            <span class="tag">Championship Mode</span>
-          </div>
-
-          <!-- GOAL BOARD -->
-          <div class="mt-6 rounded-2xl border border-pink-200 bg-lightpink/28 p-5">
-            <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-700">🎯 Goal Board</p>
-
-            <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="rounded-2xl bg-white/70 border border-pink-200 p-4">
-                <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">Next 100mh</p>
-                <p class="mt-1 text-2xl font-extrabold text-gray-900">18.4</p>
-              </div>
-              <div class="rounded-2xl bg-white/70 border border-pink-200 p-4">
-                <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">Next 300mh</p>
-                <p class="mt-1 text-2xl font-extrabold text-gray-900">—</p>
-              </div>
-              <div class="rounded-2xl bg-white/70 border border-pink-200 p-4">
-                <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">4x400</p>
-                <p class="mt-1 text-2xl font-extrabold text-gray-900">—</p>
-              </div>
-            </div>
-
-            <p class="mt-3 text-xs text-gray-600 font-semibold">
-              Tip: you can change the goal numbers anytime as the season evolves.
-            </p>
-          </div>
+          <p class="mt-5 text-sm font-extrabold text-gray-900">Sun City Sprinters • Athlete Spotlight</p>
+          <p class="text-xs text-gray-600 font-semibold mt-1">Ultra glam. Ultra focused.</p>
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <!-- MEET-BY-MEET TIMELINE -->
-      <div class="mt-12 glass-card sparkle-border rounded-[28px] p-7 md:p-9">
+  <!-- MAIN -->
+  <section class="py-12 md:py-14">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- 3 EQUAL PR TILES -->
+      <div class="glass-card sparkle-border rounded-[28px] p-7 md:p-8">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
-            <h3 class="font-heading text-5xl md:text-6xl text-primary tracking-wide">Meet-by-Meet Timeline</h3>
+            <h3 class="font-heading text-5xl md:text-6xl text-primary tracking-wide">PR Snapshot</h3>
+            <p class="text-gray-700 font-semibold mt-2">Three events. Equal spotlight. Update anytime.</p>
+          </div>
+          <span class="pill pill-pr">⭐ CURRENT BESTS ⭐</span>
+        </div>
+
+        <div class="mt-7 grid sm:grid-cols-3 gap-4">
+          <div class="rounded-3xl border border-pink-200 bg-white/75 p-6 shadow">
+            <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">100mh PR</p>
+            <p class="mt-2 text-4xl font-extrabold text-gray-900">18.77</p>
+            <p class="text-xs text-gray-600 font-semibold mt-1">Set at: —</p>
+          </div>
+
+          <div class="rounded-3xl border border-pink-200 bg-white/75 p-6 shadow">
+            <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">300mh PR</p>
+            <p class="mt-2 text-4xl font-extrabold text-gray-900">—</p>
+            <p class="text-xs text-gray-600 font-semibold mt-1">Set at: —</p>
+          </div>
+
+          <div class="rounded-3xl border border-pink-200 bg-white/75 p-6 shadow">
+            <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">4x400</p>
+            <p class="mt-2 text-4xl font-extrabold text-gray-900">—</p>
+            <p class="text-xs text-gray-600 font-semibold mt-1">Split or team time</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PR LADDER -->
+      <div class="mt-10 glass-card sparkle-border rounded-[28px] p-7 md:p-9">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <h3 class="font-heading text-5xl md:text-6xl text-primary tracking-wide">PR Ladder</h3>
             <p class="text-gray-700 font-semibold mt-2">
-              Add one entry after each meet. Keep it cute + easy.
+              Add meets in order (top = earliest). Stars = PR.
             </p>
           </div>
-
-          <a
-            href="pr-wall.html"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-2xl font-extrabold shadow hover:scale-105 transition"
-            style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
-          >
-            Back to PR Wall →
-          </a>
+          <span class="pill">📈 WEEK-TO-WEEK GLOW UP</span>
         </div>
 
-        <div class="mt-8 timeline space-y-6">
+        <div class="mt-8 grid lg:grid-cols-3 gap-6">
 
-          <!-- ENTRY 1 -->
-          <div class="relative pl-14">
-            <div class="absolute left-[10px] top-2 h-6 w-6 rounded-full bg-gold shadow ring-4 ring-gold/25"></div>
+          <!-- 100MH COLUMN -->
+          <div class="ladder-col">
+            <div class="ladder-head px-5 py-4">
+              <p class="font-extrabold tracking-widest uppercase text-[12px]">100mh</p>
+              <p class="font-extrabold text-sm">Meet Results</p>
+            </div>
 
-            <div class="rounded-3xl border border-pink-200 bg-white/75 p-6 shadow">
-              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
-                <div>
-                  <p class="text-xs uppercase tracking-widest font-extrabold text-gray-600">April 13, 2026</p>
-                  <p class="text-xl font-extrabold text-gray-900 mt-1">Baseline / First Practice</p>
-                  <p class="text-sm font-semibold text-gray-600 mt-1">First entry. Setting the standard ✨</p>
-                </div>
-                <span class="tag tag-pr">Starter</span>
+            <!-- Row -->
+            <div class="ladder-row px-5 py-4 flex items-start justify-between gap-3">
+              <div>
+                <p class="font-extrabold text-gray-900">18.77 <span class="text-xs font-extrabold text-gray-600">⭐ PR</span></p>
+                <p class="text-xs text-gray-600 font-semibold mt-1">Apr 13, 2026 • Baseline</p>
               </div>
+              <span class="pill pill-pr" style="padding:6px 10px; font-size:10px;">PR</span>
+            </div>
 
-              <div class="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <div class="rounded-2xl bg-lightpink/35 border border-pink-200 p-4">
-                  <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">100mh</p>
-                  <p class="mt-1 text-2xl font-extrabold text-gray-900">18.77</p>
-                </div>
-                <div class="rounded-2xl bg-lightpink/35 border border-pink-200 p-4">
-                  <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">300mh</p>
-                  <p class="mt-1 text-2xl font-extrabold text-gray-900">—</p>
-                </div>
-                <div class="rounded-2xl bg-lightpink/35 border border-pink-200 p-4">
-                  <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">4x400</p>
-                  <p class="mt-1 text-2xl font-extrabold text-gray-900">—</p>
-                </div>
-                <div class="rounded-2xl bg-lightpink/35 border border-pink-200 p-4">
-                  <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">Highlight</p>
-                  <p class="mt-1 text-sm font-semibold text-gray-700">Confidence start. Next: more meets 💖</p>
-                </div>
+            <!-- Template row (copy/paste) -->
+            <div class="ladder-row px-5 py-4 flex items-start justify-between gap-3">
+              <div>
+                <p class="font-extrabold text-gray-900">— <span class="text-xs font-extrabold text-gray-600">Tag</span></p>
+                <p class="text-xs text-gray-600 font-semibold mt-1">— Date • Meet name</p>
               </div>
+              <span class="pill" style="padding:6px 10px; font-size:10px;">MEET</span>
             </div>
           </div>
 
-          <!-- ENTRY TEMPLATE (copy/paste for new meets) -->
-          <div class="relative pl-14">
-            <div class="absolute left-[10px] top-2 h-6 w-6 rounded-full bg-primary shadow ring-4 ring-primary/20"></div>
+          <!-- 300MH COLUMN -->
+          <div class="ladder-col">
+            <div class="ladder-head px-5 py-4">
+              <p class="font-extrabold tracking-widest uppercase text-[12px]">300mh</p>
+              <p class="font-extrabold text-sm">Meet Results</p>
+            </div>
 
-            <div class="rounded-3xl border border-pink-200 bg-white/75 p-6 shadow">
-              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
-                <div>
-                  <p class="text-xs uppercase tracking-widest font-extrabold text-gray-600">— Date —</p>
-                  <p class="text-xl font-extrabold text-gray-900 mt-1">— Meet Name —</p>
-                  <p class="text-sm font-semibold text-gray-600 mt-1">— Cute headline: PR day / locked in / comeback —</p>
-                </div>
-                <span class="tag">Tag (PR / SB / Debut)</span>
+            <div class="ladder-row px-5 py-4 flex items-start justify-between gap-3">
+              <div>
+                <p class="font-extrabold text-gray-900">— <span class="text-xs font-extrabold text-gray-600">Start here</span></p>
+                <p class="text-xs text-gray-600 font-semibold mt-1">— Date • Meet name</p>
               </div>
+              <span class="pill" style="padding:6px 10px; font-size:10px;">MEET</span>
+            </div>
 
-              <div class="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <div class="rounded-2xl bg-lightpink/35 border border-pink-200 p-4">
-                  <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">100mh</p>
-                  <p class="mt-1 text-2xl font-extrabold text-gray-900">—</p>
-                </div>
-                <div class="rounded-2xl bg-lightpink/35 border border-pink-200 p-4">
-                  <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">300mh</p>
-                  <p class="mt-1 text-2xl font-extrabold text-gray-900">—</p>
-                </div>
-                <div class="rounded-2xl bg-lightpink/35 border border-pink-200 p-4">
-                  <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">4x400</p>
-                  <p class="mt-1 text-2xl font-extrabold text-gray-900">—</p>
-                </div>
-                <div class="rounded-2xl bg-lightpink/35 border border-pink-200 p-4">
-                  <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">Highlight</p>
-                  <p class="mt-1 text-sm font-semibold text-gray-700">— One-line win / memory / glow-up —</p>
-                </div>
+            <div class="ladder-row px-5 py-4 flex items-start justify-between gap-3">
+              <div>
+                <p class="font-extrabold text-gray-900">—</p>
+                <p class="text-xs text-gray-600 font-semibold mt-1">—</p>
               </div>
+              <span class="pill" style="padding:6px 10px; font-size:10px;">MEET</span>
+            </div>
+          </div>
+
+          <!-- 4x400 COLUMN -->
+          <div class="ladder-col">
+            <div class="ladder-head px-5 py-4">
+              <p class="font-extrabold tracking-widest uppercase text-[12px]">4x400</p>
+              <p class="font-extrabold text-sm">Split / Team Time</p>
+            </div>
+
+            <div class="ladder-row px-5 py-4 flex items-start justify-between gap-3">
+              <div>
+                <p class="font-extrabold text-gray-900">— <span class="text-xs font-extrabold text-gray-600">Split or team</span></p>
+                <p class="text-xs text-gray-600 font-semibold mt-1">— Date • Meet name</p>
+              </div>
+              <span class="pill" style="padding:6px 10px; font-size:10px;">MEET</span>
+            </div>
+
+            <div class="ladder-row px-5 py-4 flex items-start justify-between gap-3">
+              <div>
+                <p class="font-extrabold text-gray-900">—</p>
+                <p class="text-xs text-gray-600 font-semibold mt-1">—</p>
+              </div>
+              <span class="pill" style="padding:6px 10px; font-size:10px;">MEET</span>
             </div>
           </div>
 
         </div>
 
-        <p class="mt-8 text-xs text-gray-600 font-semibold">
-          Tip: Copy the “ENTRY TEMPLATE” block and paste it above itself for each new meet.
+        <p class="mt-7 text-xs text-gray-600 font-semibold">
+          Tip: For new meets, copy a ladder row and paste it at the top of that event’s column.
         </p>
       </div>
 
