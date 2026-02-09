@@ -136,7 +136,7 @@
       border-top: 1px solid rgba(236,72,153,.12);
     }
 
-    /* vision-board “tape” corners */
+    /* tape corners */
     .tape{
       position: absolute;
       width: 86px; height: 26px;
@@ -155,82 +155,50 @@
     }
     .board-wrap{ position: relative; }
 
-    /* vision-board sticker cluster */
-    .sticker-cluster{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-      align-items:center;
+    /* ===== Clean glam mantra block ===== */
+    .mantra-wrap{
       margin-top: 20px;
+      display: grid;
+      gap: 14px;
+      max-width: 44rem;
     }
-    .sticker-note{
-      position: relative;
-      padding: 14px 16px;
+    .mantra-head{
+      display:inline-flex;
+      align-items:center;
+      padding: 12px 18px;
       border-radius: 18px;
-      background: rgba(255,255,255,.76);
-      border: 1px solid rgba(17,17,17,.10);
-      box-shadow: 0 20px 55px rgba(17,17,17,.10);
+      border: 1px solid rgba(251,191,36,.35);
+      background: linear-gradient(90deg, rgba(251,191,36,.22), rgba(236,72,153,.16));
+      box-shadow: 0 18px 55px rgba(236,72,153,.12);
+      position: relative;
       overflow:hidden;
     }
-    .sticker-note::after{
+    .mantra-head::after{
       content:"";
       position:absolute; inset:-60%;
       background:
-        radial-gradient(circle at 25% 25%, rgba(255,255,255,.85) 0 2px, transparent 3px),
-        radial-gradient(circle at 70% 35%, rgba(255,255,255,.55) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 20% 25%, rgba(255,255,255,.85) 0 2px, transparent 3px),
+        radial-gradient(circle at 70% 40%, rgba(255,255,255,.55) 0 1.5px, transparent 3px),
         radial-gradient(circle at 40% 75%, rgba(255,255,255,.70) 0 2px, transparent 3px);
-      opacity:.25;
+      opacity:.22;
       animation: glitterMove 7s linear infinite;
       mix-blend-mode: screen;
       pointer-events:none;
     }
-    .sticker-note.big{
-      padding: 16px 18px;
-      border-radius: 22px;
-      border-color: rgba(251,191,36,.35);
-      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.70));
-    }
-    .sticker-tag{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
+    .mantra-head span{
       font-weight: 900;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      font-size: 11px;
-      border: 1px solid rgba(236,72,153,.22);
-      background: rgba(255,255,255,.68);
-      box-shadow: 0 16px 42px rgba(236,72,153,.12);
-      position: relative;
-      white-space: nowrap;
+      letter-spacing: .08em;
+      color:#111;
     }
-    .sticker-tag::before{
-      content:"";
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
-    }
-    .tag-glam{
-      border-color: rgba(251,191,36,.35);
-      background: linear-gradient(90deg, rgba(251,191,36,.22), rgba(236,72,153,.16));
-    }
-    .handwritten{
-      font-weight: 800;
-      letter-spacing: .02em;
-    }
-    .vision-caption{
-      margin-top: 14px;
-      padding: 14px 16px;
+    .mantra-sub{
+      padding: 14px 18px;
       border-radius: 22px;
-      background: rgba(255,255,255,.70);
+      background: rgba(255,255,255,.72);
       border: 1px solid rgba(236,72,153,.18);
       box-shadow: 0 18px 55px rgba(236,72,153,.10);
       position: relative;
-      max-width: 42rem;
     }
-    .vision-caption::before{
+    .mantra-sub::before{
       content:"";
       position:absolute;
       top:-10px; left: 22px;
@@ -240,9 +208,35 @@
       border: 1px solid rgba(17,17,17,.06);
       transform: rotate(-6deg);
     }
+    .mantra-sub p{
+      margin:0;
+      color: rgba(17,17,17,.76);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+    .quote-card{
+      padding: 14px 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(17,17,17,.10);
+      box-shadow: 0 18px 55px rgba(17,17,17,.10);
+      font-style: italic;
+      font-weight: 700;
+      color: rgba(17,17,17,.78);
+      position: relative;
+    }
+    .quote-card::before{
+      content:"“";
+      position:absolute;
+      top:-18px; left: 12px;
+      font-size: 64px;
+      color: rgba(236,72,153,.25);
+      font-weight: 900;
+      line-height: 1;
+    }
 
     @media (prefers-reduced-motion: reduce){
-      .shimmer-line::after, .sparkle-border::after, .sticker-note::after { animation: none !important; }
+      .shimmer-line::after, .sparkle-border::after, .mantra-head::after { animation: none !important; }
     }
   </style>
 </head>
@@ -284,7 +278,7 @@
     <div class="runway-content max-w-6xl mx-auto px-6 py-12 md:py-16">
       <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-8 items-center">
 
-        <!-- Left: Name + vibe -->
+        <!-- Left -->
         <div>
           <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-primary/70">Athlete Vision Board</p>
 
@@ -296,27 +290,26 @@
 
           <div class="mt-6 max-w-sm shimmer-line"></div>
 
-          <!-- Vision-board style stickers -->
-          <div class="sticker-cluster">
-            <div class="sticker-note big">
-              <span class="handwritten text-gray-900">✨ PROGRESS IS THE PRETTIEST FLEX ✨</span>
+          <!-- Clean glam mantra section -->
+          <div class="mantra-wrap">
+            <div class="mantra-head">
+              <span>✨ PROGRESS IS THE PRETTIEST FLEX ✨</span>
             </div>
 
-            <span class="sticker-tag tag-glam">BIG DREAMS</span>
-            <span class="sticker-tag">FAST + FEARLESS</span>
-            <span class="sticker-tag tag-glam">CLEAN HURDLES</span>
-          </div>
+            <div class="mantra-sub">
+              <p>
+                A season of glow-ups — confidence, rhythm, and speed.
+                One meet at a time. 💖🏁
+              </p>
+            </div>
 
-          <div class="vision-caption">
-            <p class="text-gray-700 font-semibold">
-              A season of glow-ups — confidence, rhythm, and speed. One meet at a time. 💖🏁
-            </p>
+            <div class="quote-card">
+              Trust the work. The results will follow.
+            </div>
           </div>
-
-          <div class="mt-7"></div>
         </div>
 
-        <!-- Right: Photo card (Athletic.net button moved here) -->
+        <!-- Right: Photo card -->
         <div class="glass-card sparkle-border rounded-[28px] p-6 md:p-7 text-center board-wrap">
           <span class="tape"></span>
           <span class="tape right"></span>
@@ -362,7 +355,6 @@
           <span class="pill pill-pr">⭐ CURRENT BESTS ⭐</span>
         </div>
 
-        <!-- Auto-generated tiles -->
         <div id="prSnapshot" class="mt-7 grid sm:grid-cols-3 gap-4"></div>
       </div>
 
@@ -381,7 +373,6 @@
           <span class="pill">📈 SEASON STORY</span>
         </div>
 
-        <!-- Auto-generated ladder -->
         <div id="prLadder" class="mt-8 grid lg:grid-cols-3 gap-6"></div>
       </div>
 
@@ -396,9 +387,7 @@
   </footer>
 
   <script>
-    // =========================================================
-    // ✅ SINGLE SOURCE OF TRUTH (edit this data only)
-    // =========================================================
+    // ================= DATA =================
     const prData = [
       {
         key: "100mh",
@@ -406,51 +395,37 @@
         snapshotLabel: "100mh PR",
         results: [
           { time: 18.77, date: "Apr 13, 2025", meet: "Baseline" },
-          // Add more like:
-          // { time: 18.62, date: "Apr 27, 2025", meet: "Meet Name" },
         ]
       },
       {
         key: "300mh",
         label: "300mh",
         snapshotLabel: "300mh PR",
-        results: [
-          // { time: 58.10, date: "Apr 18, 2025", meet: "Meet Name" },
-        ]
+        results: []
       },
       {
         key: "4x400",
         label: "4x400",
         snapshotLabel: "4x400",
-        results: [
-          // { time: 70.25, date: "Apr 18, 2025", meet: "Meet Name (split)" },
-        ]
+        results: []
       }
     ];
 
-    // =========================================================
-    // Helpers
-    // =========================================================
     function parseTime(t){
       if (t === null || t === undefined) return null;
       const n = typeof t === "number" ? t : Number(String(t).trim());
       return Number.isFinite(n) ? n : null;
     }
-
     function fmtTime(t){
       const n = parseTime(t);
       if (n === null) return "—";
       return n.toFixed(2);
     }
-
     function bestTime(results){
-      const times = results
-        .map(r => ({...r, _t: parseTime(r.time)}))
-        .filter(r => r._t !== null);
+      const times = results.map(r => ({...r, _t: parseTime(r.time)})).filter(r => r._t !== null);
       if (!times.length) return null;
       return times.reduce((best, cur) => cur._t < best._t ? cur : best, times[0]);
     }
-
     function decorateResultsWithPR(results){
       let currentBest = Infinity;
       return results.map(r => {
@@ -464,13 +439,9 @@
       });
     }
 
-    // =========================================================
-    // Render Snapshot
-    // =========================================================
     function renderSnapshot(){
       const el = document.getElementById("prSnapshot");
       el.innerHTML = "";
-
       prData.forEach(event => {
         const best = bestTime(event.results);
         const bestText = best ? fmtTime(best.time) : "—";
@@ -478,34 +449,18 @@
 
         const tile = document.createElement("div");
         tile.className = "rounded-3xl border border-pink-200 bg-white/75 p-6 shadow relative overflow-hidden";
-
         tile.innerHTML = `
-          <div class="absolute -top-14 -right-10 w-40 h-40 rounded-full"
-               style="background: radial-gradient(circle at 30% 30%, rgba(251,191,36,.35), transparent 60%), radial-gradient(circle at 70% 70%, rgba(236,72,153,.22), transparent 62%);">
-          </div>
-
           <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">${event.snapshotLabel}</p>
           <p class="mt-2 text-4xl font-extrabold text-gray-900">${bestText}</p>
-
-          <div class="mt-3 flex flex-wrap gap-2 items-center">
-            <span class="pill pill-pr" style="padding:6px 10px; font-size:10px;">BEST</span>
-            <span class="pill" style="padding:6px 10px; font-size:10px;">${event.label}</span>
-          </div>
-
           <p class="text-xs text-gray-600 font-semibold mt-3">${whereText}</p>
         `;
-
         el.appendChild(tile);
       });
     }
 
-    // =========================================================
-    // Render Ladder
-    // =========================================================
     function renderLadder(){
       const el = document.getElementById("prLadder");
       el.innerHTML = "";
-
       prData.forEach(event => {
         const col = document.createElement("div");
         col.className = "ladder-col";
@@ -523,42 +478,26 @@
         if (!decorated.length){
           const empty = document.createElement("div");
           empty.className = "ladder-row px-5 py-4";
-          empty.innerHTML = `
-            <p class="font-extrabold text-gray-900">—</p>
-            <p class="text-xs text-gray-600 font-semibold mt-1">Add results in the code to fill this column ✨</p>
-          `;
+          empty.innerHTML = `<p class="text-sm text-gray-600 font-semibold">No results yet ✨</p>`;
           col.appendChild(empty);
         } else {
           decorated.forEach(r => {
             const row = document.createElement("div");
             row.className = "ladder-row px-5 py-4 flex items-start justify-between gap-3";
-
-            const timeText = fmtTime(r.time);
-            const prBadge = r.isPR
-              ? `<span class="pill pill-pr" style="padding:6px 10px; font-size:10px;">PR</span>`
-              : `<span class="pill" style="padding:6px 10px; font-size:10px;">MEET</span>`;
-
             row.innerHTML = `
               <div>
-                <p class="font-extrabold text-gray-900">
-                  ${timeText}
-                  ${r.isPR ? `<span class="text-xs font-extrabold text-gray-600"> ⭐</span>` : ``}
-                </p>
+                <p class="font-extrabold text-gray-900">${fmtTime(r.time)} ${r.isPR ? "⭐" : ""}</p>
                 <p class="text-xs text-gray-600 font-semibold mt-1">${r.date} • ${r.meet}</p>
               </div>
-              ${prBadge}
+              <span class="pill ${r.isPR ? "pill-pr" : ""}" style="padding:6px 10px; font-size:10px;">${r.isPR ? "PR" : "MEET"}</span>
             `;
             col.appendChild(row);
           });
         }
-
         el.appendChild(col);
       });
     }
 
-    // =========================================================
-    // Init
-    // =========================================================
     renderSnapshot();
     renderLadder();
   </script>
