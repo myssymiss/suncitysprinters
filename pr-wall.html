@@ -260,6 +260,50 @@
       border: 1px solid rgba(0,0,0,.25);
     }
 
+    /* ===== Header Search (glam) ===== */
+    .header-search{
+      position: relative;
+      width: 100%;
+      max-width: 360px;
+      flex: 1 1 auto;
+    }
+    .header-search input{
+      width: 100%;
+      padding: 11px 14px 11px 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.30);
+      color: rgba(255,255,255,.92);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      outline: none;
+      box-shadow: 0 24px 80px rgba(0,0,0,.55);
+      backdrop-filter: blur(12px);
+      transition: border-color .16s ease, filter .16s ease, transform .16s ease;
+    }
+    .header-search input::placeholder{
+      color: rgba(255,255,255,.38);
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    .header-search input:focus{
+      border-color: rgba(251,191,36,.28);
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+    .header-search .icon{
+      position: absolute;
+      left: 14px; top: 50%;
+      transform: translateY(-50%);
+      width: 14px; height: 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      box-shadow: 0 14px 34px rgba(236,72,153,.22);
+      opacity: .9;
+    }
+
     /* ===== CAPTAINS SPOTLIGHT ===== */
     @keyframes neonPulse{
       0% { filter: drop-shadow(0 0 0 rgba(236,72,153,0)); }
@@ -332,26 +376,6 @@
     .spot-shooter:nth-child(2){ top: 32%; left: -60%; animation-delay: 1.6s; }
     .spot-shooter:nth-child(3){ top: 54%; left: -58%; animation-delay: 2.8s; }
     .spot-shooter:nth-child(4){ top: 74%; left: -62%; animation-delay: 4.0s; }
-
-    .spot-badge{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(0,0,0,.30);
-      box-shadow: 0 26px 100px rgba(0,0,0,.62);
-      user-select:none;
-      position: relative;
-      z-index: 2;
-    }
-    .spot-badge i{
-      width: 10px; height: 10px; border-radius: 999px;
-      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
-      box-shadow: 0 14px 36px rgba(236,72,153,.28);
-      flex: none;
-    }
 
     .spot-title{
       font-family: "Bebas Neue", system-ui;
@@ -436,9 +460,9 @@
       50% { opacity: 1; transform: scale(1.3); }
     }
 
-    /* Use CSS var so rim + overlays match whatever radius you set in HTML */
+    /* CSS var controls rounding and all glow layers follow it */
     .captain-frame{
-      --capR: 34px;
+      --capR: 48px;
       border-radius: var(--capR);
       border: 1px solid rgba(255,255,255,.18);
       box-shadow:
@@ -457,7 +481,7 @@
         rgba(255,255,255,.60),
         rgba(251,191,36,.95)
       );
-      opacity: .55;
+      opacity: .58;
       filter: blur(.2px);
       animation: rimShift 6.0s linear infinite;
       pointer-events:none;
@@ -474,8 +498,8 @@
         radial-gradient(circle at 86% 80%, rgba(251,191,36,.70) 0 2px, transparent 4px),
         radial-gradient(circle at 28% 60%, rgba(236,72,153,.62) 0 2px, transparent 4px);
       mix-blend-mode: screen;
-      opacity: .55;
-      animation: frameGlow 3.8s ease-in-out infinite;
+      opacity: .60;
+      animation: frameGlow 3.6s ease-in-out infinite;
       pointer-events:none;
       z-index: 2;
     }
@@ -531,19 +555,35 @@
   <!-- HEADER -->
   <header class="sticky top-0 z-50 border-b border-white/10"
           style="background: linear-gradient(180deg, rgba(0,0,0,.78), rgba(0,0,0,.55)); backdrop-filter: blur(14px);">
-    <div class="max-w-7xl mx-auto px-5 md:px-6 py-3 md:py-4 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="./IMG_6204.jpeg" class="h-12 w-12 rounded-full object-cover bg-white border-4 border-gold shadow" alt="Logo"/>
-        <div class="leading-tight">
-          <p class="font-heading text-2xl tracking-wide leading-none text-white">Sun City Sprinters</p>
-          <p class="text-xs text-white/70 font-semibold tracking-wide">Personal Record Wall</p>
-        </div>
-      </a>
+    <div class="max-w-7xl mx-auto px-5 md:px-6 py-3 md:py-4">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div class="flex items-center justify-between gap-3">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="./IMG_6204.jpeg" class="h-12 w-12 rounded-full object-cover bg-white border-4 border-gold shadow" alt="Logo"/>
+            <div class="leading-tight">
+              <p class="font-heading text-2xl tracking-wide leading-none text-white">Sun City Sprinters</p>
+              <p class="text-xs text-white/70 font-semibold tracking-wide">Personal Record Wall</p>
+            </div>
+          </a>
 
-      <!-- HOME BUTTON = PHOTO -->
-      <a href="index.html" class="home-photo" aria-label="Home">
-        <span aria-hidden="true"></span>
-      </a>
+          <!-- HOME BUTTON = PHOTO (shows on mobile top row) -->
+          <a href="index.html" class="home-photo md:hidden" aria-label="Home">
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <!-- Search + Home (desktop) -->
+        <div class="flex items-center gap-3">
+          <div class="header-search">
+            <span class="icon" aria-hidden="true"></span>
+            <input id="athleteSearch" type="text" placeholder="Search athletes..." autocomplete="off" />
+          </div>
+
+          <a href="index.html" class="home-photo hidden md:block" aria-label="Home">
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -574,25 +614,14 @@
         </div>
 
         <div class="spotlight-inner">
-
-          <!-- CENTERED HEADER -->
+          <!-- CENTERED (NO EXTRA LABEL, NO DUPLICATE LINE) -->
           <div class="text-center">
-            <div class="spot-badge mx-auto">
-              <i></i>
-              <span class="text-white/85 font-extrabold tracking-[0.28em] uppercase text-[11px]">THE LEAD CREW</span>
-            </div>
-
-            <div class="spot-title mt-3">SHINE FIRST • LEAD ALWAYS</div>
+            <div class="spot-title">SHINE FIRST • LEAD ALWAYS</div>
 
             <p class="text-white/80 font-semibold mt-4 max-w-3xl mx-auto leading-relaxed">
               “Great leaders don’t create followers. They create more leaders.”
               <span class="text-white/60">— Tom Peters</span>
             </p>
-
-            <div class="mt-4 inline-flex items-center justify-center gap-3 px-4 py-2 rounded-full border border-white/15 bg-black/25 text-white/70 text-[11px] font-extrabold uppercase tracking-[0.35em]">
-              <span class="inline-block w-2 h-2 rounded-full bg-gradient-to-r from-yellow-300 to-pink-400 shadow"></span>
-              Shine First • Lead Always
-            </div>
 
             <div class="mt-6 max-w-sm mx-auto shimmer-line"></div>
           </div>
@@ -603,8 +632,7 @@
             <div class="sparkle-border lux-card captain rounded-[26px] p-5 md:p-6 relative">
               <div class="captain-badge"><span></span> CAPTAIN</div>
 
-              <!-- more rounded frame -->
-              <div class="photo-slot captain-frame w-full h-56" style="--capR:34px;">
+              <div class="photo-slot captain-frame w-full h-56" style="--capR:48px;">
                 <div class="twinkles" aria-hidden="true">
                   <span></span><span></span><span></span><span></span>
                 </div>
@@ -629,7 +657,7 @@
             <div class="sparkle-border lux-card captain rounded-[26px] p-5 md:p-6 relative">
               <div class="captain-badge"><span></span> CAPTAIN</div>
 
-              <div class="photo-slot captain-frame w-full h-56" style="--capR:34px;">
+              <div class="photo-slot captain-frame w-full h-56" style="--capR:48px;">
                 <div class="twinkles" aria-hidden="true">
                   <span></span><span></span><span></span><span></span>
                 </div>
@@ -654,7 +682,7 @@
             <div class="sparkle-border lux-card captain rounded-[26px] p-5 md:p-6 relative">
               <div class="captain-badge"><span></span> CAPTAIN</div>
 
-              <div class="photo-slot captain-frame w-full h-56" style="--capR:34px;">
+              <div class="photo-slot captain-frame w-full h-56" style="--capR:48px;">
                 <div class="twinkles" aria-hidden="true">
                   <span></span><span></span><span></span><span></span>
                 </div>
@@ -677,6 +705,7 @@
 
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -692,133 +721,133 @@
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+      <div id="fullWallGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
 
         <!-- Asbury -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Douglas S Asbury III</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Douglas S Asbury III</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • LJ</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Avina (Isabella) -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Isabella Avina</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Isabella Avina</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Avina (Jose Luis) -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Jose Luis Avina</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Jose Luis Avina</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 400m</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Ballentine -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">David Ballentine II</p>
+            <p class="athlete-name font-extrabold text-lg text-white">David Ballentine II</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m • 1500m • 3000m</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Garcia (Ximena) -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Ximena Garcia</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Ximena Garcia</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 4x100 • 4x400</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Garica (Lovely) -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Lovely Garica</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Lovely Garica</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Gaytan -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Melanie Gaytan</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Melanie Gaytan</p>
             <p class="text-sm text-white/70 font-semibold mt-1">TJ • 4x400</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Hita -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Elizabeth Hita</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Elizabeth Hita</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Jaroszewski -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Alora Jaroszewski</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Alora Jaroszewski</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Marrufo -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Ayden Marrufo</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Ayden Marrufo</p>
             <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Pester (Dean) -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Dean Pester</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Dean Pester</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Pester (Natalie) -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Natalie Pester</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Natalie Pester</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m • 2300m</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Vasquez -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+        <div class="athlete-card reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot h-40 flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Madilyn Vasquez</p>
+            <p class="athlete-name font-extrabold text-lg text-white">Madilyn Vasquez</p>
             <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
           </div>
           <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
@@ -878,6 +907,23 @@
           document.body.appendChild(burst);
           setTimeout(() => burst.remove(), 600);
         }, { passive: true });
+      });
+    })();
+
+    // Header athlete search (filters FULL WALL cards)
+    (function(){
+      const input = document.getElementById('athleteSearch');
+      const cards = Array.from(document.querySelectorAll('#fullWallGrid .athlete-card'));
+
+      function normalize(s){ return (s || '').toLowerCase().trim(); }
+
+      input.addEventListener('input', () => {
+        const q = normalize(input.value);
+        cards.forEach(card => {
+          const nameEl = card.querySelector('.athlete-name');
+          const name = normalize(nameEl ? nameEl.textContent : card.textContent);
+          card.style.display = (!q || name.includes(q)) ? '' : 'none';
+        });
       });
     })();
   </script>
