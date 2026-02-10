@@ -242,7 +242,7 @@
       display:grid;
       grid-template-columns: 1fr;
       gap: 10px;
-      align-items:center;
+      align-items:stretch;
     }
     @media (min-width: 768px){
       .glam-row{
@@ -250,38 +250,50 @@
       }
     }
 
-    .goal-chip{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.70);
+    /* ======= GOAL DROPDOWNS ======= */
+    .goal-dropdown{
+      border-radius: 22px;
       border: 1px solid rgba(236,72,153,.22);
+      background: rgba(255,255,255,.72);
       box-shadow: 0 16px 45px rgba(236,72,153,.12);
+      overflow: hidden;
+    }
+
+    .goal-dropdown summary{
+      list-style: none;
+      cursor: pointer;
+      padding: 12px 16px;
       font-weight: 900;
       letter-spacing: .10em;
       text-transform: uppercase;
       font-size: 11px;
-      color:#111;
-      position: relative;
-      overflow:hidden;
-      min-width: 0;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
     }
-    .goal-chip::before{
-      content:"";
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
-      box-shadow: 0 12px 30px rgba(236,72,153,.18);
-      flex: none;
+    .goal-dropdown summary::-webkit-details-marker{ display: none; }
+
+    .goal-dropdown summary::after{
+      content: "⌄";
+      font-size: 14px;
+      transition: transform .25s ease;
+      opacity: .7;
     }
-    .goal-chip strong{ font-weight: 900; letter-spacing: .08em; }
-    .goal-chip span{
-      overflow:hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      min-width: 0;
+    .goal-dropdown[open] summary::after{ transform: rotate(180deg); }
+
+    .goal-content{
+      padding: 10px 16px 14px;
+      border-top: 1px solid rgba(236,72,153,.15);
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: .08em;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.90));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     /* quote pill (track quote only) */
@@ -401,18 +413,31 @@
 
               <div class="glam-headline">✨ Progress is the prettiest flex ✨</div>
 
+              <!-- ✅ DROPDOWN GOALS -->
               <div class="glam-row">
-  <div class="goal-chip"><strong>Target:</strong> <span>100mh — 17.77</span></div>
-  <div class="goal-chip"><strong>Target:</strong> <span>300mh — 52.21</span></div>
-  <div class="goal-chip"><strong>Target:</strong> <span>4x400 split — 1:00</span></div>
-</div>
 
+                <details class="goal-dropdown">
+                  <summary>100mh Goal</summary>
+                  <div class="goal-content">17.77</div>
+                </details>
 
-              <!-- ✅ NEW quote (better + cleaner) -->
+                <details class="goal-dropdown">
+                  <summary>300mh Goal</summary>
+                  <div class="goal-content">52.21</div>
+                </details>
+
+                <details class="goal-dropdown">
+                  <summary>4x400 Split Goal</summary>
+                  <div class="goal-content">1:00</div>
+                </details>
+
+              </div>
+
+              <!-- ✅ Track quote -->
               <div class="quote-pill">
                 <div>
-                  <p>““It never gets easier, you just get faster.” — Greg LeMond”</p>
-                  <span></span>
+                  <p>“It never gets easier, you just get faster.” — Greg LeMond</p>
+                  <span>TRACK QUOTE • MINDSET</span>
                 </div>
               </div>
 
