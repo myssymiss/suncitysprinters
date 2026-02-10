@@ -17,7 +17,13 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: { primary:'#ec4899', lightpink:'#fbcfe8', gold:'#fbbf24' },
+          colors: {
+            primary:'#ec4899',
+            lightpink:'#fbcfe8',
+            gold:'#fbbf24',
+            ink:'#07070b',
+            midnight:'#0b0b13'
+          },
           fontFamily: {
             heading: ['"Bebas Neue"', 'system-ui'],
             body: ['Poppins', 'system-ui']
@@ -31,316 +37,572 @@
     body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
     html { scroll-padding-top: 90px; }
 
-    /* ======= BACKDROP (match Juliette vibe) ======= */
-    .glam-bg{
-      position: fixed;
-      inset: 0;
-      z-index: -50;
-      pointer-events: none;
+    /* ===== Dark luxury backdrop ===== */
+    .lux-bg{
+      position: fixed; inset: 0; z-index: -50; pointer-events:none;
       background:
-        radial-gradient(circle at 18% 20%, rgba(236,72,153,.18), transparent 52%),
-        radial-gradient(circle at 82% 18%, rgba(251,191,36,.18), transparent 56%),
-        radial-gradient(circle at 50% 86%, rgba(236,72,153,.10), transparent 54%),
-        linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.80));
+        radial-gradient(circle at 18% 18%, rgba(236,72,153,.22), transparent 52%),
+        radial-gradient(circle at 82% 22%, rgba(251,191,36,.16), transparent 56%),
+        radial-gradient(circle at 48% 88%, rgba(236,72,153,.10), transparent 58%),
+        linear-gradient(135deg, #06060a, #0b0b14 45%, #050509);
     }
 
-    /* ======= GLITTER DUST ======= */
+    /* Subtle vignette for mystery */
+    .lux-vignette{
+      position: fixed; inset: 0; z-index: -49; pointer-events:none;
+      background: radial-gradient(circle at 50% 40%, transparent 0 55%, rgba(0,0,0,.75) 82%, rgba(0,0,0,.92) 100%);
+      mix-blend-mode: multiply;
+    }
+
+    /* ===== Floating glitter dust (subtle) ===== */
     @keyframes glitterDrift {
-      0%   { transform: translate3d(-2%, -2%, 0) rotate(0deg); opacity: .46; }
-      50%  { opacity: .78; }
-      100% { transform: translate3d(2%, 2%, 0) rotate(360deg); opacity: .46; }
+      0%   { transform: translate3d(-2%, -2%, 0) rotate(0deg); opacity: .24; }
+      50%  { opacity: .42; }
+      100% { transform: translate3d(2%, 2%, 0) rotate(360deg); opacity: .24; }
     }
-    .glam-dust{
-      position: fixed;
-      inset: -45%;
-      z-index: -40;
-      pointer-events: none;
+    .lux-dust{
+      position: fixed; inset: -45%; z-index: -48; pointer-events:none;
       background:
-        radial-gradient(circle at 10% 18%, rgba(255,255,255,.90) 0 2px, transparent 3px),
-        radial-gradient(circle at 22% 72%, rgba(255,255,255,.70) 0 1.6px, transparent 3px),
-        radial-gradient(circle at 40% 30%, rgba(255,255,255,.60) 0 1.3px, transparent 3px),
-        radial-gradient(circle at 58% 52%, rgba(255,255,255,.85) 0 2px, transparent 3px),
-        radial-gradient(circle at 74% 24%, rgba(255,255,255,.65) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 88% 78%, rgba(255,255,255,.70) 0 1.6px, transparent 3px),
-        radial-gradient(circle at 62% 86%, rgba(255,255,255,.55) 0 1.3px, transparent 3px),
-        radial-gradient(circle at 16% 44%, rgba(251,191,36,.55) 0 1.6px, transparent 3px),
-        radial-gradient(circle at 82% 46%, rgba(236,72,153,.45) 0 1.6px, transparent 3px);
+        radial-gradient(circle at 10% 18%, rgba(255,255,255,.70) 0 2px, transparent 3px),
+        radial-gradient(circle at 22% 72%, rgba(255,255,255,.50) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 40% 30%, rgba(255,255,255,.40) 0 1.3px, transparent 3px),
+        radial-gradient(circle at 58% 52%, rgba(255,255,255,.60) 0 2px, transparent 3px),
+        radial-gradient(circle at 74% 24%, rgba(255,255,255,.45) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 88% 78%, rgba(255,255,255,.52) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 62% 86%, rgba(255,255,255,.38) 0 1.3px, transparent 3px),
+        radial-gradient(circle at 16% 44%, rgba(251,191,36,.42) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 82% 46%, rgba(236,72,153,.35) 0 1.6px, transparent 3px);
       mix-blend-mode: screen;
-      animation: glitterDrift 9.2s linear infinite;
-      filter: blur(.1px);
+      animation: glitterDrift 11.5s linear infinite;
+      filter: blur(.15px);
+      opacity: .55;
     }
 
-    /* shimmer line */
+    /* ===== Glam shimmer line ===== */
     .shimmer-line{
-      position: relative; height: 6px; border-radius: 999px; overflow: hidden;
-      background: rgba(251,191,36,.22);
-      box-shadow: 0 14px 40px rgba(236,72,153,.16);
+      position: relative;
+      height: 6px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(251,191,36,.18);
+      box-shadow: 0 16px 60px rgba(236,72,153,.18);
     }
     .shimmer-line::after{
-      content:""; position:absolute; inset:0; transform: translateX(-70%);
-      background: linear-gradient(90deg, transparent, rgba(251,191,36,.98), rgba(236,72,153,.90), rgba(255,255,255,.75), transparent);
-      animation: shimmer 2.4s ease-in-out infinite;
+      content:"";
+      position:absolute; inset:0;
+      transform: translateX(-70%);
+      background: linear-gradient(90deg, transparent, rgba(251,191,36,.95), rgba(236,72,153,.85), rgba(255,255,255,.55), transparent);
+      animation: shimmer 2.7s ease-in-out infinite;
     }
     @keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
 
-    /* sparkle border */
-    @keyframes gradientShift{
+    /* ===== Luxe border + sparkle edge ===== */
+    @keyframes borderShift{
       0%{ background-position: 0% 50%; }
       50%{ background-position: 100% 50%; }
       100%{ background-position: 0% 50%; }
     }
     .sparkle-border{
-      position: relative; overflow: hidden; border-radius: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.5rem;
+      isolation: isolate;
     }
     .sparkle-border::before{
       content:"";
       position:absolute; inset:-2px;
       background: linear-gradient(120deg,
-        rgba(251,191,36,.96),
+        rgba(251,191,36,.95),
         rgba(236,72,153,.92),
-        rgba(255,255,255,.92),
-        rgba(251,191,36,.90)
+        rgba(255,255,255,.65),
+        rgba(251,191,36,.92)
       );
-      background-size: 260% 260%;
-      animation: gradientShift 7.2s ease-in-out infinite;
-      opacity: .20;
+      background-size: 240% 240%;
+      animation: borderShift 8.4s ease-in-out infinite;
+      opacity: .22;
       pointer-events:none;
+      z-index: 0;
     }
     .sparkle-border::after{
-      content:""; position:absolute; inset:-45%;
+      content:"";
+      position:absolute; inset:-45%;
       background:
-        radial-gradient(circle at 18% 24%, rgba(255,255,255,.90) 0 2px, transparent 3px),
-        radial-gradient(circle at 78% 38%, rgba(255,255,255,.65) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 42% 72%, rgba(255,255,255,.80) 0 2px, transparent 3px),
-        radial-gradient(circle at 88% 82%, rgba(255,255,255,.55) 0 1.5px, transparent 3px);
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.80) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 38%, rgba(255,255,255,.55) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 42% 72%, rgba(255,255,255,.70) 0 2px, transparent 3px),
+        radial-gradient(circle at 88% 82%, rgba(255,255,255,.45) 0 1.5px, transparent 3px);
       mix-blend-mode: screen;
-      opacity: .30;
-      animation: glitterDrift 8.5s linear infinite;
+      opacity: .22;
+      animation: glitterDrift 10.2s linear infinite;
       pointer-events:none;
+      z-index: 0;
     }
+    .sparkle-border > *{ position: relative; z-index: 1; }
 
-    /* glass card */
-    .glass-card{
-      background: rgba(255,255,255,.74);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(236,72,153,.20);
-      box-shadow: 0 20px 70px rgba(236,72,153,.16);
-    }
-
-    /* hero with photo background */
-    .runway-hero{
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(236,72,153,.10);
-      background:
-        radial-gradient(circle at 18% 18%, rgba(236,72,153,.16), transparent 52%),
-        radial-gradient(circle at 85% 22%, rgba(251,191,36,.16), transparent 55%),
-        linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
-    }
-    .runway-hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      /* ✅ BACKGROUND IMAGE HERE: replace filename with the photo you want */
-      background-image: url("./IMG_0468.jpeg");
-      background-size: cover;
-      background-position: center;
-      opacity:.18;
-      filter: saturate(1.12) contrast(1.05);
-      transform: scale(1.03);
-      pointer-events:none;
-    }
-    .runway-hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, rgba(255,255,255,.45), rgba(255,255,255,.94));
-      pointer-events:none;
-    }
-    .runway-content{ position: relative; z-index: 1; }
-
-    /* BIG glam headline */
-    .wall-title{
+    /* ===== Big luxe title ===== */
+    .lux-title{
       display:inline-block;
-      font-family: "Bebas Neue", system-ui;
-      letter-spacing: .08em;
-      line-height: .92;
-      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92), rgba(255,255,255,.88), rgba(251,191,36,.98));
-      background-size: 220% 220%;
-      -webkit-background-clip: text;
-      background-clip: text;
+      background: linear-gradient(90deg, rgba(251,191,36,1), rgba(236,72,153,1), rgba(255,255,255,.92), rgba(251,191,36,1));
+      background-size: 240% 240%;
+      -webkit-background-clip:text;
+      background-clip:text;
       color: transparent;
-      animation: gradientShift 6.5s ease-in-out infinite;
-      text-shadow: 0 10px 44px rgba(236,72,153,.16), 0 18px 80px rgba(251,191,36,.12);
+      animation: borderShift 7.6s ease-in-out infinite;
+      text-shadow: 0 18px 80px rgba(236,72,153,.18);
     }
 
-    /* card hover glam */
-    .ath-card{
+    /* ===== Glass card ===== */
+    .lux-card{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 26px 90px rgba(0,0,0,.55),
+        0 20px 60px rgba(236,72,153,.10);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
-    .ath-card:hover{
-      transform: translateY(-4px);
-      box-shadow: 0 26px 78px rgba(236,72,153,.22), 0 18px 40px rgba(251,191,36,.16);
-      border-color: rgba(236,72,153,.38);
+    .lux-card:hover{
+      transform: translateY(-5px);
+      border-color: rgba(236,72,153,.35);
+      box-shadow:
+        0 34px 120px rgba(0,0,0,.62),
+        0 22px 80px rgba(236,72,153,.18);
     }
 
-    /* captain badge (mini) */
-    .captain-badge{
-      position: absolute;
-      left: 50%;
-      bottom: -12px;
-      transform: translateX(-50%);
-      z-index: 3;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 14px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(236,72,153,.98), rgba(251,191,36,.92));
-      border: 2px solid rgba(255,255,255,.88);
-      box-shadow: 0 12px 30px rgba(236,72,153,.30), 0 10px 20px rgba(251,191,36,.20);
+    /* ===== Photo placeholder ===== */
+    .photo-slot{
+      height: 150px;
+      border-radius: 1.25rem;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(251,191,36,.16), transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(236,72,153,.14), transparent 62%),
+        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      border: 1px dashed rgba(255,255,255,.22);
+      position: relative;
+      overflow: hidden;
     }
-    .captain-badge::before{
+    .photo-slot::after{
       content:"";
-      position:absolute;
-      inset: 3px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(255,255,255,.38), rgba(255,255,255,.10));
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.35);
+      position:absolute; inset:-40%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      transform: translateX(-80%) rotate(12deg);
+      animation: slotShine 4.6s ease-in-out infinite;
+      opacity: .9;
       pointer-events:none;
     }
-    .captain-badge > *{ position: relative; z-index: 1; }
-    .captain-badge .captext{
-      font-weight: 1000;
-      font-size: 10px;
-      letter-spacing: .18em;
-      color: rgba(255,255,255,.98);
-      text-shadow: 0 2px 10px rgba(0,0,0,.14);
-    }
-    .captain-badge .wing{ font-size: 12px; }
-
-    /* sparkle ping */
-    @keyframes capSpark{
-      0%,100% { transform: scale(.85); opacity: .8; box-shadow: 0 0 0 0 rgba(255,255,255,.45), 0 0 14px rgba(255,255,255,.55); }
-      50%     { transform: scale(1.15); opacity: 1;  box-shadow: 0 0 0 8px rgba(255,255,255,.10), 0 0 18px rgba(255,255,255,.75); }
-    }
-    .captain-badge .spark{
-      width: 10px; height: 10px; border-radius: 999px;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 0 0 0 rgba(255,255,255,.55), 0 0 14px rgba(255,255,255,.65);
-      animation: capSpark 2.4s ease-in-out infinite;
+    @keyframes slotShine{
+      0%{ transform: translateX(-95%) rotate(12deg); }
+      55%{ transform: translateX(95%) rotate(12deg); }
+      100%{ transform: translateX(95%) rotate(12deg); }
     }
 
+    /* ===== Button ===== */
+    .lux-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: #0b0b0f;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      box-shadow: 0 18px 55px rgba(236,72,153,.18);
+      transition: transform .16s ease, filter .16s ease;
+      user-select:none;
+      white-space: nowrap;
+    }
+    .lux-btn:hover{ transform: translateY(-1px) scale(1.02); filter: brightness(1.03); }
+
+    /* ===== Small chips ===== */
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.86);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+    }
+    .chip-dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      box-shadow: 0 10px 26px rgba(236,72,153,.20);
+    }
+
+    /* Reveal */
+    .reveal{ opacity:0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.show{ opacity:1; transform: translateY(0); }
+
+    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .glam-dust, .sparkle-border::before, .sparkle-border::after, .shimmer-line::after, .wall-title, .captain-badge .spark{
-        animation: none !important;
-      }
-      .ath-card{ transition: none !important; }
+      .lux-dust, .sparkle-border::before, .sparkle-border::after, .shimmer-line::after, .photo-slot::after { animation:none !important; }
+      .lux-card{ transition:none !important; }
+      .reveal{ transition:none !important; opacity:1 !important; transform:none !important; }
     }
   </style>
 </head>
 
-<body class="bg-white text-gray-800 font-body">
-  <div class="glam-bg"></div>
-  <div class="glam-dust"></div>
+<body class="text-white font-body">
+  <div class="lux-bg"></div>
+  <div class="lux-vignette"></div>
+  <div class="lux-dust"></div>
 
   <!-- HEADER -->
-  <header class="bg-primary text-white sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-5 md:px-6 py-3 md:py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-      <a href="index.html" class="flex items-center gap-4">
-        <img
-          src="./IMG_6204.jpeg"
-          alt="Sun City Sprinters Logo"
-          class="h-14 w-14 md:h-16 md:w-16 rounded-full object-cover bg-white border-4 border-gold shadow"
-        />
-        <div>
-          <h1 class="font-heading text-3xl md:text-4xl tracking-wide leading-none">Sun City Sprinters</h1>
-          <p class="text-xs md:text-sm text-white/90 font-semibold">Personal Record Wall</p>
+  <header class="sticky top-0 z-50 border-b border-white/10"
+          style="background: linear-gradient(180deg, rgba(0,0,0,.78), rgba(0,0,0,.55)); backdrop-filter: blur(14px);">
+    <div class="max-w-7xl mx-auto px-5 md:px-6 py-3 md:py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="./IMG_6204.jpeg" class="h-12 w-12 rounded-full object-cover bg-white border-4 border-gold shadow" alt="Logo"/>
+        <div class="leading-tight">
+          <p class="font-heading text-2xl tracking-wide leading-none text-white">Sun City Sprinters</p>
+          <p class="text-xs text-white/70 font-semibold tracking-wide">Personal Record Wall</p>
         </div>
       </a>
 
-      <nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold">
-        <a href="index.html#team" class="hover:underline">Team</a>
-        <a href="index.html#register" class="hover:underline">Register</a>
-        <a href="donate.html" class="hover:underline">Donate</a>
-        <a
-          href="index.html"
-          class="inline-flex items-center justify-center px-4 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition"
-          style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
-        >
-          Back Home →
-        </a>
+      <nav class="flex items-center gap-4 text-sm font-semibold text-white/85">
+        <a href="index.html#team" class="hover:text-white transition">Team</a>
+        <a href="index.html#register" class="hover:text-white transition">Register</a>
+        <a href="donate.html" class="hover:text-white transition">Donate</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="runway-hero">
-    <div class="runway-content max-w-6xl mx-auto px-6 py-12 md:py-16 text-center">
-      <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-primary/70">Sun City Sprinters</p>
+  <section class="pt-14 md:pt-16 pb-10 md:pb-12">
+    <div class="max-w-6xl mx-auto px-6 text-center reveal">
+      <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-white/60">
+        Elite • Official • Earned
+      </p>
 
-      <h1 class="wall-title text-6xl sm:text-7xl md:text-8xl mt-3">
+      <h1 class="font-heading text-6xl md:text-7xl tracking-[0.06em] mt-3 lux-title">
         PERSONAL RECORD WALL
       </h1>
 
-      <p class="mt-4 text-gray-700 font-semibold max-w-3xl mx-auto">
-        Tap an athlete to view their progress page. New PRs = automatic sparkle energy. ✨
+      <p class="mt-4 text-white/70 font-semibold max-w-2xl mx-auto">
+        Tap an athlete to view their personal record progress. Clean. Bold. No excuses. ✨
       </p>
 
       <div class="mt-7 max-w-sm mx-auto shimmer-line"></div>
-
-      <!-- Search + quick counts -->
-      <div class="mt-8 glass-card sparkle-border rounded-[28px] p-5 md:p-6 max-w-3xl mx-auto text-left">
-        <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">Find an athlete</p>
-
-        <div class="mt-3 flex flex-col md:flex-row gap-3 md:items-center">
-          <input
-            id="searchInput"
-            type="text"
-            placeholder="Search by name, events, or age group…"
-            class="w-full rounded-2xl px-4 py-3 border border-pink-200 bg-white/85 font-semibold outline-none focus:ring-4 focus:ring-pink-200/60"
-          />
-          <button
-            id="clearBtn"
-            type="button"
-            class="shrink-0 inline-flex items-center justify-center px-5 py-3 rounded-2xl font-extrabold shadow hover:scale-105 transition"
-            style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
-          >
-            Clear
-          </button>
-        </div>
-
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span id="countPill" class="inline-flex items-center gap-2 px-4 py-2 rounded-full font-extrabold text-xs"
-            style="background: rgba(251,191,36,.20); border: 1px solid rgba(251,191,36,.35); color:#111;">
-            0 athletes
-          </span>
-
-          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full font-extrabold text-xs"
-            style="background: rgba(236,72,153,.12); border: 1px solid rgba(236,72,153,.22); color:#111;">
-            ✨ Click to open progress
-          </span>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- GRID -->
-  <section class="py-12 md:py-14">
+  <section class="pb-16 md:pb-20">
     <div class="max-w-7xl mx-auto px-6">
-      <div id="athleteGrid" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
 
-      <!-- empty state -->
-      <div id="emptyState" class="hidden mt-10 text-center">
-        <div class="glass-card sparkle-border rounded-[28px] p-10 max-w-2xl mx-auto">
-          <p class="font-heading text-5xl text-primary tracking-wide">No matches</p>
-          <p class="mt-3 text-gray-700 font-semibold">Try a different search (example: “15–16”, “100m”, or a name).</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+
+        <!-- =============== ATHLETE CARDS (PLACEHOLDER PHOTOS) =============== -->
+
+        <!-- Juliette -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5 flex items-start justify-between gap-4">
+            <div>
+              <p class="font-extrabold text-lg text-white">Juliette Valenzuela</p>
+              <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh • 4x400</p>
+            </div>
+            <span class="chip"><span class="chip-dot"></span> PR</span>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
         </div>
+
+        <!-- Douglas -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Douglas S Asbury III</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • LJ</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Isabella Avina -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Isabella Avina</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Jose Luis Avina -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Jose Luis Avina</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 400m</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- David Ballentine II -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">David Ballentine II</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">800m • 1500m • 3000m</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Isabella Campuzano -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5 flex items-start justify-between gap-4">
+            <div>
+              <p class="font-extrabold text-lg text-white">Isabella Campuzano</p>
+              <p class="text-sm text-white/70 font-semibold mt-1">4x100 • 100m • 200m • 4x400</p>
+            </div>
+            <span class="chip"><span class="chip-dot"></span> CAPTAIN</span>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ximena Garcia -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Ximena Garcia</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 4x100 • 4x400</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Lovely Garica -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Lovely Garica</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Melanie Gaytan -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Melanie Gaytan</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">TJ • 4x400</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Elizabeth Hita -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Elizabeth Hita</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Alora Jaroszewski -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Alora Jaroszewski</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ayden Marrufo -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Ayden Marrufo</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dean Pester -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Dean Pester</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">800m</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Natalie Pester -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Natalie Pester</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m • 2300m</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Madilyn Vasquez -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Madilyn Vasquez</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Isabella Vega -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5 flex items-start justify-between gap-4">
+            <div>
+              <p class="font-extrabold text-lg text-white">Isabella Vega</p>
+              <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh • 4x400 • HJ</p>
+            </div>
+            <span class="chip"><span class="chip-dot"></span> CAPTAIN</span>
+          </div>
+
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">
+              View Progress <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <footer class="bg-black text-gray-300 py-10 text-center border-t border-white/10 mt-10">
+  <!-- FOOTER -->
+  <footer class="py-10 text-center border-t border-white/10">
     <div class="max-w-5xl mx-auto px-6">
       <p class="font-heading text-3xl tracking-wide text-white">Sun City Sprinters</p>
       <p class="text-xs text-white/50 mt-4">&copy; 2025 Sun City Sprinters</p>
@@ -348,149 +610,14 @@
   </footer>
 
   <script>
-    // =========================================================
-    // ✅ PR WALL ATHLETES (edit here only)
-    // Note: hrefs can be your real pages now or "coming soon"
-    // =========================================================
-    const athletes = [
-      { name:"Douglas S Asbury III", ageGroup:"9–10", events:"100m • 200m • LJ", photo:"IMG_41882.jpeg", href:"./douglas.html", status:"coming" },
-      { name:"Isabella Avina", ageGroup:"13–14", events:"100m • 200m", photo:"IMG_9563.jpeg", href:"./isabella-avina.html", status:"coming" },
-      { name:"Jose Luis Avina", ageGroup:"9–10", events:"100m • 200m • 400m", photo:"IMG_0088.jpeg", href:"./jose-luis.html", status:"coming" },
-      { name:"David Ballentine II", ageGroup:"17–18", events:"800m • 1500m • 3000m", photo:"IMG_2187.jpeg", href:"./david.html", status:"coming" },
-
-      { name:"Isabella Campuzano", ageGroup:"15–16", events:"4x100 • 100m • 200m • 4x400", photo:"IMG_2177.jpeg", href:"./isabella-campuzano.html", captain:true, status:"coming" },
-      { name:"Ximena Garcia", ageGroup:"15–16", events:"100m • 200m • 4x100 • 4x400", photo:"IMG_4084.jpeg", href:"./ximena.html", status:"coming" },
-      { name:"Lovely Garica", ageGroup:"13–14", events:"800m • 1600m", photo:"IMG_703.jpeg", href:"./lovely.html", status:"coming" },
-      { name:"Melanie Gaytan", ageGroup:"15–16", events:"TJ • 4x400", photo:"IMG_2179.jpeg", href:"./melanie.html", status:"coming" },
-
-      { name:"Elizabeth Hita", ageGroup:"15–16", events:"100mh • 300mh", photo:"IMG_110077.jpeg", href:"./elizabeth.html", status:"coming" },
-      { name:"Alora Jaroszewski", ageGroup:"15–16", events:"100m • 200m", photo:"IMG_1706.jpeg", href:"./alora.html", status:"coming" },
-      { name:"Ayden Marrufo", ageGroup:"15–16", events:"1600m", photo:"IMG_0115.jpeg", href:"./ayden.html", status:"coming" },
-      { name:"Dean Pester", ageGroup:"11–12", events:"800m", photo:"IMG_6204.jpeg", href:"./dean.html", status:"coming" },
-
-      { name:"Natalie Pester", ageGroup:"15–16", events:"800m • 1600m • 2300m", photo:"IMG_11993.jpeg", href:"./natalie.html", status:"coming" },
-
-      // ✅ Juliette is LIVE (already exists)
-      { name:"Juliette Valenzuela", ageGroup:"17–18", events:"100mh • 300mh • 4x400", photo:"IMG_2213.jpeg", href:"./juliette.html", captain:true, status:"live" },
-
-      { name:"Madilyn Vasquez", ageGroup:"13–14", events:"1600m", photo:"madilyn-vasquez.jpeg", href:"./madilyn.html", status:"coming" },
-      { name:"Isabella Vega", ageGroup:"15–16", events:"100mh • 300mh • 4x400 • HJ", photo:"IMG_2175.jpeg", href:"./isabella-vega.html", captain:true, status:"coming" },
-    ];
-
-    const grid = document.getElementById("athleteGrid");
-    const empty = document.getElementById("emptyState");
-    const searchInput = document.getElementById("searchInput");
-    const clearBtn = document.getElementById("clearBtn");
-    const countPill = document.getElementById("countPill");
-
-    function esc(s){
-      return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-    }
-
-    function pill(label, type){
-      const base = "inline-flex items-center gap-2 px-3 py-2 rounded-full font-extrabold text-[11px] uppercase tracking-widest";
-      if (type === "live"){
-        return `<span class="${base}" style="background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.92)); color:#111; border:1px solid rgba(251,191,36,.40);">✨ LIVE ✨</span>`;
-      }
-      return `<span class="${base}" style="background: rgba(236,72,153,.10); color:#111; border:1px solid rgba(236,72,153,.22);">COMING SOON</span>`;
-    }
-
-    function render(list){
-      grid.innerHTML = "";
-
-      list.forEach(a => {
-        const disabled = a.status !== "live";
-        const href = disabled ? "#" : a.href;
-
-        const card = document.createElement("a");
-        card.href = href;
-        card.className = `glass-card sparkle-border ath-card rounded-[28px] p-6 block relative ${disabled ? "opacity-90" : ""}`;
-
-        card.innerHTML = `
-          <div class="flex items-start justify-between gap-3">
-            <div class="relative">
-              <div class="relative" style="width: fit-content; line-height:0;">
-                <img src="${esc(a.photo)}" alt="${esc(a.name)}"
-                  class="w-20 h-20 rounded-full object-cover object-center border-4 border-gold shadow" />
-                ${a.captain ? `
-                  <div class="captain-badge" aria-label="Team Captain">
-                    <span class="wing" aria-hidden="true">🪽</span>
-                    <span class="captext">CAPTAIN</span>
-                    <span class="wing" aria-hidden="true">🪽</span>
-                    <span class="spark" aria-hidden="true"></span>
-                  </div>
-                ` : ``}
-              </div>
-            </div>
-
-            <div class="shrink-0">
-              ${pill("status", a.status)}
-            </div>
-          </div>
-
-          <p class="mt-5 font-extrabold text-gray-900 text-lg">${esc(a.name)}</p>
-          <p class="text-sm text-gray-700 font-semibold mt-1">${esc(a.events)}</p>
-
-          <div class="mt-4 flex flex-wrap gap-2 items-center">
-            <span class="inline-flex items-center px-3 py-2 rounded-full font-extrabold text-[11px] uppercase tracking-widest"
-              style="background: rgba(251,191,36,.18); border: 1px solid rgba(251,191,36,.35); color:#111;">
-              Age ${esc(a.ageGroup)}
-            </span>
-
-            <span class="inline-flex items-center px-3 py-2 rounded-full font-extrabold text-[11px] uppercase tracking-widest"
-              style="background: rgba(255,255,255,.70); border: 1px solid rgba(236,72,153,.18); color:#111;">
-              View Progress →
-            </span>
-          </div>
-
-          ${disabled ? `
-            <p class="mt-4 text-xs font-extrabold text-gray-600">
-              This page will open once the athlete progress page is added ✨
-            </p>
-          ` : `
-            <p class="mt-4 text-xs font-extrabold text-gray-700">
-              Tap to open the full progress wall ✨
-            </p>
-          `}
-        `;
-
-        if (disabled){
-          card.addEventListener("click", (e) => {
-            e.preventDefault();
-            // tiny glam "nope" bounce
-            card.classList.remove("shake");
-            void card.offsetWidth;
-            card.animate(
-              [{ transform:"translateY(0)" }, { transform:"translateY(-3px)" }, { transform:"translateY(0)" }],
-              { duration: 260, easing:"ease-out" }
-            );
-          });
-        }
-
-        grid.appendChild(card);
-      });
-
-      empty.classList.toggle("hidden", list.length !== 0);
-      countPill.textContent = `${list.length} athlete${list.length === 1 ? "" : "s"}`;
-    }
-
-    function filter(){
-      const q = (searchInput.value || "").trim().toLowerCase();
-      if (!q){
-        render(athletes);
-        return;
-      }
-      const filtered = athletes.filter(a => {
-        const hay = `${a.name} ${a.ageGroup} ${a.events}`.toLowerCase();
-        return hay.includes(q);
-      });
-      render(filtered);
-    }
-
-    searchInput.addEventListener("input", filter);
-    clearBtn.addEventListener("click", () => { searchInput.value = ""; filter(); });
-
-    render(athletes);
+    // reveal on scroll
+    (function () {
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    })();
   </script>
 </body>
 </html>
