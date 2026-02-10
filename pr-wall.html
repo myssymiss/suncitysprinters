@@ -231,7 +231,7 @@
       filter: brightness(1.04);
     }
 
-    /* ===== Captain card gets extra glow + badge ===== */
+    /* ===== Captain card ===== */
     @keyframes captainPulse{
       0%{ box-shadow: 0 26px 90px rgba(0,0,0,.55), 0 20px 70px rgba(236,72,153,.14); }
       50%{ box-shadow: 0 34px 120px rgba(0,0,0,.60), 0 24px 100px rgba(251,191,36,.18), 0 0 0 3px rgba(236,72,153,.16); }
@@ -268,7 +268,7 @@
       box-shadow: 0 10px 25px rgba(0,0,0,.25);
     }
 
-    /* ===== Captain Spotlight container ===== */
+    /* ===== Spotlight container ===== */
     .spotlight{
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.05);
@@ -332,7 +332,7 @@
       100%{ transform: translateX(95%) rotate(12deg); }
     }
 
-    /* ===== Button ===== */
+    /* ===== Buttons ===== */
     .lux-btn{
       display:inline-flex;
       align-items:center;
@@ -354,7 +354,6 @@
     }
     .lux-btn:hover{ transform: translateY(-1px) scale(1.02); filter: brightness(1.03); }
 
-    /* Home button (top right) */
     .home-btn{
       display:inline-flex;
       align-items:center;
@@ -441,7 +440,6 @@
         </div>
       </a>
 
-      <!-- ✅ Only Home button -->
       <a href="index.html" class="home-btn">
         <span class="home-spark"></span>
         Home
@@ -463,7 +461,7 @@
       <div class="caption-card mx-auto">
         <span class="caption-dot"></span>
         <p class="text-white/85 font-extrabold tracking-wide">
-          Meet results sparkle automatically. <span class="text-white/60">✨</span>
+           <span class="text-white/60"></span>
         </p>
       </div>
 
@@ -471,7 +469,7 @@
     </div>
   </section>
 
-  <!-- ✅ CAPTAINS SPOTLIGHT -->
+  <!-- CAPTAINS SPOTLIGHT (ONLY PLACE CAPTAINS APPEAR) -->
   <section class="pb-10 md:pb-12">
     <div class="max-w-7xl mx-auto px-6 reveal">
       <div class="spotlight p-6 md:p-7">
@@ -557,9 +555,10 @@
     </div>
   </section>
 
-  <!-- FULL WALL -->
+  <!-- FULL WALL (NO CAPTAINS HERE) -->
   <section class="pb-16 md:pb-20">
     <div class="max-w-7xl mx-auto px-6">
+
       <div class="flex items-end justify-between gap-4 mb-5 reveal">
         <div>
           <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-white/60">All Athletes</p>
@@ -574,7 +573,7 @@
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
 
-        <!-- Douglas S Asbury III -->
+        <!-- Asbury -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -586,7 +585,7 @@
           </div>
         </div>
 
-        <!-- Isabella Avina -->
+        <!-- Avina (Isabella) -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -598,7 +597,7 @@
           </div>
         </div>
 
-        <!-- Jose Luis Avina -->
+        <!-- Avina (Jose Luis) -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -610,7 +609,7 @@
           </div>
         </div>
 
-        <!-- David Ballentine II -->
+        <!-- Ballentine -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -622,7 +621,7 @@
           </div>
         </div>
 
-        <!-- Ximena Garcia -->
+        <!-- Garcia (Ximena) -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -634,7 +633,7 @@
           </div>
         </div>
 
-        <!-- Lovely Garica (kept spelling as provided) -->
+        <!-- Garica (Lovely) (kept spelling as provided) -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -646,7 +645,7 @@
           </div>
         </div>
 
-        <!-- Melanie Gaytan -->
+        <!-- Gaytan -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -658,7 +657,7 @@
           </div>
         </div>
 
-        <!-- Elizabeth Hita -->
+        <!-- Hita -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -670,7 +669,7 @@
           </div>
         </div>
 
-        <!-- Alora Jaroszewski -->
+        <!-- Jaroszewski -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -682,7 +681,7 @@
           </div>
         </div>
 
-        <!-- Ayden Marrufo -->
+        <!-- Marrufo -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -694,7 +693,7 @@
           </div>
         </div>
 
-        <!-- Dean Pester -->
+        <!-- Pester (Dean) -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -706,7 +705,7 @@
           </div>
         </div>
 
-        <!-- Natalie Pester -->
+        <!-- Pester (Natalie) -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
@@ -718,7 +717,7 @@
           </div>
         </div>
 
-        <!-- Madilyn Vasquez -->
+        <!-- Vasquez -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
