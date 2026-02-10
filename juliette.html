@@ -236,7 +236,7 @@
       .glam-headline{ font-size: 56px; }
     }
 
-    /* ✅ Goal layout: 1 line on desktop, wraps nicely on mobile */
+    /* ✅ Goal layout */
     .glam-row{
       margin-top: 14px;
       display:grid;
@@ -252,11 +252,13 @@
 
     /* ======= GOAL DROPDOWNS ======= */
     .goal-dropdown{
+      position: relative;
       border-radius: 22px;
       border: 1px solid rgba(236,72,153,.22);
       background: rgba(255,255,255,.72);
       box-shadow: 0 16px 45px rgba(236,72,153,.12);
       overflow: hidden;
+      isolation: isolate;
     }
 
     .goal-dropdown summary{
@@ -283,6 +285,7 @@
     }
     .goal-dropdown[open] summary::after{ transform: rotate(180deg); }
 
+    /* smooth reveal of time */
     .goal-content{
       padding: 10px 16px 14px;
       border-top: 1px solid rgba(236,72,153,.15);
@@ -294,9 +297,51 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    @keyframes goalReveal{
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .goal-dropdown[open] .goal-content{
+      animation: goalReveal .28s ease-out forwards;
     }
 
-    /* quote pill (track quote only) */
+    /* ✨ sparkle burst on open (added via JS class) */
+    @keyframes sparklePop{
+      0%   { transform: scale(.75); opacity: 0; }
+      25%  { opacity: .85; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+    @keyframes glowPulse{
+      0% { box-shadow: 0 16px 45px rgba(236,72,153,.12); }
+      50% { box-shadow: 0 18px 70px rgba(236,72,153,.18), 0 0 0 3px rgba(251,191,36,.14); }
+      100% { box-shadow: 0 16px 45px rgba(236,72,153,.12); }
+    }
+
+    .goal-dropdown.sparkle-open{
+      animation: glowPulse .55s ease-out 1;
+    }
+    .goal-dropdown.sparkle-open::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.92) 0 2px, transparent 3px),
+        radial-gradient(circle at 40% 64%, rgba(255,255,255,.70) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 72% 34%, rgba(255,255,255,.78) 0 2px, transparent 3px),
+        radial-gradient(circle at 84% 76%, rgba(255,255,255,.55) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 30% 40%, rgba(251,191,36,.55) 0 2px, transparent 4px),
+        radial-gradient(circle at 68% 56%, rgba(236,72,153,.45) 0 2px, transparent 4px);
+      mix-blend-mode: screen;
+      pointer-events:none;
+      opacity: 0;
+      animation: sparklePop .55s ease-out 1;
+      z-index: 0;
+    }
+    .goal-dropdown > *{ position: relative; z-index: 1; }
+
+    /* quote pill */
     .quote-pill{
       margin-top: 12px;
       display:flex;
@@ -349,9 +394,13 @@
 
     @media (prefers-reduced-motion: reduce){
       .shimmer-line::after, .sparkle-border::before, .sparkle-border::after, .glam-dust,
-      .glam-headline, .neon-title {
+      .glam-headline, .neon-title,
+      .goal-dropdown[open] .goal-content,
+      .goal-dropdown.sparkle-open,
+      .goal-dropdown.sparkle-open::before{
         animation: none !important;
       }
+      .goal-content{ opacity: 1; transform: none; }
     }
   </style>
 </head>
@@ -437,7 +486,7 @@
               <div class="quote-pill">
                 <div>
                   <p>“It never gets easier, you just get faster.” — Greg LeMond</p>
-                  <span></span>
+                  <span>TRACK QUOTE • MINDSET</span>
                 </div>
               </div>
 
@@ -522,7 +571,6 @@
         snapshotLabel: "100mh PR",
         results: [
           { time: 18.77, date: "Apr 13, 2025", meet: "Baseline" },
-          // { time: 18.62, date: "Apr 27, 2025", meet: "Meet Name" },
         ]
       },
       {
@@ -662,6 +710,31 @@
 
     renderSnapshot();
     renderLadder();
+
+    // =========================================================
+    // ✅ Goal dropdown UX: only one open + sparkle burst on open
+    // =========================================================
+    const goalDropdowns = document.querySelectorAll('.goal-dropdown');
+
+    function sparkleOnce(el){
+      el.classList.remove('sparkle-open');
+      // force reflow so animation can replay
+      void el.offsetWidth;
+      el.classList.add('sparkle-open');
+      window.clearTimeout(el._sparkleTimer);
+      el._sparkleTimer = window.setTimeout(() => el.classList.remove('sparkle-open'), 650);
+    }
+
+    goalDropdowns.forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (d.open) {
+          goalDropdowns.forEach(other => {
+            if (other !== d) other.removeAttribute('open');
+          });
+          sparkleOnce(d);
+        }
+      });
+    });
   </script>
 
 </body>
