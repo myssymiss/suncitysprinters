@@ -214,8 +214,40 @@
       transition: transform .16s ease, filter .16s ease;
       user-select:none;
       white-space: nowrap;
+      text-decoration: none;
     }
     .lux-btn:hover{ transform: translateY(-1px) scale(1.02); filter: brightness(1.03); }
+
+    /* home button style (header) */
+    .home-btn{
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
+    .home-btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(251,191,36,.35);
+      background: rgba(255,255,255,.08);
+    }
+    .home-dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      box-shadow: 0 12px 30px rgba(236,72,153,.20);
+    }
 
     /* ===== Small chips ===== */
     .chip{
@@ -265,11 +297,12 @@
         </div>
       </a>
 
-      <nav class="flex items-center gap-4 text-sm font-semibold text-white/85">
-        <a href="index.html#team" class="hover:text-white transition">Team</a>
-        <a href="index.html#register" class="hover:text-white transition">Register</a>
-        <a href="donate.html" class="hover:text-white transition">Donate</a>
-      </nav>
+      <!-- ONLY HOME BUTTON -->
+      <a href="index.html" class="home-btn">
+        <span class="home-dot" aria-hidden="true"></span>
+        Home
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
   </header>
 
@@ -284,10 +317,6 @@
         PERSONAL RECORD WALL
       </h1>
 
-      <p class="mt-4 text-white/70 font-semibold max-w-2xl mx-auto">
-        Tap an athlete to view their personal record progress.✨
-      </p>
-
       <div class="mt-7 max-w-sm mx-auto shimmer-line"></div>
     </div>
   </section>
@@ -295,84 +324,35 @@
   <!-- GRID -->
   <section class="pb-16 md:pb-20">
     <div class="max-w-7xl mx-auto px-6">
-
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
 
-        <!-- =============== ATHLETE CARDS (PLACEHOLDER PHOTOS) =============== -->
+        <!-- =============== ATHLETE CARDS (ALPHABETICAL) =============== -->
 
-        <!-- Juliette -->
+        <!-- Alora Jaroszewski -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
             Photo Placeholder
           </div>
-
-          <div class="mt-5 flex items-start justify-between gap-4">
-            <div>
-              <p class="font-extrabold text-lg text-white">Juliette Valenzuela</p>
-              <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh • 4x400</p>
-            </div>
-            <span class="chip"><span class="chip-dot"></span> Captian</span>
-          </div>
-
           <div class="mt-5">
-            <a href="./juliette.html" class="lux-btn w-full text-center">
-  View Progress <span aria-hidden="true">→</span>
-</a>
-
-          </div>
-        </div>
-
-        <!-- Douglas -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Douglas S Asbury III</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • LJ</p>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Isabella Avina -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Isabella Avina</p>
+            <p class="font-extrabold text-lg text-white">Alora Jaroszewski</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
           </div>
-
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Jose Luis Avina -->
+        <!-- Ayden Marrufo -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
             Photo Placeholder
           </div>
-
           <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Jose Luis Avina</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 400m</p>
+            <p class="font-extrabold text-lg text-white">Ayden Marrufo</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
           </div>
-
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
@@ -381,16 +361,68 @@
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
             Photo Placeholder
           </div>
-
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">David Ballentine II</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m • 1500m • 3000m</p>
           </div>
-
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Dean Pester -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Dean Pester</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">800m</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Douglas S Asbury III -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Douglas S Asbury III</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • LJ</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Elizabeth Hita -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Elizabeth Hita</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Isabella Avina -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Isabella Avina</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
@@ -409,171 +441,7 @@
           </div>
 
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Ximena Garcia -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Ximena Garcia</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 4x100 • 4x400</p>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Lovely Garica -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Lovely Garica</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m</p>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Melanie Gaytan -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Melanie Gaytan</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">TJ • 4x400</p>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Elizabeth Hita -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Elizabeth Hita</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh</p>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Alora Jaroszewski -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Alora Jaroszewski</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Ayden Marrufo -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Ayden Marrufo</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Dean Pester -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Dean Pester</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">800m</p>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Natalie Pester -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Natalie Pester</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m • 2300m</p>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Madilyn Vasquez -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
-            Photo Placeholder
-          </div>
-
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Madilyn Vasquez</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
-              View Progress <span aria-hidden="true">→</span>
-            </button>
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
@@ -592,9 +460,112 @@
           </div>
 
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Jose Luis Avina -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Jose Luis Avina</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 400m</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Juliette Valenzuela (LINKS TO HER PAGE) -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+
+          <div class="mt-5 flex items-start justify-between gap-4">
+            <div>
+              <p class="font-extrabold text-lg text-white">Juliette Valenzuela</p>
+              <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh • 4x400</p>
+            </div>
+            <span class="chip"><span class="chip-dot"></span> CAPTAIN</span>
+          </div>
+
+          <div class="mt-5">
+            <a href="./juliette.html" class="lux-btn w-full text-center">
               View Progress <span aria-hidden="true">→</span>
-            </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Lovely Garica -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Lovely Garica</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Madilyn Vasquez -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Madilyn Vasquez</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Melanie Gaytan -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Melanie Gaytan</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">TJ • 4x400</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Natalie Pester -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Natalie Pester</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m • 2300m</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Ximena Garcia -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+            Photo Placeholder
+          </div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Ximena Garcia</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 4x100 • 4x400</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn w-full">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
