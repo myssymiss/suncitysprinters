@@ -40,13 +40,11 @@
     .lux-bg{
       position: fixed; inset: 0; z-index: -60; pointer-events:none;
       background:
-        radial-gradient(circle at 16% 18%, rgba(236,72,153,.26), transparent 52%),
-        radial-gradient(circle at 84% 22%, rgba(251,191,36,.18), transparent 58%),
-        radial-gradient(circle at 48% 88%, rgba(236,72,153,.12), transparent 58%),
+        radial-gradient(circle at 16% 18%, rgba(236,72,153,.28), transparent 52%),
+        radial-gradient(circle at 84% 22%, rgba(251,191,36,.20), transparent 58%),
+        radial-gradient(circle at 48% 88%, rgba(236,72,153,.14), transparent 58%),
         linear-gradient(135deg, #050509, #0b0b14 45%, #050509);
     }
-
-    /* Vignette */
     .lux-vignette{
       position: fixed; inset: 0; z-index: -59; pointer-events:none;
       background: radial-gradient(circle at 50% 40%, transparent 0 55%, rgba(0,0,0,.78) 82%, rgba(0,0,0,.95) 100%);
@@ -56,7 +54,7 @@
     /* ===== Floating glitter dust ===== */
     @keyframes glitterDrift {
       0%   { transform: translate3d(-2%, -2%, 0) rotate(0deg); opacity: .22; }
-      50%  { opacity: .44; }
+      50%  { opacity: .46; }
       100% { transform: translate3d(2%, 2%, 0) rotate(360deg); opacity: .22; }
     }
     .lux-dust{
@@ -74,28 +72,21 @@
       mix-blend-mode: screen;
       animation: glitterDrift 11.5s linear infinite;
       filter: blur(.15px);
-      opacity: .70;
+      opacity: .74;
     }
 
-    /* ===== Sparkle shooting stars (rare) ===== */
+    /* ===== Shooting sparkles (rare) ===== */
     @keyframes shoot {
       0% { transform: translate3d(-20vw, -10vh, 0) rotate(12deg); opacity: 0; }
       10% { opacity: .55; }
       35% { opacity: .0; }
       100% { transform: translate3d(120vw, 70vh, 0) rotate(12deg); opacity: 0; }
     }
-    .shooters{
-      position: fixed; inset: 0; z-index: -57; pointer-events:none;
-      overflow: hidden;
-    }
+    .shooters{ position: fixed; inset: 0; z-index: -57; pointer-events:none; overflow:hidden; }
     .shooter{
-      position:absolute;
-      width: 260px;
-      height: 2px;
+      position:absolute; width: 260px; height: 2px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), rgba(251,191,36,.55), transparent);
-      filter: blur(.2px);
-      opacity: 0;
-      animation: shoot 9.5s linear infinite;
+      filter: blur(.2px); opacity: 0; animation: shoot 9.5s linear infinite;
     }
     .shooter:nth-child(1){ top: 10%; left: -30%; animation-delay: 1.2s; }
     .shooter:nth-child(2){ top: 38%; left: -40%; animation-delay: 5.9s; }
@@ -103,17 +94,12 @@
 
     /* ===== Glam shimmer line ===== */
     .shimmer-line{
-      position: relative;
-      height: 6px;
-      border-radius: 999px;
-      overflow: hidden;
+      position: relative; height: 6px; border-radius: 999px; overflow: hidden;
       background: rgba(251,191,36,.18);
       box-shadow: 0 16px 60px rgba(236,72,153,.22);
     }
     .shimmer-line::after{
-      content:"";
-      position:absolute; inset:0;
-      transform: translateX(-70%);
+      content:""; position:absolute; inset:0; transform: translateX(-70%);
       background: linear-gradient(90deg, transparent, rgba(251,191,36,.95), rgba(236,72,153,.85), rgba(255,255,255,.55), transparent);
       animation: shimmer 2.6s ease-in-out infinite;
     }
@@ -126,29 +112,17 @@
       100%{ background-position: 0% 50%; }
     }
     .sparkle-border{
-      position: relative;
-      overflow: hidden;
-      border-radius: 1.6rem;
-      isolation: isolate;
+      position: relative; overflow: hidden; border-radius: 1.6rem; isolation:isolate;
     }
     .sparkle-border::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: linear-gradient(120deg,
-        rgba(251,191,36,.95),
-        rgba(236,72,153,.92),
-        rgba(255,255,255,.65),
-        rgba(251,191,36,.92)
-      );
+      content:""; position:absolute; inset:-2px;
+      background: linear-gradient(120deg, rgba(251,191,36,.95), rgba(236,72,153,.92), rgba(255,255,255,.65), rgba(251,191,36,.92));
       background-size: 240% 240%;
       animation: borderShift 8.0s ease-in-out infinite;
-      opacity: .22;
-      pointer-events:none;
-      z-index: 0;
+      opacity: .22; pointer-events:none; z-index:0;
     }
     .sparkle-border::after{
-      content:"";
-      position:absolute; inset:-45%;
+      content:""; position:absolute; inset:-45%;
       background:
         radial-gradient(circle at 18% 24%, rgba(255,255,255,.82) 0 2px, transparent 3px),
         radial-gradient(circle at 78% 38%, rgba(255,255,255,.56) 0 1.5px, transparent 3px),
@@ -157,10 +131,9 @@
       mix-blend-mode: screen;
       opacity: .20;
       animation: glitterDrift 10.2s linear infinite;
-      pointer-events:none;
-      z-index: 0;
+      pointer-events:none; z-index:0;
     }
-    .sparkle-border > *{ position: relative; z-index: 1; }
+    .sparkle-border > *{ position: relative; z-index:1; }
 
     /* ===== Big luxe title ===== */
     .lux-title{
@@ -174,50 +147,12 @@
       text-shadow: 0 18px 80px rgba(236,72,153,.22);
     }
 
-    /* ===== Caption highlight ===== */
-    .caption-card{
-      margin-top: 16px;
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.14);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 22px 80px rgba(0,0,0,.55), 0 18px 55px rgba(236,72,153,.12);
-      position: relative;
-      overflow: hidden;
-    }
-    .caption-card::after{
-      content:"";
-      position:absolute; inset:-40%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
-      transform: translateX(-80%) rotate(10deg);
-      animation: captionShine 4.8s ease-in-out infinite;
-      pointer-events:none;
-      opacity: .9;
-    }
-    @keyframes captionShine{
-      0%{ transform: translateX(-95%) rotate(10deg); }
-      55%{ transform: translateX(95%) rotate(10deg); }
-      100%{ transform: translateX(95%) rotate(10deg); }
-    }
-    .caption-dot{
-      width: 10px; height: 10px; border-radius: 999px;
-      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
-      box-shadow: 0 14px 30px rgba(236,72,153,.22);
-      flex: none;
-    }
-
-    /* ===== Glass card ===== */
+    /* ===== Glass cards ===== */
     .lux-card{
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.10);
       backdrop-filter: blur(14px);
-      box-shadow:
-        0 26px 90px rgba(0,0,0,.55),
-        0 20px 60px rgba(236,72,153,.10);
+      box-shadow: 0 26px 90px rgba(0,0,0,.55), 0 20px 60px rgba(236,72,153,.10);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
       transform-style: preserve-3d;
       position: relative;
@@ -225,106 +160,26 @@
     .lux-card:hover{
       transform: translateY(-6px) scale(1.01);
       border-color: rgba(236,72,153,.35);
-      box-shadow:
-        0 34px 120px rgba(0,0,0,.62),
-        0 22px 88px rgba(236,72,153,.18);
-      filter: brightness(1.04);
+      box-shadow: 0 34px 120px rgba(0,0,0,.62), 0 22px 88px rgba(236,72,153,.18);
+      filter: brightness(1.05);
     }
-
-    /* ===== Captain card ===== */
-    @keyframes captainPulse{
-      0%{ box-shadow: 0 26px 90px rgba(0,0,0,.55), 0 20px 70px rgba(236,72,153,.14); }
-      50%{ box-shadow: 0 34px 120px rgba(0,0,0,.60), 0 24px 100px rgba(251,191,36,.18), 0 0 0 3px rgba(236,72,153,.16); }
-      100%{ box-shadow: 0 26px 90px rgba(0,0,0,.55), 0 20px 70px rgba(236,72,153,.14); }
-    }
-    .captain{
-      border-color: rgba(251,191,36,.28) !important;
-      background: rgba(255,255,255,.075);
-      animation: captainPulse 4.6s ease-in-out infinite;
-    }
-    .captain-badge{
-      position:absolute;
-      top: 14px;
-      right: 14px;
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-weight: 900;
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: #0b0b0f;
-      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
-      box-shadow: 0 18px 55px rgba(236,72,153,.18);
-      user-select: none;
-      z-index: 3;
-    }
-    .captain-badge span{
-      display:inline-block;
-      width: 8px; height: 8px; border-radius: 999px;
-      background: rgba(255,255,255,.85);
-      box-shadow: 0 10px 25px rgba(0,0,0,.25);
-    }
-
-    /* ===== Spotlight container ===== */
-    .spotlight{
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 30px 120px rgba(0,0,0,.62), 0 24px 100px rgba(236,72,153,.14);
-      position: relative;
-      overflow: hidden;
-      border-radius: 28px;
-    }
-    .spotlight::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background: linear-gradient(120deg, rgba(251,191,36,.22), rgba(236,72,153,.22), rgba(255,255,255,.10), rgba(251,191,36,.18));
-      opacity: .65;
-      filter: blur(18px);
-      pointer-events:none;
-    }
-    .spotlight::after{
-      content:"";
-      position:absolute;
-      inset:-45%;
-      background:
-        radial-gradient(circle at 18% 24%, rgba(255,255,255,.82) 0 2px, transparent 3px),
-        radial-gradient(circle at 68% 38%, rgba(255,255,255,.56) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 42% 72%, rgba(255,255,255,.74) 0 2px, transparent 3px),
-        radial-gradient(circle at 88% 82%, rgba(255,255,255,.46) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 30% 46%, rgba(251,191,36,.40) 0 2px, transparent 4px),
-        radial-gradient(circle at 76% 58%, rgba(236,72,153,.34) 0 2px, transparent 4px);
-      mix-blend-mode: screen;
-      opacity: .18;
-      animation: glitterDrift 12.4s linear infinite;
-      pointer-events:none;
-    }
-    .spotlight-inner{ position: relative; z-index: 1; }
 
     /* ===== Photo placeholder ===== */
     .photo-slot{
-      height: 160px;
-      border-radius: 1.25rem;
+      height: 160px; border-radius: 1.25rem;
       background:
         radial-gradient(circle at 30% 30%, rgba(251,191,36,.16), transparent 60%),
         radial-gradient(circle at 70% 70%, rgba(236,72,153,.14), transparent 62%),
         linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
       border: 1px dashed rgba(255,255,255,.22);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .photo-slot::after{
-      content:"";
-      position:absolute; inset:-40%;
+      content:""; position:absolute; inset:-40%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
       transform: translateX(-80%) rotate(12deg);
       animation: slotShine 4.6s ease-in-out infinite;
-      opacity: .9;
-      pointer-events:none;
+      opacity: .9; pointer-events:none;
     }
     @keyframes slotShine{
       0%{ transform: translateX(-95%) rotate(12deg); }
@@ -334,10 +189,7 @@
 
     /* ===== Buttons ===== */
     .lux-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
+      display:inline-flex; align-items:center; justify-content:center; gap: 10px;
       padding: 11px 16px;
       border-radius: 999px;
       font-weight: 900;
@@ -352,56 +204,170 @@
       white-space: nowrap;
       width: 100%;
     }
-    .lux-btn:hover{ transform: translateY(-1px) scale(1.02); filter: brightness(1.03); }
+    .lux-btn:hover{ transform: translateY(-1px) scale(1.02); filter: brightness(1.05); }
 
-    .home-btn{
+    /* ===== Home photo button ===== */
+    @keyframes ringGlow{
+      0% { transform: rotate(0deg); opacity: .55; }
+      50% { opacity: .95; }
+      100% { transform: rotate(360deg); opacity: .55; }
+    }
+    .home-photo{
+      position: relative;
+      width: 54px; height: 54px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,.25);
+      box-shadow: 0 18px 70px rgba(0,0,0,.60), 0 18px 55px rgba(236,72,153,.18);
+      background: #111;
+      flex: none;
+      transition: transform .16s ease, filter .16s ease, border-color .16s ease;
+    }
+    .home-photo:hover{
+      transform: translateY(-1px) scale(1.04);
+      filter: brightness(1.05);
+      border-color: rgba(251,191,36,.35);
+    }
+    .home-photo::before{
+      content:"";
+      position:absolute; inset:-6px;
+      border-radius: 999px;
+      background: conic-gradient(from 180deg, rgba(251,191,36,.95), rgba(236,72,153,.92), rgba(255,255,255,.55), rgba(251,191,36,.95));
+      filter: blur(.1px);
+      opacity: .55;
+      animation: ringGlow 6.4s linear infinite;
+      z-index: 0;
+    }
+    .home-photo::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.25), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(251,191,36,.14), transparent 60%);
+      z-index: 2;
+      pointer-events:none;
+    }
+    .home-photo span{
+      position:absolute; inset:4px;
+      border-radius: 999px;
+      background-image: url("./IMG_0035.jpeg");
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+      border: 1px solid rgba(0,0,0,.25);
+    }
+
+    /* ===== CAPTAINS: louder / more fun ===== */
+    @keyframes neonPulse{
+      0% { filter: drop-shadow(0 0 0 rgba(236,72,153,0)); }
+      50% { filter: drop-shadow(0 0 26px rgba(236,72,153,.22)) drop-shadow(0 0 18px rgba(251,191,36,.18)); }
+      100% { filter: drop-shadow(0 0 0 rgba(236,72,153,0)); }
+    }
+    .spotlight{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 34px 140px rgba(0,0,0,.68), 0 26px 120px rgba(236,72,153,.18);
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+    }
+    .spotlight::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: linear-gradient(120deg,
+        rgba(251,191,36,.28),
+        rgba(236,72,153,.30),
+        rgba(255,255,255,.10),
+        rgba(251,191,36,.20)
+      );
+      opacity: .9;
+      filter: blur(18px);
+      pointer-events:none;
+    }
+    .spotlight::after{
+      content:"";
+      position:absolute;
+      inset:-45%;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.86) 0 2px, transparent 3px),
+        radial-gradient(circle at 68% 38%, rgba(255,255,255,.62) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 42% 72%, rgba(255,255,255,.78) 0 2px, transparent 3px),
+        radial-gradient(circle at 88% 82%, rgba(255,255,255,.52) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 30% 46%, rgba(251,191,36,.48) 0 2px, transparent 4px),
+        radial-gradient(circle at 76% 58%, rgba(236,72,153,.42) 0 2px, transparent 4px);
+      mix-blend-mode: screen;
+      opacity: .24;
+      animation: glitterDrift 10.8s linear infinite;
+      pointer-events:none;
+    }
+    .spotlight-inner{ position: relative; z-index: 1; }
+
+    .spot-badge{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
       gap: 10px;
       padding: 10px 14px;
       border-radius: 999px;
-      font-weight: 900;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-size: 11px;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 20px 70px rgba(0,0,0,.55);
-      transition: transform .16s ease, border-color .16s ease, background .16s ease;
-      white-space: nowrap;
-    }
-    .home-btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(236,72,153,.35);
-      background: rgba(255,255,255,.09);
-    }
-    .home-spark{
-      width: 9px; height: 9px; border-radius: 999px;
-      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
-      box-shadow: 0 14px 30px rgba(236,72,153,.22);
-    }
-
-    /* Small label pill */
-    .mini-pill{
-      display:inline-flex; align-items:center; gap: 8px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.25);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.86);
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.28);
+      box-shadow: 0 26px 90px rgba(0,0,0,.55);
       user-select:none;
     }
-    .mini-dot{
-      width: 8px; height: 8px; border-radius: 999px;
+    .spot-badge i{
+      width: 10px; height: 10px; border-radius: 999px;
       background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
-      box-shadow: 0 14px 30px rgba(236,72,153,.18);
+      box-shadow: 0 14px 30px rgba(236,72,153,.22);
+      flex: none;
+    }
+    .spot-title{
+      font-family: "Bebas Neue", system-ui;
+      font-size: 46px;
+      line-height: .95;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, rgba(251,191,36,1), rgba(236,72,153,1), rgba(255,255,255,.9), rgba(251,191,36,1));
+      background-size: 220% 220%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: borderShift 6.4s ease-in-out infinite, neonPulse 3.8s ease-in-out infinite;
+      text-shadow: 0 18px 90px rgba(236,72,153,.22);
+      margin-top: 12px;
+    }
+    @media (min-width: 768px){
+      .spot-title{ font-size: 54px; }
+    }
+
+    .captain{
+      border-color: rgba(251,191,36,.32) !important;
+      background: rgba(255,255,255,.085);
+    }
+    .captain-badge{
+      position:absolute;
+      top: 14px;
+      right: 14px;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #0b0b0f;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      box-shadow: 0 18px 55px rgba(236,72,153,.20);
+      user-select: none;
+      z-index: 3;
+    }
+    .captain-badge span{
+      display:inline-block;
+      width: 8px; height: 8px; border-radius: 999px;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
     }
 
     /* Reveal */
@@ -411,7 +377,7 @@
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       .lux-dust, .sparkle-border::before, .sparkle-border::after, .shimmer-line::after,
-      .photo-slot::after, .caption-card::after, .captain, .spotlight::after { animation:none !important; }
+      .photo-slot::after, .spotlight::after, .home-photo::before, .spot-title { animation:none !important; }
       .lux-card{ transition:none !important; }
       .reveal{ transition:none !important; opacity:1 !important; transform:none !important; }
     }
@@ -440,9 +406,9 @@
         </div>
       </a>
 
-      <a href="index.html" class="home-btn">
-        <span class="home-spark"></span>
-        Home
+      <!-- HOME BUTTON = PHOTO -->
+      <a href="index.html" class="home-photo" aria-label="Home">
+        <span aria-hidden="true"></span>
       </a>
     </div>
   </header>
@@ -458,12 +424,7 @@
         PERSONAL RECORD WALL
       </h1>
 
-      <div class="caption-card mx-auto">
-        <span class="caption-dot"></span>
-        <p class="text-white/85 font-extrabold tracking-wide">
-           <span class="text-white/60"></span>
-        </p>
-      </div>
+      <!-- ✅ removed: Meet results sparkle automatically. ✨ -->
 
       <div class="mt-7 max-w-sm mx-auto shimmer-line"></div>
     </div>
@@ -474,25 +435,29 @@
     <div class="max-w-7xl mx-auto px-6 reveal">
       <div class="spotlight p-6 md:p-7">
         <div class="spotlight-inner">
-          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
             <div>
-              <div class="mini-pill">
-                <span class="mini-dot"></span>
-                Captains Spotlight
+              <div class="spot-badge">
+                <i></i>
+                <span class="text-white/85 font-extrabold tracking-[0.28em] uppercase text-[11px]">Captains Spotlight</span>
               </div>
-              <h2 class="font-heading text-4xl md:text-5xl tracking-[0.06em] mt-3">
-                The Leaders Set The Tone
-              </h2>
-              <p class="text-white/70 font-semibold mt-2">
-                Fierce standards. Loud work. Clean results.
+
+              <div class="spot-title">LEADERS ONLY</div>
+
+              <p class="text-white/75 font-semibold mt-3 max-w-2xl">
+                The standard-setters. The pace-makers. The energy shifters.
               </p>
             </div>
+
             <div class="text-white/60 text-xs font-extrabold uppercase tracking-[0.35em]">
               Shine First • Lead Always
             </div>
           </div>
 
-          <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="mt-6 max-w-sm shimmer-line"></div>
+
+          <div class="mt-7 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <!-- Captain: Isabella Campuzano -->
             <div class="sparkle-border lux-card captain rounded-[26px] p-5 md:p-6 relative">
@@ -580,9 +545,7 @@
             <p class="font-extrabold text-lg text-white">Douglas S Asbury III</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • LJ</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Avina (Isabella) -->
@@ -592,9 +555,7 @@
             <p class="font-extrabold text-lg text-white">Isabella Avina</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Avina (Jose Luis) -->
@@ -604,9 +565,7 @@
             <p class="font-extrabold text-lg text-white">Jose Luis Avina</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 400m</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Ballentine -->
@@ -616,9 +575,7 @@
             <p class="font-extrabold text-lg text-white">David Ballentine II</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m • 1500m • 3000m</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Garcia (Ximena) -->
@@ -628,21 +585,17 @@
             <p class="font-extrabold text-lg text-white">Ximena Garcia</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 4x100 • 4x400</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
-        <!-- Garica (Lovely) (kept spelling as provided) -->
+        <!-- Garica (Lovely) (spelling as provided) -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
           <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Lovely Garica</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Gaytan -->
@@ -652,9 +605,7 @@
             <p class="font-extrabold text-lg text-white">Melanie Gaytan</p>
             <p class="text-sm text-white/70 font-semibold mt-1">TJ • 4x400</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Hita -->
@@ -664,9 +615,7 @@
             <p class="font-extrabold text-lg text-white">Elizabeth Hita</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Jaroszewski -->
@@ -676,9 +625,7 @@
             <p class="font-extrabold text-lg text-white">Alora Jaroszewski</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Marrufo -->
@@ -688,9 +635,7 @@
             <p class="font-extrabold text-lg text-white">Ayden Marrufo</p>
             <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Pester (Dean) -->
@@ -700,9 +645,7 @@
             <p class="font-extrabold text-lg text-white">Dean Pester</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Pester (Natalie) -->
@@ -712,9 +655,7 @@
             <p class="font-extrabold text-lg text-white">Natalie Pester</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m • 2300m</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
         <!-- Vasquez -->
@@ -724,9 +665,7 @@
             <p class="font-extrabold text-lg text-white">Madilyn Vasquez</p>
             <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
           </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
+          <div class="mt-5"><button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button></div>
         </div>
 
       </div>
@@ -751,9 +690,9 @@
       els.forEach(el => io.observe(el));
     })();
 
-    // sparkle click feedback (fun + luxury)
+    // sparkle click feedback
     (function(){
-      const buttons = document.querySelectorAll('.lux-btn, .home-btn');
+      const buttons = document.querySelectorAll('.lux-btn, .home-photo');
       buttons.forEach(btn => {
         btn.addEventListener('click', (e) => {
           const b = btn.getBoundingClientRect();
@@ -776,8 +715,8 @@
 
           burst.animate([
             { opacity: 0, transform: 'translate(-50%, -50%) scale(.6)' },
-            { opacity: .9, transform: 'translate(-50%, -50%) scale(1.3)' },
-            { opacity: 0, transform: 'translate(-50%, -50%) scale(2.2)' }
+            { opacity: .9, transform: 'translate(-50%, -50%) scale(1.35)' },
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(2.25)' }
           ], { duration: 520, easing: 'cubic-bezier(.2,.8,.2,1)' });
 
           document.body.appendChild(burst);
