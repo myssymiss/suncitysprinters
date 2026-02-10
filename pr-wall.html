@@ -34,140 +34,115 @@
 
   <style>
     body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    html { scroll-padding-top: 92px; }
+    html { scroll-padding-top: 90px; }
 
-    /* =========================
-       DARK LUX BACKDROP
-    ========================== */
+    /* ===== Dark luxury backdrop ===== */
     .lux-bg{
       position: fixed; inset: 0; z-index: -60; pointer-events:none;
       background:
-        radial-gradient(circle at 18% 16%, rgba(236,72,153,.26), transparent 52%),
-        radial-gradient(circle at 80% 18%, rgba(251,191,36,.18), transparent 56%),
-        radial-gradient(circle at 50% 86%, rgba(236,72,153,.12), transparent 58%),
-        linear-gradient(135deg, #050509, #0b0b14 45%, #040407);
+        radial-gradient(circle at 16% 18%, rgba(236,72,153,.26), transparent 52%),
+        radial-gradient(circle at 84% 22%, rgba(251,191,36,.18), transparent 58%),
+        radial-gradient(circle at 48% 88%, rgba(236,72,153,.12), transparent 58%),
+        linear-gradient(135deg, #050509, #0b0b14 45%, #050509);
     }
+
+    /* Vignette */
     .lux-vignette{
       position: fixed; inset: 0; z-index: -59; pointer-events:none;
-      background: radial-gradient(circle at 50% 40%, transparent 0 55%, rgba(0,0,0,.72) 82%, rgba(0,0,0,.92) 100%);
+      background: radial-gradient(circle at 50% 40%, transparent 0 55%, rgba(0,0,0,.78) 82%, rgba(0,0,0,.95) 100%);
       mix-blend-mode: multiply;
     }
 
-    /* =========================
-       GLITTER DUST + SPARKLES
-    ========================== */
+    /* ===== Floating glitter dust ===== */
     @keyframes glitterDrift {
-      0%   { transform: translate3d(-2%, -2%, 0) rotate(0deg); opacity: .28; }
-      50%  { opacity: .55; }
-      100% { transform: translate3d(2%, 2%, 0) rotate(360deg); opacity: .28; }
+      0%   { transform: translate3d(-2%, -2%, 0) rotate(0deg); opacity: .22; }
+      50%  { opacity: .44; }
+      100% { transform: translate3d(2%, 2%, 0) rotate(360deg); opacity: .22; }
     }
     .lux-dust{
       position: fixed; inset: -45%; z-index: -58; pointer-events:none;
       background:
-        radial-gradient(circle at 10% 18%, rgba(255,255,255,.80) 0 2px, transparent 3px),
-        radial-gradient(circle at 22% 72%, rgba(255,255,255,.55) 0 1.6px, transparent 3px),
-        radial-gradient(circle at 40% 30%, rgba(255,255,255,.45) 0 1.3px, transparent 3px),
-        radial-gradient(circle at 58% 52%, rgba(255,255,255,.70) 0 2px, transparent 3px),
-        radial-gradient(circle at 74% 24%, rgba(255,255,255,.52) 0 1.5px, transparent 3px),
-        radial-gradient(circle at 88% 78%, rgba(255,255,255,.60) 0 1.6px, transparent 3px),
-        radial-gradient(circle at 62% 86%, rgba(255,255,255,.44) 0 1.3px, transparent 3px),
-        radial-gradient(circle at 16% 44%, rgba(251,191,36,.50) 0 1.6px, transparent 3px),
-        radial-gradient(circle at 82% 46%, rgba(236,72,153,.42) 0 1.6px, transparent 3px);
+        radial-gradient(circle at 10% 18%, rgba(255,255,255,.72) 0 2px, transparent 3px),
+        radial-gradient(circle at 22% 72%, rgba(255,255,255,.50) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 40% 30%, rgba(255,255,255,.42) 0 1.3px, transparent 3px),
+        radial-gradient(circle at 58% 52%, rgba(255,255,255,.62) 0 2px, transparent 3px),
+        radial-gradient(circle at 74% 24%, rgba(255,255,255,.46) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 88% 78%, rgba(255,255,255,.52) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 62% 86%, rgba(255,255,255,.38) 0 1.3px, transparent 3px),
+        radial-gradient(circle at 16% 44%, rgba(251,191,36,.46) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 82% 46%, rgba(236,72,153,.36) 0 1.6px, transparent 3px);
       mix-blend-mode: screen;
-      animation: glitterDrift 10.8s linear infinite;
+      animation: glitterDrift 11.5s linear infinite;
       filter: blur(.15px);
-      opacity: .7;
+      opacity: .70;
     }
 
-    /* =========================
-       SHIMMER LINE
-    ========================== */
+    /* ===== Sparkle shooting stars (rare) ===== */
+    @keyframes shoot {
+      0% { transform: translate3d(-20vw, -10vh, 0) rotate(12deg); opacity: 0; }
+      10% { opacity: .55; }
+      35% { opacity: .0; }
+      100% { transform: translate3d(120vw, 70vh, 0) rotate(12deg); opacity: 0; }
+    }
+    .shooters{
+      position: fixed; inset: 0; z-index: -57; pointer-events:none;
+      overflow: hidden;
+    }
+    .shooter{
+      position:absolute;
+      width: 260px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.85), rgba(251,191,36,.55), transparent);
+      filter: blur(.2px);
+      opacity: 0;
+      animation: shoot 9.5s linear infinite;
+    }
+    .shooter:nth-child(1){ top: 10%; left: -30%; animation-delay: 1.2s; }
+    .shooter:nth-child(2){ top: 38%; left: -40%; animation-delay: 5.9s; }
+    .shooter:nth-child(3){ top: 68%; left: -35%; animation-delay: 9.8s; }
+
+    /* ===== Glam shimmer line ===== */
     .shimmer-line{
       position: relative;
-      height: 7px;
+      height: 6px;
       border-radius: 999px;
       overflow: hidden;
       background: rgba(251,191,36,.18);
-      box-shadow: 0 18px 70px rgba(236,72,153,.22);
+      box-shadow: 0 16px 60px rgba(236,72,153,.22);
     }
     .shimmer-line::after{
       content:"";
       position:absolute; inset:0;
       transform: translateX(-70%);
-      background: linear-gradient(90deg, transparent, rgba(251,191,36,.98), rgba(236,72,153,.90), rgba(255,255,255,.62), transparent);
-      animation: shimmer 2.35s ease-in-out infinite;
+      background: linear-gradient(90deg, transparent, rgba(251,191,36,.95), rgba(236,72,153,.85), rgba(255,255,255,.55), transparent);
+      animation: shimmer 2.6s ease-in-out infinite;
     }
     @keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
 
-    /* =========================
-       LUX TITLE + CAPTION PILL
-    ========================== */
+    /* ===== Luxe border + sparkle edge ===== */
     @keyframes borderShift{
       0%{ background-position: 0% 50%; }
       50%{ background-position: 100% 50%; }
       100%{ background-position: 0% 50%; }
     }
-    .lux-title{
-      display:inline-block;
-      background: linear-gradient(90deg, rgba(251,191,36,1), rgba(236,72,153,1), rgba(255,255,255,.95), rgba(251,191,36,1));
-      background-size: 240% 240%;
-      -webkit-background-clip:text;
-      background-clip:text;
-      color: transparent;
-      animation: borderShift 7.2s ease-in-out infinite;
-      text-shadow: 0 18px 80px rgba(236,72,153,.20);
-    }
-
-    .caption-pill{
-      position: relative;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 24px 90px rgba(0,0,0,.55);
-      overflow:hidden;
-    }
-    .caption-pill::after{
-      content:"";
-      position:absolute; inset:-40%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
-      transform: translateX(-90%) rotate(12deg);
-      animation: capShine 4.8s ease-in-out infinite;
-      pointer-events:none;
-      opacity:.95;
-    }
-    @keyframes capShine{
-      0%{ transform: translateX(-95%) rotate(12deg); }
-      52%{ transform: translateX(95%) rotate(12deg); }
-      100%{ transform: translateX(95%) rotate(12deg); }
-    }
-    .cap-dot{
-      width: 10px; height: 10px; border-radius: 999px;
-      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
-      box-shadow: 0 14px 40px rgba(236,72,153,.25);
-      flex:none;
-    }
-
-    /* =========================
-       SPARKLE BORDER + CARD
-    ========================== */
     .sparkle-border{
       position: relative;
       overflow: hidden;
-      border-radius: 26px;
+      border-radius: 1.6rem;
       isolation: isolate;
     }
     .sparkle-border::before{
       content:"";
       position:absolute; inset:-2px;
-      background: linear-gradient(120deg, rgba(251,191,36,.96), rgba(236,72,153,.92), rgba(255,255,255,.60), rgba(251,191,36,.92));
-      background-size: 260% 260%;
-      animation: borderShift 8.2s ease-in-out infinite;
-      opacity: .20;
+      background: linear-gradient(120deg,
+        rgba(251,191,36,.95),
+        rgba(236,72,153,.92),
+        rgba(255,255,255,.65),
+        rgba(251,191,36,.92)
+      );
+      background-size: 240% 240%;
+      animation: borderShift 8.0s ease-in-out infinite;
+      opacity: .22;
       pointer-events:none;
       z-index: 0;
     }
@@ -176,60 +151,179 @@
       position:absolute; inset:-45%;
       background:
         radial-gradient(circle at 18% 24%, rgba(255,255,255,.82) 0 2px, transparent 3px),
-        radial-gradient(circle at 78% 38%, rgba(255,255,255,.55) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 78% 38%, rgba(255,255,255,.56) 0 1.5px, transparent 3px),
         radial-gradient(circle at 42% 72%, rgba(255,255,255,.74) 0 2px, transparent 3px),
-        radial-gradient(circle at 88% 82%, rgba(255,255,255,.44) 0 1.5px, transparent 3px);
+        radial-gradient(circle at 88% 82%, rgba(255,255,255,.46) 0 1.5px, transparent 3px);
       mix-blend-mode: screen;
-      opacity: .22;
-      animation: glitterDrift 9.9s linear infinite;
+      opacity: .20;
+      animation: glitterDrift 10.2s linear infinite;
       pointer-events:none;
       z-index: 0;
     }
     .sparkle-border > *{ position: relative; z-index: 1; }
 
+    /* ===== Big luxe title ===== */
+    .lux-title{
+      display:inline-block;
+      background: linear-gradient(90deg, rgba(251,191,36,1), rgba(236,72,153,1), rgba(255,255,255,.92), rgba(251,191,36,1));
+      background-size: 240% 240%;
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      animation: borderShift 7.4s ease-in-out infinite;
+      text-shadow: 0 18px 80px rgba(236,72,153,.22);
+    }
+
+    /* ===== Caption highlight ===== */
+    .caption-card{
+      margin-top: 16px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 22px 80px rgba(0,0,0,.55), 0 18px 55px rgba(236,72,153,.12);
+      position: relative;
+      overflow: hidden;
+    }
+    .caption-card::after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+      transform: translateX(-80%) rotate(10deg);
+      animation: captionShine 4.8s ease-in-out infinite;
+      pointer-events:none;
+      opacity: .9;
+    }
+    @keyframes captionShine{
+      0%{ transform: translateX(-95%) rotate(10deg); }
+      55%{ transform: translateX(95%) rotate(10deg); }
+      100%{ transform: translateX(95%) rotate(10deg); }
+    }
+    .caption-dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      box-shadow: 0 14px 30px rgba(236,72,153,.22);
+      flex: none;
+    }
+
+    /* ===== Glass card ===== */
     .lux-card{
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.10);
       backdrop-filter: blur(14px);
-      box-shadow: 0 26px 90px rgba(0,0,0,.55), 0 22px 65px rgba(236,72,153,.10);
+      box-shadow:
+        0 26px 90px rgba(0,0,0,.55),
+        0 20px 60px rgba(236,72,153,.10);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
+      transform-style: preserve-3d;
+      position: relative;
     }
     .lux-card:hover{
-      transform: translateY(-6px);
-      border-color: rgba(236,72,153,.36);
-      box-shadow: 0 38px 120px rgba(0,0,0,.65), 0 24px 85px rgba(236,72,153,.18);
+      transform: translateY(-6px) scale(1.01);
+      border-color: rgba(236,72,153,.35);
+      box-shadow:
+        0 34px 120px rgba(0,0,0,.62),
+        0 22px 88px rgba(236,72,153,.18);
       filter: brightness(1.04);
     }
 
-    /* =========================
-       PHOTO PLACEHOLDER
-    ========================== */
-    .photo-slot{
-      height: 154px;
-      border-radius: 20px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(251,191,36,.18), transparent 60%),
-        radial-gradient(circle at 70% 70%, rgba(236,72,153,.16), transparent 62%),
-        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
-      border: 1px dashed rgba(255,255,255,.24);
+    /* ===== Captain card gets extra glow + badge ===== */
+    @keyframes captainPulse{
+      0%{ box-shadow: 0 26px 90px rgba(0,0,0,.55), 0 20px 70px rgba(236,72,153,.14); }
+      50%{ box-shadow: 0 34px 120px rgba(0,0,0,.60), 0 24px 100px rgba(251,191,36,.18), 0 0 0 3px rgba(236,72,153,.16); }
+      100%{ box-shadow: 0 26px 90px rgba(0,0,0,.55), 0 20px 70px rgba(236,72,153,.14); }
+    }
+    .captain{
+      border-color: rgba(251,191,36,.28) !important;
+      background: rgba(255,255,255,.075);
+      animation: captainPulse 4.6s ease-in-out infinite;
+    }
+    .captain-badge{
+      position:absolute;
+      top: 14px;
+      right: 14px;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #0b0b0f;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      box-shadow: 0 18px 55px rgba(236,72,153,.18);
+      user-select: none;
+      z-index: 3;
+    }
+    .captain-badge span{
+      display:inline-block;
+      width: 8px; height: 8px; border-radius: 999px;
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
+
+    /* ===== Captain Spotlight container ===== */
+    .spotlight{
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 30px 120px rgba(0,0,0,.62), 0 24px 100px rgba(236,72,153,.14);
       position: relative;
       overflow: hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color: rgba(255,255,255,.58);
-      font-weight: 900;
-      letter-spacing: .22em;
-      font-size: 12px;
-      text-transform: uppercase;
+      border-radius: 28px;
+    }
+    .spotlight::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: linear-gradient(120deg, rgba(251,191,36,.22), rgba(236,72,153,.22), rgba(255,255,255,.10), rgba(251,191,36,.18));
+      opacity: .65;
+      filter: blur(18px);
+      pointer-events:none;
+    }
+    .spotlight::after{
+      content:"";
+      position:absolute;
+      inset:-45%;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.82) 0 2px, transparent 3px),
+        radial-gradient(circle at 68% 38%, rgba(255,255,255,.56) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 42% 72%, rgba(255,255,255,.74) 0 2px, transparent 3px),
+        radial-gradient(circle at 88% 82%, rgba(255,255,255,.46) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 30% 46%, rgba(251,191,36,.40) 0 2px, transparent 4px),
+        radial-gradient(circle at 76% 58%, rgba(236,72,153,.34) 0 2px, transparent 4px);
+      mix-blend-mode: screen;
+      opacity: .18;
+      animation: glitterDrift 12.4s linear infinite;
+      pointer-events:none;
+    }
+    .spotlight-inner{ position: relative; z-index: 1; }
+
+    /* ===== Photo placeholder ===== */
+    .photo-slot{
+      height: 160px;
+      border-radius: 1.25rem;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(251,191,36,.16), transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(236,72,153,.14), transparent 62%),
+        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+      border: 1px dashed rgba(255,255,255,.22);
+      position: relative;
+      overflow: hidden;
     }
     .photo-slot::after{
       content:"";
       position:absolute; inset:-40%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
-      transform: translateX(-90%) rotate(12deg);
-      animation: slotShine 4.3s ease-in-out infinite;
-      opacity: .95;
+      transform: translateX(-80%) rotate(12deg);
+      animation: slotShine 4.6s ease-in-out infinite;
+      opacity: .9;
       pointer-events:none;
     }
     @keyframes slotShine{
@@ -238,11 +332,8 @@
       100%{ transform: translateX(95%) rotate(12deg); }
     }
 
-    /* =========================
-       BUTTONS (with sparkle ping)
-    ========================== */
+    /* ===== Button ===== */
     .lux-btn{
-      width:100%;
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -255,112 +346,74 @@
       font-size: 12px;
       color: #0b0b0f;
       background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
-      box-shadow: 0 20px 60px rgba(236,72,153,.18);
+      box-shadow: 0 18px 55px rgba(236,72,153,.18);
       transition: transform .16s ease, filter .16s ease;
       user-select:none;
-      position: relative;
-      overflow:hidden;
-      text-decoration:none;
-    }
-    .lux-btn:hover{ transform: translateY(-1px) scale(1.02); filter: brightness(1.06); }
-    .lux-btn::after{
-      content:"";
-      position:absolute; inset:-60%;
-      background:
-        radial-gradient(circle at 30% 40%, rgba(255,255,255,.9) 0 2px, transparent 3px),
-        radial-gradient(circle at 62% 52%, rgba(255,255,255,.7) 0 1.6px, transparent 3px),
-        radial-gradient(circle at 78% 28%, rgba(251,191,36,.55) 0 2px, transparent 4px);
-      mix-blend-mode: screen;
-      opacity:0;
-      transform: scale(.7);
-      pointer-events:none;
-    }
-    @keyframes btnSpark{
-      0%{ opacity:0; transform: scale(.7); }
-      25%{ opacity:.9; }
-      100%{ opacity:0; transform: scale(1.35); }
-    }
-    .lux-btn.spark::after{ animation: btnSpark .55s ease-out 1; }
-
-    /* =========================
-       CAPTAIN STYLING
-    ========================== */
-    .captain-card{
-      border-color: rgba(251,191,36,.55);
-      box-shadow:
-        0 30px 110px rgba(0,0,0,.65),
-        0 0 0 1px rgba(251,191,36,.30),
-        0 0 44px rgba(251,191,36,.22);
-    }
-    .captain-badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-weight: 900;
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color:#111;
-      background: linear-gradient(90deg, rgba(251,191,36,1), rgba(236,72,153,1));
-      box-shadow: 0 12px 36px rgba(236,72,153,.34);
       white-space: nowrap;
+      width: 100%;
     }
-    .cap-star{
-      width: 10px; height: 10px; border-radius: 999px;
-      background: rgba(255,255,255,.9);
-      box-shadow: 0 0 0 6px rgba(255,255,255,.10);
-    }
+    .lux-btn:hover{ transform: translateY(-1px) scale(1.02); filter: brightness(1.03); }
 
-    /* =========================
-       HEADER + FUN HOME BUTTON
-    ========================== */
-    .topbar{
-      background: linear-gradient(180deg, rgba(0,0,0,.78), rgba(0,0,0,.55));
-      backdrop-filter: blur(14px);
-    }
+    /* Home button (top right) */
     .home-btn{
-      position: relative;
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
-      padding: 11px 16px;
+      gap: 10px;
+      padding: 10px 14px;
       border-radius: 999px;
       font-weight: 900;
       letter-spacing: .12em;
       text-transform: uppercase;
-      font-size: 12px;
-      color:#0b0b0f;
-      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92), rgba(251,191,36,.98));
-      box-shadow: 0 22px 70px rgba(236,72,153,.18);
-      transition: transform .16s ease, filter .16s ease;
-      text-decoration:none;
-      overflow:hidden;
+      font-size: 11px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 20px 70px rgba(0,0,0,.55);
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+      white-space: nowrap;
     }
-    .home-btn:hover{ transform: translateY(-1px) scale(1.03); filter: brightness(1.06); }
-    .home-btn::after{
-      content:"";
-      position:absolute; inset:-60%;
-      background:
-        radial-gradient(circle at 30% 40%, rgba(255,255,255,.95) 0 2px, transparent 3px),
-        radial-gradient(circle at 62% 52%, rgba(255,255,255,.75) 0 1.6px, transparent 3px),
-        radial-gradient(circle at 78% 28%, rgba(251,191,36,.60) 0 2px, transparent 4px);
-      mix-blend-mode: screen;
-      opacity:0;
-      transform: scale(.7);
-      pointer-events:none;
+    .home-btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(236,72,153,.35);
+      background: rgba(255,255,255,.09);
     }
-    .home-btn.spark::after{ animation: btnSpark .55s ease-out 1; }
+    .home-spark{
+      width: 9px; height: 9px; border-radius: 999px;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      box-shadow: 0 14px 30px rgba(236,72,153,.22);
+    }
 
-    /* =========================
-       REVEAL
-    ========================== */
-    .reveal{ opacity:0; transform: translateY(16px); transition: opacity .75s ease, transform .75s ease; }
+    /* Small label pill */
+    .mini-pill{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.86);
+      user-select:none;
+    }
+    .mini-dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      box-shadow: 0 14px 30px rgba(236,72,153,.18);
+    }
+
+    /* Reveal */
+    .reveal{ opacity:0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.show{ opacity:1; transform: translateY(0); }
 
+    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       .lux-dust, .sparkle-border::before, .sparkle-border::after, .shimmer-line::after,
-      .photo-slot::after, .caption-pill::after { animation:none !important; }
+      .photo-slot::after, .caption-card::after, .captain, .spotlight::after { animation:none !important; }
+      .lux-card{ transition:none !important; }
       .reveal{ transition:none !important; opacity:1 !important; transform:none !important; }
     }
   </style>
@@ -370,10 +423,16 @@
   <div class="lux-bg"></div>
   <div class="lux-vignette"></div>
   <div class="lux-dust"></div>
+  <div class="shooters" aria-hidden="true">
+    <div class="shooter"></div>
+    <div class="shooter"></div>
+    <div class="shooter"></div>
+  </div>
 
   <!-- HEADER -->
-  <header class="sticky top-0 z-50 border-b border-white/10 topbar">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <header class="sticky top-0 z-50 border-b border-white/10"
+          style="background: linear-gradient(180deg, rgba(0,0,0,.78), rgba(0,0,0,.55)); backdrop-filter: blur(14px);">
+    <div class="max-w-7xl mx-auto px-5 md:px-6 py-3 md:py-4 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
         <img src="./IMG_6204.jpeg" class="h-12 w-12 rounded-full object-cover bg-white border-4 border-gold shadow" alt="Logo"/>
         <div class="leading-tight">
@@ -382,249 +441,292 @@
         </div>
       </a>
 
-      <a href="index.html" class="home-btn" id="homeBtn">
-        ✨ Home <span aria-hidden="true">→</span>
+      <!-- ✅ Only Home button -->
+      <a href="index.html" class="home-btn">
+        <span class="home-spark"></span>
+        Home
       </a>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="pt-14 md:pt-16 pb-10 md:pb-12">
+  <section class="pt-14 md:pt-16 pb-10 md:pb-8">
     <div class="max-w-6xl mx-auto px-6 text-center reveal">
       <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-white/60">
-        ELITE • OFFICIAL • EARNED
+        Progress • Power • Proof
       </p>
 
       <h1 class="font-heading text-6xl md:text-7xl tracking-[0.06em] mt-3 lux-title">
         PERSONAL RECORD WALL
       </h1>
 
-      <div class="mt-5">
-        <span class="caption-pill">
-          <span class="cap-dot"></span>
-          <span class="font-extrabold text-white/90 tracking-wide">
-            Official PRs • Meet by meet • Proof on paper
-          </span>
-        </span>
+      <div class="caption-card mx-auto">
+        <span class="caption-dot"></span>
+        <p class="text-white/85 font-extrabold tracking-wide">
+          Meet results sparkle automatically. <span class="text-white/60">✨</span>
+        </p>
       </div>
 
       <div class="mt-7 max-w-sm mx-auto shimmer-line"></div>
     </div>
   </section>
 
-  <!-- GRID -->
+  <!-- ✅ CAPTAINS SPOTLIGHT -->
+  <section class="pb-10 md:pb-12">
+    <div class="max-w-7xl mx-auto px-6 reveal">
+      <div class="spotlight p-6 md:p-7">
+        <div class="spotlight-inner">
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div>
+              <div class="mini-pill">
+                <span class="mini-dot"></span>
+                Captains Spotlight
+              </div>
+              <h2 class="font-heading text-4xl md:text-5xl tracking-[0.06em] mt-3">
+                The Leaders Set The Tone
+              </h2>
+              <p class="text-white/70 font-semibold mt-2">
+                Fierce standards. Loud work. Clean results.
+              </p>
+            </div>
+            <div class="text-white/60 text-xs font-extrabold uppercase tracking-[0.35em]">
+              Shine First • Lead Always
+            </div>
+          </div>
+
+          <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Captain: Isabella Campuzano -->
+            <div class="sparkle-border lux-card captain rounded-[26px] p-5 md:p-6 relative">
+              <div class="captain-badge"><span></span> CAPTAIN</div>
+
+              <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+                Photo Placeholder
+              </div>
+
+              <div class="mt-5">
+                <p class="font-extrabold text-lg text-white">Isabella Campuzano</p>
+                <p class="text-sm text-white/70 font-semibold mt-1">4x100 • 100m • 200m • 4x400</p>
+              </div>
+
+              <div class="mt-5">
+                <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+
+            <!-- Captain: Juliette Valenzuela (linked) -->
+            <div class="sparkle-border lux-card captain rounded-[26px] p-5 md:p-6 relative">
+              <div class="captain-badge"><span></span> CAPTAIN</div>
+
+              <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+                Photo Placeholder
+              </div>
+
+              <div class="mt-5">
+                <p class="font-extrabold text-lg text-white">Juliette Valenzuela</p>
+                <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh • 4x400</p>
+              </div>
+
+              <div class="mt-5">
+                <a href="./juliette.html" class="lux-btn text-center">View Progress <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+
+            <!-- Captain: Isabella Vega -->
+            <div class="sparkle-border lux-card captain rounded-[26px] p-5 md:p-6 relative">
+              <div class="captain-badge"><span></span> CAPTAIN</div>
+
+              <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">
+                Photo Placeholder
+              </div>
+
+              <div class="mt-5">
+                <p class="font-extrabold text-lg text-white">Isabella Vega</p>
+                <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh • 4x400 • HJ</p>
+              </div>
+
+              <div class="mt-5">
+                <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL WALL -->
   <section class="pb-16 md:pb-20">
     <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-end justify-between gap-4 mb-5 reveal">
+        <div>
+          <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-white/60">All Athletes</p>
+          <h3 class="font-heading text-4xl md:text-5xl tracking-[0.06em] mt-2">
+            Full Wall
+          </h3>
+        </div>
+        <div class="text-white/60 text-xs font-extrabold uppercase tracking-[0.35em]">
+          Alphabetical • Last Name
+        </div>
+      </div>
+
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
 
-        <!-- =======================
-             SORTED BY LAST NAME, THEN FIRST NAME
-        ======================== -->
-
-        <!-- Asbury, Douglas -->
+        <!-- Douglas S Asbury III -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Douglas S Asbury III</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • LJ</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Avina, Isabella -->
+        <!-- Isabella Avina -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Isabella Avina</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Avina, Jose Luis -->
+        <!-- Jose Luis Avina -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Jose Luis Avina</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 400m</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Ballentine, David -->
+        <!-- David Ballentine II -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">David Ballentine II</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m • 1500m • 3000m</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Campuzano, Isabella (CAPTAIN) -->
-        <div class="reveal sparkle-border lux-card captain-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
-
-          <div class="mt-5 flex items-start justify-between gap-4">
-            <div>
-              <p class="font-extrabold text-lg text-white">Isabella Campuzano</p>
-              <p class="text-sm text-white/70 font-semibold mt-1">4x100 • 100m • 200m • 4x400</p>
-            </div>
-            <span class="captain-badge"><span class="cap-star"></span> CAPTAIN</span>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
-        </div>
-
-        <!-- Garcia, Lovely -->
+        <!-- Ximena Garcia -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
-          <div class="mt-5">
-            <p class="font-extrabold text-lg text-white">Lovely Garica</p>
-            <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m</p>
-          </div>
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
-        </div>
-
-        <!-- Garcia, Ximena -->
-        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Ximena Garcia</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m • 4x100 • 4x400</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Gaytan, Melanie -->
+        <!-- Lovely Garica (kept spelling as provided) -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
+          <div class="mt-5">
+            <p class="font-extrabold text-lg text-white">Lovely Garica</p>
+            <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m</p>
+          </div>
+          <div class="mt-5">
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <!-- Melanie Gaytan -->
+        <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Melanie Gaytan</p>
             <p class="text-sm text-white/70 font-semibold mt-1">TJ • 4x400</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Hita, Elizabeth -->
+        <!-- Elizabeth Hita -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Elizabeth Hita</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Jaroszewski, Alora -->
+        <!-- Alora Jaroszewski -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Alora Jaroszewski</p>
             <p class="text-sm text-white/70 font-semibold mt-1">100m • 200m</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Marrufo, Ayden -->
+        <!-- Ayden Marrufo -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Ayden Marrufo</p>
             <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Pester, Dean -->
+        <!-- Dean Pester -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Dean Pester</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Pester, Natalie -->
+        <!-- Natalie Pester -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Natalie Pester</p>
             <p class="text-sm text-white/70 font-semibold mt-1">800m • 1600m • 2300m</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
-        <!-- Valenzuela, Juliette (CAPTAIN + LINK) -->
-        <div class="reveal sparkle-border lux-card captain-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
-
-          <div class="mt-5 flex items-start justify-between gap-4">
-            <div>
-              <p class="font-extrabold text-lg text-white">Juliette Valenzuela</p>
-              <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh • 4x400</p>
-            </div>
-            <span class="captain-badge"><span class="cap-star"></span> CAPTAIN</span>
-          </div>
-
-          <div class="mt-5">
-            <a href="./juliette.html" class="lux-btn js-spark-btn">View Progress <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-
-        <!-- Vasquez, Madilyn -->
+        <!-- Madilyn Vasquez -->
         <div class="reveal sparkle-border lux-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
+          <div class="photo-slot flex items-center justify-center text-white/60 font-extrabold tracking-widest uppercase text-xs">Photo Placeholder</div>
           <div class="mt-5">
             <p class="font-extrabold text-lg text-white">Madilyn Vasquez</p>
             <p class="text-sm text-white/70 font-semibold mt-1">1600m</p>
           </div>
           <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
-          </div>
-        </div>
-
-        <!-- Vega, Isabella (CAPTAIN) -->
-        <div class="reveal sparkle-border lux-card captain-card rounded-[26px] p-5 md:p-6">
-          <div class="photo-slot">Photo Placeholder</div>
-
-          <div class="mt-5 flex items-start justify-between gap-4">
-            <div>
-              <p class="font-extrabold text-lg text-white">Isabella Vega</p>
-              <p class="text-sm text-white/70 font-semibold mt-1">100mh • 300mh • 4x400 • HJ</p>
-            </div>
-            <span class="captain-badge"><span class="cap-star"></span> CAPTAIN</span>
-          </div>
-
-          <div class="mt-5">
-            <button type="button" class="lux-btn w-full js-spark-btn">View Progress <span aria-hidden="true">→</span></button>
+            <button type="button" class="lux-btn">View Progress <span aria-hidden="true">→</span></button>
           </div>
         </div>
 
@@ -641,7 +743,7 @@
   </footer>
 
   <script>
-    // Reveal on scroll
+    // reveal on scroll
     (function () {
       const els = document.querySelectorAll(".reveal");
       const io = new IntersectionObserver((entries) => {
@@ -650,25 +752,40 @@
       els.forEach(el => io.observe(el));
     })();
 
-    // Sparkle ping for buttons (including Home)
-    function sparkleOnce(el){
-      el.classList.remove('spark');
-      void el.offsetWidth;
-      el.classList.add('spark');
-      window.clearTimeout(el._t);
-      el._t = window.setTimeout(() => el.classList.remove('spark'), 650);
-    }
+    // sparkle click feedback (fun + luxury)
+    (function(){
+      const buttons = document.querySelectorAll('.lux-btn, .home-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const b = btn.getBoundingClientRect();
+          const x = (e.clientX - b.left);
+          const y = (e.clientY - b.top);
 
-    document.querySelectorAll('.js-spark-btn').forEach(btn => {
-      btn.addEventListener('pointerdown', () => sparkleOnce(btn));
-      btn.addEventListener('mouseenter', () => sparkleOnce(btn));
-    });
+          const burst = document.createElement('span');
+          burst.style.position = 'absolute';
+          burst.style.left = (b.left + x) + 'px';
+          burst.style.top = (b.top + y) + 'px';
+          burst.style.width = '10px';
+          burst.style.height = '10px';
+          burst.style.borderRadius = '999px';
+          burst.style.pointerEvents = 'none';
+          burst.style.zIndex = '9999';
+          burst.style.background = 'linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92))';
+          burst.style.boxShadow = '0 18px 55px rgba(236,72,153,.22)';
+          burst.style.transform = 'translate(-50%, -50%) scale(.8)';
+          burst.style.opacity = '0.0';
 
-    const homeBtn = document.getElementById('homeBtn');
-    if(homeBtn){
-      homeBtn.addEventListener('pointerdown', () => sparkleOnce(homeBtn));
-      homeBtn.addEventListener('mouseenter', () => sparkleOnce(homeBtn));
-    }
+          burst.animate([
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(.6)' },
+            { opacity: .9, transform: 'translate(-50%, -50%) scale(1.3)' },
+            { opacity: 0, transform: 'translate(-50%, -50%) scale(2.2)' }
+          ], { duration: 520, easing: 'cubic-bezier(.2,.8,.2,1)' });
+
+          document.body.appendChild(burst);
+          setTimeout(() => burst.remove(), 600);
+        }, { passive: true });
+      });
+    })();
   </script>
 </body>
 </html>
