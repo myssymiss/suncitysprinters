@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sun City Sprinters | Isabella Campuzano Personal Record Progress</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary:'#ec4899', lightpink:'#fbcfe8', gold:'#fbbf24' },
+          fontFamily: {
+            heading: ['"Bebas Neue"', 'system-ui'],
+            body: ['Poppins', 'system-ui']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    html { scroll-padding-top: 90px; }
+
+    /* ======= BACKDROP (gold/pink/white only) ======= */
+    .glam-bg{
+      position: fixed;
+      inset: 0;
+      z-index: -50;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(236,72,153,.18), transparent 52%),
+        radial-gradient(circle at 82% 18%, rgba(251,191,36,.18), transparent 56%),
+        radial-gradient(circle at 50% 86%, rgba(236,72,153,.10), transparent 54%),
+        linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.80));
+    }
+
+    /* ======= EXTRA GLITTER DUST ======= */
+    @keyframes glitterDrift {
+      0%   { transform: translate3d(-2%, -2%, 0) rotate(0deg); opacity: .46; }
+      50%  { opacity: .78; }
+      100% { transform: translate3d(2%, 2%, 0) rotate(360deg); opacity: .46; }
+    }
+    .glam-dust{
+      position: fixed;
+      inset: -45%;
+      z-index: -40;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 10% 18%, rgba(255,255,255,.90) 0 2px, transparent 3px),
+        radial-gradient(circle at 22% 72%, rgba(255,255,255,.70) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 40% 30%, rgba(255,255,255,.60) 0 1.3px, transparent 3px),
+        radial-gradient(circle at 58% 52%, rgba(255,255,255,.85) 0 2px, transparent 3px),
+        radial-gradient(circle at 74% 24%, rgba(255,255,255,.65) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 88% 78%, rgba(255,255,255,.70) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 62% 86%, rgba(255,255,255,.55) 0 1.3px, transparent 3px),
+        radial-gradient(circle at 16% 44%, rgba(251,191,36,.55) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 82% 46%, rgba(236,72,153,.45) 0 1.6px, transparent 3px);
+      mix-blend-mode: screen;
+      animation: glitterDrift 9.2s linear infinite;
+      filter: blur(.1px);
+    }
+
+    /* shimmer line */
+    .shimmer-line{
+      position: relative; height: 6px; border-radius: 999px; overflow: hidden;
+      background: rgba(251,191,36,.22);
+      box-shadow: 0 14px 40px rgba(236,72,153,.16);
+    }
+    .shimmer-line::after{
+      content:""; position:absolute; inset:0; transform: translateX(-70%);
+      background: linear-gradient(90deg, transparent, rgba(251,191,36,.98), rgba(236,72,153,.90), rgba(255,255,255,.75), transparent);
+      animation: shimmer 2.4s ease-in-out infinite;
+    }
+    @keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
+
+    /* sparkle border */
+    @keyframes gradientShift{
+      0%{ background-position: 0% 50%; }
+      50%{ background-position: 100% 50%; }
+      100%{ background-position: 0% 50%; }
+    }
+    .sparkle-border{
+      position: relative; overflow: hidden; border-radius: 1.75rem;
+    }
+    .sparkle-border::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: linear-gradient(120deg,
+        rgba(251,191,36,.96),
+        rgba(236,72,153,.92),
+        rgba(255,255,255,.92),
+        rgba(251,191,36,.90)
+      );
+      background-size: 260% 260%;
+      animation: gradientShift 7.2s ease-in-out infinite;
+      opacity: .24;
+      pointer-events:none;
+    }
+    .sparkle-border::after{
+      content:""; position:absolute; inset:-45%;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.90) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 38%, rgba(255,255,255,.65) 0 1.5px, transparent 3px),
+        radial-gradient(circle at 42% 72%, rgba(255,255,255,.80) 0 2px, transparent 3px),
+        radial-gradient(circle at 88% 82%, rgba(255,255,255,.55) 0 1.5px, transparent 3px);
+      mix-blend-mode: screen;
+      opacity: .36;
+      animation: glitterDrift 8.5s linear infinite;
+      pointer-events:none;
+    }
+
+    /* glass */
+    .glass-card{
+      background: rgba(255,255,255,.74);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(236,72,153,.20);
+      box-shadow: 0 20px 70px rgba(236,72,153,.16);
+    }
+
+    /* runway hero (keeps her photo background) */
+    .runway-hero{
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(236,72,153,.10);
+      background:
+        radial-gradient(circle at 18% 18%, rgba(236,72,153,.16), transparent 52%),
+        radial-gradient(circle at 85% 22%, rgba(251,191,36,.16), transparent 55%),
+        linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+    }
+    .runway-hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: url("./IMG_2177.jpeg");
+      background-size: cover;
+      background-position: center;
+      opacity:.18;
+      filter: saturate(1.12) contrast(1.05);
+      transform: scale(1.03);
+      pointer-events:none;
+    }
+    .runway-hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(255,255,255,.38), rgba(255,255,255,.92));
+      pointer-events:none;
+    }
+    .runway-content{ position: relative; z-index: 1; }
+
+    /* pills */
+    .pill{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 8px 14px; border-radius: 999px;
+      font-weight: 900; font-size: 12px; letter-spacing: .16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(236,72,153,.24);
+      background: rgba(255,255,255,.65);
+      box-shadow: 0 16px 42px rgba(236,72,153,.14);
+      color:#111;
+      white-space: nowrap;
+    }
+    .pill-pr{
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      border-color: rgba(251,191,36,.55);
+    }
+
+    /* ladder */
+    .ladder-col{
+      border: 1px solid rgba(236,72,153,.18);
+      background: rgba(255,255,255,.70);
+      box-shadow: 0 18px 55px rgba(236,72,153,.12);
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+    .ladder-head{
+      background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.92));
+      color:#111;
+    }
+    .ladder-row{
+      border-top: 1px solid rgba(236,72,153,.12);
+    }
+
+    /* glam banner */
+    @keyframes floaty{
+      0%{ transform: translate3d(0,0,0); }
+      50%{ transform: translate3d(0,-6px,0); }
+      100%{ transform: translate3d(0,0,0); }
+    }
+    .glam-banner{
+      margin-top: 18px;
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid rgba(251,191,36,.30);
+      box-shadow: 0 22px 80px rgba(236,72,153,.18);
+      background: rgba(255,255,255,.66);
+      backdrop-filter: blur(14px);
+    }
+    .glam-inner{
+      position: relative;
+      padding: 16px 16px 14px;
+    }
+    .glam-title{
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(17,17,17,.72);
+    }
+    .glam-headline{
+      margin-top: 8px;
+      font-family: "Bebas Neue", system-ui;
+      font-size: 46px;
+      line-height: .95;
+      letter-spacing: .06em;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92), rgba(251,191,36,.98));
+      background-size: 220% 220%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradientShift 6.8s ease-in-out infinite, floaty 4.4s ease-in-out infinite;
+      text-shadow: 0 18px 60px rgba(236,72,153,.18);
+    }
+    @media (min-width: 768px){
+      .glam-headline{ font-size: 56px; }
+    }
+
+    /* ✅ Goal layout */
+    .glam-row{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      align-items:stretch;
+    }
+    @media (min-width: 768px){
+      .glam-row{
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    /* ======= GOAL DROPDOWNS ======= */
+    .goal-dropdown{
+      position: relative;
+      border-radius: 22px;
+      border: 1px solid rgba(236,72,153,.22);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 16px 45px rgba(236,72,153,.12);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .goal-dropdown summary{
+      list-style: none;
+      cursor: pointer;
+      padding: 12px 16px;
+      font-weight: 900;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    .goal-dropdown summary::-webkit-details-marker{ display: none; }
+
+    .goal-dropdown summary::after{
+      content: "⌄";
+      font-size: 14px;
+      transition: transform .25s ease;
+      opacity: .7;
+    }
+    .goal-dropdown[open] summary::after{ transform: rotate(180deg); }
+
+    /* smooth reveal of time */
+    .goal-content{
+      padding: 10px 16px 14px;
+      border-top: 1px solid rgba(236,72,153,.15);
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: .08em;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.90));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    @keyframes goalReveal{
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .goal-dropdown[open] .goal-content{
+      animation: goalReveal .28s ease-out forwards;
+    }
+
+    /* ✨ sparkle burst on open (added via JS class) */
+    @keyframes sparklePop{
+      0%   { transform: scale(.75); opacity: 0; }
+      25%  { opacity: .85; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+    @keyframes glowPulse{
+      0% { box-shadow: 0 16px 45px rgba(236,72,153,.12); }
+      50% { box-shadow: 0 18px 70px rgba(236,72,153,.18), 0 0 0 3px rgba(251,191,36,.14); }
+      100% { box-shadow: 0 16px 45px rgba(236,72,153,.12); }
+    }
+
+    .goal-dropdown.sparkle-open{
+      animation: glowPulse .55s ease-out 1;
+    }
+    .goal-dropdown.sparkle-open::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(255,255,255,.92) 0 2px, transparent 3px),
+        radial-gradient(circle at 40% 64%, rgba(255,255,255,.70) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 72% 34%, rgba(255,255,255,.78) 0 2px, transparent 3px),
+        radial-gradient(circle at 84% 76%, rgba(255,255,255,.55) 0 1.6px, transparent 3px),
+        radial-gradient(circle at 30% 40%, rgba(251,191,36,.55) 0 2px, transparent 4px),
+        radial-gradient(circle at 68% 56%, rgba(236,72,153,.45) 0 2px, transparent 4px);
+      mix-blend-mode: screen;
+      pointer-events:none;
+      opacity: 0;
+      animation: sparklePop .55s ease-out 1;
+      z-index: 0;
+    }
+    .goal-dropdown > *{ position: relative; z-index: 1; }
+
+    /* quote pill */
+    .quote-pill{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 12px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(251,191,36,.28);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 18px 55px rgba(236,72,153,.10);
+      position: relative;
+      overflow: hidden;
+    }
+    .quote-pill::before{
+      content:"";
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92));
+      box-shadow: 0 12px 30px rgba(236,72,153,.16);
+      flex: none;
+      margin-top: 6px;
+    }
+    .quote-pill p{
+      margin: 0;
+      font-weight: 900;
+      color: rgba(17,17,17,.78);
+      letter-spacing: .01em;
+    }
+    .quote-pill span{
+      display:block;
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(17,17,17,.52);
+      letter-spacing: .10em;
+      text-transform: uppercase;
+    }
+
+    /* name shimmer palette */
+    .neon-title{
+      display: inline-block;
+      background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92), rgba(255,255,255,.88), rgba(251,191,36,.98));
+      background-size: 220% 220%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradientShift 6.5s ease-in-out infinite;
+      text-shadow: 0 10px 44px rgba(236,72,153,.16), 0 18px 80px rgba(251,191,36,.12);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .shimmer-line::after, .sparkle-border::before, .sparkle-border::after, .glam-dust,
+      .glam-headline, .neon-title,
+      .goal-dropdown[open] .goal-content,
+      .goal-dropdown.sparkle-open,
+      .goal-dropdown.sparkle-open::before{
+        animation: none !important;
+      }
+      .goal-content{ opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 font-body">
+  <div class="glam-bg"></div>
+  <div class="glam-dust"></div>
+
+  <!-- HEADER -->
+  <header class="bg-primary text-white sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 md:px-6 py-3 md:py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <a href="index.html" class="flex items-center gap-4">
+        <img
+          src="./IMG_6204.jpeg"
+          alt="Sun City Sprinters Logo"
+          class="h-14 w-14 md:h-16 md:w-16 rounded-full object-cover bg-white border-4 border-gold shadow"
+        />
+        <div>
+          <h1 class="font-heading text-3xl md:text-4xl tracking-wide leading-none">Sun City Sprinters</h1>
+          <p class="text-xs md:text-sm text-white/90 font-semibold">Personal Record Progress • Athlete Spotlight</p>
+        </div>
+      </a>
+
+      <nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold">
+        <a href="index.html#team" class="hover:underline">Team</a>
+        <a href="donate.html" class="hover:underline">Donate</a>
+        <a
+          href="pr-wall.html"
+          class="inline-flex items-center justify-center px-4 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition"
+          style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
+        >
+          Back to PR Wall →
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- RUNWAY HERO -->
+  <section class="runway-hero">
+    <div class="runway-content max-w-6xl mx-auto px-6 py-12 md:py-16">
+      <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-8 items-center">
+
+        <!-- Left -->
+        <div>
+          <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-primary/70">Athlete Progress</p>
+
+          <h2 class="font-heading text-5xl sm:text-6xl md:text-7xl tracking-wide mt-2 neon-title">
+            Isabella Campuzano
+          </h2>
+
+          <p class="mt-3 text-gray-700 font-semibold">4x100 • 100m • 200m • 4x400</p>
+
+          <div class="mt-6 max-w-sm shimmer-line"></div>
+
+          <!-- Glam block -->
+          <div class="glam-banner sparkle-border">
+            <div class="glam-inner">
+              <div class="glam-title"></div>
+
+              <div class="glam-headline">✨ Progress is the prettiest flex ✨</div>
+
+              <!-- ✅ DROPDOWN GOALS -->
+              <div class="glam-row">
+
+                <details class="goal-dropdown">
+                  <summary>100m Goal</summary>
+                  <div class="goal-content">13.20</div>
+                </details>
+
+                <details class="goal-dropdown">
+                  <summary>200m Goal</summary>
+                  <div class="goal-content">27.50</div>
+                </details>
+
+                <details class="goal-dropdown">
+                  <summary>4x400 Split Goal</summary>
+                  <div class="goal-content">1:05</div>
+                </details>
+
+              </div>
+
+              <!-- ✅ Track quote -->
+              <div class="quote-pill">
+                <div>
+                  <p>“It never gets easier, you just get faster.” — Greg LeMond</p>
+                  <span>⭐⭐⭐⭐⭐⭐</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Photo card -->
+        <div class="glass-card sparkle-border rounded-[28px] p-6 md:p-7 text-center">
+          <img
+            src="./IMG_2177.jpeg"
+            alt="Isabella Campuzano"
+            class="w-44 h-44 md:w-52 md:h-52 rounded-full object-cover object-center mx-auto border-4 border-gold shadow"
+          />
+
+          <p class="mt-5 text-sm font-extrabold text-gray-900">Dream it. Train it. Prove it.</p>
+
+          <a
+            href="https://www.athletic.net/athlete/25499702/track-and-field/"
+            target="_blank" rel="noopener noreferrer"
+            class="mt-4 inline-flex items-center justify-center px-5 py-3 rounded-2xl font-extrabold shadow hover:scale-105 transition"
+            style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;"
+          >
+            Athletic.net →
+          </a>
+
+          <p class="text-xs text-gray-600 font-semibold mt-3">Work shows. Results shine.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <section class="py-12 md:py-14">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- PERSONAL RECORD SNAPSHOT -->
+      <div class="glass-card sparkle-border rounded-[28px] p-7 md:p-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <h3 class="font-heading text-5xl md:text-6xl text-primary tracking-wide">Personal Record Snapshot</h3>
+            <p class="text-gray-700 font-semibold mt-2">✨ Official bests updated as you improve. ✨</p>
+          </div>
+          <span class="pill pill-pr">⭐ CURRENT BESTS ⭐</span>
+        </div>
+
+        <div id="prSnapshot" class="mt-7 grid sm:grid-cols-3 gap-4"></div>
+      </div>
+
+      <!-- PERSONAL RECORD LADDER -->
+      <div class="mt-10 glass-card sparkle-border rounded-[28px] p-7 md:p-9">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div>
+            <h3 class="font-heading text-5xl md:text-6xl text-primary tracking-wide">Personal Record Ladder</h3>
+            <p class="text-gray-700 font-semibold mt-2">✨ Progress You Can See ✨</p>
+          </div>
+          <span class="pill">📈 SEASON PROGRESS</span>
+        </div>
+
+        <div id="prLadder" class="mt-8 grid lg:grid-cols-3 gap-6"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-black text-gray-300 py-10 text-center border-t border-white/10 mt-10">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="font-heading text-3xl tracking-wide text-white">Sun City Sprinters</p>
+      <p class="text-xs text-white/50 mt-4">&copy; 2025 Sun City Sprinters</p>
+    </div>
+  </footer>
+
+  <script>
+    // =========================================================
+    // ✅ SINGLE SOURCE OF TRUTH (edit this data only)
+    // =========================================================
+    const prData = [
+      {
+        key: "100m",
+        label: "100m",
+        snapshotLabel: "100m PR",
+        results: [
+          { time: 13.47, date: "Baseline", meet: "Athletic.net" },
+        ]
+      },
+      {
+        key: "200m",
+        label: "200m",
+        snapshotLabel: "200m PR",
+        results: [
+          // { time: 27.90, date: "Apr 18, 2025", meet: "Meet Name" },
+        ]
+      },
+      {
+        key: "4x400",
+        label: "4x400",
+        snapshotLabel: "4x400 Split",
+        results: [
+          // { time: 70.25, date: "Apr 18, 2025", meet: "Meet Name (split)" },
+        ]
+      }
+    ];
+
+    function parseTime(t){
+      if (t === null || t === undefined) return null;
+      const n = typeof t === "number" ? t : Number(String(t).trim());
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function fmtTime(t){
+      const n = parseTime(t);
+      if (n === null) return "—";
+      return n.toFixed(2);
+    }
+
+    function bestTime(results){
+      const times = results
+        .map(r => ({...r, _t: parseTime(r.time)}))
+        .filter(r => r._t !== null);
+      if (!times.length) return null;
+      return times.reduce((best, cur) => cur._t < best._t ? cur : best, times[0]);
+    }
+
+    function decorateResultsWithPR(results){
+      let currentBest = Infinity;
+      return results.map(r => {
+        const t = parseTime(r.time);
+        let isPR = false;
+        if (t !== null && t < currentBest){
+          isPR = true;
+          currentBest = t;
+        }
+        return { ...r, isPR };
+      });
+    }
+
+    function renderSnapshot(){
+      const el = document.getElementById("prSnapshot");
+      el.innerHTML = "";
+
+      prData.forEach(event => {
+        const best = bestTime(event.results);
+        const bestText = best ? fmtTime(best.time) : "—";
+        const whereText = best ? `${best.date} • ${best.meet}` : "Add a meet to start this event ✨";
+
+        const tile = document.createElement("div");
+        tile.className = "rounded-3xl border border-pink-200 bg-white/75 p-6 shadow relative overflow-hidden sparkle-border";
+
+        tile.innerHTML = `
+          <div class="absolute -top-14 -right-10 w-40 h-40 rounded-full"
+               style="background: radial-gradient(circle at 30% 30%, rgba(251,191,36,.35), transparent 60%), radial-gradient(circle at 70% 70%, rgba(236,72,153,.22), transparent 62%);">
+          </div>
+
+          <p class="text-[11px] uppercase tracking-widest font-extrabold text-gray-600">${event.snapshotLabel}</p>
+          <p class="mt-2 text-4xl font-extrabold text-gray-900">${bestText}</p>
+
+          <div class="mt-3 flex flex-wrap gap-2 items-center">
+            <span class="pill pill-pr" style="padding:6px 10px; font-size:10px;">BEST</span>
+            <span class="pill" style="padding:6px 10px; font-size:10px;">${event.label}</span>
+          </div>
+
+          <p class="text-xs text-gray-600 font-semibold mt-3">${whereText}</p>
+        `;
+
+        el.appendChild(tile);
+      });
+    }
+
+    function renderLadder(){
+      const el = document.getElementById("prLadder");
+      el.innerHTML = "";
+
+      prData.forEach(event => {
+        const col = document.createElement("div");
+        col.className = "ladder-col";
+
+        const head = document.createElement("div");
+        head.className = "ladder-head px-5 py-4";
+        head.innerHTML = `
+          <p class="font-extrabold tracking-widest uppercase text-[12px]">${event.label}</p>
+          <p class="font-extrabold text-sm">Meet Results</p>
+        `;
+        col.appendChild(head);
+
+        const decorated = decorateResultsWithPR(event.results);
+
+        if (!decorated.length){
+          const empty = document.createElement("div");
+          empty.className = "ladder-row px-5 py-4";
+          empty.innerHTML = `
+            <p class="font-extrabold text-gray-900">—</p>
+            <p class="text-xs text-gray-600 font-semibold mt-1">No results yet ✨</p>
+          `;
+          col.appendChild(empty);
+        } else {
+          decorated.forEach(r => {
+            const row = document.createElement("div");
+            row.className = "ladder-row px-5 py-4 flex items-start justify-between gap-3";
+
+            const prBadge = r.isPR
+              ? `<span class="pill pill-pr" style="padding:6px 10px; font-size:10px;">PR</span>`
+              : `<span class="pill" style="padding:6px 10px; font-size:10px;">MEET</span>`;
+
+            row.innerHTML = `
+              <div>
+                <p class="font-extrabold text-gray-900">
+                  ${fmtTime(r.time)} ${r.isPR ? `<span class="text-xs font-extrabold text-gray-600">⭐</span>` : ``}
+                </p>
+                <p class="text-xs text-gray-600 font-semibold mt-1">${r.date} • ${r.meet}</p>
+              </div>
+              ${prBadge}
+            `;
+            col.appendChild(row);
+          });
+        }
+
+        el.appendChild(col);
+      });
+    }
+
+    renderSnapshot();
+    renderLadder();
+
+    // =========================================================
+    // ✅ Goal dropdown UX: only one open + sparkle burst on open
+    // =========================================================
+    const goalDropdowns = document.querySelectorAll('.goal-dropdown');
+
+    function sparkleOnce(el){
+      el.classList.remove('sparkle-open');
+      void el.offsetWidth;
+      el.classList.add('sparkle-open');
+      window.clearTimeout(el._sparkleTimer);
+      el._sparkleTimer = window.setTimeout(() => el.classList.remove('sparkle-open'), 650);
+    }
+
+    goalDropdowns.forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (d.open) {
+          goalDropdowns.forEach(other => {
+            if (other !== d) other.removeAttribute('open');
+          });
+          sparkleOnce(d);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
