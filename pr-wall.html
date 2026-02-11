@@ -632,7 +632,8 @@
             <div class="sparkle-border lux-card captain rounded-[26px] p-5 md:p-6 relative">
               <div class="captain-badge"><span></span> CAPTAIN</div>
 
-              <div class="photo-slot captain-frame w-full h-56" style="--capR:28px;">
+              <!-- FIX #1: rounding tuned down (less round) -->
+              <div class="photo-slot captain-frame w-full h-56" style="--capR:18px;">
                 <div class="twinkles" aria-hidden="true">
                   <span></span><span></span><span></span><span></span>
                 </div>
@@ -657,7 +658,8 @@
             <div class="sparkle-border lux-card captain rounded-[26px] p-5 md:p-6 relative">
               <div class="captain-badge"><span></span> CAPTAIN</div>
 
-              <div class="photo-slot captain-frame w-full h-56" style="--capR:28px;">
+              <!-- FIX #1: rounding tuned down (less round) -->
+              <div class="photo-slot captain-frame w-full h-56" style="--capR:18px;">
                 <div class="twinkles" aria-hidden="true">
                   <span></span><span></span><span></span><span></span>
                 </div>
@@ -682,7 +684,8 @@
             <div class="sparkle-border lux-card captain rounded-[26px] p-5 md:p-6 relative">
               <div class="captain-badge"><span></span> CAPTAIN</div>
 
-              <div class="photo-slot captain-frame w-full h-56" style="--capR:28px;">
+              <!-- FIX #1: rounding tuned down (less round) -->
+              <div class="photo-slot captain-frame w-full h-56" style="--capR:18px;">
                 <div class="twinkles" aria-hidden="true">
                   <span></span><span></span><span></span><span></span>
                 </div>
@@ -884,10 +887,14 @@
           const x = (e.clientX - b.left);
           const y = (e.clientY - b.top);
 
+          // FIX #2: correct positioning when page is scrolled
+          const pageX = b.left + x + window.scrollX;
+          const pageY = b.top + y + window.scrollY;
+
           const burst = document.createElement('span');
           burst.style.position = 'absolute';
-          burst.style.left = (b.left + x) + 'px';
-          burst.style.top = (b.top + y) + 'px';
+          burst.style.left = pageX + 'px';
+          burst.style.top = pageY + 'px';
           burst.style.width = '10px';
           burst.style.height = '10px';
           burst.style.borderRadius = '999px';
@@ -929,3 +936,4 @@
   </script>
 </body>
 </html>
+
