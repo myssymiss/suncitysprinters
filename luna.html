@@ -31,8 +31,12 @@
     body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
     html { scroll-padding-top: 90px; }
 
+    /* ======= BACKDROP (gold/pink/white only) ======= */
     .glam-bg{
-      position: fixed; inset: 0; z-index: -50; pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: -50;
+      pointer-events: none;
       background:
         radial-gradient(circle at 18% 20%, rgba(236,72,153,.18), transparent 52%),
         radial-gradient(circle at 82% 18%, rgba(251,191,36,.18), transparent 56%),
@@ -40,13 +44,17 @@
         linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.80));
     }
 
+    /* ======= EXTRA GLITTER DUST ======= */
     @keyframes glitterDrift {
       0%   { transform: translate3d(-2%, -2%, 0) rotate(0deg); opacity: .46; }
       50%  { opacity: .78; }
       100% { transform: translate3d(2%, 2%, 0) rotate(360deg); opacity: .46; }
     }
     .glam-dust{
-      position: fixed; inset: -45%; z-index: -40; pointer-events: none;
+      position: fixed;
+      inset: -45%;
+      z-index: -40;
+      pointer-events: none;
       background:
         radial-gradient(circle at 10% 18%, rgba(255,255,255,.90) 0 2px, transparent 3px),
         radial-gradient(circle at 22% 72%, rgba(255,255,255,.70) 0 1.6px, transparent 3px),
@@ -62,6 +70,7 @@
       filter: blur(.1px);
     }
 
+    /* shimmer line */
     .shimmer-line{
       position: relative; height: 6px; border-radius: 999px; overflow: hidden;
       background: rgba(251,191,36,.22);
@@ -74,6 +83,7 @@
     }
     @keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
 
+    /* sparkle border */
     @keyframes gradientShift{
       0%{ background-position: 0% 50%; }
       50%{ background-position: 100% 50%; }
@@ -83,8 +93,14 @@
       position: relative; overflow: hidden; border-radius: 1.75rem;
     }
     .sparkle-border::before{
-      content:""; position:absolute; inset:-2px;
-      background: linear-gradient(120deg, rgba(251,191,36,.96), rgba(236,72,153,.92), rgba(255,255,255,.92), rgba(251,191,36,.90));
+      content:"";
+      position:absolute; inset:-2px;
+      background: linear-gradient(120deg,
+        rgba(251,191,36,.96),
+        rgba(236,72,153,.92),
+        rgba(255,255,255,.92),
+        rgba(251,191,36,.90)
+      );
       background-size: 260% 260%;
       animation: gradientShift 7.2s ease-in-out infinite;
       opacity: .24;
@@ -103,6 +119,7 @@
       pointer-events:none;
     }
 
+    /* glass */
     .glass-card{
       background: rgba(255,255,255,.74);
       backdrop-filter: blur(16px);
@@ -110,8 +127,10 @@
       box-shadow: 0 20px 70px rgba(236,72,153,.16);
     }
 
+    /* runway hero */
     .runway-hero{
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
       border-bottom: 1px solid rgba(236,72,153,.10);
       background:
         radial-gradient(circle at 18% 18%, rgba(236,72,153,.16), transparent 52%),
@@ -120,7 +139,8 @@
     }
     .runway-hero::before{
       content:"";
-      position:absolute; inset:0;
+      position:absolute;
+      inset:0;
       background-image: url("./IMG_2263.jpeg");
       background-size: cover;
       background-position: center;
@@ -131,12 +151,14 @@
     }
     .runway-hero::after{
       content:"";
-      position:absolute; inset:0;
+      position:absolute;
+      inset:0;
       background: linear-gradient(180deg, rgba(255,255,255,.38), rgba(255,255,255,.92));
       pointer-events:none;
     }
     .runway-content{ position: relative; z-index: 1; }
 
+    /* pills */
     .pill{
       display:inline-flex; align-items:center; justify-content:center;
       padding: 8px 14px; border-radius: 999px;
@@ -153,6 +175,7 @@
       border-color: rgba(251,191,36,.55);
     }
 
+    /* ladder */
     .ladder-col{
       border: 1px solid rgba(236,72,153,.18);
       background: rgba(255,255,255,.70);
@@ -167,108 +190,13 @@
     .ladder-row{
       border-top: 1px solid rgba(236,72,153,.12);
     }
-  </style>
-</head>
 
-<body class="bg-white text-gray-800 font-body">
-  <div class="glam-bg"></div>
-  <div class="glam-dust"></div>
-
-  <!-- HEADER -->
-  <header class="bg-primary text-white sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-5 md:px-6 py-3 md:py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-      <a href="index.html" class="flex items-center gap-4">
-        <img src="./IMG_6204.jpeg" class="h-14 w-14 md:h-16 md:w-16 rounded-full object-cover bg-white border-4 border-gold shadow" />
-        <div>
-          <h1 class="font-heading text-3xl md:text-4xl tracking-wide leading-none">Sun City Sprinters</h1>
-          <p class="text-xs md:text-sm text-white/90 font-semibold">Personal Record Progress • Athlete Spotlight</p>
-        </div>
-      </a>
-
-      <nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold">
-        <a href="pr-wall.html" class="inline-flex items-center justify-center px-4 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition" style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;">
-          Back to PR Wall →
-        </a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- RUNWAY HERO -->
-  <section class="runway-hero">
-    <div class="runway-content max-w-6xl mx-auto px-6 py-12 md:py-16">
-      <div class="grid lg:grid-cols-[1.2fr_.8fr] gap-8 items-center">
-
-        <!-- Left -->
-        <div>
-          <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-primary/70">Athlete Progress</p>
-          <h2 class="font-heading text-5xl sm:text-6xl md:text-7xl tracking-wide mt-2">Isabella Vega</h2>
-          <p class="mt-3 text-gray-700 font-semibold">100mh • 300mh • HJ</p>
-          <div class="mt-6 max-w-sm shimmer-line"></div>
-        </div>
-
-        <!-- Right: Photo card -->
-        <div class="glass-card sparkle-border rounded-[28px] p-6 md:p-7 text-center">
-          <img src="./IMG_2263.jpeg" alt="Isabella Vega" class="w-44 h-44 md:w-52 md:h-52 rounded-full object-cover object-center mx-auto border-4 border-gold shadow" />
-          <a href="https://www.athletic.net/athlete/25924948/track-and-field/" target="_blank" class="mt-4 inline-flex items-center justify-center px-5 py-3 rounded-2xl font-extrabold shadow hover:scale-105 transition" style="background: linear-gradient(90deg, #fbbf24, #ec4899); color:#111;">
-            Athletic.net →
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- MAIN -->
-  <section class="py-12 md:py-14">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="glass-card sparkle-border rounded-[28px] p-7 md:p-8">
-        <h3 class="font-heading text-5xl md:text-6xl text-primary tracking-wide">Personal Record Snapshot</h3>
-        <div id="prSnapshot" class="mt-7 grid sm:grid-cols-3 gap-4"></div>
-      </div>
-
-      <div class="mt-10 glass-card sparkle-border rounded-[28px] p-7 md:p-9">
-        <h3 class="font-heading text-5xl md:text-6xl text-primary tracking-wide">Personal Record Ladder</h3>
-        <div id="prLadder" class="mt-8 grid lg:grid-cols-3 gap-6"></div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    const prData = [
-      { key: "100mh", label: "100mh", snapshotLabel: "100mh PR", results: [{ time: 18.07, date: "Baseline", meet: "Athletic.net" }] },
-      { key: "300mh", label: "300mh", snapshotLabel: "300mh PR", results: [{ time: 50.47, date: "Baseline", meet: "Athletic.net" }] },
-      { key: "hj", label: "High Jump", snapshotLabel: "HJ PR", results: [{ time: "4'8", date: "Baseline", meet: "Athletic.net" }] }
-    ];
-
-    function fmtTime(eventKey, t){
-      if(eventKey==="hj") return t;
-      return Number(t).toFixed(2);
+    /* glam banner */
+    @keyframes floaty{
+      0%{ transform: translate3d(0,0,0); }
+      50%{ transform: translate3d(0,-6px,0); }
+      100%{ transform: translate3d(0,0,0); }
     }
-
-    function render(){
-      const snap = document.getElementById("prSnapshot");
-      const ladder = document.getElementById("prLadder");
-
-      prData.forEach(e=>{
-        const best = e.results[0];
-        snap.innerHTML += `<div class="p-6 rounded-3xl bg-white shadow sparkle-border">
-          <p class="text-xs font-bold">${e.snapshotLabel}</p>
-          <p class="text-4xl font-extrabold">${fmtTime(e.key,best.time)}</p>
-          <p class="text-xs">${best.date} • ${best.meet}</p>
-        </div>`;
-
-        ladder.innerHTML += `<div class="ladder-col">
-          <div class="ladder-head px-5 py-4"><p class="font-bold">${e.label}</p></div>
-          <div class="ladder-row px-5 py-4">
-            <p class="font-extrabold">${fmtTime(e.key,best.time)}</p>
-            <p class="text-xs">${best.date} • ${best.meet}</p>
-          </div>
-        </div>`;
-      });
-    }
-
-    render();
-  </script>
-
-</body>
-</html>
+    .glam-banner{
+      margin-top: 18px;
+     
