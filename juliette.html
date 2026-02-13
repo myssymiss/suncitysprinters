@@ -564,32 +564,33 @@
     // =========================================================
     // ✅ SINGLE SOURCE OF TRUTH (edit this data only)
     // =========================================================
-    const prData = [
-      {
-        key: "100mh",
-        label: "100mh",
-        snapshotLabel: "100mh PR",
-        results: [
-          { time: 18.77, date: "Apr 13, 2025", meet: "Baseline" },
-        ]
-      },
-      {
-        key: "300mh",
-        label: "300mh",
-        snapshotLabel: "300mh PR",
-        results: [
-          { time: 54.21 , date: feburary 3 2026, meet: "Baseline" },
-        ]
-      },
-      {
-        key: "4x400",
-        label: "4x400",
-        snapshotLabel: "4x400",
-        results: [
-          // { time: 1:02, date: february 3rd, 2026", meet: "Meet Name (split)" },
-        ]
-      }
-    ];
+   const prData = [
+  {
+    key: "100mh",
+    label: "100mh",
+    snapshotLabel: "100mh PR",
+    results: [
+      { time: 18.77, date: "Apr 13, 2025", meet: "Baseline" },
+    ]
+  },
+  {
+    key: "300mh",
+    label: "300mh",
+    snapshotLabel: "300mh PR",
+    results: [
+      { time: 54.21, date: "Feb 7, 2026", meet: "Riverside Invitational" },
+    ]
+  },
+  {
+    key: "4x400",
+    label: "4x400",
+    snapshotLabel: "4x400 Split",
+    results: [
+      { time: "1:02", date: "Feb 7, 2026", meet: "Riverside Invitational (split)" },
+    ]
+  }
+];
+
 
     function parseTime(t){
       if (t === null || t === undefined) return null;
