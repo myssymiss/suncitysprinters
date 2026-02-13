@@ -31,7 +31,6 @@
     body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
     html { scroll-padding-top: 90px; }
 
-    /* ======= BACKDROP (gold/pink/white only) ======= */
     .glam-bg{
       position: fixed;
       inset: 0;
@@ -44,7 +43,6 @@
         linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.80));
     }
 
-    /* ======= EXTRA GLITTER DUST ======= */
     @keyframes glitterDrift {
       0%   { transform: translate3d(-2%, -2%, 0) rotate(0deg); opacity: .46; }
       50%  { opacity: .78; }
@@ -70,7 +68,6 @@
       filter: blur(.1px);
     }
 
-    /* shimmer line */
     .shimmer-line{
       position: relative; height: 6px; border-radius: 999px; overflow: hidden;
       background: rgba(251,191,36,.22);
@@ -83,7 +80,6 @@
     }
     @keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
 
-    /* sparkle border */
     @keyframes gradientShift{
       0%{ background-position: 0% 50%; }
       50%{ background-position: 100% 50%; }
@@ -119,7 +115,6 @@
       pointer-events:none;
     }
 
-    /* glass */
     .glass-card{
       background: rgba(255,255,255,.74);
       backdrop-filter: blur(16px);
@@ -127,7 +122,6 @@
       box-shadow: 0 20px 70px rgba(236,72,153,.16);
     }
 
-    /* runway hero (keeps her photo background) */
     .runway-hero{
       position: relative;
       overflow: hidden;
@@ -158,7 +152,6 @@
     }
     .runway-content{ position: relative; z-index: 1; }
 
-    /* pills */
     .pill{
       display:inline-flex; align-items:center; justify-content:center;
       padding: 8px 14px; border-radius: 999px;
@@ -175,7 +168,6 @@
       border-color: rgba(251,191,36,.55);
     }
 
-    /* ladder */
     .ladder-col{
       border: 1px solid rgba(236,72,153,.18);
       background: rgba(255,255,255,.70);
@@ -187,11 +179,8 @@
       background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.92));
       color:#111;
     }
-    .ladder-row{
-      border-top: 1px solid rgba(236,72,153,.12);
-    }
+    .ladder-row{ border-top: 1px solid rgba(236,72,153,.12); }
 
-    /* glam banner */
     @keyframes floaty{
       0%{ transform: translate3d(0,0,0); }
       50%{ transform: translate3d(0,-6px,0); }
@@ -207,10 +196,7 @@
       background: rgba(255,255,255,.66);
       backdrop-filter: blur(14px);
     }
-    .glam-inner{
-      position: relative;
-      padding: 16px 16px 14px;
-    }
+    .glam-inner{ position: relative; padding: 16px 16px 14px; }
     .glam-title{
       font-weight: 900;
       letter-spacing: .10em;
@@ -232,11 +218,8 @@
       animation: gradientShift 6.8s ease-in-out infinite, floaty 4.4s ease-in-out infinite;
       text-shadow: 0 18px 60px rgba(236,72,153,.18);
     }
-    @media (min-width: 768px){
-      .glam-headline{ font-size: 56px; }
-    }
+    @media (min-width: 768px){ .glam-headline{ font-size: 56px; } }
 
-    /* ✅ Goal layout */
     .glam-row{
       margin-top: 14px;
       display:grid;
@@ -245,12 +228,9 @@
       align-items:stretch;
     }
     @media (min-width: 768px){
-      .glam-row{
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      .glam-row{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
 
-    /* ======= GOAL DROPDOWNS ======= */
     .goal-dropdown{
       position: relative;
       border-radius: 22px;
@@ -260,7 +240,6 @@
       overflow: hidden;
       isolation: isolate;
     }
-
     .goal-dropdown summary{
       list-style: none;
       cursor: pointer;
@@ -276,7 +255,6 @@
       user-select: none;
     }
     .goal-dropdown summary::-webkit-details-marker{ display: none; }
-
     .goal-dropdown summary::after{
       content: "⌄";
       font-size: 14px;
@@ -285,7 +263,6 @@
     }
     .goal-dropdown[open] summary::after{ transform: rotate(180deg); }
 
-    /* smooth reveal of time */
     .goal-content{
       padding: 10px 16px 14px;
       border-top: 1px solid rgba(236,72,153,.15);
@@ -300,14 +277,9 @@
       opacity: 0;
       transform: translateY(-6px);
     }
-    @keyframes goalReveal{
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .goal-dropdown[open] .goal-content{
-      animation: goalReveal .28s ease-out forwards;
-    }
+    @keyframes goalReveal{ to { opacity: 1; transform: translateY(0); } }
+    .goal-dropdown[open] .goal-content{ animation: goalReveal .28s ease-out forwards; }
 
-    /* ✨ sparkle burst on open (added via JS class) */
     @keyframes sparklePop{
       0%   { transform: scale(.75); opacity: 0; }
       25%  { opacity: .85; }
@@ -318,10 +290,7 @@
       50% { box-shadow: 0 18px 70px rgba(236,72,153,.18), 0 0 0 3px rgba(251,191,36,.14); }
       100% { box-shadow: 0 16px 45px rgba(236,72,153,.12); }
     }
-
-    .goal-dropdown.sparkle-open{
-      animation: glowPulse .55s ease-out 1;
-    }
+    .goal-dropdown.sparkle-open{ animation: glowPulse .55s ease-out 1; }
     .goal-dropdown.sparkle-open::before{
       content:"";
       position:absolute;
@@ -341,7 +310,6 @@
     }
     .goal-dropdown > *{ position: relative; z-index: 1; }
 
-    /* quote pill */
     .quote-pill{
       margin-top: 12px;
       display:flex;
@@ -380,7 +348,6 @@
       text-transform: uppercase;
     }
 
-    /* name shimmer palette */
     .neon-title{
       display: inline-block;
       background: linear-gradient(90deg, rgba(251,191,36,.98), rgba(236,72,153,.92), rgba(255,255,255,.88), rgba(251,191,36,.98));
@@ -462,9 +429,7 @@
 
               <div class="glam-headline">✨ Progress is the prettiest flex ✨</div>
 
-              <!-- ✅ DROPDOWN GOALS -->
               <div class="glam-row">
-
                 <details class="goal-dropdown">
                   <summary>100mh Goal</summary>
                   <div class="goal-content">17.77</div>
@@ -479,10 +444,8 @@
                   <summary>4x400 Split Goal</summary>
                   <div class="goal-content">1:00</div>
                 </details>
-
               </div>
 
-              <!-- ✅ Track quote -->
               <div class="quote-pill">
                 <div>
                   <p>“It never gets easier, you just get faster.” — Greg LeMond</p>
@@ -564,48 +527,61 @@
     // =========================================================
     // ✅ SINGLE SOURCE OF TRUTH (edit this data only)
     // =========================================================
-   const prData = [
-  {
-    key: "100mh",
-    label: "100mh",
-    snapshotLabel: "100mh PR",
-    results: [
-      { time: 18.77, date: "Apr 13, 2025", meet: "Baseline" },
-    ]
-  },
-  {
-    key: "300mh",
-    label: "300mh",
-    snapshotLabel: "300mh PR",
-    results: [
-      { time: 54.21, date: "Feb 7, 2026", meet: "Riverside Invitational" },
-    ]
-  },
-  {
-    key: "4x400",
-    label: "4x400",
-    snapshotLabel: "4x400 Split",
-    results: [
-      { time: 1:02, date: Feb 7, 2026, meet: "Riverside Invitational (split)" },
-    ]
-  }
-];
+    const prData = [
+      {
+        key: "100mh",
+        label: "100mh",
+        snapshotLabel: "100mh PR",
+        results: [
+          { time: 18.77, date: "Apr 13, 2025", meet: "Baseline" },
+        ]
+      },
+      {
+        key: "300mh",
+        label: "300mh",
+        snapshotLabel: "300mh PR",
+        results: [
+          { time: 54.21, date: "Feb 7, 2026", meet: "Riverside Invitational" },
+        ]
+      },
+      {
+        key: "4x400",
+        label: "4x400",
+        snapshotLabel: "4x400 Split",
+        results: [
+          { time: "1:02", date: "Feb 7, 2026", meet: "Riverside Invitational (split)" },
+        ]
+      }
+    ];
 
-
+    // ✅ supports both seconds (54.21) and mm:ss splits ("1:02")
     function parseTime(t){
       if (t === null || t === undefined) return null;
-      const n = typeof t === "number" ? t : Number(String(t).trim());
+      if (typeof t === "number") return Number.isFinite(t) ? t : null;
+
+      const s = String(t).trim();
+      const m = s.match(/^(\d+)\s*:\s*([0-5]?\d(?:\.\d+)?)$/);
+      if (m){
+        const mins = Number(m[1]);
+        const secs = Number(m[2]);
+        const total = mins * 60 + secs;
+        return Number.isFinite(total) ? total : null;
+      }
+
+      const n = Number(s);
       return Number.isFinite(n) ? n : null;
     }
 
     function fmtTime(t){
+      if (t === null || t === undefined) return "—";
+      if (typeof t === "string" && t.includes(":")) return t.trim();
       const n = parseTime(t);
       if (n === null) return "—";
       return n.toFixed(2);
     }
 
     function bestTime(results){
-      const times = results
+      const times = (results || [])
         .map(r => ({...r, _t: parseTime(r.time)}))
         .filter(r => r._t !== null);
       if (!times.length) return null;
@@ -614,7 +590,7 @@
 
     function decorateResultsWithPR(results){
       let currentBest = Infinity;
-      return results.map(r => {
+      return (results || []).map(r => {
         const t = parseTime(r.time);
         let isPR = false;
         if (t !== null && t < currentBest){
@@ -719,7 +695,6 @@
 
     function sparkleOnce(el){
       el.classList.remove('sparkle-open');
-      // force reflow so animation can replay
       void el.offsetWidth;
       el.classList.add('sparkle-open');
       window.clearTimeout(el._sparkleTimer);
