@@ -121,7 +121,7 @@
     .runway-hero::before{
       content:"";
       position:absolute; inset:0;
-      background-image: url("./IMG_2263.jpeg"); /* ✅ NEW PHOTO */
+      background-image: url("./IMG_2263.jpeg");
       background-size: cover;
       background-position: center;
       opacity:.18;
@@ -164,11 +164,8 @@
       background: linear-gradient(90deg, rgba(251,191,36,.95), rgba(236,72,153,.92));
       color:#111;
     }
-    .ladder-row{
-      border-top: 1px solid rgba(236,72,153,.12);
-    }
+    .ladder-row{ border-top: 1px solid rgba(236,72,153,.12); }
 
-    /* glam banner */
     @keyframes floaty{
       0%{ transform: translate3d(0,0,0); }
       50%{ transform: translate3d(0,-6px,0); }
@@ -403,7 +400,6 @@
             Isabella Vega
           </h2>
 
-          <!-- ✅ EVENTS UPDATED -->
           <p class="mt-3 text-gray-700 font-semibold">100mh • 300mh • HJ</p>
 
           <div class="mt-6 max-w-sm shimmer-line"></div>
@@ -415,27 +411,24 @@
 
               <div class="glam-headline">✨ Progress is the prettiest flex ✨</div>
 
-              <!-- ✅ DROPDOWN GOALS -->
+              <!-- ✅ UPDATED GOALS -->
               <div class="glam-row">
-
                 <details class="goal-dropdown">
                   <summary>100mh Goal</summary>
-                  <div class="goal-content">17.70</div>
+                  <div class="goal-content">17.00</div>
                 </details>
 
                 <details class="goal-dropdown">
                   <summary>300mh Goal</summary>
-                  <div class="goal-content">49.00</div>
+                  <div class="goal-content">47.00</div>
                 </details>
 
                 <details class="goal-dropdown">
                   <summary>High Jump Goal</summary>
                   <div class="goal-content">4'9</div>
                 </details>
-
               </div>
 
-              <!-- ✅ Track quote -->
               <div class="quote-pill">
                 <div>
                   <p>“Dont dream of winning. Train for it.” — Mo Farah</p>
@@ -524,6 +517,7 @@
         snapshotLabel: "100mh PR",
         results: [
           { time: 18.07, date: "Baseline", meet: "Athletic.net" },
+          { time: 17.80, date: "Saturday Meet", meet: "Weekend Meet" } // ✅ NEW PR
         ]
       },
       {
@@ -531,7 +525,8 @@
         label: "300mh",
         snapshotLabel: "300mh PR",
         results: [
-          { time: 50.47, date: "Baseline", meet: "Athletic.net" }, // ✅ ADDED
+          { time: 50.47, date: "Baseline", meet: "Athletic.net" },
+          { time: 48.93, date: "Saturday Meet", meet: "Weekend Meet" } // ✅ NEW PR
         ]
       },
       {
@@ -539,7 +534,7 @@
         label: "High Jump",
         snapshotLabel: "HJ PR",
         results: [
-          { height: "4'8", date: "Baseline", meet: "Athletic.net" }, // ✅ ADDED
+          { height: "4'8", date: "Baseline", meet: "Athletic.net" }
         ]
       }
     ];
@@ -556,12 +551,10 @@
       return n.toFixed(2);
     }
 
-    // For HJ, "best" is highest. We'll keep only one entry for now.
     function bestForEvent(event){
       if (event.key === "hj"){
         const heights = (event.results || []).filter(r => r && r.height);
         if (!heights.length) return null;
-        // If you add multiple heights later, we can compare properly; for now first is fine.
         return heights[0];
       }
       const times = (event.results || [])
@@ -573,10 +566,8 @@
 
     function decorateResultsWithPR(event){
       if (event.key === "hj"){
-        // If you add multiple heights later, we can mark PR when height increases.
         let currentBest = -Infinity;
         return (event.results || []).map(r => {
-          // Try to parse heights like 4'8 into inches for comparison if needed
           const h = String(r.height || "").trim();
           const match = h.match(/^(\d+)\s*'\s*(\d+)\s*$/);
           let inches = null;
@@ -588,7 +579,6 @@
             isPR = true;
             currentBest = inches;
           } else if (inches === null && currentBest === -Infinity){
-            // if we can't parse, still tag first one
             isPR = true;
             currentBest = 0;
           }
@@ -709,7 +699,6 @@
 
     function sparkleOnce(el){
       el.classList.remove('sparkle-open');
-      // force reflow so animation can replay
       void el.offsetWidth;
       el.classList.add('sparkle-open');
       window.clearTimeout(el._sparkleTimer);
