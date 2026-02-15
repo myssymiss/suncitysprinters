@@ -507,37 +507,39 @@
   </footer>
 
   <script>
-    // =========================================================
-    // ✅ SINGLE SOURCE OF TRUTH (edit this data only)
-    // =========================================================
-    const prData = [
-      {
-        key: "100mh",
-        label: "100mh",
-        snapshotLabel: "100mh PR",
-        results: [
-          { time: 18.07, date: "Baseline", meet: "Athletic.net" },
-          { time: 17.80, date: "Saturday Meet", meet: "Weekend Meet" } // ✅ NEW PR
-        ]
-      },
-      {
-        key: "300mh",
-        label: "300mh",
-        snapshotLabel: "300mh PR",
-        results: [
-          { time: 50.47, date: "Baseline", meet: "Athletic.net" },
-          { time: 48.93, date: "Saturday Meet", meet: "Weekend Meet" } // ✅ NEW PR
-        ]
-      },
-      {
-        key: "hj",
-        label: "High Jump",
-        snapshotLabel: "HJ PR",
-        results: [
-          { height: "4'8", date: "Baseline", meet: "Athletic.net" }
-        ]
-      }
-    ];
+  // =========================================================
+  // ✅ SINGLE SOURCE OF TRUTH (edit this data only)
+  // =========================================================
+  const prData = [
+    {
+      key: "100mh",
+      label: "100mh",
+      snapshotLabel: "100mh PR",
+      results: [
+        { time: 18.07, date: "February 7, 2026", meet: "Meet" },
+        { time: 17.80, date: "February 14, 2026", meet: "Meet" } // ✅ NEW PR
+      ]
+    },
+    {
+      key: "300mh",
+      label: "300mh",
+      snapshotLabel: "300mh PR",
+      results: [
+        { time: 50.47, date: "February 7, 2026", meet: "Meet" },
+        { time: 48.93, date: "February 14, 2026", meet: "Meet" } // ✅ NEW PR
+      ]
+    },
+    {
+      key: "hj",
+      label: "High Jump",
+      snapshotLabel: "HJ PR",
+      results: [
+        { height: "4'8", date: "February 7, 2026", meet: "Meet" }
+      ]
+    }
+  ];
+</script>
+
 
     // --- parsing helpers
     function parseTime(t){
