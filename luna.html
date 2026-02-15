@@ -404,14 +404,11 @@
 
           <div class="mt-6 max-w-sm shimmer-line"></div>
 
-          <!-- Glam block -->
           <div class="glam-banner sparkle-border">
             <div class="glam-inner">
               <div class="glam-title"></div>
-
               <div class="glam-headline">✨ Progress is the prettiest flex ✨</div>
 
-              <!-- ✅ UPDATED GOALS -->
               <div class="glam-row">
                 <details class="goal-dropdown">
                   <summary>100mh Goal</summary>
@@ -440,7 +437,7 @@
           </div>
         </div>
 
-        <!-- Right: Photo card -->
+        <!-- Right -->
         <div class="glass-card sparkle-border rounded-[28px] p-6 md:p-7 text-center">
           <img
             src="./IMG_2263.jpeg"
@@ -470,7 +467,7 @@
   <section class="py-12 md:py-14">
     <div class="max-w-6xl mx-auto px-6">
 
-      <!-- PERSONAL RECORD SNAPSHOT -->
+      <!-- SNAPSHOT -->
       <div class="glass-card sparkle-border rounded-[28px] p-7 md:p-8">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
@@ -483,7 +480,7 @@
         <div id="prSnapshot" class="mt-7 grid sm:grid-cols-3 gap-4"></div>
       </div>
 
-      <!-- PERSONAL RECORD LADDER -->
+      <!-- LADDER -->
       <div class="mt-10 glass-card sparkle-border rounded-[28px] p-7 md:p-9">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
           <div>
@@ -507,39 +504,37 @@
   </footer>
 
   <script>
-  // =========================================================
-  // ✅ SINGLE SOURCE OF TRUTH (edit this data only)
-  // =========================================================
-  const prData = [
-    {
-      key: "100mh",
-      label: "100mh",
-      snapshotLabel: "100mh PR",
-      results: [
-        { time: 18.07, date: "February 7, 2026", meet: "Meet" },
-        { time: 17.80, date: "February 14, 2026", meet: "Meet" } // ✅ NEW PR
-      ]
-    },
-    {
-      key: "300mh",
-      label: "300mh",
-      snapshotLabel: "300mh PR",
-      results: [
-        { time: 50.47, date: "February 7, 2026", meet: "Meet" },
-        { time: 48.93, date: "February 14, 2026", meet: "Meet" } // ✅ NEW PR
-      ]
-    },
-    {
-      key: "hj",
-      label: "High Jump",
-      snapshotLabel: "HJ PR",
-      results: [
-        { height: "4'8", date: "February 7, 2026", meet: "Meet" }
-      ]
-    }
-  ];
-</script>
-
+    // =========================================================
+    // ✅ SINGLE SOURCE OF TRUTH (edit this data only)
+    // =========================================================
+    const prData = [
+      {
+        key: "100mh",
+        label: "100mh",
+        snapshotLabel: "100mh PR",
+        results: [
+          { time: 18.07, date: "February 7, 2026", meet: "Montwood Invitational" },
+          { time: 17.80, date: "February 14, 2026", meet: "Eastlake Invitational" } // ✅ PR
+        ]
+      },
+      {
+        key: "300mh",
+        label: "300mh",
+        snapshotLabel: "300mh PR",
+        results: [
+          { time: 50.47, date: "February 7, 2026", meet: "Montwood Invitational" },
+          { time: 48.93, date: "February 14, 2026", meet: "Eastlake Invitational" } // ✅ PR
+        ]
+      },
+      {
+        key: "hj",
+        label: "High Jump",
+        snapshotLabel: "HJ PR",
+        results: [
+          { height: "4'8", date: "February 7, 2026", meet: "Montwood Invitational" }
+        ]
+      }
+    ];
 
     // --- parsing helpers
     function parseTime(t){
@@ -553,10 +548,12 @@
       return n.toFixed(2);
     }
 
+    // For HJ, "best" is highest. We'll keep only one entry for now.
     function bestForEvent(event){
       if (event.key === "hj"){
         const heights = (event.results || []).filter(r => r && r.height);
         if (!heights.length) return null;
+        // if multiple heights later, update compare logic; for now first is fine
         return heights[0];
       }
       const times = (event.results || [])
@@ -701,7 +698,7 @@
 
     function sparkleOnce(el){
       el.classList.remove('sparkle-open');
-      void el.offsetWidth;
+      void el.offsetWidth; // reflow to restart animation
       el.classList.add('sparkle-open');
       window.clearTimeout(el._sparkleTimer);
       el._sparkleTimer = window.setTimeout(() => el.classList.remove('sparkle-open'), 650);
@@ -721,3 +718,4 @@
 
 </body>
 </html>
+
