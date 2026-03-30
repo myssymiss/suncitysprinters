@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uniform Order Form</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+  font-family: Poppins, sans-serif;
+  background: linear-gradient(to bottom, #fff, #fff0f6);
+}
+
+.card {
+  max-width: 850px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 20px 60px rgba(236,72,153,.15);
+  border: 1px solid rgba(236,72,153,.2);
+}
+
+input {
+  border-bottom: 1px solid #333;
+  width: 100%;
+  outline: none;
+}
+
+@media print {
+  button { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <h1 style="text-align:center; color:#ec4899; font-size:40px;">Sun City Sprinters</h1>
+  <p style="text-align:center; font-style:italic;">Run your race then raise the standard.</p>
+
+  <!-- IMAGES -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:20px 0;">
+    <img src="UNIFORM1.jpg" style="width:100%; border-radius:12px;">
+    <img src="UNIFORM2.jpg" style="width:100%; border-radius:12px;">
+  </div>
+
+  <h3>Athlete Info</h3>
+  Athlete Name: <input><br><br>
+  Parent Name: <input><br><br>
+  Phone: <input><br><br>
+
+  <h3 style="color:#ec4899;">Women’s</h3>
+  Crop Top ($65) Qty: <input><br><br>
+  Spandex ($45) Qty: <input><br><br>
+  ☐ Full Set ($110)
+
+  <h3 style="color:#ec4899;">Youth</h3>
+  Singlet ($45.99) Qty: <input><br><br>
+  Girls Spandex ($55) Qty: <input><br><br>
+
+  <h3 style="color:#ec4899;">Men’s</h3>
+  Sleeveless ($55.99) Qty: <input><br><br>
+
+  <h3 style="color:#ec4899;">Optional</h3>
+  Long Sleeve ($79.99) Qty: <input><br><br>
+  Tights ($72.99) Qty: <input><br><br>
+
+  <!-- PAYMENT -->
+  <h3 style="color:#ec4899;">Payment</h3>
+
+  <div style="display:flex; justify-content:center; gap:30px;">
+    <div>
+      <img src="ZELLEQR.jpg" style="width:100px;">
+      <p style="text-align:center;">Zelle</p>
+    </div>
+    <div>
+      <img src="CASHAPPQR.jpg" style="width:100px;">
+      <p style="text-align:center;">Cash App</p>
+    </div>
+  </div>
+
+  <p style="text-align:center; font-weight:bold;">suncitysprinters</p>
+
+  <br>
+  Total: <input>
+
+  <div style="text-align:center; margin-top:30px;">
+    <button onclick="window.print()" style="background:#ec4899; color:white; padding:12px 25px; border:none; border-radius:10px;">
+      Download / Save as PDF
+    </button>
+  </div>
+
+</div>
+
+</body>
+</html>
