@@ -30,374 +30,120 @@
       }
     }
   </script>
+<style>
+body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
 
-  <style>
-  body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+/* reveal animation */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.show { opacity: 1; transform: translateY(0); }
 
-  /* reveal animation */
-  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.show { opacity: 1; transform: translateY(0); }
+/* underline */
+.underline-anim::after{
+  content:"";
+  display:block;
+  height:6px;
+  width:92px;
+  margin:12px auto 0;
+  border-radius:999px;
+  background: linear-gradient(90deg, #fbbf24, #ec4899);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .7s ease;
+}
+.reveal.show .underline-anim::after{ transform: scaleX(1); }
 
-  /* animated underline */
-  .underline-anim::after{
-    content:"";
-    display:block;
-    height:6px;
-    width:92px;
-    margin:12px auto 0;
-    border-radius:999px;
-    background: linear-gradient(90deg, #fbbf24, #ec4899);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .7s ease;
-  }
-  .reveal.show .underline-anim::after{ transform: scaleX(1); }
+/* lane lines */
+@keyframes laneMove { 0% { transform: translateX(-10%);} 100% { transform: translateX(10%);} }
+.lane-lines {
+  background-image:
+    linear-gradient(to right,
+      rgba(255,255,255,.10) 0,
+      rgba(255,255,255,.10) 18%,
+      transparent 18%,
+      transparent 50%,
+      rgba(255,255,255,.10) 50%,
+      rgba(255,255,255,.10) 68%,
+      transparent 68%,
+      transparent 100%);
+  background-size: 140px 100%;
+  animation: laneMove 7s ease-in-out infinite alternate;
+}
 
-  /* subtle moving "track lanes" background */
-  @keyframes laneMove { 0% { transform: translateX(-10%);} 100% { transform: translateX(10%);} }
-  .lane-lines {
-    background-image:
-      linear-gradient(to right,
-        rgba(255,255,255,.10) 0,
-        rgba(255,255,255,.10) 18%,
-        transparent 18%,
-        transparent 50%,
-        rgba(255,255,255,.10) 50%,
-        rgba(255,255,255,.10) 68%,
-        transparent 68%,
-        transparent 100%);
-    background-size: 140px 100%;
-    animation: laneMove 7s ease-in-out infinite alternate;
-  }
+/* shimmer */
+.shimmer-line{
+  position: relative;
+  height: 6px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(251,191,36,.22);
+}
+.shimmer-line::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  transform: translateX(-70%);
+  background: linear-gradient(90deg, transparent, rgba(251,191,36,.9), rgba(236,72,153,.7), transparent);
+  animation: shimmer 2.6s ease-in-out infinite;
+}
+@keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
 
-  /* subtle gold shimmer line */
-  .shimmer-line{
-    position: relative;
-    height: 6px;
-    border-radius: 999px;
-    overflow: hidden;
-    background: rgba(251,191,36,.22);
-  }
-  .shimmer-line::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    transform: translateX(-70%);
-    background: linear-gradient(90deg, transparent, rgba(251,191,36,.9), rgba(236,72,153,.7), transparent);
-    animation: shimmer 2.6s ease-in-out infinite;
-  }
-  @keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
+summary::-webkit-details-marker { display: none; }
 
-  /* DETAILS dropdown polish */
-  summary::-webkit-details-marker { display: none; }
-
-  /* ===== SUNSET + GLITTER CALENDAR / LEGEND ===== */
-  @keyframes glitterMove {
-    0% { transform: translate3d(-2%, -2%, 0) rotate(0deg); }
-    100% { transform: translate3d(2%, 2%, 0) rotate(360deg); }
-  }
-
-  .sunset-card{
-    background:
-      radial-gradient(circle at 20% 10%, rgba(251,191,36,.55), transparent 40%),
-      radial-gradient(circle at 80% 20%, rgba(236,72,153,.55), transparent 45%),
-      radial-gradient(circle at 40% 85%, rgba(251,191,36,.40), transparent 55%),
-      linear-gradient(135deg, rgba(236,72,153,.34), rgba(251,191,36,.22));
-    border: 1px solid rgba(236,72,153,.25);
-    box-shadow: 0 18px 60px rgba(236,72,153,.18);
-  }
-
-  .sparkle-border{
-    position: relative;
-    overflow: hidden;
-    border-radius: 1.5rem;
-  }
-  .sparkle-border::after{
-    content:"";
-    position:absolute;
-    inset:-40%;
-    background:
-      radial-gradient(circle at 20% 25%, rgba(255,255,255,.65) 0 2px, transparent 3px),
-      radial-gradient(circle at 70% 40%, rgba(255,255,255,.45) 0 1.5px, transparent 3px),
-      radial-gradient(circle at 40% 70%, rgba(255,255,255,.55) 0 2px, transparent 3px),
-      radial-gradient(circle at 85% 80%, rgba(255,255,255,.35) 0 1.5px, transparent 3px);
-    opacity:.35;
-    filter: blur(.2px);
-    animation: glitterMove 7s linear infinite;
-    mix-blend-mode: screen;
-    pointer-events:none;
-  }
-
-  /* calendar day sizes (slightly smaller + mobile-friendly) */
-  .cal-day{
-    height: 2.5rem;
-    border-radius: 0.85rem;
-    border: 1px solid rgba(255,255,255,.16);
-    background:
-      radial-gradient(circle at 30% 20%, rgba(251,191,36,.22), transparent 55%),
-      linear-gradient(135deg, rgba(236,72,153,.16), rgba(251,191,36,.12));
-    color: rgba(255,255,255,.92);
-    font-weight: 900;
-    transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
-  }
-  @media (min-width: 768px){
-    .cal-day{ height: 2.75rem; }
-  }
-
-  .cal-day:hover{
-    transform: translateY(-1px);
-    box-shadow: 0 14px 28px rgba(236,72,153,.22);
-    background:
-      radial-gradient(circle at 35% 20%, rgba(251,191,36,.30), transparent 60%),
-      linear-gradient(135deg, rgba(236,72,153,.24), rgba(251,191,36,.18));
-  }
-  .cal-day.other{ opacity: .35; }
-
-  .cal-day.selected{
-    outline: 3px solid rgba(236,72,153,.35);
-    border-color: rgba(236,72,153,.45);
-  }
-
-  .cal-day.practice{
-    background: linear-gradient(135deg, rgba(236,72,153,.95), rgba(251,191,36,.78));
-    border-color: rgba(255,255,255,.45);
-    color: white;
-    box-shadow: 0 20px 44px rgba(236,72,153,.28);
-  }
-
-  .pop { animation: pop .28s ease-out; }
-  @keyframes pop {
-    0% { transform: scale(.96); opacity: .2; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-
-  /* new: extra “pop” + float animations */
-  @keyframes floaty { 0%{ transform: translateY(0);} 50%{ transform: translateY(-4px);} 100%{ transform: translateY(0);} }
-  .floaty { animation: floaty 3.2s ease-in-out infinite; }
-
-  @keyframes glowPulse { 0%,100%{ box-shadow: 0 10px 30px rgba(236,72,153,.12);} 50%{ box-shadow: 0 18px 44px rgba(251,191,36,.20);} }
-  .glow-pulse { animation: glowPulse 2.8s ease-in-out infinite; }
-
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce){
-    .reveal, .lane-lines, .shimmer-line::after, .sparkle-border::after, .floaty, .glow-pulse { animation: none !important; transition: none !important; }
-  }
-
-  /* Countdown team photo overlay (translucent) */
-  .countdown-photo{
-    position: relative;
-    overflow: hidden;
-    border-radius: 1.5rem;
-  }
-  .countdown-photo::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image: url("IMG_0000.jpeg");
-    background-size: cover;
-    background-position: center;
-    opacity: .22;
-    filter: saturate(1.1) contrast(1.05);
-    transform: scale(1.03);
-    pointer-events:none;
-  }
-  .countdown-photo::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.65));
-    pointer-events:none;
-  }
-  .countdown-content{ position: relative; z-index: 1; }
-
-  /* smaller cards for athletes */
-  .athlete-card{
-    transition: transform .18s ease, box-shadow .18s ease;
-  }
-  .athlete-card:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 18px 30px rgba(0,0,0,.10);
-  }
-
-  /* ===== PRINT ONLY THE REGISTRATION PACKET ===== */
-  @media print {
-    body { background: #fff !important; }
-    header, footer { display: none !important; }
-
-    body * { visibility: hidden !important; }
-
-    #printPacket, #printPacket * { visibility: visible !important; }
-
-    #printPacket {
-      position: absolute !important;
-      left: 0 !important;
-      top: 0 !important;
-      width: 100% !important;
-    }
-
-    #printPacket .print-card { box-shadow: none !important; }
-    #printPacket input, #printPacket textarea {
-      border: 1px solid #777 !important;
-      background: #fff !important;
-      color: #000 !important;
-    }
-
-    .page-break { break-before: page; }
-  }
-
-  /* ===== MISSION GLAM (Barbie meets track / sunset) ===== */
-  .mission-glam {
-    position: relative;
-    overflow: hidden;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(236,72,153,.16), transparent 45%),
-      radial-gradient(circle at 80% 10%, rgba(251,191,36,.16), transparent 46%),
-      radial-gradient(circle at 35% 90%, rgba(236,72,153,.12), transparent 55%),
-      linear-gradient(135deg, rgba(251,191,36,.08), rgba(236,72,153,.10));
-    border-top: 1px solid rgba(236,72,153,.10);
-    border-bottom: 1px solid rgba(236,72,153,.10);
-  }
-
-  .value-chip{
-    background: rgba(255,255,255,.72);
-    border: 1px solid rgba(236,72,153,.20);
-    box-shadow: 0 12px 30px rgba(236,72,153,.10);
-  }
-
-  .quote-card{
-    background:
-      radial-gradient(circle at 18% 20%, rgba(251,191,36,.22), transparent 55%),
-      linear-gradient(135deg, rgba(236,72,153,.16), rgba(251,191,36,.12));
-    border: 1px solid rgba(236,72,153,.20);
-    box-shadow: 0 14px 40px rgba(236,72,153,.12);
-  }
-
-  .focus-card{
-    background:
-      radial-gradient(circle at 25% 15%, rgba(251,191,36,.22), transparent 55%),
-      linear-gradient(135deg, rgba(236,72,153,.18), rgba(251,191,36,.12));
-    border: 1px solid rgba(236,72,153,.18);
-    box-shadow: 0 18px 55px rgba(236,72,153,.12);
-  }
-
-  /* Mission card: clean glam (NOT the sparkly drift one) */
-  .mission-card-clean{
-    position: relative;
-    overflow: hidden;
-    border-radius: 1.5rem;
-    background: rgba(255,255,255,.62);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(236,72,153,.18);
-    box-shadow: 0 18px 55px rgba(236,72,153,.14);
-  }
-  .mission-card-clean::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: linear-gradient(135deg, rgba(236,72,153,.10), rgba(251,191,36,.10), rgba(255,255,255,.12));
-    pointer-events:none;
-  }
-  .mission-card-clean > *{
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ===== REGISTRATION PHOTO BACKDROP ===== */
-  .registration-photo-bg{
-    position: relative;
-    overflow: hidden;
-    border-radius: 1.75rem;
-  }
-
-  .registration-photo-bg::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background-image: url("./IMG_0949.jpeg");
-    background-size: cover;
-    background-position: center;
-    opacity: .28;
-    filter: saturate(1.1) contrast(1.05);
-    transform: scale(1.04);
-    pointer-events:none;
-  }
-
-  .registration-photo-bg::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.65));
-    pointer-events:none;
-  }
-
-  .registration-photo-bg > *{
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Vision: match Mission glam */
-  .vision-glam{
-    position: relative;
-    overflow: hidden;
-    background:
-      radial-gradient(circle at 12% 18%, rgba(236,72,153,.12), transparent 45%),
-      radial-gradient(circle at 85% 12%, rgba(251,191,36,.12), transparent 48%),
-      linear-gradient(135deg, rgba(251,191,36,.06), rgba(236,72,153,.08));
-    border-top: 1px solid rgba(236,72,153,.10);
-    border-bottom: 1px solid rgba(236,72,153,.10);
-  }
-
-  .vision-card{
-    background: rgba(255,255,255,.62);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(236,72,153,.18);
-    box-shadow: 0 18px 55px rgba(236,72,153,.12);
-    border-radius: 1.5rem;
-  }
-
-  .vision-photo{
-    border: 1px solid rgba(236,72,153,.18);
-    box-shadow: 0 18px 55px rgba(236,72,153,.14);
-    border-radius: 1.5rem;
-    overflow: hidden;
-  }
-    /* ===== FOOTER PHOTO BACKDROP (FULL SECTION – BRIGHTER) ===== */
-.footer-photo-bg{
+/* sparkle */
+.sparkle-border{
   position: relative;
   overflow: hidden;
+  border-radius: 1.5rem;
 }
-
-.footer-photo-bg::before{
+.sparkle-border::after{
   content:"";
   position:absolute;
-  inset:0;
-  background-image: url("./IMG_7010.jpeg");
-  background-size: cover;
-  background-position: center;
-  opacity: .42;                     /* 👈 brighter + more visible */
-  filter: saturate(1.15) contrast(1.08);
-  transform: scale(1.04);
+  inset:-40%;
+  background:
+    radial-gradient(circle at 20% 25%, rgba(255,255,255,.65) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 40%, rgba(255,255,255,.45) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 40% 70%, rgba(255,255,255,.55) 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 80%, rgba(255,255,255,.35) 0 1.5px, transparent 3px);
+  opacity:.35;
+  filter: blur(.2px);
+  mix-blend-mode: screen;
   pointer-events:none;
 }
 
-.footer-photo-bg::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,.45),
-    rgba(0,0,0,.60)
-  );                                 /* 👈 lighter overlay */
-  pointer-events:none;
+/* float + glow */
+@keyframes floaty { 0%{ transform: translateY(0);} 50%{ transform: translateY(-4px);} 100%{ transform: translateY(0);} }
+.floaty { animation: floaty 3.2s ease-in-out infinite; }
+
+@keyframes glowPulse { 0%,100%{ box-shadow: 0 10px 30px rgba(236,72,153,.12);} 50%{ box-shadow: 0 18px 44px rgba(251,191,36,.20);} }
+.glow-pulse { animation: glowPulse 2.8s ease-in-out infinite; }
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .reveal, .lane-lines, .shimmer-line::after, .sparkle-border::after, .floaty, .glow-pulse { animation: none !important; transition: none !important; }
 }
 
-.footer-photo-bg > *{
-  position: relative;
-  z-index: 1;
+/* athlete cards */
+.athlete-card{
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.athlete-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 30px rgba(0,0,0,.10);
 }
 
-
+/* print */
+@media print {
+  body { background: #fff !important; }
+  header, footer { display: none !important; }
+  body * { visibility: hidden !important; }
+  #printPacket, #printPacket * { visibility: visible !important; }
+  #printPacket {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+  }
+}
 </style>
 </head>
 
@@ -610,401 +356,9 @@
   </section>
 
 
-  <!-- SEASON (UPDATED: Season starts Apr 1 + Competitive meets May–July + Nationals dates correct) -->
-<section id="season" class="bg-black text-white py-16 md:py-20">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="reveal text-center mb-10">
-      <h3 class="font-heading text-6xl md:text-7xl tracking-wide text-gold">Season Countdown</h3>
-      <p class="text-white/70 mt-3 max-w-2xl mx-auto">
-        Season start is coming <span class="font-extrabold text-white">lace up, lock in, and get ready to fly.</span> 🏃‍♀️🏃‍♂️
-      </p>
-      <span class="block w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></span>
-    </div>
 
-    <div class="grid lg:grid-cols-2 gap-8 items-stretch">
 
-      <!-- Left: Countdown -->
-      <div class="reveal rounded-3xl border border-white/10 bg-white/5 shadow-xl p-6 md:p-8 countdown-photo">
-        <div class="countdown-content">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="text-white/80 text-xs uppercase tracking-[0.22em] font-extrabold">🏃‍♀️🏃‍♂️ Countdown to Season Start</p>
-              <h4 class="font-extrabold text-2xl md:text-3xl mt-2">April 1</h4>
-              <p class="text-white/70 text-sm mt-1">Sun City Sprinters • El Paso, TX</p>
-            </div>
 
-            <div class="hidden md:block text-right">
-              <p class="text-white/85 text-sm font-extrabold leading-snug">
-                “Champions are built in the details <span class="text-gold">be ready before the whistle.</span>”
-              </p>
-            </div>
-          </div>
-
-          <div class="mt-6 grid grid-cols-4 gap-3 text-center">
-            <div class="rounded-2xl bg-black/45 border border-white/10 p-3">
-              <p id="cdDays" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
-              <p class="text-[11px] text-white/75 font-bold mt-1 tracking-widest uppercase">Days</p>
-            </div>
-            <div class="rounded-2xl bg-black/45 border border-white/10 p-3">
-              <p id="cdHours" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
-              <p class="text-[11px] text-white/75 font-bold mt-1 tracking-widest uppercase">Hours</p>
-            </div>
-            <div class="rounded-2xl bg-black/45 border border-white/10 p-3">
-              <p id="cdMins" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
-              <p class="text-[11px] text-white/75 font-bold mt-1 tracking-widest uppercase">Mins</p>
-            </div>
-            <div class="rounded-2xl bg-black/45 border border-white/10 p-3">
-              <p id="cdSecs" class="text-3xl md:text-4xl font-extrabold text-gold">0</p>
-              <p class="text-[11px] text-white/75 font-bold mt-1 tracking-widest uppercase">Secs</p>
-            </div>
-          </div>
-
-          <div class="mt-6 shimmer-line"></div>
-        </div>
-      </div>
-
-      <!-- Right: Calendar + Legend -->
-      <div class="reveal rounded-3xl border border-white/10 bg-white/5 shadow-xl overflow-hidden">
-        <div class="px-5 py-4 flex items-center justify-between gap-3 border-b border-white/10">
-          <div>
-            <p class="text-white/70 text-xs uppercase tracking-widest font-extrabold">Season Calendar</p>
-            <p id="calMonthTitle" class="text-white text-xl md:text-2xl font-extrabold mt-1">Month</p>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <button id="calPrev" type="button"
-              class="px-3 py-2 rounded-full font-extrabold text-black bg-gold hover:opacity-95 transition hover:scale-105">
-              ‹
-            </button>
-            <button id="calNext" type="button"
-              class="px-3 py-2 rounded-full font-extrabold text-black bg-gold hover:opacity-95 transition hover:scale-105">
-              ›
-            </button>
-          </div>
-        </div>
-
-        <div class="p-5">
-          <div class="grid grid-cols-7 gap-2 text-center text-[11px] text-white/70 font-extrabold uppercase tracking-widest mb-3">
-            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-          </div>
-
-          <div id="calGrid" class="grid grid-cols-7 gap-2"></div>
-
-          <div class="mt-5 rounded-3xl p-5 md:p-6 sparkle-border sunset-card">
-            <p class="text-white/90 font-extrabold text-xs uppercase tracking-[0.22em] drop-shadow">
-              ✨ Sun City Standard ✨
-            </p>
-
-            <p class="mt-2 text-white text-lg md:text-xl font-extrabold leading-snug drop-shadow">
-              “Don’t show up to race day hoping! Show up <span class="text-gold">prepared.</span>”
-            </p>
-
-            <!-- Quick legend chips -->
-            <div class="mt-4 space-y-3">
-              <div class="flex items-center gap-3">
-                <span class="h-3.5 w-3.5 rounded-full bg-primary shadow"></span>
-                <p class="font-extrabold text-white drop-shadow text-sm">Season Starts (Apr 1)</p>
-              </div>
-
-              <div class="flex items-center gap-3">
-                <span class="h-3.5 w-3.5 rounded-full bg-gold shadow"></span>
-                <p class="font-extrabold text-white drop-shadow text-sm">Competitive Meets (May–July)</p>
-              </div>
-
-              <div class="flex items-center gap-3">
-                <span class="h-3.5 w-3.5 rounded-full bg-gold shadow"></span>
-                <p class="font-extrabold text-white drop-shadow text-sm">Junior Olympic Nationals (Jul 27–Aug 2)</p>
-              </div>
-            </div>
-
-            <div id="legendPanel" class="mt-4 rounded-2xl bg-black/30 border border-white/15 p-4">
-              <div class="flex items-start justify-between gap-3">
-                <div>
-                  <p class="text-white/80 text-[11px] uppercase tracking-widest font-extrabold">Selected Day</p>
-                  <p id="legendDate" class="text-white text-sm md:text-base font-extrabold mt-1">Tap a day on the calendar</p>
-                </div>
-
-                <button
-                  id="legendAction"
-                  type="button"
-                  class="hidden shrink-0 px-3 py-2 rounded-full bg-gold text-black font-extrabold text-xs hover:opacity-95 transition hover:scale-105"
-                >
-                  View Details
-                </button>
-              </div>
-
-              <div id="legendDrop" class="hidden mt-3">
-                <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
-                  <p id="legendTitle" class="text-white font-extrabold text-sm"></p>
-                  <div id="legendBody" class="mt-2 text-white/90 text-sm leading-relaxed"></div>
-                </div>
-              </div>
-            </div>
-
-            <a href="#register"
-              class="inline-flex items-center justify-center mt-5 w-full text-center bg-black text-white font-extrabold py-3 rounded-2xl hover:opacity-90 transition hover:scale-[1.01] floaty">
-              Register Info
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- UPDATED COUNTDOWN SCRIPT (Season Start = April 1) -->
-<script>
-  (function () {
-    const dEl = document.getElementById("cdDays");
-    const hEl = document.getElementById("cdHours");
-    const mEl = document.getElementById("cdMins");
-    const sEl = document.getElementById("cdSecs");
-
-    function nextApril1() {
-      const now = new Date();
-      let y = now.getFullYear();
-      let target = new Date(y, 3, 1, 17, 0, 0); // Apr is 3; 5pm local default
-      if (now.getTime() > target.getTime()) {
-        y += 1;
-        target = new Date(y, 3, 1, 17, 0, 0);
-      }
-      return target;
-    }
-
-    const target = nextApril1();
-
-    function tick() {
-      const now = new Date().getTime();
-      const diff = target.getTime() - now;
-
-      if (diff <= 0) {
-        dEl.textContent = "0";
-        hEl.textContent = "0";
-        mEl.textContent = "0";
-        sEl.textContent = "0";
-        return;
-      }
-
-      const sec = Math.floor(diff / 1000);
-      const days = Math.floor(sec / 86400);
-      const hours = Math.floor((sec % 86400) / 3600);
-      const mins = Math.floor((sec % 3600) / 60);
-      const secs = Math.floor(sec % 60);
-
-      dEl.textContent = days;
-      hEl.textContent = hours;
-      mEl.textContent = mins;
-      sEl.textContent = secs;
-    }
-
-    tick();
-    setInterval(tick, 1000);
-  })();
-</script>
-
-<!-- UPDATED CALENDAR SCRIPT (Season Start Apr 1 + Nationals dates) -->
-<script>
-  (function () {
-    const titleEl = document.getElementById("calMonthTitle");
-    const gridEl = document.getElementById("calGrid");
-    const prevBtn = document.getElementById("calPrev");
-    const nextBtn = document.getElementById("calNext");
-
-    const legendPanel = document.getElementById("legendPanel");
-    const legendDate = document.getElementById("legendDate");
-    const legendAction = document.getElementById("legendAction");
-    const legendDrop = document.getElementById("legendDrop");
-    const legendTitle = document.getElementById("legendTitle");
-    const legendBody = document.getElementById("legendBody");
-
-    const monthNames = [
-      "January","February","March","April","May","June",
-      "July","August","September","October","November","December"
-    ];
-
-    function nextApril1Year(){
-      const now = new Date();
-      const y = now.getFullYear();
-      const apr1 = new Date(y, 3, 1, 0, 0, 0);
-      return (now.getTime() > apr1.getTime()) ? (y + 1) : y;
-    }
-
-    const seasonYear = nextApril1Year();
-
-    const highlightSeasonStart = { y: seasonYear, m: 3, d: 1 }; // Apr 1
-    const juniorOlympicsNationalsStart = { y: 2026, m: 6, d: 27 }; // Jul 27, 2026
-
-    let view = new Date(seasonYear, 3, 1);
-    let selectedBtn = null;
-
-    function sameDate(y,m,d, date){
-      return date.getFullYear() === y && date.getMonth() === m && date.getDate() === d;
-    }
-
-    function formatLong(date){
-      return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-    }
-
-    function closeDrop(){
-      legendDrop.classList.add("hidden");
-    }
-
-    function openDrop(){
-      legendDrop.classList.remove("hidden");
-      legendDrop.classList.remove("pop");
-      void legendDrop.offsetWidth;
-      legendDrop.classList.add("pop");
-    }
-
-    function setLegendForDate(date){
-      legendDate.textContent = formatLong(date);
-
-      const isSeasonStart = sameDate(highlightSeasonStart.y, highlightSeasonStart.m, highlightSeasonStart.d, date);
-      const isNationalsStart = sameDate(juniorOlympicsNationalsStart.y, juniorOlympicsNationalsStart.m, juniorOlympicsNationalsStart.d, date);
-
-      legendAction.classList.remove("hidden");
-
-      if (isSeasonStart) {
-        legendTitle.textContent = "🏃‍♀️🏃‍♂️ Season Start — First Day Checklist";
-        legendBody.innerHTML = `
-          <ul class="list-disc list-inside space-y-1">
-            <li><span class="font-extrabold">Running shoes</span> (spikes if you have them)</li>
-            <li><span class="font-extrabold">Big refillable water bottle</span></li>
-            <li><span class="font-extrabold">USATF Youth membership</span> active</li>
-            <li><span class="font-extrabold">Club affiliation</span>: Sun City Sprinters</li>
-          </ul>
-          <div class="mt-3 rounded-xl bg-black/25 border border-white/10 p-3">
-            <p class="font-extrabold text-gold text-sm">Competitive Meets</p>
-            <p class="text-white/85 text-sm mt-1">
-              Meets run <span class="font-extrabold">May – July</span> •
-              <span class="font-extrabold">Regionals:</span> El Paso, Texas •
-              <span class="font-extrabold">Nationals:</span> Cerritos/Norwalk, California
-            </p>
-          </div>
-        `;
-        legendAction.textContent = "Open Details";
-        openDrop();
-
-      } else if (isNationalsStart) {
-        legendTitle.textContent = "🏆 USATF Junior Olympic Nationals";
-        legendBody.innerHTML = `
-          <p class="mb-2">
-            <span class="font-extrabold">July 27 – August 2, 2026</span><br>
-            <span class="font-extrabold">Falcon Stadium (Cerritos College)</span><br>
-            Norwalk / Cerritos, California
-          </p>
-          <div class="mt-3 rounded-xl bg-black/25 border border-white/10 p-3">
-            <p class="font-extrabold text-gold text-sm">Season Note</p>
-            <p class="text-white/85 text-sm mt-1">
-              Competitive meets run <span class="font-extrabold">May – July</span>.
-              <span class="font-extrabold">Regionals:</span> El Paso, Texas.
-            </p>
-          </div>
-        `;
-        legendAction.textContent = "View Details";
-        openDrop();
-
-      } else {
-        legendTitle.textContent = "✨ No posted event yet";
-        legendBody.innerHTML = `
-          <p class="text-white/90">Check back soon—meet dates will be added here.</p>
-          <div class="mt-3 rounded-xl bg-black/25 border border-white/10 p-3">
-            <p class="font-extrabold text-gold text-sm">Competitive Meets</p>
-            <p class="text-white/85 text-sm mt-1">
-              Meets run <span class="font-extrabold">May – July</span> •
-              <span class="font-extrabold">Regionals:</span> El Paso, Texas •
-              <span class="font-extrabold">Nationals:</span> Cerritos/Norwalk, California
-            </p>
-          </div>
-        `;
-        legendAction.textContent = "View";
-        closeDrop();
-      }
-    }
-
-    legendAction.addEventListener("click", () => {
-      if (legendDrop.classList.contains("hidden")) openDrop();
-      else closeDrop();
-    });
-
-    function render() {
-      const y = view.getFullYear();
-      const m = view.getMonth();
-
-      titleEl.textContent = `${monthNames[m]} ${y}`;
-      gridEl.innerHTML = "";
-
-      const first = new Date(y, m, 1);
-      const startDay = first.getDay();
-      const daysInMonth = new Date(y, m + 1, 0).getDate();
-      const prevDays = new Date(y, m, 0).getDate();
-
-      selectedBtn = null;
-
-      for (let i = 0; i < 42; i++) {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "cal-day";
-
-        let dayNum;
-        let cellDate;
-        let isOtherMonth = false;
-
-        if (i < startDay) {
-          dayNum = prevDays - (startDay - 1 - i);
-          isOtherMonth = true;
-          cellDate = new Date(y, m - 1, dayNum);
-        } else if (i >= startDay + daysInMonth) {
-          dayNum = i - (startDay + daysInMonth) + 1;
-          isOtherMonth = true;
-          cellDate = new Date(y, m + 1, dayNum);
-        } else {
-          dayNum = i - startDay + 1;
-          cellDate = new Date(y, m, dayNum);
-        }
-
-        if (isOtherMonth) btn.classList.add("other");
-
-        if (sameDate(highlightSeasonStart.y, highlightSeasonStart.m, highlightSeasonStart.d, cellDate)) {
-          btn.classList.add("practice");
-          btn.innerHTML = `<div class="leading-none">${dayNum}</div><div class="text-[10px] mt-1 font-extrabold">START</div>`;
-        } else if (sameDate(juniorOlympicsNationalsStart.y, juniorOlympicsNationalsStart.m, juniorOlympicsNationalsStart.d, cellDate)) {
-          btn.classList.add("practice");
-          btn.innerHTML = `<div class="leading-none">${dayNum}</div><div class="text-[10px] mt-1 font-extrabold">NATS</div>`;
-        } else {
-          btn.textContent = dayNum;
-        }
-
-        btn.addEventListener("click", () => {
-          if (selectedBtn) selectedBtn.classList.remove("selected");
-          btn.classList.add("selected");
-          selectedBtn = btn;
-
-          setLegendForDate(cellDate);
-
-          legendPanel.classList.remove("pop");
-          void legendPanel.offsetWidth;
-          legendPanel.classList.add("pop");
-        });
-
-        gridEl.appendChild(btn);
-      }
-    }
-
-    prevBtn.addEventListener("click", () => {
-      view = new Date(view.getFullYear(), view.getMonth() - 1, 1);
-      render();
-    });
-
-    nextBtn.addEventListener("click", () => {
-      view = new Date(view.getFullYear(), view.getMonth() + 1, 1);
-      render();
-    });
-
-    render();
-  })();
-</script>
 
   <!-- TEAM (smaller cards + tighter spacing) -->
 <section id="team" class="py-14 md:py-16 bg-white">
