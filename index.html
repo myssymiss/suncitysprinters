@@ -31,119 +31,285 @@
     }
   </script>
 <style>
-body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+  body { font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
 
-/* reveal animation */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.show { opacity: 1; transform: translateY(0); }
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.show { opacity: 1; transform: translateY(0); }
 
-/* underline */
-.underline-anim::after{
-  content:"";
-  display:block;
-  height:6px;
-  width:92px;
-  margin:12px auto 0;
-  border-radius:999px;
-  background: linear-gradient(90deg, #fbbf24, #ec4899);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .7s ease;
-}
-.reveal.show .underline-anim::after{ transform: scaleX(1); }
-
-/* lane lines */
-@keyframes laneMove { 0% { transform: translateX(-10%);} 100% { transform: translateX(10%);} }
-.lane-lines {
-  background-image:
-    linear-gradient(to right,
-      rgba(255,255,255,.10) 0,
-      rgba(255,255,255,.10) 18%,
-      transparent 18%,
-      transparent 50%,
-      rgba(255,255,255,.10) 50%,
-      rgba(255,255,255,.10) 68%,
-      transparent 68%,
-      transparent 100%);
-  background-size: 140px 100%;
-  animation: laneMove 7s ease-in-out infinite alternate;
-}
-
-/* shimmer */
-.shimmer-line{
-  position: relative;
-  height: 6px;
-  border-radius: 999px;
-  overflow: hidden;
-  background: rgba(251,191,36,.22);
-}
-.shimmer-line::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  transform: translateX(-70%);
-  background: linear-gradient(90deg, transparent, rgba(251,191,36,.9), rgba(236,72,153,.7), transparent);
-  animation: shimmer 2.6s ease-in-out infinite;
-}
-@keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
-
-summary::-webkit-details-marker { display: none; }
-
-/* sparkle */
-.sparkle-border{
-  position: relative;
-  overflow: hidden;
-  border-radius: 1.5rem;
-}
-.sparkle-border::after{
-  content:"";
-  position:absolute;
-  inset:-40%;
-  background:
-    radial-gradient(circle at 20% 25%, rgba(255,255,255,.65) 0 2px, transparent 3px),
-    radial-gradient(circle at 70% 40%, rgba(255,255,255,.45) 0 1.5px, transparent 3px),
-    radial-gradient(circle at 40% 70%, rgba(255,255,255,.55) 0 2px, transparent 3px),
-    radial-gradient(circle at 85% 80%, rgba(255,255,255,.35) 0 1.5px, transparent 3px);
-  opacity:.35;
-  filter: blur(.2px);
-  mix-blend-mode: screen;
-  pointer-events:none;
-}
-
-/* float + glow */
-@keyframes floaty { 0%{ transform: translateY(0);} 50%{ transform: translateY(-4px);} 100%{ transform: translateY(0);} }
-.floaty { animation: floaty 3.2s ease-in-out infinite; }
-
-@keyframes glowPulse { 0%,100%{ box-shadow: 0 10px 30px rgba(236,72,153,.12);} 50%{ box-shadow: 0 18px 44px rgba(251,191,36,.20);} }
-.glow-pulse { animation: glowPulse 2.8s ease-in-out infinite; }
-
-/* reduce motion */
-@media (prefers-reduced-motion: reduce){
-  .reveal, .lane-lines, .shimmer-line::after, .sparkle-border::after, .floaty, .glow-pulse { animation: none !important; transition: none !important; }
-}
-
-/* athlete cards */
-.athlete-card{
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.athlete-card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 18px 30px rgba(0,0,0,.10);
-}
-
-/* print */
-@media print {
-  body { background: #fff !important; }
-  header, footer { display: none !important; }
-  body * { visibility: hidden !important; }
-  #printPacket, #printPacket * { visibility: visible !important; }
-  #printPacket {
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: 100% !important;
+  /* animated underline */
+  .underline-anim::after{
+    content:"";
+    display:block;
+    height:6px;
+    width:92px;
+    margin:12px auto 0;
+    border-radius:999px;
+    background: linear-gradient(90deg, #fbbf24, #ec4899);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .7s ease;
   }
-}
+  .reveal.show .underline-anim::after{ transform: scaleX(1); }
+
+  /* subtle moving "track lanes" background */
+  @keyframes laneMove { 0% { transform: translateX(-10%);} 100% { transform: translateX(10%);} }
+  .lane-lines {
+    background-image:
+      linear-gradient(to right,
+        rgba(255,255,255,.10) 0,
+        rgba(255,255,255,.10) 18%,
+        transparent 18%,
+        transparent 50%,
+        rgba(255,255,255,.10) 50%,
+        rgba(255,255,255,.10) 68%,
+        transparent 68%,
+        transparent 100%);
+    background-size: 140px 100%;
+    animation: laneMove 7s ease-in-out infinite alternate;
+  }
+
+  /* subtle gold shimmer line */
+  .shimmer-line{
+    position: relative;
+    height: 6px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(251,191,36,.22);
+  }
+  .shimmer-line::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    transform: translateX(-70%);
+    background: linear-gradient(90deg, transparent, rgba(251,191,36,.9), rgba(236,72,153,.7), transparent);
+    animation: shimmer 2.6s ease-in-out infinite;
+  }
+  @keyframes shimmer { 0%{ transform: translateX(-80%);} 100%{ transform: translateX(80%);} }
+
+  /* DETAILS dropdown polish */
+  summary::-webkit-details-marker { display: none; }
+
+  /* sparkle border */
+  .sparkle-border{
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+  }
+  .sparkle-border::after{
+    content:"";
+    position:absolute;
+    inset:-40%;
+    background:
+      radial-gradient(circle at 20% 25%, rgba(255,255,255,.65) 0 2px, transparent 3px),
+      radial-gradient(circle at 70% 40%, rgba(255,255,255,.45) 0 1.5px, transparent 3px),
+      radial-gradient(circle at 40% 70%, rgba(255,255,255,.55) 0 2px, transparent 3px),
+      radial-gradient(circle at 85% 80%, rgba(255,255,255,.35) 0 1.5px, transparent 3px);
+    opacity:.35;
+    filter: blur(.2px);
+    mix-blend-mode: screen;
+    pointer-events:none;
+  }
+
+  /* extra “pop” + float animations */
+  @keyframes floaty { 0%{ transform: translateY(0);} 50%{ transform: translateY(-4px);} 100%{ transform: translateY(0);} }
+  .floaty { animation: floaty 3.2s ease-in-out infinite; }
+
+  @keyframes glowPulse { 0%,100%{ box-shadow: 0 10px 30px rgba(236,72,153,.12);} 50%{ box-shadow: 0 18px 44px rgba(251,191,36,.20);} }
+  .glow-pulse { animation: glowPulse 2.8s ease-in-out infinite; }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .lane-lines, .shimmer-line::after, .sparkle-border::after, .floaty, .glow-pulse { animation: none !important; transition: none !important; }
+  }
+
+  /* smaller cards for athletes */
+  .athlete-card{
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .athlete-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 18px 30px rgba(0,0,0,.10);
+  }
+
+  /* ===== PRINT ONLY THE REGISTRATION PACKET ===== */
+  @media print {
+    body { background: #fff !important; }
+    header, footer { display: none !important; }
+
+    body * { visibility: hidden !important; }
+
+    #printPacket, #printPacket * { visibility: visible !important; }
+
+    #printPacket {
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+      width: 100% !important;
+    }
+
+    #printPacket .print-card { box-shadow: none !important; }
+    #printPacket input, #printPacket textarea {
+      border: 1px solid #777 !important;
+      background: #fff !important;
+      color: #000 !important;
+    }
+
+    .page-break { break-before: page; }
+  }
+
+  /* ===== MISSION GLAM (Barbie meets track / sunset) ===== */
+  .mission-glam {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(236,72,153,.16), transparent 45%),
+      radial-gradient(circle at 80% 10%, rgba(251,191,36,.16), transparent 46%),
+      radial-gradient(circle at 35% 90%, rgba(236,72,153,.12), transparent 55%),
+      linear-gradient(135deg, rgba(251,191,36,.08), rgba(236,72,153,.10));
+    border-top: 1px solid rgba(236,72,153,.10);
+    border-bottom: 1px solid rgba(236,72,153,.10);
+  }
+
+  .value-chip{
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(236,72,153,.20);
+    box-shadow: 0 12px 30px rgba(236,72,153,.10);
+  }
+
+  .quote-card{
+    background:
+      radial-gradient(circle at 18% 20%, rgba(251,191,36,.22), transparent 55%),
+      linear-gradient(135deg, rgba(236,72,153,.16), rgba(251,191,36,.12));
+    border: 1px solid rgba(236,72,153,.20);
+    box-shadow: 0 14px 40px rgba(236,72,153,.12);
+  }
+
+  .focus-card{
+    background:
+      radial-gradient(circle at 25% 15%, rgba(251,191,36,.22), transparent 55%),
+      linear-gradient(135deg, rgba(236,72,153,.18), rgba(251,191,36,.12));
+    border: 1px solid rgba(236,72,153,.18);
+    box-shadow: 0 18px 55px rgba(236,72,153,.12);
+  }
+
+  /* Mission card: clean glam */
+  .mission-card-clean{
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    background: rgba(255,255,255,.62);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(236,72,153,.18);
+    box-shadow: 0 18px 55px rgba(236,72,153,.14);
+  }
+  .mission-card-clean::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(135deg, rgba(236,72,153,.10), rgba(251,191,36,.10), rgba(255,255,255,.12));
+    pointer-events:none;
+  }
+  .mission-card-clean > *{
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== REGISTRATION PHOTO BACKDROP ===== */
+  .registration-photo-bg{
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.75rem;
+  }
+
+  .registration-photo-bg::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: url("./IMG_0949.jpeg");
+    background-size: cover;
+    background-position: center;
+    opacity: .28;
+    filter: saturate(1.1) contrast(1.05);
+    transform: scale(1.04);
+    pointer-events:none;
+  }
+
+  .registration-photo-bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.65));
+    pointer-events:none;
+  }
+
+  .registration-photo-bg > *{
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Vision: match Mission glam */
+  .vision-glam{
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 12% 18%, rgba(236,72,153,.12), transparent 45%),
+      radial-gradient(circle at 85% 12%, rgba(251,191,36,.12), transparent 48%),
+      linear-gradient(135deg, rgba(251,191,36,.06), rgba(236,72,153,.08));
+    border-top: 1px solid rgba(236,72,153,.10);
+    border-bottom: 1px solid rgba(236,72,153,.10);
+  }
+
+  .vision-card{
+    background: rgba(255,255,255,.62);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(236,72,153,.18);
+    box-shadow: 0 18px 55px rgba(236,72,153,.12);
+    border-radius: 1.5rem;
+  }
+
+  .vision-photo{
+    border: 1px solid rgba(236,72,153,.18);
+    box-shadow: 0 18px 55px rgba(236,72,153,.14);
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+
+  /* ===== FOOTER PHOTO BACKDROP (FULL SECTION – BRIGHTER) ===== */
+  .footer-photo-bg{
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-photo-bg::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: url("./IMG_7010.jpeg");
+    background-size: cover;
+    background-position: center;
+    opacity: .42;
+    filter: saturate(1.15) contrast(1.08);
+    transform: scale(1.04);
+    pointer-events:none;
+  }
+
+  .footer-photo-bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(
+      180deg,
+      rgba(0,0,0,.45),
+      rgba(0,0,0,.60)
+    );
+    pointer-events:none;
+  }
+
+  .footer-photo-bg > *{
+    position: relative;
+    z-index: 1;
+  }
 </style>
 </head>
 
