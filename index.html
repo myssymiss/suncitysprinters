@@ -431,33 +431,10 @@
   </div>
 
 </section>
-  <!-- MISSION: SUN CITY SPRINTERS -->
-<section id="mission" class="relative py-16 md:py-24 overflow-hidden">
+  <!-- MISSION: CLEAN GLAM SPLIT LAYOUT -->
+<section id="mission" class="py-16 md:py-24 bg-white overflow-hidden">
 
-  <!-- BACKGROUND PHOTO -->
-  <div class="absolute inset-0">
-    <img
-      src="DSC08670.jpg"
-      alt="Sun City Sprinters athletes"
-      class="w-full h-full object-cover object-[center_58%]"
-    />
-
-    <!-- Light overlay so the team photo stays visible -->
-    <div class="absolute inset-0 bg-white/48"></div>
-
-    <!-- Pink + Gold Glam Glow -->
-    <div
-      class="absolute inset-0 pointer-events-none"
-      style="background:
-        radial-gradient(circle at 10% 20%, rgba(236,72,153,.20), transparent 34%),
-        radial-gradient(circle at 90% 15%, rgba(251,191,36,.18), transparent 36%),
-        radial-gradient(circle at 75% 85%, rgba(236,72,153,.14), transparent 38%);">
-    </div>
-  </div>
-
-
-  <!-- CONTENT -->
-  <div class="relative z-10 max-w-6xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-6">
 
     <!-- HEADER -->
     <div class="reveal text-center mb-12">
@@ -466,7 +443,7 @@
         Purpose • Community • Growth
       </p>
 
-      <h3 class="font-heading text-6xl md:text-7xl text-primary mt-3 tracking-wide drop-shadow-sm">
+      <h3 class="font-heading text-6xl md:text-7xl text-primary mt-3 tracking-wide">
         Our Mission
       </h3>
 
@@ -479,156 +456,211 @@
     </div>
 
 
-    <!-- TOP ROW -->
-    <div class="grid lg:grid-cols-2 gap-8 items-start">
+    <!-- TOP FEATURE AREA -->
+    <div class="grid lg:grid-cols-2 gap-8 items-stretch">
 
-      <!-- WHO WE ARE -->
+      <!-- PHOTO -->
       <div
-        class="reveal rounded-[2rem] p-7 md:p-9
-               bg-white/74 backdrop-blur-md
-               border border-primary/25
-               shadow-[0_20px_55px_rgba(236,72,153,.18)]"
+        class="reveal relative rounded-[2rem] overflow-hidden
+               min-h-[420px] md:min-h-[560px]
+               border border-primary/20
+               shadow-[0_25px_70px_rgba(236,72,153,.18)]"
       >
 
-        <p class="uppercase tracking-[0.25em] text-[11px] font-extrabold text-gold">
-          Who We Are
-        </p>
+        <img
+          src="DSC08670.jpg"
+          alt="Sun City Sprinters athletes"
+          class="absolute inset-0 w-full h-full object-cover object-center"
+        />
 
-        <h4 class="font-heading text-4xl md:text-5xl tracking-wide text-primary mt-2">
-          More Than a Track Club
-        </h4>
+        <!-- VERY light bottom fade only -->
+        <div
+          class="absolute inset-0"
+          style="background:linear-gradient(
+            to top,
+            rgba(0,0,0,.28),
+            transparent 38%
+          );">
+        </div>
 
-        <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
-          Sun City Sprinters is a
-          <span class="font-extrabold">501(c)(3) nonprofit track &amp; field program</span>
-          committed to developing athletes while creating positive opportunities
-          for youth in our community.
-        </p>
+        <!-- Small photo caption -->
+        <div class="absolute bottom-5 left-5 right-5">
 
-        <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
-          We welcome athletes of all experience levels and provide a supportive
-          environment where they can learn, grow, build confidence, discover their
-          strengths, and develop at their own pace.
-        </p>
+          <div
+            class="inline-block rounded-2xl
+                   bg-white/88
+                   border border-white/70
+                   px-5 py-3
+                   shadow-lg"
+          >
 
-        <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
-          Our goal goes beyond developing better athletes. We want our athletes
-          to build discipline, confidence, sportsmanship, accountability, and
-          character they can carry with them on and off the track.
-        </p>
+            <p class="text-primary font-extrabold text-sm">
+              Building athletes. Building confidence.
+            </p>
+
+          </div>
+
+        </div>
 
       </div>
 
 
-      <!-- OUR PROGRAM -->
+      <!-- WHO WE ARE -->
+      <div
+        class="reveal relative rounded-[2rem] overflow-hidden
+               border border-primary/20
+               shadow-[0_22px_60px_rgba(236,72,153,.15)]
+               bg-gradient-to-br from-white via-pink-50 to-yellow-50"
+      >
+
+        <!-- Decorative glow -->
+        <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-primary/10 blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-20 w-72 h-72 rounded-full bg-gold/15 blur-3xl"></div>
+
+        <!-- Gold/Pink top accent -->
+        <div
+          class="absolute top-0 left-0 right-0 h-2"
+          style="background:linear-gradient(90deg,#fbbf24,#ec4899,#fbbf24);">
+        </div>
+
+        <div class="relative p-7 md:p-10">
+
+          <p class="uppercase tracking-[0.25em] text-[11px] font-extrabold text-gold">
+            Who We Are
+          </p>
+
+          <h4 class="font-heading text-4xl md:text-5xl tracking-wide text-primary mt-2">
+            More Than a Track Club
+          </h4>
+
+          <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
+            Sun City Sprinters is a
+            <span class="font-extrabold">501(c)(3) nonprofit track &amp; field program</span>
+            committed to helping athletes develop while creating positive
+            opportunities for youth in our community.
+          </p>
+
+          <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
+            We welcome athletes of all experience levels and provide a place where
+            they can learn, grow, build confidence, discover their strengths, and
+            develop at their own pace.
+          </p>
+
+          <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
+            Our program is about more than times and medals. We want athletes to
+            leave with stronger habits, confidence, discipline, sportsmanship,
+            and a belief in what they are capable of.
+          </p>
+
+          <!-- Small highlight -->
+          <div
+            class="mt-7 rounded-2xl p-5
+                   border border-primary/15
+                   bg-white/70"
+          >
+
+            <p class="font-extrabold text-primary">
+              Development comes first.
+            </p>
+
+            <p class="mt-1 text-sm leading-relaxed text-gray-700">
+              We believe progress looks different for every athlete, and that
+              progress deserves to be recognized.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- LOWER TWO CARDS -->
+    <div class="grid lg:grid-cols-2 gap-8 mt-8">
+
+      <!-- OUR TRAINING -->
       <div
         class="reveal rounded-[2rem] p-7 md:p-9
-               bg-white/74 backdrop-blur-md
-               border border-gold/35
-               shadow-[0_20px_55px_rgba(251,191,36,.16)]"
+               border border-gold/30
+               bg-gradient-to-br from-yellow-50 via-white to-pink-50
+               shadow-[0_20px_50px_rgba(251,191,36,.14)]"
       >
 
         <p class="uppercase tracking-[0.25em] text-[11px] font-extrabold text-primary">
-          Our Program
+          Our Training
         </p>
 
-        <h4 class="font-heading text-4xl md:text-5xl tracking-wide text-gray-900 mt-2">
+        <h4 class="font-heading text-4xl tracking-wide text-gray-900 mt-2">
           Built to Develop
         </h4>
 
         <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
-          Our program combines
+          Our coaching is built around
           <span class="font-extrabold">
-            science-based training, proper running mechanics, and age-appropriate athlete development
+            science-based training, proper running mechanics, and age-appropriate development.
           </span>
-          to help athletes become faster, stronger, more efficient runners.
+          We focus on building strong fundamentals and helping athletes move more efficiently,
+          become faster, and develop safely over time.
         </p>
 
         <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
-          We offer structured
+          We also offer structured
           <span class="font-extrabold text-primary">
-            speed and performance training programs
+            speed and performance training
           </span>
-          designed to develop acceleration, sprint mechanics, coordination,
-          strength, conditioning, and overall athletic performance.
+          for athletes who compete in other sports.
         </p>
 
-        <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
-          From athletes learning track for the first time to experienced
-          competitors working toward their next goal, our coaching focuses on
-          strong fundamentals and long-term development.
-        </p>
+        <div class="mt-6 rounded-2xl border border-gold/25 bg-white/70 p-5">
 
-        <!-- OTHER SPORTS -->
-        <div class="mt-6 pt-5 border-t border-gold/30">
-
-          <p class="font-extrabold text-primary">
-            Track competition isn't required.
+          <p class="font-extrabold text-gray-900">
+            Track meets are optional.
           </p>
 
           <p class="mt-2 text-sm md:text-base leading-relaxed text-gray-700">
-            Athletes from football, soccer, basketball, volleyball, and other
-            sports are welcome to train with us. Our speed-development programs
-            provide focused coaching to improve speed, running mechanics,
-            conditioning, and overall athletic performance without requiring
-            athletes to compete in track meets.
+            Athletes can train with Sun City Sprinters to improve acceleration,
+            speed, running mechanics, conditioning, coordination, and overall
+            athletic performance without competing in track meets.
           </p>
 
         </div>
 
       </div>
 
-    </div>
 
-
-    <!-- OPEN SPACE TO SHOW BACKGROUND PHOTO -->
-    <div class="h-24 md:h-36"></div>
-
-
-    <!-- OUR PURPOSE -->
-    <div class="reveal max-w-4xl mx-auto">
-
+      <!-- OUR PURPOSE -->
       <div
-        class="rounded-[2rem] p-7 md:p-9
-               bg-white/72 backdrop-blur-md
+        class="reveal rounded-[2rem] p-7 md:p-9
                border border-primary/25
-               shadow-[0_20px_55px_rgba(236,72,153,.16)]"
+               bg-gradient-to-br from-pink-50 via-white to-yellow-50
+               shadow-[0_20px_50px_rgba(236,72,153,.14)]"
       >
 
-        <div class="text-center">
-
-          <p class="uppercase tracking-[0.25em] text-[11px] font-extrabold text-gold">
-            Our Purpose
-          </p>
-
-          <h4 class="font-heading text-4xl md:text-5xl tracking-wide text-primary mt-2">
-            Opportunity Beyond the Track
-          </h4>
-
-        </div>
-
-        <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800 text-center">
-          As a nonprofit, our purpose goes beyond practices and competition.
-          Through
-          <span class="font-extrabold">
-            fundraising, donations, sponsorships, and community partnerships,
-          </span>
-          we work to create opportunities for our athletes and help reduce
-          financial barriers that can make competitive youth sports difficult
-          for families.
+        <p class="uppercase tracking-[0.25em] text-[11px] font-extrabold text-gold">
+          Our Purpose
         </p>
 
-        <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800 text-center">
-          Community support helps us provide opportunities for athletes to
-          train, compete, travel, and experience new levels of the sport while
-          keeping our program focused on development and accessibility.
+        <h4 class="font-heading text-4xl tracking-wide text-primary mt-2">
+          Opportunity Beyond the Track
+        </h4>
+
+        <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
+          Through fundraising, donations, sponsorships, and community partnerships,
+          we work to create opportunities for athletes and help reduce financial
+          barriers for families whenever possible.
         </p>
 
-        <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800 text-center font-semibold">
-          For us, success isn't measured only by medals or where an athlete
-          finishes. It's watching an athlete set a personal best, gain
-          confidence, learn discipline, reach a new level, or accomplish
-          something they once didn't believe they could.
+        <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
+          Community support helps our program provide access to coaching,
+          competition, travel opportunities, and experiences that can help
+          athletes continue growing in the sport.
+        </p>
+
+        <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
+          For us, success can be a personal best, improved technique, new confidence,
+          greater discipline, or reaching a goal an athlete once thought was out of reach.
         </p>
 
       </div>
@@ -636,25 +668,21 @@
     </div>
 
 
-    <!-- OPEN PHOTO SPACE -->
-    <div class="h-24 md:h-40"></div>
-
-
-    <!-- SMALL QUOTE LOWER ON PHOTO -->
-    <div class="reveal max-w-xl mx-auto">
+    <!-- SMALL QUOTE -->
+    <div class="reveal mt-10 max-w-2xl mx-auto">
 
       <div
-        class="rounded-2xl px-5 py-4 md:px-6 md:py-5 text-center
-               bg-white/62 backdrop-blur-md
-               border border-gold/35
-               shadow-[0_15px_35px_rgba(236,72,153,.13)]"
+        class="rounded-2xl px-6 py-5 text-center
+               border border-primary/20
+               bg-gradient-to-r from-pink-50 via-white to-yellow-50
+               shadow-lg"
       >
 
         <p class="uppercase tracking-[0.28em] text-[9px] md:text-[10px] font-extrabold text-primary">
           Legendary Mindset
         </p>
 
-        <p class="mt-2 text-sm md:text-base font-bold text-gray-900 leading-relaxed">
+        <p class="mt-2 text-sm md:text-base font-bold text-gray-900">
           “Never underestimate the power of dreams and the influence of the human spirit.”
         </p>
 
@@ -674,10 +702,10 @@
         href="donate.html"
         class="inline-flex items-center justify-center
                px-10 md:px-12 py-4 rounded-full
-               font-extrabold shadow-2xl
+               font-extrabold shadow-xl
                hover:scale-105 transition glow-pulse"
         style="
-          background: linear-gradient(90deg,#fbbf24,#ec4899);
+          background:linear-gradient(90deg,#fbbf24,#ec4899);
           color:#111;
         "
       >
@@ -687,8 +715,10 @@
     </div>
 
   </div>
+
 </section>
 <!-- END MISSION -->
+  
   <!-- VISION (MATCHES MISSION COLORS) -->
   <section class="vision-glam py-16 md:py-20">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
