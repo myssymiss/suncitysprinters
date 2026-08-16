@@ -3,14 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sun City Sprinters 2024 — where it all began. Explore our first season, from early practices to Nationals.">
+
+  <meta
+    name="description"
+    content="Sun City Sprinters 2024 — where it all began. Explore our first season, from early practices to Nationals."
+  >
+
   <title>2024 — Where It All Began | Sun City Sprinters</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
     :root{
       --berry:#690638;
       --deep:#3b0828;
@@ -63,7 +73,10 @@
       color:var(--deep);
     }
 
-    /* HEADER */
+
+    /* =========================
+       HEADER
+    ========================= */
 
     .site-header{
       position:fixed;
@@ -126,7 +139,10 @@
       color:var(--gold);
     }
 
-    /* HERO */
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero{
       min-height:100svh;
@@ -136,10 +152,25 @@
       overflow:hidden;
       padding:145px 20px 80px;
       color:#fff;
+
       background:
-        radial-gradient(circle at 16% 19%,rgba(255,225,128,.38),transparent 23%),
-        radial-gradient(circle at 83% 27%,rgba(255,104,185,.48),transparent 27%),
-        linear-gradient(132deg,#65043a,#bd176f 47%,#ef559e 76%,#f2ae46 130%);
+        radial-gradient(
+          circle at 16% 19%,
+          rgba(255,225,128,.38),
+          transparent 23%
+        ),
+        radial-gradient(
+          circle at 83% 27%,
+          rgba(255,104,185,.48),
+          transparent 27%
+        ),
+        linear-gradient(
+          132deg,
+          #65043a,
+          #bd176f 47%,
+          #ef559e 76%,
+          #f2ae46 130%
+        );
     }
 
     .hero:before,
@@ -184,6 +215,7 @@
       margin:18px 0 8px;
       padding-top:.08em;
       letter-spacing:-.03em;
+
       background:linear-gradient(
         145deg,
         #fff 18%,
@@ -191,9 +223,12 @@
         #fff 72%,
         #ffadd4
       );
+
       background-clip:text;
       -webkit-background-clip:text;
+
       color:transparent;
+
       text-shadow:0 25px 70px rgba(58,0,31,.2);
     }
 
@@ -203,8 +238,14 @@
       margin:0;
     }
 
+
+    /* KEEP THE CURSIVE */
+
     .script{
-      font:clamp(31px,4vw,54px)/1 "Great Vibes";
+      font-family:"Great Vibes",cursive;
+      font-size:clamp(31px,4vw,54px);
+      line-height:1.15;
+      font-weight:400;
       color:#ffe397;
       margin:15px 0 24px;
     }
@@ -229,7 +270,10 @@
       padding:8px;
     }
 
-    /* CHAPTER NAV */
+
+    /* =========================
+       CHAPTER NAV
+    ========================= */
 
     .chapter-nav{
       position:sticky;
@@ -263,7 +307,10 @@
       color:var(--pink);
     }
 
-    /* CHAPTERS */
+
+    /* =========================
+       CHAPTERS
+    ========================= */
 
     .chapter{
       padding:105px 0;
@@ -310,13 +357,16 @@
     }
 
     .chapter-copy{
-      max-width:690px;
+      max-width:760px;
       color:#69445c;
       line-height:1.75;
       margin:-12px 0 33px 140px;
     }
 
-    /* GALLERY */
+
+    /* =========================
+       GALLERY
+    ========================= */
 
     .gallery-shell{
       position:relative;
@@ -388,6 +438,11 @@
       margin-top:4px;
     }
 
+
+    /* =========================
+       ARROWS
+    ========================= */
+
     .arrow{
       position:absolute;
       z-index:5;
@@ -397,7 +452,14 @@
       height:50px;
       border-radius:50%;
       border:2px solid #fff;
-      background:linear-gradient(135deg,var(--pink),var(--gold));
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--pink),
+          var(--gold)
+        );
+
       box-shadow:0 10px 25px #78255155;
       color:#fff;
       font-size:28px;
@@ -427,26 +489,10 @@
       letter-spacing:.18em;
     }
 
-    .empty-note{
-      display:none;
-      padding:40px;
-      border:2px dashed #e6a8c7;
-      border-radius:20px;
-      color:#8d5270;
-      text-align:center;
-      background:#fff;
-    }
 
-    .empty .empty-note{
-      display:block;
-    }
-
-    .empty .gallery-shell,
-    .empty .gallery-note{
-      display:none;
-    }
-
-    /* QUOTE */
+    /* =========================
+       QUOTE
+    ========================= */
 
     .quote-band{
       padding:85px 22px;
@@ -478,13 +524,21 @@
       color:var(--gold);
     }
 
-    /* FINALE */
+
+    /* =========================
+       FINALE
+    ========================= */
 
     .finale{
       padding:125px 20px;
       text-align:center;
+
       background:
-        radial-gradient(circle at 50% 15%,#ffdbe9,transparent 35%),
+        radial-gradient(
+          circle at 50% 15%,
+          #ffdbe9,
+          transparent 35%
+        ),
         #fff;
     }
 
@@ -499,6 +553,8 @@
     }
 
     .finale .script{
+      font-family:"Great Vibes",cursive;
+      font-weight:400;
       color:var(--pink);
     }
 
@@ -532,7 +588,10 @@
       font-size:12px;
     }
 
-    /* LIGHTBOX */
+
+    /* =========================
+       LIGHTBOX
+    ========================= */
 
     .lightbox{
       position:fixed;
@@ -594,7 +653,10 @@
       letter-spacing:.14em;
     }
 
-    /* REVEAL */
+
+    /* =========================
+       REVEAL
+    ========================= */
 
     .reveal{
       opacity:0;
@@ -607,23 +669,10 @@
       transform:none;
     }
 
-    @media(prefers-reduced-motion:reduce){
-      *{
-        scroll-behavior:auto!important;
-      }
 
-      .reveal{
-        opacity:1;
-        transform:none;
-        transition:none;
-      }
-
-      .card img{
-        transition:none;
-      }
-    }
-
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media(max-width:700px){
 
@@ -713,15 +762,43 @@
       .lb-next{
         right:2px;
       }
+
     }
+
+
+    @media(prefers-reduced-motion:reduce){
+
+      *{
+        scroll-behavior:auto!important;
+      }
+
+      .reveal{
+        opacity:1;
+        transform:none;
+        transition:none;
+      }
+
+      .card img{
+        transition:none;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
 
-  <a class="skip" href="#story">Skip to the story</a>
+  <a class="skip" href="#story">
+    Skip to the story
+  </a>
+
+
+  <!-- HEADER -->
 
   <header class="site-header">
+
     <nav class="nav" aria-label="Main navigation">
 
       <a class="brand" href="index.html">
@@ -729,15 +806,30 @@
       </a>
 
       <div class="nav-links">
-        <a href="our-journey.html">← Our Journey</a>
-        <a href="index.html">Main Site</a>
-        <a class="gold" href="#story">2024 Story</a>
+
+        <a href="our-journey.html">
+          ← Our Journey
+        </a>
+
+        <a href="index.html">
+          Main Site
+        </a>
+
+        <a class="gold" href="#story">
+          2024 Story
+        </a>
+
       </div>
 
     </nav>
+
   </header>
 
+
   <main>
+
+
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -755,15 +847,22 @@
           Where It All Began
         </h1>
 
+        <!-- CURSIVE -->
+
         <div class="script">
           One Team. One Beginning. A Whole Lot of Heart.
         </div>
 
         <p class="intro">
-          Sun City Sprinters officially began in 2024 with a small group of
-          athletes and a big vision. What started locally quickly became
-          something bigger — our very first season took us from El Paso all
-          the way to the USATF Junior Olympic National Championships.
+
+          Sun City Sprinters officially began in 2024
+          with a small group of athletes and a big vision.
+
+          What started locally quickly became something
+          bigger — our very first season took us from
+          El Paso all the way to the USATF Junior Olympic
+          National Championships.
+
         </p>
 
         <a class="scroll-cue" href="#story">
@@ -774,29 +873,67 @@
 
     </section>
 
+
+    <!-- CHAPTER NAV -->
+
     <nav class="chapter-nav" aria-label="2024 chapters">
+
       <div>
-        <a href="#began">Where It Began</a>
-        <a href="#practices">Practices</a>
-        <a href="#meets">Meet Days</a>
-        <a href="#relays">Team Moments</a>
-        <a href="#border">Border</a>
-        <a href="#regionals">Regionals</a>
-        <a href="#nationals">Nationals</a>
+
+        <a href="#began">
+          Where It Began
+        </a>
+
+        <a href="#practices">
+          Practices
+        </a>
+
+        <a href="#relays">
+          Relay & Team Moments
+        </a>
+
+        <a href="#border">
+          Border
+        </a>
+
+        <a href="#regionals">
+          Regionals
+        </a>
+
+        <a href="#nationals">
+          Nationals
+        </a>
+
       </div>
+
     </nav>
+
 
     <div id="story"></div>
 
     <div id="chapters"></div>
 
+
+    <!-- QUOTE -->
+
     <section class="quote-band">
+
       <p>
+
         The first season gave us more than races.
+
         It gave us
-        <span>a team, a family, and a beginning.</span>
+
+        <span>
+          a team, a family, and a beginning.
+        </span>
+
       </p>
+
     </section>
+
+
+    <!-- FINALE -->
 
     <section class="finale">
 
@@ -805,17 +942,25 @@
       </div>
 
       <h2>
-        And That Was Only<br>
+        And That Was Only
+        <br>
         The Beginning
       </h2>
+
+      <!-- CURSIVE -->
 
       <div class="script">
         Next up: Growing Together
       </div>
 
       <p>
-        2024 laid the foundation. In 2025, more athletes joined the journey,
-        the team grew stronger, and a brand-new chapter began.
+
+        2024 laid the foundation.
+
+        In 2025, more athletes joined the journey,
+        the team grew stronger, and a brand-new
+        chapter began.
+
       </p>
 
       <a class="cta" href="journey-2025.html">
@@ -824,11 +969,15 @@
 
     </section>
 
+
   </main>
+
 
   <footer>
     © 2024 Sun City Sprinters • Built with heart in El Paso
   </footer>
+
+
 
   <!-- LIGHTBOX -->
 
@@ -863,119 +1012,242 @@
 
   </div>
 
+
+
   <script>
 
+
     /* =====================================================
-       2024 YEARBOOK CHAPTERS
+       2024 YEARBOOK SECTIONS
     ===================================================== */
 
     const chapters = [
 
+
+      /* ===================================================
+         01 — ORIGINAL CREW
+         p2024-01.jpg through p2024-12.jpg
+      =================================================== */
+
       {
+
         id:'began',
+
         n:'01',
+
         k:'Chapter One',
+
         title:'Where It Began',
-        copy:'A small group, a love for track & field, and the start of something special. These are the first pages of our story.',
-        photos:[1,2,3,4,5,6],
+
+        copy:
+          'A small group, a love for track & field, and the start of something special. These are the first pages of our story.',
+
+        photos:[
+          1,2,3,4,5,6,
+          7,8,9,10,11,12
+        ],
+
         label:'The Original Crew'
+
       },
 
+
+
+      /* ===================================================
+         02 — EARLY PRACTICES
+         p2024-13.jpg through p2024-23.jpg
+      =================================================== */
+
       {
+
         id:'practices',
+
         n:'02',
+
         k:'Putting In The Work',
+
         title:'Early Practices & Team Memories',
-        copy:'Before the medals and big meets came the work — learning, laughing, building confidence, and becoming a team.',
-        photos:[7,8,9,10,11,12,13,14,15,16,18],
+
+        copy:
+          'Before the medals and big meets came the work — learning, laughing, building confidence, and becoming a team.',
+
+        photos:[
+          13,14,15,16,17,18,
+          19,20,21,22,23
+        ],
+
         label:'Built at Practice'
+
       },
 
-      {
-        id:'meets',
-        n:'03',
-        k:'Ready • Set • Go',
-        title:'Our First Meet Days',
-        copy:'New uniforms, first races, nervous energy, proud finishes, and the moments that made every meet day unforgettable.',
-        photos:[],
-        label:'Meet Day Magic'
-      },
+
+
+      /* ===================================================
+         03 — RELAY & TEAM MOMENTS
+         p2024-24.jpg through p2024-36.jpg
+      =================================================== */
 
       {
+
         id:'relays',
-        n:'04',
+
+        n:'03',
+
         k:'Better Together',
-        title:'Relays & Team Moments',
-        copy:'Every handoff taught trust. Every cheer made us stronger. These are the friendships and team moments behind the times.',
-        photos:[],
+
+        title:'Relay & Team Moments',
+
+        copy:
+          'Every handoff taught trust. Every cheer made us stronger. These are the friendships, relay memories, and team moments behind the times.',
+
+        photos:[
+          24,25,26,27,28,29,
+          30,31,32,33,34,35,36
+        ],
+
         label:'One Team'
+
       },
 
+
+
+      /* ===================================================
+         04 — BORDER CHAMPIONSHIP
+         p2024-37.jpg through p2024-41.jpg
+      =================================================== */
+
       {
+
         id:'border',
-        n:'05',
+
+        n:'04',
+
         k:'Home Track Pride',
+
         title:'Border Championship',
-        copy:'A championship moment close to home — racing with heart, representing El Paso, and celebrating how far we had already come.',
-        photos:[],
+
+        copy:
+          'A championship moment close to home — racing with heart, representing El Paso, and celebrating how far we had already come.',
+
+        photos:[
+          37,38,39,40,41
+        ],
+
         label:'Border Strong'
+
       },
 
+
+
+      /* ===================================================
+         05 — REGIONALS
+         p2024-42.jpg through p2024-46.jpg
+      =================================================== */
+
       {
+
         id:'regionals',
-        n:'06',
+
+        n:'05',
+
         k:'The Journey Gets Bigger',
+
         title:'Regionals',
-        copy:'The road led to Colorado, where the team stepped onto a bigger stage and earned memories that would last far beyond race day.',
-        photos:[],
+
+        copy:
+          'Luna Vega qualified in the 100-meter hurdles, 200-meter hurdles, high jump, and 4x100. Isa Campuzano qualified in the 200 meters, 4x100, and 4x400. Melanie Gaytan, our city triple jump champion, qualified in triple jump and high jump. Ximena and Jalen also qualified as part of the 4x100 and 4x400 relay teams.',
+
+        photos:[
+          42,43,44,45,46
+        ],
+
         label:'Road to Regionals'
+
       },
 
+
+
+      /* ===================================================
+         06 — NATIONAL QUALIFIERS
+         p2024-47.jpg through p2024-49.jpg
+      =================================================== */
+
       {
+
         id:'nationals',
-        n:'07',
+
+        n:'06',
+
         k:'Our First National Stage',
-        title:'Nationals',
-        copy:'In our very first season, Sun City Sprinters reached the USATF Junior Olympic National Championships. Two girls began a national journey that would continue every year.',
-        photos:[],
+
+        title:'National Qualifiers',
+
+        copy:
+          'Melanie Gaytan placed 3rd in the region in triple jump, and Luna Vega placed 4th in high jump, earning their spots on the national stage.',
+
+        photos:[
+          47,48,49
+        ],
+
         label:'First Nationals'
+
       }
 
     ];
 
 
+
     /* =====================================================
        PHOTO FILE NAMES
-       Example: 7 becomes 2024-07.jpg
+
+       1  = p2024-01.jpg
+       12 = p2024-12.jpg
+       49 = p2024-49.jpg
     ===================================================== */
 
     const photoName = n =>
-      `2024-${String(n).padStart(2,'0')}.jpg`;
+      `p2024-${String(n).padStart(2,'0')}.jpg`;
+
 
 
     /* =====================================================
        CREATE CHAPTERS
     ===================================================== */
 
-    const root = document.querySelector('#chapters');
+    const root =
+      document.querySelector('#chapters');
+
 
     chapters.forEach(c => {
 
-      const s = document.createElement('section');
 
-      s.className = 'chapter reveal';
-      s.id = c.id;
+      const section =
+        document.createElement('section');
 
-      s.innerHTML = `
+
+      section.className =
+        'chapter reveal';
+
+
+      section.id =
+        c.id;
+
+
+      section.innerHTML = `
+
         <div class="wrap">
 
+
           <div class="chapter-head">
+
 
             <div class="num">
               ${c.n}
             </div>
 
+
             <div>
+
               <div class="kicker">
                 ${c.k}
               </div>
@@ -983,15 +1255,20 @@
               <h2>
                 ${c.title}
               </h2>
+
             </div>
 
+
           </div>
+
 
           <p class="chapter-copy">
             ${c.copy}
           </p>
 
+
           <div class="gallery-shell">
+
 
             <button
               class="arrow prev"
@@ -999,11 +1276,13 @@
               ‹
             </button>
 
+
             <div
               class="track"
               tabindex="0"
               aria-label="${c.title} photo carousel">
             </div>
+
 
             <button
               class="arrow next"
@@ -1011,32 +1290,47 @@
               ›
             </button>
 
+
           </div>
+
 
           <p class="gallery-note">
-            Swipe, use the arrows, or click a photo to see it full size ✦
+
+            Swipe, use the arrows,
+            or click a photo to see it full size ✦
+
           </p>
 
-          <div class="empty-note">
-            More memories from this chapter are coming soon.
-          </div>
 
         </div>
+
       `;
 
-      root.append(s);
 
-      const track = s.querySelector('.track');
+      root.append(section);
 
 
-      /* ADD PHOTOS */
+      const track =
+        section.querySelector('.track');
+
+
+
+      /* ADD ALL PHOTOS */
 
       c.photos.forEach(n => {
 
-        const figure = document.createElement('figure');
 
-        figure.className = 'card';
-        figure.dataset.num = n;
+        const figure =
+          document.createElement('figure');
+
+
+        figure.className =
+          'card';
+
+
+        figure.dataset.num =
+          n;
+
 
         figure.innerHTML = `
 
@@ -1044,6 +1338,7 @@
             src="${photoName(n)}"
             alt="Sun City Sprinters — ${c.title}, 2024"
             loading="lazy">
+
 
           <figcaption>
 
@@ -1057,180 +1352,117 @@
 
         `;
 
+
         track.append(figure);
+
 
       });
 
 
-      /* GALLERY ARROWS */
 
-      s.querySelector('.next').onclick = () => {
+      /* NEXT ARROW */
 
-        track.scrollBy({
-          left:track.clientWidth * .75,
-          behavior:'smooth'
-        });
-
-      };
-
-      s.querySelector('.prev').onclick = () => {
-
-        track.scrollBy({
-          left:-track.clientWidth * .75,
-          behavior:'smooth'
-        });
-
-      };
+      section
+        .querySelector('.next')
+        .onclick = () => {
 
 
-      /* SHOW EMPTY MESSAGE IF NO PHOTOS */
+          track.scrollBy({
 
-      if(c.photos.length === 0){
-        s.classList.add('empty');
-      }
+            left:
+              track.clientWidth * .75,
+
+            behavior:
+              'smooth'
+
+          });
+
+
+        };
+
+
+
+      /* PREVIOUS ARROW */
+
+      section
+        .querySelector('.prev')
+        .onclick = () => {
+
+
+          track.scrollBy({
+
+            left:
+              -track.clientWidth * .75,
+
+            behavior:
+              'smooth'
+
+          });
+
+
+        };
+
 
     });
 
 
+
     /* =====================================================
-       PHOTO DUPLICATE CHECK + LIGHTBOX
+       PHOTO CARDS
     ===================================================== */
-
-    const cards = [
-      ...document.querySelectorAll('.card')
-    ];
-
-    const seenPhotos = new Set();
 
     let active = 0;
 
 
-    function fingerprint(img){
-
-      try{
-
-        const canvas = document.createElement('canvas');
-
-        canvas.width = 24;
-        canvas.height = 24;
-
-        const context = canvas.getContext(
-          '2d',
-          {willReadFrequently:true}
-        );
-
-        context.drawImage(
-          img,
-          0,
-          0,
-          24,
-          24
-        );
-
-        const data =
-          context.getImageData(
-            0,
-            0,
-            24,
-            24
-          ).data;
-
-        let hash = 2166136261;
-
-        for(let i = 0; i < data.length; i++){
-
-          hash ^= data[i];
-
-          hash =
-            Math.imul(
-              hash,
-              16777619
-            );
-
-        }
-
-        return `
-          ${img.naturalWidth}x${img.naturalHeight}:${hash >>> 0}
-        `;
-
-      }catch(e){
-
-        return img.currentSrc;
-
-      }
-
-    }
+    document
+      .querySelectorAll('.card')
+      .forEach(card => {
 
 
-    cards.forEach(card => {
-
-      const img = card.querySelector('img');
-
-
-      /* MISSING PHOTO */
-
-      img.addEventListener(
-        'error',
-        () => {
-
-          card.remove();
-
-          markEmpty();
-
-        }
-      );
+        const img =
+          card.querySelector('img');
 
 
-      /* LOADED PHOTO */
+        /* REMOVE CARD ONLY IF FILE DOES NOT EXIST */
 
-      img.addEventListener(
-        'load',
-        () => {
-
-          const key =
-            fingerprint(img);
-
-
-          /* REMOVE TRUE DUPLICATES */
-
-          if(seenPhotos.has(key)){
+        img.addEventListener(
+          'error',
+          () => {
 
             card.remove();
 
-            markEmpty();
+          }
+        );
 
-            return;
+
+        /* OPEN LIGHTBOX */
+
+        img.addEventListener(
+          'load',
+          () => {
+
+            card.onclick =
+              () => openLightbox(card);
 
           }
+        );
 
 
-          seenPhotos.add(key);
+        /* HANDLE CACHED IMAGES */
 
+        if(
+          img.complete &&
+          img.naturalWidth > 0
+        ){
 
-          card.onclick = () =>
-            openLightbox(card);
+          card.onclick =
+            () => openLightbox(card);
 
         }
-      );
-
-    });
 
 
-    function markEmpty(){
+      });
 
-      document
-        .querySelectorAll('.chapter')
-        .forEach(section => {
-
-          if(!section.querySelector('.card')){
-
-            section.classList.add('empty');
-
-          }
-
-        });
-
-    }
 
 
     /* =====================================================
@@ -1240,148 +1472,216 @@
     const lb =
       document.querySelector('.lightbox');
 
+
     const lbImg =
       lb.querySelector('img');
+
 
     const count =
       lb.querySelector('.lb-count');
 
 
+
     function currentCards(){
 
+
       return [
+
         ...document.querySelectorAll('.card')
+
       ].filter(card => {
+
 
         const img =
           card.querySelector('img');
 
-        return (
+
+        return(
+
           img.complete &&
-          img.naturalWidth
+
+          img.naturalWidth > 0
+
         );
 
+
       });
+
 
     }
 
 
+
     function openLightbox(card){
+
 
       const all =
         currentCards();
 
+
       active =
         all.indexOf(card);
 
+
       show();
+
 
       lb.classList.add('open');
 
+
       document.body.style.overflow =
         'hidden';
+
 
       lb
         .querySelector('.lb-close')
         .focus();
 
+
     }
+
 
 
     function show(){
 
+
       const all =
         currentCards();
+
 
       if(!all.length){
         return;
       }
 
+
       active =
         (active + all.length)
         % all.length;
+
 
       const activeImage =
         all[active]
           .querySelector('img');
 
+
       lbImg.src =
         activeImage.src;
+
 
       lbImg.alt =
         activeImage.alt;
 
+
       count.textContent =
         `PHOTO ${active + 1} OF ${all.length}`;
 
+
     }
+
 
 
     function closeLb(){
 
+
       lb.classList.remove('open');
+
 
       document.body.style.overflow =
         '';
 
+
     }
 
 
+
+    /* CLOSE */
+
     lb
       .querySelector('.lb-close')
-      .onclick = closeLb;
+      .onclick =
+        closeLb;
 
+
+
+    /* NEXT */
 
     lb
       .querySelector('.lb-next')
       .onclick = () => {
 
+
         active++;
 
         show();
 
+
       };
 
+
+
+    /* PREVIOUS */
 
     lb
       .querySelector('.lb-prev')
       .onclick = () => {
 
+
         active--;
 
         show();
 
+
       };
 
 
-    lb.onclick = e => {
 
-      if(e.target === lb){
+    /* CLICK BACKGROUND TO CLOSE */
 
-        closeLb();
-
-      }
-
-    };
-
-
-    document.addEventListener(
-      'keydown',
+    lb.onclick =
       e => {
 
-        if(
-          !lb.classList.contains('open')
-        ){
-          return;
-        }
 
-        if(e.key === 'Escape'){
+        if(
+          e.target === lb
+        ){
 
           closeLb();
 
         }
 
-        if(e.key === 'ArrowRight'){
+
+      };
+
+
+
+    /* KEYBOARD */
+
+    document.addEventListener(
+      'keydown',
+      e => {
+
+
+        if(
+          !lb.classList.contains('open')
+        ){
+
+          return;
+
+        }
+
+
+        if(
+          e.key === 'Escape'
+        ){
+
+          closeLb();
+
+        }
+
+
+        if(
+          e.key === 'ArrowRight'
+        ){
 
           active++;
 
@@ -1389,7 +1689,10 @@
 
         }
 
-        if(e.key === 'ArrowLeft'){
+
+        if(
+          e.key === 'ArrowLeft'
+        ){
 
           active--;
 
@@ -1397,29 +1700,38 @@
 
         }
 
+
       }
     );
+
 
 
     /* =====================================================
        SCROLL REVEAL
     ===================================================== */
 
-    const io =
+    const observer =
       new IntersectionObserver(
 
         entries =>
-          entries.forEach(entry => {
 
-            if(entry.isIntersecting){
+          entries.forEach(
+            entry => {
 
-              entry.target
-                .classList
-                .add('seen');
+
+              if(
+                entry.isIntersecting
+              ){
+
+                entry.target
+                  .classList
+                  .add('seen');
+
+              }
+
 
             }
-
-          }),
+          ),
 
         {
           threshold:.08
@@ -1430,12 +1742,16 @@
 
     document
       .querySelectorAll('.reveal')
-      .forEach(el =>
-        io.observe(el)
+      .forEach(
+        element => {
+
+          observer.observe(element);
+
+        }
       );
+
 
   </script>
 
 </body>
 </html>
-
