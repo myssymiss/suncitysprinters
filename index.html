@@ -316,78 +316,121 @@
 <body class="bg-white text-gray-800 font-body">
 
   <!-- NAV / HEADER -->
-  <header class="bg-primary text-white sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-5 md:px-6 py-3 md:py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+<header class="bg-primary text-white sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-5 md:px-6 py-3 md:py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
 
-      <!-- Left: Logo + Name -->
-      <div class="flex items-center gap-4">
-        <img
-          src="./IMG_6204.jpeg"
-          alt="Sun City Sprinters Logo"
-          class="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover bg-white border-4 border-gold shadow"
-        />
-        <div>
-          <h1 class="font-heading text-3xl md:text-4xl tracking-wide leading-none">Sun City Sprinters</h1>
-          <p class="text-xs md:text-sm text-white/90 font-semibold">
-            USATF Youth Track &amp; Field Club • El Paso, Texas
-          </p>
+    <!-- Left: Logo + Name -->
+    <div class="flex items-center gap-4">
+      <img
+        src="./IMG_6204.jpeg"
+        alt="Sun City Sprinters Logo"
+        class="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover bg-white border-4 border-gold shadow"
+      />
+
+      <div>
+        <h1 class="font-heading text-3xl md:text-4xl tracking-wide leading-none">
+          Sun City Sprinters
+        </h1>
+
+        <p class="text-xs md:text-sm text-white/90 font-semibold">
+          USATF Youth Track &amp; Field Club • El Paso, Texas
+        </p>
+
+        <div class="mt-2">
+          <span
+            class="inline-flex items-center px-3 py-1 rounded-full bg-white/15 border border-gold/70 text-[10px] md:text-xs font-extrabold uppercase tracking-wider text-white shadow-sm"
+          >
+            501(c)(3) Nonprofit Organization
+          </span>
         </div>
       </div>
-
-      <!-- Right: Links + CTA -->
-     <nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold">
-  <a href="#team" class="hover:underline">Team</a>
-  <a href="#gallery" class="hover:underline">Gallery</a>
-  <a href="#sponsors" class="hover:underline">Sponsors</a>
-  <a href="#register" class="hover:underline">Register</a>
-  <a href="donate.html" class="hover:underline">Donate</a>
-
-  <!-- NEW: PR WALL BUTTON -->
-  <a
-    href="pr-wall.html"
-    class="inline-flex items-center justify-center border-2 border-white text-white px-4 py-2 rounded-lg font-extrabold hover:bg-white hover:text-primary transition"
-  >
-    PR Wall
-  
-
-  <a
-    href="#register"
-    class="ml-0 md:ml-2 inline-flex items-center justify-center bg-gold text-black px-4 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition glow-pulse"
-  >
-    Join the Sprinters
-  </a>
-</nav>
-
-
     </div>
-  </header>
 
-  <!-- HERO (slightly shorter for less scrolling) -->
-  <section class="relative h-[66vh] md:h-[74vh] flex items-center justify-center text-center text-white overflow-hidden">
-    <img
-      src="(1).jpg"
-      alt="Sun City Sprinters on the track"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
-    <div class="absolute inset-0 bg-black/60"></div>
-    <div class="absolute inset-0 lane-lines opacity-40 mix-blend-overlay"></div>
+    <!-- Right: Navigation -->
+    <nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-semibold">
 
-    <div class="relative z-10 px-6 max-w-5xl reveal">
-      <p class="uppercase tracking-[0.22em] text-xs md:text-sm font-extrabold text-white/85">
-        SUN CITY SPRINTERS • EL PASO, TX
-      </p>
+      <a href="#team" class="hover:underline">
+        Team
+      </a>
 
-      <h2 class="font-heading text-5xl md:text-7xl mt-4 leading-none tracking-wide">
-        “Run your race <span class="text-gold">then raise the standard.</span>”
-      </h2>
+      <a href="#gallery" class="hover:underline">
+        Gallery
+      </a>
 
-      <p class="text-base md:text-2xl mt-5 text-white/95 max-w-3xl mx-auto">
-        Every stride builds confidence, character, and community.
-      </p>
+      <a href="#sponsors" class="hover:underline">
+        Sponsors
+      </a>
 
-      <div class="mt-7 max-w-sm mx-auto shimmer-line"></div>
-    </div>
-  </section>
+      <a href="#register" class="hover:underline">
+        Register
+      </a>
+
+      <a href="donate.html" class="hover:underline">
+        Donate
+      </a>
+
+      <!-- PR WALL BUTTON -->
+      <a
+        href="pr-wall.html"
+        class="inline-flex items-center justify-center border-2 border-white text-white px-4 py-2 rounded-lg font-extrabold hover:bg-white hover:text-primary transition"
+      >
+        PR Wall
+      </a>
+
+      <!-- JOIN BUTTON -->
+      <a
+        href="#register"
+        class="ml-0 md:ml-2 inline-flex items-center justify-center bg-gold text-black px-4 py-2 rounded-lg font-extrabold shadow hover:scale-105 transition glow-pulse"
+      >
+        Join the Sprinters
+      </a>
+
+    </nav>
+
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="relative h-[66vh] md:h-[74vh] flex items-end justify-center text-center text-white overflow-hidden">
+
+  <!-- Team Photo -->
+  <img
+    src="(1).jpg"
+    alt="Sun City Sprinters on the track"
+    class="absolute inset-0 w-full h-full object-cover object-center"
+  />
+
+  <!-- Light overall overlay so the photo stays visible -->
+  <div class="absolute inset-0 bg-black/25"></div>
+
+  <!-- Darker fade only at bottom for text readability -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+
+  <!-- Track lane animation -->
+  <div class="absolute inset-0 lane-lines opacity-25 mix-blend-overlay"></div>
+
+  <!-- Hero Text -->
+  <div class="relative z-10 px-6 pb-8 md:pb-12 max-w-5xl reveal">
+
+    <p class="uppercase tracking-[0.22em] text-xs md:text-sm font-extrabold text-white/90 drop-shadow">
+      SUN CITY SPRINTERS • EL PASO, TX
+    </p>
+
+    <h2 class="font-heading text-4xl md:text-6xl mt-3 leading-none tracking-wide drop-shadow-lg">
+      “Run your race
+      <span class="text-gold">then raise the standard.</span>”
+    </h2>
+
+    <p class="text-sm md:text-xl mt-4 text-white/95 max-w-3xl mx-auto drop-shadow">
+      Every stride builds confidence, character, and community.
+    </p>
+
+    <div class="mt-5 max-w-sm mx-auto shimmer-line"></div>
+
+  </div>
+
+</section>
 
   <!-- MISSION (GLAM VERSION) -->
   <section class="mission-glam py-14 md:py-20" id="mission">
