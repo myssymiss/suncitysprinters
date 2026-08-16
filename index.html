@@ -430,93 +430,696 @@
 
   </div>
   </section>
-<!-- MISSION -->
-<section id="mission" class="relative overflow-hidden py-16 md:py-24">
+<!-- =========================================================
+     SUN CITY SPRINTERS — BARBIE GLAM MISSION
+     Completely redesigned / minimal cards / full photo
+========================================================= -->
 
-  <!-- GLAM BACKGROUND -->
-  <div
-    class="absolute inset-0"
-    style="
+<section id="mission" class="scs-mission">
+
+  <style>
+    /* ================================
+       MAIN SECTION
+    ================================= */
+    .scs-mission{
+      position:relative;
+      overflow:hidden;
+      padding:90px 0 105px;
+      color:#fff;
+
       background:
-        radial-gradient(circle at 10% 15%, rgba(236,72,153,.28), transparent 34%),
-        radial-gradient(circle at 90% 18%, rgba(251,191,36,.25), transparent 35%),
-        linear-gradient(135deg,#ffd9eb 0%,#fff3f8 45%,#fff0c4 100%);
-    ">
-  </div>
+        radial-gradient(circle at 12% 8%, rgba(255,190,55,.28), transparent 25%),
+        radial-gradient(circle at 88% 28%, rgba(255,62,164,.40), transparent 30%),
+        radial-gradient(circle at 30% 90%, rgba(255,107,190,.24), transparent 35%),
+        linear-gradient(
+          135deg,
+          #7b164f 0%,
+          #c21875 34%,
+          #ef4f9d 65%,
+          #f3a13b 115%
+        );
+    }
 
-  <div class="relative max-w-7xl mx-auto px-6">
+    /* soft glam texture */
+    .scs-mission::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
 
-    <!-- OUR MISSION -->
-    <div class="reveal text-center max-w-4xl mx-auto">
+      background:
+        radial-gradient(circle at 8% 20%, rgba(255,255,255,.50) 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 12%, rgba(255,255,255,.35) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle at 72% 70%, rgba(255,225,130,.40) 0 1px, transparent 2px),
+        radial-gradient(circle at 28% 82%, rgba(255,255,255,.25) 0 1.5px, transparent 2.5px);
 
-      <p class="uppercase tracking-[0.35em] text-xs font-extrabold text-primary">
-        Purpose • Training • Opportunity
-      </p>
+      background-size:
+        190px 190px,
+        240px 240px,
+        280px 280px,
+        320px 320px;
 
-      <h3
-        class="font-heading text-6xl md:text-7xl tracking-wide mt-3"
-        style="
-          background:linear-gradient(90deg,#db2777,#ec4899,#fbbf24);
-          -webkit-background-clip:text;
-          background-clip:text;
-          color:transparent;
-        "
-      >
-        Our Mission
-      </h3>
+      opacity:.40;
+    }
 
-      <div class="mt-4 max-w-xs mx-auto shimmer-line"></div>
+    .scs-wrap{
+      position:relative;
+      z-index:2;
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 24px;
+    }
 
-      <p class="mt-6 font-heading text-2xl md:text-4xl tracking-wide text-gray-900">
-        Developing Athletes.
-        <span class="text-primary">Building Confidence.</span>
-        Creating Opportunity.
-      </p>
 
-      <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
-        Sun City Sprinters exists to give young athletes access to quality coaching,
-        a positive place to grow, and opportunities to reach their potential
-        both on and off the track.
+    /* ================================
+       MISSION HERO
+    ================================= */
+    .mission-intro{
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:60px;
+      align-items:center;
+      min-height:430px;
+    }
+
+    .mission-number{
+      position:relative;
+    }
+
+    .mission-eyebrow{
+      display:block;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.38em;
+      text-transform:uppercase;
+      color:#ffd76b;
+      margin-bottom:12px;
+    }
+
+    .mission-big{
+      font-family:"Bebas Neue", sans-serif;
+      font-size:clamp(76px,10vw,145px);
+      line-height:.78;
+      letter-spacing:.02em;
+      margin:0;
+
+      background:
+        linear-gradient(
+          120deg,
+          #ffffff 10%,
+          #ffd96c 43%,
+          #ffffff 70%,
+          #ffc1e1 100%
+        );
+
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+
+      filter:drop-shadow(0 12px 25px rgba(79,0,42,.28));
+    }
+
+    .mission-script{
+      font-family:"Bebas Neue", sans-serif;
+      font-size:clamp(28px,4vw,48px);
+      letter-spacing:.04em;
+      line-height:1;
+      color:#ffd76b;
+      margin-top:18px;
+    }
+
+    .mission-copy{
+      position:relative;
+      padding-left:34px;
+    }
+
+    .mission-copy::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:2px;
+      bottom:2px;
+      width:4px;
+      border-radius:99px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          #ffd76b,
+          #fff,
+          #ffb5db
+        );
+    }
+
+    .mission-copy h3{
+      font-family:"Bebas Neue", sans-serif;
+      font-size:clamp(34px,5vw,58px);
+      line-height:.95;
+      letter-spacing:.03em;
+      margin:0;
+      color:#fff;
+    }
+
+    .mission-copy p{
+      margin:20px 0 0;
+      max-width:620px;
+      font-size:17px;
+      line-height:1.8;
+      font-weight:500;
+      color:rgba(255,255,255,.92);
+    }
+
+
+    /* ================================
+       WHAT WE COACH
+    ================================= */
+    .coach-strip{
+      margin-top:65px;
+      padding:34px 0;
+      border-top:1px solid rgba(255,255,255,.28);
+      border-bottom:1px solid rgba(255,255,255,.28);
+    }
+
+    .coach-strip-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:30px;
+    }
+
+    .coach-strip h3{
+      font-family:"Bebas Neue", sans-serif;
+      font-size:clamp(42px,6vw,70px);
+      line-height:.9;
+      letter-spacing:.04em;
+      margin:0;
+      color:#fff;
+    }
+
+    .coach-strip-tag{
+      color:#ffd76b;
+      font-size:13px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      text-align:right;
+    }
+
+    .event-line{
+      margin-top:26px;
+
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:12px 18px;
+
+      font-family:"Bebas Neue", sans-serif;
+      font-size:clamp(24px,3vw,36px);
+      letter-spacing:.04em;
+      color:#fff;
+    }
+
+    .event-line span:not(.dot){
+      white-space:nowrap;
+    }
+
+    .event-line .dot{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:#ffd76b;
+      box-shadow:0 0 14px rgba(255,215,107,.75);
+    }
+
+    .coach-description{
+      margin-top:24px;
+      max-width:850px;
+      color:rgba(255,255,255,.88);
+      line-height:1.75;
+      font-size:16px;
+    }
+
+    .coach-description strong{
+      color:#ffd76b;
+    }
+
+
+    /* ================================
+       QUALIFIER PHOTO
+    ================================= */
+    .qualifier-feature{
+      position:relative;
+      margin-top:70px;
+    }
+
+    .qualifier-kicker{
+      position:absolute;
+      z-index:4;
+      top:-26px;
+      right:5%;
+
+      font-family:"Bebas Neue", sans-serif;
+      font-size:clamp(30px,4vw,52px);
+      letter-spacing:.05em;
+
+      color:#ffd76b;
+
+      transform:rotate(2deg);
+
+      text-shadow:
+        0 5px 18px rgba(72,0,38,.30);
+    }
+
+    .qualifier-photo{
+      position:relative;
+      width:100%;
+      border-radius:32px;
+      overflow:hidden;
+
+      border:2px solid rgba(255,255,255,.60);
+
+      box-shadow:
+        0 30px 70px rgba(68,0,39,.32),
+        0 0 0 7px rgba(255,255,255,.06);
+    }
+
+    /* IMPORTANT:
+       no fixed height = no chopped heads/bodies */
+    .qualifier-photo img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+
+    .qualifier-photo::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(70,0,39,.56) 0%,
+          rgba(70,0,39,.12) 27%,
+          transparent 48%
+        );
+    }
+
+    /* floating caption — not a giant pill */
+    .qualifier-caption{
+      position:absolute;
+      z-index:5;
+      left:35px;
+      bottom:30px;
+
+      max-width:470px;
+
+      padding:17px 23px;
+
+      border-left:4px solid #ffd76b;
+
+      background:rgba(118,10,70,.78);
+      backdrop-filter:blur(8px);
+
+      box-shadow:
+        0 15px 35px rgba(49,0,28,.25);
+    }
+
+    .qualifier-caption strong{
+      display:block;
+      font-family:"Bebas Neue", sans-serif;
+      font-size:clamp(25px,3vw,37px);
+      letter-spacing:.04em;
+      line-height:1;
+      color:#fff;
+    }
+
+    .qualifier-caption span{
+      display:block;
+      margin-top:6px;
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:#ffd76b;
+    }
+
+
+    /* ================================
+       PATHWAY
+    ================================= */
+    .pathway{
+      margin-top:70px;
+      display:grid;
+      grid-template-columns:.75fr 1.25fr;
+      gap:55px;
+      align-items:start;
+    }
+
+    .pathway-title small{
+      display:block;
+      color:#ffd76b;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.30em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .pathway-title h3{
+      margin:0;
+      font-family:"Bebas Neue", sans-serif;
+      font-size:clamp(46px,6vw,74px);
+      line-height:.88;
+      letter-spacing:.04em;
+      color:#fff;
+    }
+
+    .pathway-title p{
+      margin-top:18px;
+      color:rgba(255,255,255,.78);
+      line-height:1.65;
+      max-width:390px;
+    }
+
+
+    /* ONE dropdown only */
+    .pathway details{
+      border-top:1px solid rgba(255,255,255,.30);
+      border-bottom:1px solid rgba(255,255,255,.30);
+    }
+
+    .pathway summary{
+      list-style:none;
+      cursor:pointer;
+      padding:25px 4px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .pathway summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .path-main{
+      font-family:"Bebas Neue", sans-serif;
+      font-size:clamp(25px,3vw,38px);
+      letter-spacing:.04em;
+      color:#fff;
+    }
+
+    .path-arrow{
+      color:#ffd76b;
+      font-size:26px;
+      transition:transform .25s ease;
+    }
+
+    .pathway details[open] .path-arrow{
+      transform:rotate(180deg);
+    }
+
+    .path-content{
+      padding:0 4px 28px;
+    }
+
+    .path-step{
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:22px;
+      padding:18px 0;
+      border-top:1px solid rgba(255,255,255,.15);
+    }
+
+    .path-step:first-child{
+      border-top:0;
+    }
+
+    .path-step strong{
+      color:#ffd76b;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:12px;
+    }
+
+    .path-step p{
+      margin:0;
+      color:rgba(255,255,255,.90);
+      line-height:1.65;
+      font-size:14px;
+    }
+
+
+    /* ================================
+       BOTTOM CTA
+    ================================= */
+    .mission-close{
+      margin-top:75px;
+      text-align:center;
+    }
+
+    .mission-close h3{
+      margin:0;
+
+      font-family:"Bebas Neue", sans-serif;
+      font-size:clamp(38px,5vw,62px);
+      letter-spacing:.04em;
+
+      color:#fff;
+    }
+
+    .mission-close h3 span{
+      color:#ffd76b;
+    }
+
+    .mission-donate{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      margin-top:25px;
+      padding:15px 34px;
+
+      border-radius:999px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #ffd76b,
+          #ffb43b
+        );
+
+      color:#6f1046;
+      font-weight:900;
+      text-decoration:none;
+
+      box-shadow:
+        0 16px 35px rgba(75,0,43,.25),
+        0 0 25px rgba(255,215,107,.22);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .mission-donate:hover{
+      transform:translateY(-3px) scale(1.03);
+
+      box-shadow:
+        0 22px 42px rgba(75,0,43,.30),
+        0 0 32px rgba(255,215,107,.32);
+    }
+
+
+    /* ================================
+       MOBILE
+    ================================= */
+    @media(max-width:850px){
+
+      .scs-mission{
+        padding:70px 0 80px;
+      }
+
+      .mission-intro{
+        grid-template-columns:1fr;
+        gap:35px;
+        min-height:0;
+      }
+
+      .mission-copy{
+        padding-left:22px;
+      }
+
+      .coach-strip-top{
+        display:block;
+      }
+
+      .coach-strip-tag{
+        text-align:left;
+        margin-top:14px;
+      }
+
+      .qualifier-kicker{
+        position:relative;
+        top:auto;
+        right:auto;
+        margin:0 0 14px;
+        transform:none;
+      }
+
+      .qualifier-caption{
+        left:15px;
+        right:15px;
+        bottom:15px;
+        max-width:none;
+        padding:13px 16px;
+      }
+
+      .pathway{
+        grid-template-columns:1fr;
+        gap:30px;
+      }
+
+      .path-step{
+        grid-template-columns:1fr;
+        gap:7px;
+      }
+
+    }
+
+  </style>
+
+
+  <div class="scs-wrap">
+
+
+    <!-- =========================
+         OUR MISSION
+    ========================== -->
+    <div class="mission-intro reveal">
+
+      <div class="mission-number">
+
+        <span class="mission-eyebrow">
+          Sun City Sprinters
+        </span>
+
+        <h2 class="mission-big">
+          Our<br>Mission
+        </h2>
+
+        <div class="mission-script">
+          Developing Athletes.<br>
+          Building Confidence.
+        </div>
+
+      </div>
+
+
+      <div class="mission-copy">
+
+        <h3>
+          Coaching With Purpose.
+        </h3>
+
+        <p>
+          Sun City Sprinters provides young athletes with
+          <strong>professional, structured track &amp; field coaching</strong>
+          built around proper technique, smart training, and strong athletic foundations.
+        </p>
+
+        <p>
+          We meet athletes where they are, teach them how to train correctly,
+          and help them keep building from there.
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         WHAT WE COACH
+    ========================== -->
+    <div class="coach-strip reveal">
+
+      <div class="coach-strip-top">
+
+        <h3>
+          Complete Track &amp; Field Development
+        </h3>
+
+        <div class="coach-strip-tag">
+          Professional Coaching • Strong Foundations
+        </div>
+
+      </div>
+
+
+      <div class="event-line">
+
+        <span>Sprints</span>
+        <span class="dot"></span>
+
+        <span>Hurdles</span>
+        <span class="dot"></span>
+
+        <span>Distance</span>
+        <span class="dot"></span>
+
+        <span>Relays</span>
+        <span class="dot"></span>
+
+        <span>Jumps</span>
+        <span class="dot"></span>
+
+        <span>Field Events</span>
+
+      </div>
+
+
+      <p class="coach-description">
+        Athletes can train with Sun City Sprinters whether they choose to compete
+        or simply want to become a stronger athlete. Our program develops
+        <strong>speed, endurance, strength, coordination, conditioning, and running mechanics</strong>
+        through purposeful training.
       </p>
 
     </div>
 
 
-    <!-- FULL PHOTO - NO CROPPING -->
-    <div class="reveal mt-10">
 
-      <div
-        class="relative rounded-[2rem] overflow-hidden
-               border-2 border-white/80
-               shadow-[0_25px_70px_rgba(236,72,153,.24)]
-               bg-pink-50"
-      >
+    <!-- =========================
+         NATIONAL QUALIFIER PHOTO
+    ========================== -->
+    <div class="qualifier-feature reveal">
+
+      <div class="qualifier-kicker">
+        Where Training Can Lead ✦
+      </div>
+
+
+      <div class="qualifier-photo">
 
         <img
           src="DSC08670.jpg"
           alt="Sun City Sprinters 4x800 boys national qualifiers"
-          class="w-full h-auto object-contain"
         />
 
-        <!-- SMALL CAPTION -->
-        <div class="absolute bottom-4 left-4 right-4 md:right-auto md:max-w-md">
 
-          <div
-            class="rounded-2xl px-5 py-3
-                   bg-primary/95 text-white
-                   border border-white/80
-                   shadow-xl"
-          >
+        <div class="qualifier-caption">
 
-            <p class="font-extrabold text-sm md:text-base">
-              ✨ 4×800 Boys National Qualifiers
-            </p>
+          <strong>
+            4×800 Boys National Qualifiers
+          </strong>
 
-            <p class="mt-1 text-xs md:text-sm font-semibold text-white/90">
-              2026 • Cerritos, California • JOTF
-            </p>
-
-          </div>
+          <span>
+            2026 • Cerritos, California • USATF JOTF
+          </span>
 
         </div>
 
@@ -525,127 +1128,86 @@
     </div>
 
 
-    <!-- WHAT WE OFFER -->
-    <div
-      class="reveal mt-8 rounded-[2rem] p-8 md:p-10
-             border border-primary/25
-             shadow-[0_22px_55px_rgba(236,72,153,.16)]"
-      style="
-        background:
-          linear-gradient(
-            135deg,
-            rgba(255,255,255,.94),
-            rgba(255,232,244,.92),
-            rgba(255,246,210,.92)
-          );
-      "
-    >
 
-      <p class="uppercase tracking-[0.30em] text-xs font-extrabold text-gold">
-        What We Offer
-      </p>
+    <!-- =========================
+         COMPETITIVE PATHWAY
+    ========================== -->
+    <div class="pathway reveal">
 
-      <h4 class="font-heading text-4xl md:text-5xl tracking-wide text-primary mt-2">
-        Professional Coaching • Strong Foundations • Real Opportunity
-      </h4>
+      <div class="pathway-title">
 
-      <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
-        We provide complete track &amp; field development across
-        <span class="font-extrabold">
-          sprints, hurdles, distance, relays, jumps, and field events.
-        </span>
-        Training focuses on proper technique, smart progression, and age-appropriate development.
-      </p>
+        <small>
+          For Athletes Who Choose To Compete
+        </small>
 
-      <p class="mt-5 text-base md:text-lg leading-relaxed text-gray-800">
-        Athletes are welcome to train with us whether they choose to compete
-        in track meets or simply want to improve their speed, strength,
-        conditioning, coordination, and overall athletic performance.
-      </p>
+        <h3>
+          The Championship Path
+        </h3>
 
-    </div>
+        <p>
+          Competition isn't required. For athletes who want to compete,
+          our program provides the opportunity to progress through the
+          USATF Junior Olympic pathway.
+        </p>
+
+      </div>
 
 
-    <!-- CHAMPIONSHIP PATH -->
-    <div class="reveal mt-8 max-w-5xl mx-auto">
+      <details>
 
-      <details
-        class="group rounded-[2rem] overflow-hidden
-               border border-gold/40
-               shadow-[0_18px_45px_rgba(236,72,153,.14)]"
-        style="
-          background:
-            linear-gradient(
-              110deg,
-              rgba(251,191,36,.16),
-              rgba(255,255,255,.95),
-              rgba(236,72,153,.12)
-            );
-        "
-      >
+        <summary>
 
-        <summary
-          class="cursor-pointer select-none
-                 flex items-center justify-between gap-4
-                 px-7 py-6 md:px-9"
-        >
+          <span class="path-main">
+            Border Championship → Regionals → Nationals
+          </span>
 
-          <div>
-            <p class="uppercase tracking-[0.28em] text-[10px] md:text-xs font-extrabold text-primary">
-              Competitive Pathway
-            </p>
-
-            <p class="font-heading text-3xl md:text-4xl tracking-wide text-gray-900 mt-1">
-              Border Championship → Regionals → Nationals
-            </p>
-
-            <p class="mt-1 text-xs text-gray-600 font-semibold">
-              Tap to view the 2027 championship path
-            </p>
-          </div>
-
-          <span class="text-2xl text-primary group-open:rotate-180 transition-transform">
+          <span class="path-arrow">
             ▾
           </span>
 
         </summary>
 
-        <div class="px-7 pb-7 md:px-9 md:pb-9">
 
-          <div class="space-y-5 text-sm md:text-base text-gray-700">
+        <div class="path-content">
 
-            <div>
-              <p class="font-extrabold text-primary">
-                Border Championship
-              </p>
-              <p class="mt-1">
-                Our local championship and the first step in the Junior Olympic championship pathway.
-              </p>
-            </div>
+          <div class="path-step">
 
-            <div class="border-t border-gold/30 pt-5">
-              <p class="font-extrabold text-primary">
-                Regionals
-              </p>
-              <p class="mt-1">
-                Qualifying athletes advance to the
-                <span class="font-extrabold">2027 Region 10 Championships in Colorado.</span>
-              </p>
-            </div>
+            <strong>
+              Border Championship
+            </strong>
 
-            <div class="border-t border-primary/20 pt-5">
-              <p class="font-extrabold text-primary">
-                Nationals
-              </p>
-              <p class="mt-1">
-                Athletes who qualify at Regionals can advance to the
-                <span class="font-extrabold">
-                  USATF Junior Olympic National Championships.
-                </span>
-                The 2027 national location will be announced in
-                <span class="font-extrabold text-primary">December 2026.</span>
-              </p>
-            </div>
+            <p>
+              Our local championship and the first step in the Junior Olympic pathway.
+            </p>
+
+          </div>
+
+
+          <div class="path-step">
+
+            <strong>
+              Regionals
+            </strong>
+
+            <p>
+              Qualifying athletes advance to the
+              <b>2027 Region 10 Championships in Colorado.</b>
+            </p>
+
+          </div>
+
+
+          <div class="path-step">
+
+            <strong>
+              Nationals
+            </strong>
+
+            <p>
+              Athletes who qualify at Regionals can advance to the
+              <b>USATF Junior Olympic National Championships.</b>
+              The 2027 national location will be announced in December 2026.
+            </p>
 
           </div>
 
@@ -656,74 +1218,29 @@
     </div>
 
 
-    <!-- OUR PURPOSE -->
-    <div
-      class="reveal mt-8 max-w-4xl mx-auto rounded-[2rem]
-             overflow-hidden border border-white/80
-             shadow-[0_20px_55px_rgba(236,72,153,.20)]"
-      style="
-        background:
-          linear-gradient(110deg,#ec4899,#f472b6,#fbbf24);
-      "
-    >
 
-      <div class="px-7 py-7 md:px-10 md:py-8 text-center">
+    <!-- =========================
+         CLOSING
+    ========================== -->
+    <div class="mission-close reveal">
 
-        <p class="uppercase tracking-[0.30em] text-[10px] md:text-xs font-extrabold text-white/90">
-          Our Purpose
-        </p>
-
-        <h4 class="font-heading text-3xl md:text-4xl tracking-wide text-white mt-1">
-          Creating Opportunity Through Sport
-        </h4>
-
-        <p class="mt-4 text-sm md:text-base leading-relaxed text-white/95 font-semibold">
-          Through fundraising, sponsorships, donations, and community support,
-          we work to create opportunities, reduce barriers for families,
-          and help young athletes grow on and off the track.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <!-- DONATE -->
-    <div class="reveal mt-8 text-center">
+      <h3>
+        Train With Purpose.
+        <span>See What's Possible.</span>
+      </h3>
 
       <a
         href="donate.html"
-        class="inline-flex items-center justify-center
-               px-10 md:px-12 py-4 rounded-full
-               font-extrabold hover:scale-105 transition"
-        style="
-          background:linear-gradient(90deg,#fbbf24,#ec4899);
-          color:#111;
-          box-shadow:
-            0 15px 35px rgba(236,72,153,.28),
-            0 0 25px rgba(251,191,36,.20);
-        "
+        class="mission-donate"
       >
-        ✨ Support Our Mission ✨
+        ✦ Support Our Mission ✦
       </a>
 
     </div>
 
 
-    <!-- SMALL QUOTE -->
-    <div class="reveal mt-8 text-center max-w-2xl mx-auto">
-
-      <p class="text-sm italic font-semibold text-gray-700">
-        “Never underestimate the power of dreams and the influence of the human spirit.”
-      </p>
-
-      <p class="mt-1 text-xs font-extrabold text-primary">
-        — Wilma Rudolph
-      </p>
-
-    </div>
-
   </div>
+
 </section>
 <!-- END MISSION -->
   <!-- VISION (MATCHES MISSION COLORS) -->
